@@ -16,7 +16,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 uses(Tests\TestCase::class, RefreshDatabase::class)
     ->beforeEach(function () {
         $this->withoutVite();
-        $this->artisan('db:seed --class=TestsSeeder');
+        // $this->artisan('db:seed --class=TestsSeeder');
     })
     ->in('Feature');
 
