@@ -53,7 +53,7 @@
         "build:test": [
             "composer install --no-interaction"
         ],
-        "test:php": "php artisan test --parallel --stop-on-failure",
+        "test": "php artisan test --parallel --stop-on-failure",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
