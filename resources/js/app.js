@@ -8,7 +8,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 createInertiaApp({
     resolve: async name => {
-        let page = resolvePageComponent(`./pages/${name}.vue`, import.meta.glob('./pages/**/*.vue'));
+        let page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue'));
 
         return page;
     },
@@ -30,7 +30,7 @@ createInertiaApp({
             .mount(el);
     },
 
-    title: title => title ? title + ' | App' : 'App',
+    title: title => title ? `${title} | Template` : 'Template',
 });
 
 InertiaProgress.init({
