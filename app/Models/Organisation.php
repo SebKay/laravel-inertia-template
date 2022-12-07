@@ -18,4 +18,9 @@ class Organisation extends Model
     {
         return $this->belongsTo(User::class)->withDefault();
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }

@@ -14,6 +14,9 @@ class OrganisationsSeeder extends Seeder
 
         $orgs = Organisation::factory(5)
             ->for($adminUser)
+            ->afterCreating(function (Organisation $org) use ($adminUser) {
+                $org->users()->attach($adminUser);
+            })
             ->create();
 
         $adminUser->currentOrganisation()
