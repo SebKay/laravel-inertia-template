@@ -13,6 +13,7 @@ class TestsSeeder extends Seeder
     {
         $this->call([
             UsersSeeder::class,
+            OrganisationsSeeder::class,
         ]);
     }
 }
