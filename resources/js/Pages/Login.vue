@@ -5,10 +5,10 @@
 </template>
 
 <script>
-    import AppLayout from "@js/layouts/App.vue";
+    import GuestLayout from "@js/layouts/Guest.vue";
 
     export default {
-        layout: AppLayout,
+        layout: GuestLayout,
 
         components: {
             //
