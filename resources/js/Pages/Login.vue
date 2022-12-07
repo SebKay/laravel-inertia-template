@@ -59,6 +59,8 @@
             </div>
         </div>
     </form>
+
+    <Link :href="route('register')">Register</Link>
 </template>
 
 <script>

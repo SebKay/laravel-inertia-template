@@ -70,6 +70,8 @@
             </div>
         </div>
     </form>
+
+    <Link :href="route('login')">Login</Link>
 </template>
 
 <script>
