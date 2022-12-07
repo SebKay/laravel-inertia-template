@@ -50,10 +50,9 @@
             "npm install",
             "npm run prod"
         ],
-        "build:test": [
-            "composer install --no-interaction"
-        ],
+        "build:test": "composer install --no-interaction",
         "test": "php artisan test --parallel --stop-on-failure",
+        "test:coverage": "XDEBUG_MODE=coverage php artisan test --parallel --coverage --min=85",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
