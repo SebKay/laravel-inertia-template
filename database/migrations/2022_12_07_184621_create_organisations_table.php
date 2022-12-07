@@ -16,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('organisations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignIdFor(User::class)->nullable()->constrained();
+            $table->string('name');
             $table->timestamps();
         });
     }

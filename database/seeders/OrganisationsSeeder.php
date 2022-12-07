@@ -12,8 +12,12 @@ class OrganisationsSeeder extends Seeder
     {
         $adminUser = User::whereEmail(\env('SEED_ADMIN_EMAIL'))->firstOrFail();
 
-        Organisation::factory()
+        $orgs = Organisation::factory(5)
             ->for($adminUser)
             ->create();
+
+        $adminUser->currentOrganisation()
+            ->associate($orgs->first())
+            ->save();
     }
 }
