@@ -5,7 +5,11 @@
 </template>
 
 <script>
+    import AppLayout from "@js/layouts/App.vue";
+
     export default {
+        layout: AppLayout,
+
         components: {
             //
         },
