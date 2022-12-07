@@ -7,12 +7,40 @@
         <div class="form__section">
             <div class="form__row">
                 <div class="form__item">
+                    <label class="form__label" for="first_name"
+                        >First Name</label
+                    >
+                    <input
+                        id="first-name"
+                        type="text"
+                        v-model="form.first_name"
+                        tabindex="1"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form__row">
+                <div class="form__item">
+                    <label class="form__label" for="last_name">Last Name</label>
+                    <input
+                        id="last-name"
+                        type="text"
+                        v-model="form.last_name"
+                        tabindex="2"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form__row">
+                <div class="form__item">
                     <label class="form__label" for="email">Email</label>
                     <input
                         id="email"
                         type="email"
                         v-model="form.email"
-                        tabindex="1"
+                        tabindex="3"
                         required
                     />
                 </div>
@@ -25,7 +53,7 @@
                         id="password"
                         type="password"
                         v-model="form.password"
-                        tabindex="2"
+                        tabindex="4"
                         required
                     />
                 </div>
@@ -33,26 +61,9 @@
 
             <div class="form__row">
                 <div class="form__item">
-                    <label
-                        class="form__label form__label--inline"
-                        for="remember"
-                    >
-                        <input
-                            id="remember"
-                            type="checkbox"
-                            v-model="form.remember"
-                            tabindex="3"
-                        />
-                        Remember
-                    </label>
-                </div>
-            </div>
-
-            <div class="form__row">
-                <div class="form__item">
                     <AppButton
-                        text="Login"
-                        tabindex="4"
+                        text="Register"
+                        tabindex="5"
                         :disabled="form.processing"
                     />
                 </div>
@@ -60,7 +71,7 @@
         </div>
     </form>
 
-    <Link :href="route('register')">Register</Link>
+    <Link :href="route('login')">Login</Link>
 </template>
 
 <script>
@@ -77,6 +88,14 @@
         },
 
         props: {
+            first_name: {
+                type: String,
+                default: "",
+            },
+            last_name: {
+                type: String,
+                default: "",
+            },
             email: {
                 type: String,
                 default: "",
@@ -85,24 +104,16 @@
                 type: String,
                 default: "",
             },
-            remember: {
-                type: Boolean,
-                default: false,
-            },
-            redirect: {
-                type: String,
-                default: "",
-            },
         },
 
         data() {
             return {
-                title: "Login",
+                title: "Register",
                 form: useForm({
+                    first_name: this.first_name,
+                    last_name: this.last_name,
                     email: this.email,
                     password: this.password,
-                    remember: this.remember,
-                    redirect: this.redirect,
                 }),
             };
         },
@@ -110,7 +121,7 @@
         methods: {
             login() {
                 let form = this.form;
-                form.post(route("login.store"), {
+                form.post(route("register.store"), {
                     ...form,
                     ...{
                         onSuccess: () => {
