@@ -30,6 +30,7 @@ class RolesAndPermissionsSeeder extends Seeder
     {
         $this->postPermissions = \collect([
             Permission::create(['name' => 'create-posts']),
+            Permission::create(['name' => 'view-posts']),
             Permission::create(['name' => 'edit-posts']),
             Permission::create(['name' => 'update-posts']),
             Permission::create(['name' => 'delete-posts']),
