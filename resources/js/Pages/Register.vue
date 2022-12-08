@@ -75,8 +75,8 @@
 </template>
 
 <script>
-    import GuestLayout from "@js/layouts/Guest.vue";
-    import AppButton from "@js/components/AppButton.vue";
+    import GuestLayout from "@js/Layouts/Guest.vue";
+    import AppButton from "@js/Components/AppButton.vue";
 
     import { useForm } from "@inertiajs/inertia-vue3";
 
