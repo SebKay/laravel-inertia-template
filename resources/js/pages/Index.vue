@@ -2,6 +2,8 @@
     <Head :title="title" />
 
     <h1 v-text="title"></h1>
+
+    <Link :href="route('logout')" method="post" as="button">Logout</Link>
 </template>
 
 <script>
