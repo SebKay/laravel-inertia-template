@@ -10,17 +10,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
+    use HasRoles;
 
     protected $fillable = [
         'first_name',
         'last_name',
         'email',
+        'current_organisation_id',
     ];
 
     protected $hidden = [
@@ -36,6 +39,13 @@ class User extends Authenticatable
     {
         return Attribute::make(
             set: fn ($value) => Hash::make($value),
+        );
+    }
+
+    protected function allPermissions(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->getAllPermissions()->pluck('name')
         );
     }
 
