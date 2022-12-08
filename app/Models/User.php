@@ -41,6 +41,13 @@ class User extends Authenticatable
         );
     }
 
+    protected function allPermissions(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->getAllPermissions()->pluck('name')
+        );
+    }
+
     public function organisations()
     {
         return $this->hasMany(Organisation::class);
