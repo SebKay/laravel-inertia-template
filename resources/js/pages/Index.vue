@@ -16,18 +16,18 @@
     export default {
         layout: AppLayout,
 
-        setup() {
-            return {
-                userCan,
-            };
-        },
-
         components: {
             //
         },
 
         props: {
             //
+        },
+
+        setup() {
+            return {
+                userCan,
+            };
         },
 
         data() {
