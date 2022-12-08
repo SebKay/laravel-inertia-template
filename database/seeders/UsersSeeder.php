@@ -9,8 +9,12 @@ class UsersSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->create([
-            'email' => \env('SEED_ADMIN_EMAIL'),
-        ]);
+        User::factory()
+            ->afterCreating(function (User $user) {
+                $user->assignRole('admin');
+            })
+            ->create([
+                'email' => \env('SEED_ADMIN_EMAIL'),
+            ]);
     }
 }
