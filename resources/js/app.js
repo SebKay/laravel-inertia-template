@@ -24,8 +24,6 @@ createInertiaApp({
             .component('Head', Head)
             .component('Link', Link);
 
-        VueApp.provide('user', props.initialPage.props?.auth?.user);
-
         VueApp
             .mount(el);
     },
