@@ -25,7 +25,8 @@
         "pestphp/pest-plugin-parallel": "^1.2",
         "phpunit/phpunit": "^9.5.26",
         "spatie/laravel-ignition": "^1.6.1",
-        "spatie/ray": "^1.36"
+        "spatie/ray": "^1.36",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "autoload": {
         "psr-4": {
@@ -53,6 +54,12 @@
             "npm run prod"
         ],
         "build:test": "composer install --no-interaction",
+        "lint": [
+            "./vendor/bin/phpcs ./ --extensions=php --standard=PSR12 --ignore=vendor/,tests/,storage/,cache/,database/migrations/,*.blade.php,public/index.php"
+        ],
+        "fix": [
+            "./vendor/bin/phpcbf ./ --extensions=php --standard=PSR12 --ignore=vendor/,tests/,storage/,cache/,database/migrations/,*.blade.php,public/index.php"
+        ],
         "test": "php artisan test --parallel --stop-on-failure",
         "test:coverage": "XDEBUG_MODE=coverage php artisan test --parallel --coverage --min=85",
         "post-autoload-dump": [
