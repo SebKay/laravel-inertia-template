@@ -16,7 +16,7 @@ class RegisterController extends Controller
     {
         $isProd = App::environment('production');
 
-        return Inertia::render('Register', [
+        return Inertia::render('Register/Show', [
             'first_name' => !$isProd ? 'Jim' : '',
             'last_name'  => !$isProd ? 'Gordon' : '',
             'email'      => !$isProd ? 'test@test.com' : '',

@@ -16,7 +16,7 @@ class LoginController extends Controller
     {
         $isProd = App::environment('production');
 
-        return Inertia::render('Login', [
+        return Inertia::render('Login/Show', [
             'email'    => !$isProd ? \env('SEED_ADMIN_EMAIL') : '',
             'password' => !$isProd ? '12345' : '',
             'remember' => !$isProd ? true : false,

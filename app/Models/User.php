@@ -58,4 +58,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Organisation::class);
     }
+
+    public function updatePassword(?string $new_password = '')
+    {
+        if ($new_password && $new_password != $this->password) {
+            $this->password = $new_password;
+
+            $this->save();
+        }
+    }
 }
