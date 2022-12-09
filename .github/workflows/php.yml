@@ -1,0 +1,75 @@
+name: PHP
+
+on: [pull_request]
+
+jobs:
+  dependencies:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Composer dependencies
+        id: cache-vendor
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        if: steps.cache-vendor.outputs.cache-hit != 'true'
+        run: composer install --no-interaction
+
+  validate:
+    name: Lint
+    needs: dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Composer dependencies
+        id: cache-vendor
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        if: steps.cache-vendor.outputs.cache-hit != 'true'
+        run: composer install --no-interaction
+
+      - name: Lint against PSR-12
+        run: composer lint
+
+  test:
+    name: Test
+    needs: dependencies
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: testing
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ":memory:"
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Composer dependencies
+        id: cache-vendor
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer dependencies
+        if: steps.cache-vendor.outputs.cache-hit != 'true'
+        run: composer install --no-interaction
+
+      - name: Setup application
+        run: |
+          php artisan key:generate
+          php artisan migrate:fresh --seed
+
+      - name: Run tests
+        run: composer test:coverage
