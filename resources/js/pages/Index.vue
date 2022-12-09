@@ -4,8 +4,6 @@
     <h1 v-text="title"></h1>
 
     <p v-if="userCan($page.props, 'create-posts')">User can create posts.</p>
-
-    <Link :href="route('logout')" method="post" as="button">Logout</Link>
 </template>
 
 <script>
