@@ -16,7 +16,7 @@ test("Guests can access \"show\" route", function () {
         ->assertSessionHasNoErrors()
         ->assertInertia(
             fn (Assert $page) => $page
-                ->component('Register')
+                ->component('Register/Show')
         );
 });
 

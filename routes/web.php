@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('account')->group(function () {
         Route::controller(AccountController::class)->group(function () {
             Route::get('', 'edit')->name('account.edit');
-            Route::put('', 'update')->name('account.update');
+            Route::patch('', 'update')->name('account.update');
         });
     });
 });

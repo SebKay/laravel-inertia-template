@@ -61,11 +61,7 @@ class User extends Authenticatable
 
     public function updatePassword(?string $new_password = '')
     {
-        if (!$new_password) {
-            return;
-        }
-
-        if ($new_password != $this->password) {
+        if ($new_password && $new_password != $this->password) {
             $this->password = $new_password;
 
             $this->save();

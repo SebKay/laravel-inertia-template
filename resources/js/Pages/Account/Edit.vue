@@ -114,7 +114,7 @@
         methods: {
             login() {
                 let form = this.form;
-                form.put(route("account.update"), {
+                form.patch(route("account.update"), {
                     ...form,
                     ...{
                         onSuccess: () => {
