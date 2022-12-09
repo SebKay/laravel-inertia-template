@@ -24,8 +24,6 @@ class AccountController extends Controller
     {
         $user = $request->user();
 
-        \ray($request->all());
-
         $user->update($request->only('first_name', 'last_name', 'email'));
         $user->updatePassword($request->validated('password'));
 
