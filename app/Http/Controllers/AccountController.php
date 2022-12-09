@@ -22,7 +22,12 @@ class AccountController extends Controller
 
     public function update(AccountUpdate $request)
     {
-        $request->user()->update($request->only('first_name', 'last_name', 'email'));
+        $user = $request->user();
+
+        \ray($request->all());
+
+        $user->update($request->only('first_name', 'last_name', 'email'));
+        $user->updatePassword($request->validated('password'));
 
         return redirect()->route('account.edit')->with('notice', [
             'type'    => 'success',
