@@ -54,6 +54,9 @@
             "npm run prod"
         ],
         "build:test": "composer install --no-interaction",
+        "lint": [
+            "./vendor/bin/phpcs ./ --extensions=php --standard=PSR12 --ignore=vendor/,tests/,storage/,cache/,database/migrations/,*.blade.php,public/index.php"
+        ],
         "test": "php artisan test --parallel --stop-on-failure",
         "test:coverage": "XDEBUG_MODE=coverage php artisan test --parallel --coverage --min=85",
         "post-autoload-dump": [
