@@ -70,7 +70,7 @@ jobs:
         run: |
           cp .env.testing .env
           php artisan key:generate
-          php artisan migrate:fresh --seed
+          php artisan migrate:fresh --seed --class=TestsSeeder
 
       - name: Run tests
         run: composer test:coverage
