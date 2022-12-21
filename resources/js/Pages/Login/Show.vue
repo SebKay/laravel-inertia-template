@@ -1,7 +1,7 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title"></h1>
+    <h1 v-text="title" class="mb-large"></h1>
 
     <form class="form" @submit.prevent="login">
         <div class="form__section">
@@ -60,7 +60,9 @@
         </div>
     </form>
 
-    <Link :href="route('register')">Register</Link>
+    <div class="mt-regular">
+        <Link :href="route('register')">Register</Link>
+    </div>
 </template>
 
 <script>

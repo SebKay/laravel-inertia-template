@@ -71,7 +71,9 @@
         </div>
     </form>
 
-    <Link :href="route('login')">Login</Link>
+    <div class="mt-regular">
+        <Link :href="route('login')">Login</Link>
+    </div>
 </template>
 
 <script>
