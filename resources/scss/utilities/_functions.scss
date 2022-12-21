@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:map";
 
 @use "@scss/utilities/variables";
 
@@ -6,4 +7,12 @@
     $rem-size: math.div($pixels, variables.$base-text-size);
 
     @return #{$rem-size}rem;
+}
+
+@function border-radius($size) {
+    @return map.get(variables.$border-radiuses, $size);
+}
+
+@function border($size) {
+    @return map.get(variables.$borders, $size);
 }
