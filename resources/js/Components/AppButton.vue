@@ -28,3 +28,17 @@
         },
     };
 </script>
+
+<style lang="scss">
+    .btn {
+        @include rem(16px);
+        padding: 12px 20px;
+        display: inline-flex;
+        cursor: pointer;
+        border-radius: border-radius(buttons);
+        background-color: $ui-color-1;
+        // Type
+        font-weight: bold;
+        color: #fff;
+    }
+</style>

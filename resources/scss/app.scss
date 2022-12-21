@@ -1,3 +1,9 @@
+@use "@scss/utilities/placeholders";
+
+@import "@scss/common/reset", "@scss/common/typography", "@scss/common/forms", "@scss/common/spacing";
+
+@import "@scss/components/form";
+
 body {
     background-color: #fff;
 }

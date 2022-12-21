@@ -19,3 +19,16 @@
         },
     };
 </script>
+
+<style lang="scss">
+    body {
+        background-color: #eee;
+    }
+
+    .guest-page__inner {
+        max-width: 600px;
+        margin: 120px auto;
+        padding: 60px;
+        background-color: #fff;
+    }
+</style>

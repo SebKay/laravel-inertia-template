@@ -1,7 +1,7 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title"></h1>
+    <h1 v-text="title" class="mb-regular"></h1>
 
     <form class="form" @submit.prevent="login">
         <div class="form__section">
@@ -60,7 +60,7 @@
             </div>
 
             <div class="form__row">
-                <div class="form__item">
+                <div class="form__action">
                     <AppButton
                         text="Register"
                         tabindex="5"
@@ -71,7 +71,9 @@
         </div>
     </form>
 
-    <Link :href="route('login')">Login</Link>
+    <div class="mt-regular">
+        <Link :href="route('login')">Login</Link>
+    </div>
 </template>
 
 <script>

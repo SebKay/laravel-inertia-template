@@ -1,0 +1,8 @@
+@use "sass:map";
+
+@use "@scss/utilities/functions";
+
+@mixin rem($pixels) {
+    font-size: $pixels;
+    font-size: functions.px-to-rem($pixels);
+}

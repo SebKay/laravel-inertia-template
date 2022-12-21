@@ -41,6 +41,18 @@ export default defineConfig({
         },
     },
 
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `
+                    @use "@scss/utilities/_variables.scss" as *;
+                    @use "@scss/utilities/_functions.scss" as *;
+                    @use "@scss/utilities/_mixins.scss" as *;
+                `
+            },
+        },
+    },
+
     build: {
         rollupOptions: {
             output: {

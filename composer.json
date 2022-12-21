@@ -45,13 +45,13 @@
             "composer install",
             "php artisan migrate:fresh --seed",
             "npm install",
-            "npm run dev"
+            "npm run build"
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev",
             "php artisan migrate",
             "npm install",
-            "npm run prod"
+            "npm run build"
         ],
         "build:test": "composer install --no-interaction",
         "lint": [

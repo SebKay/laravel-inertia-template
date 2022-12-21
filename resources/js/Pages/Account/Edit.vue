@@ -1,7 +1,7 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title"></h1>
+    <h1 v-text="title" class="mt-regular mb-regular"></h1>
 
     <form class="form" @submit.prevent="login">
         <div class="form__section">
@@ -59,7 +59,7 @@
             </div>
 
             <div class="form__row">
-                <div class="form__item">
+                <div class="form__action">
                     <AppButton
                         text="Update"
                         tabindex="5"
