@@ -1,0 +1,7 @@
+@use "sass:math";
+
+@function px-to-rem($pixels) {
+    $rem-size: math.div($pixels, $base-text-size);
+
+    @return #{$rem-size}rem;
+}

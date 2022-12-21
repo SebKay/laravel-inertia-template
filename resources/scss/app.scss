@@ -1,4 +1,6 @@
-@import "@scss/common/reset";
+@import "@scss/utilities/variables", "@scss/utilities/functions", "@scss/utilities/mixins";
+
+@import "@scss/common/reset", "@scss/common/typography";
 
 body {
     background-color: #fff;
