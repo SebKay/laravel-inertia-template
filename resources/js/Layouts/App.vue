@@ -6,9 +6,9 @@
     <div class="app-page">
         <div class="app-page__inner">
             <Link :href="route('home')">Home</Link>
-            <br>
+            <br />
             <Link :href="route('account.edit')">Account</Link>
-            <br>
+            <br />
             <Link :href="route('logout')" method="post" as="button"
                 >Logout</Link
             >
@@ -27,3 +27,17 @@
         },
     };
 </script>
+
+
+<style lang="scss">
+    body {
+        background-color: #eee;
+    }
+
+    .app-page__inner {
+        max-width: 900px;
+        margin: 120px auto;
+        padding: 60px;
+        background-color: #fff;
+    }
+</style>

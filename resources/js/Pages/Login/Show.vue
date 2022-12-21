@@ -1,7 +1,7 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title" class="mb-large"></h1>
+    <h1 v-text="title" class="mb-regular"></h1>
 
     <form class="form" @submit.prevent="login">
         <div class="form__section">
