@@ -60,7 +60,7 @@
             </div>
 
             <div class="form__row">
-                <div class="form__item">
+                <div class="form__action">
                     <AppButton
                         text="Register"
                         tabindex="5"

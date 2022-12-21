@@ -1,0 +1,27 @@
+.form__section,
+.form__item,
+.form__label--inline {
+    display: flex;
+}
+
+.form__section,
+.form__item {
+    flex-direction: column;
+}
+
+.form__section {
+    row-gap: 30px;
+}
+
+.form__item {
+    row-gap: 15px;
+}
+
+.form__label--inline {
+    align-items: center;
+    column-gap: 10px;
+
+    input {
+        align-self: flex-start;
+    }
+}
