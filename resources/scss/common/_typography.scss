@@ -1,34 +1,45 @@
+@use "@scss/utilities/variables";
+
 body {
     // Type
     font-family: "Hanken Grotesk", sans-serif;
-    font-size: $base-text-size;
+    font-size: variables.$base-text-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @extend %heading;
 }
 
 h1 {
-    @include rem(40px);
+    @extend %heading-1;
 }
 
 h2 {
-    @include rem(34px);
+    @extend %heading-2;
 }
 
 h3 {
-    @include rem(28px);
+    @extend %heading-3;
 }
 
 h4 {
-    @include rem(24px);
+    @extend %heading-4;
 }
 
 h5 {
-    @include rem(20px);
+    @extend %heading-5;
 }
 
 h6 {
-    @include rem(16px);
+    @extend %heading-6;
 }
 
 p,
 li {
-    @include rem(18px);
+    @extend %text-regular;
 }

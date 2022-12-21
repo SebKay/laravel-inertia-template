@@ -1,6 +1,6 @@
-@import "@scss/utilities/variables", "@scss/utilities/functions", "@scss/utilities/mixins";
+@use "@scss/utilities/placeholders";
 
-@import "@scss/common/reset", "@scss/common/typography";
+@import "@scss/common/reset", "@scss/common/typography", "@scss/common/forms";
 
 body {
     background-color: #fff;

@@ -1,0 +1,43 @@
+@use "@scss/utilities/mixins";
+
+%heading {
+    // Type
+    font-weight: bold;
+}
+
+%heading-1 {
+    @include mixins.rem(40px);
+}
+
+%heading-2 {
+    @include mixins.rem(34px);
+}
+
+%heading-3 {
+    @include mixins.rem(28px);
+}
+
+%heading-4 {
+    @include mixins.rem(24px);
+}
+
+%heading-5 {
+    @include mixins.rem(20px);
+}
+
+%heading-6 {
+    @include mixins.rem(16px);
+}
+
+%text-small {
+    @include mixins.rem(16px);
+}
+
+%text-regular {
+    @include mixins.rem(18px);
+}
+
+%text-large {
+    @include mixins.rem(22px);
+}
+
