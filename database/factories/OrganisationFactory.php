@@ -13,7 +13,7 @@ class OrganisationFactory extends Factory
     public function definition()
     {
         return [
-            'name'    => $this->faker->company,
+            'name'    => \fake()->company,
             'user_id' => User::factory(),
         ];
     }
