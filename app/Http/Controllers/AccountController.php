@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Account\AccountUpdate;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class AccountController extends Controller
 {
@@ -13,7 +12,7 @@ class AccountController extends Controller
     {
         $user = UserResource::make($request->user());
 
-        return Inertia::render('Account/Edit', [
+        return \inertia()->render('Account/Edit', [
             'first_name' => $user->first_name,
             'last_name'  => $user->last_name,
             'email'      => $user->email,

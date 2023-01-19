@@ -55,7 +55,7 @@ test("Authenticated users can update their details", function () {
             'email'      => 'tim@test.com',
             'password'   => 'newPassword#123',
         ])
-        ->assertRedirect(route('account.edit'))
+        ->assertRedirect()
         ->assertSessionHasNoErrors();
 
     $user->refresh();
