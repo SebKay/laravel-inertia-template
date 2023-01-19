@@ -20,10 +20,10 @@ class User extends Authenticatable
     use HasRoles;
 
     protected $fillable = [
+        'current_organisation_id',
         'first_name',
         'last_name',
         'email',
-        'current_organisation_id',
     ];
 
     protected $hidden = [

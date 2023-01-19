@@ -4,6 +4,8 @@
     </Head>
 
     <div class="guest-page">
+        <Notice />
+
         <div class="guest-page__inner">
             <slot />
         </div>
@@ -11,8 +13,14 @@
 </template>
 
 <script>
+    import Notice from "@js/Components/Notice.vue";
+
     export default {
         name: "Guest Layout",
+
+        components: {
+            Notice,
+        },
 
         data() {
             return {};

@@ -5,18 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Register\RegisterStore;
 use App\Models\User;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Inertia\Inertia;
 
 class RegisterController extends Controller
 {
     public function show()
     {
-        $isProd = App::environment('production');
+        $isProd = \app()->environment('production');
 
-        return Inertia::render('Register/Show', [
+        return \inertia()->render('Register/Show', [
             'first_name' => !$isProd ? 'Jim' : '',
             'last_name'  => !$isProd ? 'Gordon' : '',
             'email'      => !$isProd ? 'test@test.com' : '',
@@ -31,8 +27,8 @@ class RegisterController extends Controller
         $user->password = $request->validated('password');
         $user->save();
 
-        Auth::loginUsingId($user->id);
+        \auth()->loginUsingId($user->id);
 
-        return Redirect::route('home');
+        return \redirect()->route('home');
     }
 }

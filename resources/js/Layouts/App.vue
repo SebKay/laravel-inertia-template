@@ -4,30 +4,36 @@
     </Head>
 
     <div class="app-page">
+        <Notice />
+
         <div class="app-page__inner">
             <Link :href="route('home')">Home</Link>
             <br />
             <Link :href="route('account.edit')">Account</Link>
             <br />
-            <Link :href="route('logout')" method="post" as="button"
-                >Logout</Link
-            >
-
+            <Link :href="route('logout')" method="post" as="button">
+                Logout
+            </Link>
             <slot />
         </div>
     </div>
 </template>
 
 <script>
+    import Notice from "@js/Components/Notice.vue";
+
     export default {
         name: "App Layout",
+
+        components: {
+            Notice,
+        },
 
         data() {
             return {};
         },
     };
 </script>
-
 
 <style lang="scss">
     body {

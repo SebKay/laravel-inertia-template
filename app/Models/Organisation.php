@@ -10,13 +10,13 @@ class Organisation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'user_id',
+        'name',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class)->withDefault();
+        return $this->belongsTo(User::class);
     }
 
     public function users()
