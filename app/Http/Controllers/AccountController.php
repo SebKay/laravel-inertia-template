@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Account\AccountUpdate;
 use App\Http\Resources\UserResource;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class AccountController extends Controller
 {
-    public function edit()
+    public function edit(Request $request)
     {
-        $user = UserResource::make(Auth::user());
+        $user = UserResource::make($request->user());
 
         return Inertia::render('Account/Edit', [
             'first_name' => $user->first_name,
@@ -27,7 +27,7 @@ class AccountController extends Controller
         $user->update($request->only('first_name', 'last_name', 'email'));
         $user->updatePassword($request->validated('password'));
 
-        return redirect()->route('account.edit')->with('notice', [
+        return redirect()->back()->with('notice', [
             'type'    => 'success',
             'message' => 'Your account has been updated.',
         ]);
