@@ -6,6 +6,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return \inertia()->render('Index');
+        return \inertia()->render('Home/Index');
     }
 }
