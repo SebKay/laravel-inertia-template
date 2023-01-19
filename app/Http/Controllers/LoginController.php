@@ -25,7 +25,7 @@ class LoginController extends Controller
         \throw_if(
             !\auth()->attempt($request->only('email', 'password'), $request->validated('remember')),
             ValidationException::withMessages([
-                'email' => ['Your account is not active.'],
+                'email' => __('auth.failed'),
             ])
         );
 

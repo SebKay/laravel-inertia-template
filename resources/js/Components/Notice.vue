@@ -103,4 +103,8 @@
             color: #155724;
         }
     }
+
+    .notice__description {
+        @include rem(16px);
+    }
 </style>
