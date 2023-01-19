@@ -26,12 +26,7 @@ class LoginController extends Controller
 
     public function store(LoginStore $request)
     {
-        $attempt = Auth::attempt([
-            'email'    => $request->validated('email'),
-            'password' => $request->validated('password'),
-        ], $request->validated('remember'));
-
-        if (!$attempt) {
+        if (!Auth::attempt($request->only('email', 'password'), $request->validated('remember'))) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
