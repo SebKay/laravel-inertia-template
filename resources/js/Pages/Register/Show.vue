@@ -80,7 +80,7 @@
     import GuestLayout from "@js/Layouts/Guest.vue";
     import AppButton from "@js/Components/AppButton.vue";
 
-    import { useForm } from "@inertiajs/inertia-vue3";
+    import { useForm } from "@inertiajs/vue3";
 
     export default {
         layout: GuestLayout,

@@ -2,35 +2,28 @@ import { ZiggyVue } from 'ziggy-vue';
 import route from 'ziggy';
 
 import { createApp, h } from 'vue';
-import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3';
-import { InertiaProgress } from '@inertiajs/progress';
+import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 createInertiaApp({
-    resolve: async name => {
-        let page = resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue'));
+    resolve: name => {
+        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
 
-        return page;
+        return pages[`./Pages/${name}.vue`];
     },
 
     setup({ el, App, props, plugin }) {
-        const VueApp = createApp({ render: () => h(App, props) });
-
-        VueApp
+        createApp({ render: () => h(App, props) })
             .use(plugin)
-            .use(ZiggyVue);
-
-        VueApp
+            .use(ZiggyVue)
             .component('Head', Head)
-            .component('Link', Link);
-
-        VueApp
+            .component('Link', Link)
             .mount(el);
     },
 
     title: title => title ? `${title} | Template` : 'Template',
-});
 
-InertiaProgress.init({
-    color: '#f5f5f5',
+    progress: {
+        color: '#f5f5f5',
+    },
 });
