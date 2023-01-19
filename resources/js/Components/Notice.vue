@@ -82,7 +82,6 @@
     .notice {
         max-width: 400px;
         padding: 20px;
-        margin-bottom: 30px;
         position: fixed;
         right: 20px;
         bottom: 20px;
