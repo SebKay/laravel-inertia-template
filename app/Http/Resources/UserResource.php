@@ -10,10 +10,10 @@ class UserResource extends JsonResource
     {
         return [
             'id'         => $this->id,
-            'email'      => $this->email,
-            'first_name' => $this->first_name,
-            'last_name'  => $this->last_name,
-            'can'        => $this->allPermissions,
+            'email'      => $this->whenHas('email'),
+            'first_name' => $this->whenHas('first_name'),
+            'last_name'  => $this->whenHas('last_name'),
+            'can'        => $this->all_permissions,
         ];
     }
 }

@@ -18,7 +18,7 @@ test("Authenticated users can access \"index\" route", function () {
         ->assertSessionHasNoErrors()
         ->assertInertia(
             fn (Assert $page) => $page
-                ->component('Index')
+                ->component('Home/Index')
         );
 });
 

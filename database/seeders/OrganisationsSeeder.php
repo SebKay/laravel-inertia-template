@@ -4,10 +4,13 @@ namespace Database\Seeders;
 
 use App\Models\Organisation;
 use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class OrganisationsSeeder extends Seeder
 {
+    use WithoutModelEvents;
+
     public function run()
     {
         $adminUser = User::whereEmail(\env('SEED_ADMIN_EMAIL'))->firstOrFail();

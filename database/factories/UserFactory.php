@@ -13,10 +13,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'first_name'        => fake()->firstName(),
-            'last_name'         => fake()->lastName(),
-            'email'             => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'first_name'        => \fake()->firstName(),
+            'last_name'         => \fake()->lastName(),
+            'email'             => \fake()->unique()->safeEmail(),
+            'email_verified_at' => \now(),
             'password'          => '12345',
             'remember_token'    => Str::random(10),
         ];
