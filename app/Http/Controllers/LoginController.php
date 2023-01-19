@@ -26,8 +26,8 @@ class LoginController extends Controller
             !\auth()->attempt($request->only('email', 'password'), $request->validated('remember')),
             ValidationException::withMessages([
                 'email' => ['Your account is not active.'],
-            ]
-        ));
+            ])
+        );
 
         $request->session()->regenerate();
 
