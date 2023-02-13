@@ -85,27 +85,16 @@
         },
 
         props: {
-            first_name: {
-                type: String,
-                default: "",
-            },
-            last_name: {
-                type: String,
-                default: "",
-            },
-            email: {
-                type: String,
-                default: "",
-            },
+            user: Object,
         },
 
         data() {
             return {
                 title: "Update Account",
                 form: useForm({
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    email: this.email,
+                    first_name: this.user.first_name,
+                    last_name: this.user.last_name,
+                    email: this.user.email,
                     password: "",
                 }),
             };
