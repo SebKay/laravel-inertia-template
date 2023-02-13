@@ -23,7 +23,7 @@ jobs:
 
   validate:
     name: Lint
-    needs: dependencies
+    needs: [dependencies]
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +45,7 @@ jobs:
 
   test:
     name: Test
-    needs: dependencies
+    needs: [validate, dependencies]
     runs-on: ubuntu-latest
     env:
       APP_ENV: testing
