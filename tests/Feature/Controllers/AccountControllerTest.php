@@ -3,12 +3,11 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Testing\AssertableInertia as Assert;
-
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
-test("Users can edit their accounts", function () {
+test('Users can edit their accounts', function () {
     actingAs(User::factory()->create())
         ->get(route('account.edit'))
         ->assertOk()
@@ -22,12 +21,12 @@ test("Guests can't edit any accounts", function () {
     get(route('account.edit'))->assertRedirect(route('login'));
 });
 
-test("Users can update their details", function () {
+test('Users can update their details', function () {
     $user = User::factory()->create([
         'first_name' => 'Jim',
-        'last_name'  => 'Gordon',
-        'email'      => 'jim@test.com',
-        'password'   => 'oldPassword#123',
+        'last_name' => 'Gordon',
+        'email' => 'jim@test.com',
+        'password' => 'oldPassword#123',
     ]);
 
     expect(Hash::check('oldPassword#123', $user->password))->toBeTrue();
@@ -40,9 +39,9 @@ test("Users can update their details", function () {
     actingAs($user)
         ->patch(route('account.update'), [
             'first_name' => 'Tim',
-            'last_name'  => 'Drake',
-            'email'      => 'tim@test.com',
-            'password'   => 'newPassword#123',
+            'last_name' => 'Drake',
+            'email' => 'tim@test.com',
+            'password' => 'newPassword#123',
         ])
         ->assertRedirect();
 
@@ -58,7 +57,7 @@ test("Users can update their details", function () {
 
 test("Guests can't update any details", function () {
     patch(route('account.update'), [
-        'name'  => 'Tim Drake',
+        'name' => 'Tim Drake',
         'email' => 'tim@test.com',
     ])
         ->assertRedirect(route('login'));
