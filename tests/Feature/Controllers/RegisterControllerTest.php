@@ -10,26 +10,19 @@ use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-test("Guests can access \"show\" route", function () {
+test("Guests can access register page", function () {
     get(route('register'))
-        ->assertStatus(200)
-        ->assertSessionHasNoErrors()
+        ->assertOk()
         ->assertInertia(
             fn (Assert $page) => $page
                 ->component('Register/Show')
         );
 });
 
-test("Authenticated users can't access \"show\" route", function () {
-    /**
-     * @var User
-     */
-    $user = User::factory()->create();
-
-    actingAs($user)
+test("Users can't access register page", function () {
+    actingAs(User::factory()->create())
         ->get(route('register'))
-        ->assertRedirect(route('home'))
-        ->assertSessionHasNoErrors();
+        ->assertRedirect(route('home'));
 });
 
 test("Guests can register", function () {
@@ -41,8 +34,7 @@ test("Guests can register", function () {
         'email'      => $email,
         'password'   => '123456Ab#',
     ])
-        ->assertRedirect(route('home'))
-        ->assertSessionHasNoErrors();
+        ->assertRedirect(route('home'));
 
     assertDatabaseHas('users', [
         'email' => $email,

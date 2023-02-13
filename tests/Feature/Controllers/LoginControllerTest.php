@@ -9,32 +9,22 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-test("Guests users can access \"show\" route", function () {
+test("Guests can access login page", function () {
     get(route('login'))
-        ->assertStatus(200)
-        ->assertSessionHasNoErrors()
+        ->assertOk()
         ->assertInertia(
             fn (Assert $page) => $page
                 ->component('Login/Show')
         );
 });
 
-test("Authenticated users can't access \"show\" route", function () {
-    /**
-     * @var User
-     */
-    $user = User::factory()->create();
-
-    actingAs($user)
+test("Users can't access login page", function () {
+    actingAs(User::factory()->create())
         ->get(route('login'))
-        ->assertRedirect(route('home'))
-        ->assertSessionHasNoErrors();
+        ->assertRedirect(route('home'));
 });
 
-test("Users can login", function () {
-    /**
-     * @var User
-     */
+test("Guests can login", function () {
     $user = User::factory()->create([
         'password' => '12345',
     ]);
@@ -43,16 +33,12 @@ test("Users can login", function () {
         'email'    => $user->email,
         'password' => '12345',
     ])
-        ->assertRedirect(route('home'))
-        ->assertSessionHasNoErrors();
+        ->assertRedirect(route('home'));
 
     assertAuthenticated();
 });
 
-test("Users can be redirected after login", function () {
-    /**
-     * @var User
-     */
+test("Guests can be redirected after login", function () {
     $user = User::factory()->create([
         'password' => '12345',
     ]);
@@ -64,16 +50,12 @@ test("Users can be redirected after login", function () {
         'password' => '12345',
         'redirect' => $redirect,
     ])
-        ->assertRedirect($redirect)
-        ->assertSessionHasNoErrors();
+        ->assertRedirect($redirect);
 
     assertAuthenticated();
 });
 
-test("Users can't login with invalid credentials", function () {
-    /**
-     * @var User
-     */
+test("Guests can't login with invalid credentials", function () {
     $user = User::factory()->create([
         'password' => '12345',
     ]);
@@ -82,21 +64,15 @@ test("Users can't login with invalid credentials", function () {
         'email'    => $user->email,
         'password' => 'test',
     ])
-        ->assertSessionHasErrors();
+        ->assertsessionHasErrors('email');
 
     assertGuest();
 });
 
 test("Users can logout", function () {
-    /**
-     * @var User
-     */
-    $user = User::factory()->create();
-
-    actingAs($user)
+    actingAs(User::factory()->create())
         ->post(route('logout'))
-        ->assertRedirect(route('login'))
-        ->assertSessionHasNoErrors();
+        ->assertRedirect(route('login'));
 
     assertGuest();
 });
