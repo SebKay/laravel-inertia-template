@@ -10,23 +10,17 @@ class AccountController extends Controller
 {
     public function edit(Request $request)
     {
-        $user = UserResource::make($request->user());
-
         return \inertia()->render('Account/Edit', [
-            'first_name' => $user->first_name,
-            'last_name'  => $user->last_name,
-            'email'      => $user->email,
+            'user' => UserResource::make($request->user())
         ]);
     }
 
     public function update(AccountUpdate $request)
     {
-        $user = $request->user();
+        $request->user()->update($request->only('first_name', 'last_name', 'email'));
+        $request->user()->updatePassword($request->validated('password'));
 
-        $user->update($request->only('first_name', 'last_name', 'email'));
-        $user->updatePassword($request->validated('password'));
-
-        return redirect()->back()->with('notice', [
+        return \redirect()->back()->with('notice', [
             'type'    => 'success',
             'message' => 'Your account has been updated.',
         ]);

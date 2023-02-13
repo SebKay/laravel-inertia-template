@@ -36,7 +36,7 @@ it("can update it's password", function () {
     expect(Hash::check('newPassword#123', $user->password))->toBeTrue();
 });
 
-it("doesn't update it's password if value is empty", function () {
+it("doesn't update it's password if the value is empty", function () {
     $user = User::factory()->create([
         'password' => 'oldPassword#123',
     ]);

@@ -8,32 +8,21 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
-test("Authenticated users can access \"edit\" route", function () {
-    /**
-     * @var User
-     */
-    $user = User::factory()->create();
-
-    actingAs($user)
+test("Users can edit their accounts", function () {
+    actingAs(User::factory()->create())
         ->get(route('account.edit'))
-        ->assertStatus(200)
-        ->assertSessionHasNoErrors()
+        ->assertOk()
         ->assertInertia(
             fn (Assert $page) => $page
                 ->component('Account/Edit')
         );
 });
 
-test("Guests can't access \"edit\" route", function () {
-    get(route('account.edit'))
-        ->assertRedirect(route('login'))
-        ->assertSessionHasNoErrors();
+test("Guests can't edit any accounts", function () {
+    get(route('account.edit'))->assertRedirect(route('login'));
 });
 
-test("Authenticated users can update their details", function () {
-    /**
-     * @var User
-     */
+test("Users can update their details", function () {
     $user = User::factory()->create([
         'first_name' => 'Jim',
         'last_name'  => 'Gordon',
@@ -55,8 +44,7 @@ test("Authenticated users can update their details", function () {
             'email'      => 'tim@test.com',
             'password'   => 'newPassword#123',
         ])
-        ->assertRedirect()
-        ->assertSessionHasNoErrors();
+        ->assertRedirect();
 
     $user->refresh();
 
@@ -68,7 +56,7 @@ test("Authenticated users can update their details", function () {
     expect(Hash::check('newPassword#123', $user->password))->toBeTrue();
 });
 
-test("Guests can't access \"update\" route", function () {
+test("Guests can't update any details", function () {
     patch(route('account.update'), [
         'name'  => 'Tim Drake',
         'email' => 'tim@test.com',

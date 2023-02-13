@@ -20,14 +20,8 @@
 </template>
 
 <script>
-    import Notice from "@js/Components/Notice.vue";
-
     export default {
         name: "App Layout",
-
-        components: {
-            Notice,
-        },
 
         data() {
             return {};

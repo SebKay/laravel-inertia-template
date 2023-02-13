@@ -3,7 +3,7 @@
 
     <h1 v-text="title" class="mb-regular"></h1>
 
-    <form class="form" @submit.prevent="login">
+    <form class="form" @submit.prevent="register">
         <div class="form__section">
             <div class="form__row">
                 <div class="form__item">
@@ -77,35 +77,18 @@
 </template>
 
 <script>
-    import GuestLayout from "@js/Layouts/Guest.vue";
-    import AppButton from "@js/Components/AppButton.vue";
-
     import { useForm } from "@inertiajs/vue3";
+
+    import GuestLayout from "@js/Layouts/Guest.vue";
 
     export default {
         layout: GuestLayout,
 
-        components: {
-            AppButton,
-        },
-
         props: {
-            first_name: {
-                type: String,
-                default: "",
-            },
-            last_name: {
-                type: String,
-                default: "",
-            },
-            email: {
-                type: String,
-                default: "",
-            },
-            password: {
-                type: String,
-                default: "",
-            },
+            first_name: String,
+            last_name: String,
+            email: String,
+            password: String,
         },
 
         data() {
@@ -121,16 +104,8 @@
         },
 
         methods: {
-            login() {
-                let form = this.form;
-                form.post(route("register.store"), {
-                    ...form,
-                    ...{
-                        onSuccess: () => {
-                            form.clearErrors();
-                        },
-                    },
-                });
+            register() {
+                this.form.post(route("register.store"));
             },
         },
     };

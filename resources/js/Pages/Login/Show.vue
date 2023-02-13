@@ -66,35 +66,18 @@
 </template>
 
 <script>
-    import GuestLayout from "@js/Layouts/Guest.vue";
-    import AppButton from "@js/Components/AppButton.vue";
-
     import { useForm } from "@inertiajs/vue3";
+
+    import GuestLayout from "@js/Layouts/Guest.vue";
 
     export default {
         layout: GuestLayout,
 
-        components: {
-            AppButton,
-        },
-
         props: {
-            email: {
-                type: String,
-                default: "",
-            },
-            password: {
-                type: String,
-                default: "",
-            },
-            remember: {
-                type: Boolean,
-                default: false,
-            },
-            redirect: {
-                type: String,
-                default: "",
-            },
+            email: String,
+            password: String,
+            remember: Boolean,
+            redirect: String,
         },
 
         data() {
@@ -111,15 +94,7 @@
 
         methods: {
             login() {
-                let form = this.form;
-                form.post(route("login.store"), {
-                    ...form,
-                    ...{
-                        onSuccess: () => {
-                            form.clearErrors();
-                        },
-                    },
-                });
+                this.form.post(route("login.store"));
             },
         },
     };

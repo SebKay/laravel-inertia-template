@@ -3,7 +3,7 @@
 
     <h1 v-text="title" class="mt-regular mb-regular"></h1>
 
-    <form class="form" @submit.prevent="login">
+    <form class="form" @submit.prevent="update">
         <div class="form__section">
             <div class="form__row">
                 <div class="form__item">
@@ -72,55 +72,33 @@
 </template>
 
 <script>
-    import AppLayout from "@js/Layouts/App.vue";
-    import AppButton from "@js/Components/AppButton.vue";
-
     import { useForm } from "@inertiajs/vue3";
+
+    import AppLayout from "@js/Layouts/App.vue";
 
     export default {
         layout: AppLayout,
 
-        components: {
-            AppButton,
-        },
-
         props: {
-            first_name: {
-                type: String,
-                default: "",
-            },
-            last_name: {
-                type: String,
-                default: "",
-            },
-            email: {
-                type: String,
-                default: "",
-            },
+            user: Object,
         },
 
         data() {
             return {
                 title: "Update Account",
                 form: useForm({
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    email: this.email,
+                    first_name: this.user.first_name,
+                    last_name: this.user.last_name,
+                    email: this.user.email,
                     password: "",
                 }),
             };
         },
 
         methods: {
-            login() {
-                let form = this.form;
-                form.patch(route("account.update"), {
-                    ...form,
-                    ...{
-                        onSuccess: () => {
-                            form.clearErrors();
-                        },
-                    },
+            update() {
+                this.form.patch(route("account.update"), {
+                    preserveScroll: true,
                 });
             },
         },
