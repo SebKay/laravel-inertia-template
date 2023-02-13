@@ -60,10 +60,10 @@
             "./vendor/bin/pint"
         ],
         "test": [
-            "php artisan test --parallel --stop-on-failure"
+            "php artisan test --parallel --stop-on-failure --processes=8"
         ],
         "test:coverage": [
-            "XDEBUG_MODE=coverage php artisan test --parallel --coverage --min=85"
+            "XDEBUG_MODE=coverage php artisan test --parallel --coverage --min=85  --processes=8 --stop-on-failure"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
