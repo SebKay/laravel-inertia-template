@@ -54,10 +54,10 @@
             "composer install --no-interaction"
         ],
         "lint": [
-            "./vendor/bin/phpcs ./ --extensions=php --standard=PSR12 --ignore=vendor/,tests/,storage/,cache/,database/migrations/,*.blade.php,public/index.php"
+            "./vendor/bin/pint --test"
         ],
         "fix": [
-            "./vendor/bin/phpcbf ./ --extensions=php --standard=PSR12 --ignore=vendor/,tests/,storage/,cache/,database/migrations/,*.blade.php,public/index.php"
+            "./vendor/bin/pint"
         ],
         "test": [
             "php artisan test --parallel --stop-on-failure"
