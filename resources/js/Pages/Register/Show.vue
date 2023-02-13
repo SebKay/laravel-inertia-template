@@ -77,17 +77,12 @@
 </template>
 
 <script>
-    import GuestLayout from "@js/Layouts/Guest.vue";
-    import AppButton from "@js/Components/AppButton.vue";
-
     import { useForm } from "@inertiajs/vue3";
+
+    import GuestLayout from "@js/Layouts/Guest.vue";
 
     export default {
         layout: GuestLayout,
-
-        components: {
-            AppButton,
-        },
 
         props: {
             first_name: {

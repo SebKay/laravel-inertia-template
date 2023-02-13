@@ -72,17 +72,12 @@
 </template>
 
 <script>
-    import AppLayout from "@js/Layouts/App.vue";
-    import AppButton from "@js/Components/AppButton.vue";
-
     import { useForm } from "@inertiajs/vue3";
+
+    import AppLayout from "@js/Layouts/App.vue";
 
     export default {
         layout: AppLayout,
-
-        components: {
-            AppButton,
-        },
 
         props: {
             user: Object,

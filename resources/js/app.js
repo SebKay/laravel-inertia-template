@@ -19,13 +19,13 @@ createInertiaApp({
         const Vue = createApp({ render: () => h(App, props) });
 
         Vue.use(plugin)
-            .use(ZiggyVue)
-            .mixin({ methods: { userCan } });
+            .use(ZiggyVue);
+
+        Vue.mixin({ methods: { userCan } });
 
         Vue.component('Head', Head)
-            .component('Link', Link);
-
-        // Vue.config.globalProperties.$userCan = userCan;
+            .component('Link', Link)
+            .component('AppButton', AppButton);
 
         Vue.mount(el);
     },
