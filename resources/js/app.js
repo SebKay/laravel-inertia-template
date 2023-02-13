@@ -3,7 +3,6 @@ import route from 'ziggy';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 createInertiaApp({
     resolve: name => {
