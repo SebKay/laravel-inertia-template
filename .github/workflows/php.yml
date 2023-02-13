@@ -19,7 +19,7 @@ jobs:
 
       - name: Install Composer dependencies
         if: steps.cache-vendor.outputs.cache-hit != 'true'
-        run: composer install --no-interaction
+        run: composer build:test
 
   lint:
     name: Lint
@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Composer dependencies
         if: steps.cache-vendor.outputs.cache-hit != 'true'
-        run: composer install --no-interaction
+        run: build:test
 
       - name: Lint against Laravel code style
         run: composer lint
@@ -64,7 +64,7 @@ jobs:
 
       - name: Install Composer dependencies
         if: steps.cache-vendor.outputs.cache-hit != 'true'
-        run: composer install --no-interaction
+        run: build:test
 
       - name: Setup application
         run: |
