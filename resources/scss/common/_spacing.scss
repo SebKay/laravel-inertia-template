@@ -1,23 +1,13 @@
-.mt-large {
-    margin-top: 60px;
+@use "sass:map";
+
+@use "@scss/utilities/functions";
+@use "@scss/utilities/mixins";
+
+//---- Responsive ----//
+@media (min-width: (functions.breakpoint(mobile-2) + 1)) {
+    @include mixins.spacing(desktop);
 }
 
-.mb-large {
-    margin-bottom: 60px;
-}
-
-.mt-regular {
-    margin-top: 30px;
-}
-
-.mb-regular {
-    margin-bottom: 30px;
-}
-
-.mt-small {
-    margin-top: 15px;
-}
-
-.mb-small {
-    margin-bottom: 15px;
+@media (max-width: functions.breakpoint(mobile-2)) {
+    @include mixins.spacing(mobile);
 }

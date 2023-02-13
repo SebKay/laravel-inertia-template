@@ -17,3 +17,28 @@ $breakpoints: (
     mobile-1: 670px,
     mobile-2: 450px,
 );
+
+$spacing: (
+    desktop: (
+        15: 15px,
+        30: 30px,
+        40: 40px,
+        50: 50px,
+        60: 60px,
+        70: 70px,
+        80: 80px,
+        90: 90px,
+        100: 100px,
+    ),
+    mobile: (
+        15: 10px,
+        30: 20px,
+        40: 30px,
+        50: 35px,
+        60: 40px,
+        70: 45px,
+        80: 55px,
+        90: 60px,
+        100: 65px,
+    ),
+);

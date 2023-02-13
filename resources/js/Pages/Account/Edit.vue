@@ -1,7 +1,7 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title" class="mt-regular mb-regular"></h1>
+    <h1 v-text="title" class="mt-30 mb-40"></h1>
 
     <form class="form" @submit.prevent="update">
         <div class="form__section">
