@@ -12,14 +12,6 @@
     export default {
         layout: AppLayout,
 
-        components: {
-            //
-        },
-
-        props: {
-            //
-        },
-
         data() {
             return {
                 title: "Home",

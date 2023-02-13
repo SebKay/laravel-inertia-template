@@ -3,7 +3,7 @@
 
     <h1 v-text="title" class="mb-regular"></h1>
 
-    <form class="form" @submit.prevent="login">
+    <form class="form" @submit.prevent="register">
         <div class="form__section">
             <div class="form__row">
                 <div class="form__item">
@@ -85,22 +85,10 @@
         layout: GuestLayout,
 
         props: {
-            first_name: {
-                type: String,
-                default: "",
-            },
-            last_name: {
-                type: String,
-                default: "",
-            },
-            email: {
-                type: String,
-                default: "",
-            },
-            password: {
-                type: String,
-                default: "",
-            },
+            first_name: String,
+            last_name: String,
+            email: String,
+            password: String,
         },
 
         data() {
@@ -116,16 +104,8 @@
         },
 
         methods: {
-            login() {
-                let form = this.form;
-                form.post(route("register.store"), {
-                    ...form,
-                    ...{
-                        onSuccess: () => {
-                            form.clearErrors();
-                        },
-                    },
-                });
+            register() {
+                this.form.post(route("register.store"));
             },
         },
     };

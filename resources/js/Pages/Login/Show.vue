@@ -74,22 +74,10 @@
         layout: GuestLayout,
 
         props: {
-            email: {
-                type: String,
-                default: "",
-            },
-            password: {
-                type: String,
-                default: "",
-            },
-            remember: {
-                type: Boolean,
-                default: false,
-            },
-            redirect: {
-                type: String,
-                default: "",
-            },
+            email: String,
+            password: String,
+            remember: Boolean,
+            redirect: String,
         },
 
         data() {
@@ -106,15 +94,7 @@
 
         methods: {
             login() {
-                let form = this.form;
-                form.post(route("login.store"), {
-                    ...form,
-                    ...{
-                        onSuccess: () => {
-                            form.clearErrors();
-                        },
-                    },
-                });
+                this.form.post(route("login.store"));
             },
         },
     };

@@ -3,7 +3,7 @@
 
     <h1 v-text="title" class="mt-regular mb-regular"></h1>
 
-    <form class="form" @submit.prevent="login">
+    <form class="form" @submit.prevent="update">
         <div class="form__section">
             <div class="form__row">
                 <div class="form__item">
@@ -96,15 +96,9 @@
         },
 
         methods: {
-            login() {
-                let form = this.form;
-                form.patch(route("account.update"), {
-                    ...form,
-                    ...{
-                        onSuccess: () => {
-                            form.clearErrors();
-                        },
-                    },
+            update() {
+                this.form.patch(route("account.update"), {
+                    preserveScroll: true,
                 });
             },
         },
