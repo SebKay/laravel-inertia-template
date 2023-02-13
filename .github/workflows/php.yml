@@ -21,7 +21,7 @@ jobs:
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: composer install --no-interaction
 
-  validate:
+  lint:
     name: Lint
     needs: [dependencies]
     runs-on: ubuntu-latest
@@ -40,12 +40,12 @@ jobs:
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: composer install --no-interaction
 
-      - name: Lint against PSR-12
+      - name: Lint against Laravel code style
         run: composer lint
 
   test:
     name: Test
-    needs: [validate, dependencies]
+    needs: [lint, dependencies]
     runs-on: ubuntu-latest
     env:
       APP_ENV: testing
