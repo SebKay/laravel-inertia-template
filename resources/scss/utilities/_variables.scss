@@ -10,3 +10,10 @@ $border-radiuses: (
 $borders: (
     form-fields: 1px solid #aaa,
 );
+
+$breakpoints: (
+    tablet-1: 1024px,
+    tablet-2: 768px,
+    mobile-1: 670px,
+    mobile-2: 450px,
+);
