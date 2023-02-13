@@ -2,14 +2,13 @@
 
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
-
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-test("Guests can access login page", function () {
+test('Guests can access login page', function () {
     get(route('login'))
         ->assertOk()
         ->assertInertia(
@@ -24,13 +23,13 @@ test("Users can't access login page", function () {
         ->assertRedirect(route('home'));
 });
 
-test("Guests can login", function () {
+test('Guests can login', function () {
     $user = User::factory()->create([
         'password' => '12345',
     ]);
 
     post(route('login'), [
-        'email'    => $user->email,
+        'email' => $user->email,
         'password' => '12345',
     ])
         ->assertRedirect(route('home'));
@@ -38,15 +37,15 @@ test("Guests can login", function () {
     assertAuthenticated();
 });
 
-test("Guests can be redirected after login", function () {
+test('Guests can be redirected after login', function () {
     $user = User::factory()->create([
         'password' => '12345',
     ]);
 
-    $redirect = "https://google.com";
+    $redirect = 'https://google.com';
 
     post(route('login'), [
-        'email'    => $user->email,
+        'email' => $user->email,
         'password' => '12345',
         'redirect' => $redirect,
     ])
@@ -61,7 +60,7 @@ test("Guests can't login with invalid credentials", function () {
     ]);
 
     post(route('login'), [
-        'email'    => $user->email,
+        'email' => $user->email,
         'password' => 'test',
     ])
         ->assertsessionHasErrors('email');
@@ -69,7 +68,7 @@ test("Guests can't login with invalid credentials", function () {
     assertGuest();
 });
 
-test("Users can logout", function () {
+test('Users can logout', function () {
     actingAs(User::factory()->create())
         ->post(route('logout'))
         ->assertRedirect(route('login'));

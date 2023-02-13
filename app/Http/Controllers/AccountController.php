@@ -11,7 +11,7 @@ class AccountController extends Controller
     public function edit(Request $request)
     {
         return \inertia()->render('Account/Edit', [
-            'user' => UserResource::make($request->user())
+            'user' => UserResource::make($request->user()),
         ]);
     }
 
@@ -21,7 +21,7 @@ class AccountController extends Controller
         $request->user()->updatePassword($request->validated('password'));
 
         return \redirect()->back()->with('notice', [
-            'type'    => 'success',
+            'type' => 'success',
             'message' => 'Your account has been updated.',
         ]);
     }

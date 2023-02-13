@@ -13,6 +13,7 @@ class RolesAndPermissionsSeeder extends Seeder
     use WithoutModelEvents;
 
     protected Collection $roles;
+
     protected Collection $postPermissions;
 
     public function run()

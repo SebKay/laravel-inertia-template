@@ -3,7 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-it("has a first name", function () {
+it('has a first name', function () {
     $firstName = 'Jim';
 
     $user = User::factory()->create([
@@ -13,7 +13,7 @@ it("has a first name", function () {
     expect($user)->first_name->toBe($firstName);
 });
 
-it("has a last name", function () {
+it('has a last name', function () {
     $lastName = 'Gordon';
 
     $user = User::factory()->create([

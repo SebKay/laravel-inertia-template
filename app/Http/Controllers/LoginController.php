@@ -13,9 +13,9 @@ class LoginController extends Controller
         $isProd = \app()->environment('production');
 
         return \inertia()->render('Login/Show', [
-            'email'    => !$isProd ? \env('SEED_ADMIN_EMAIL') : '',
-            'password' => !$isProd ? '12345' : '',
-            'remember' => !$isProd ? true : false,
+            'email' => ! $isProd ? \env('SEED_ADMIN_EMAIL') : '',
+            'password' => ! $isProd ? '12345' : '',
+            'remember' => ! $isProd ? true : false,
             'redirect' => $request->query('redirect', ''),
         ]);
     }
@@ -23,7 +23,7 @@ class LoginController extends Controller
     public function store(LoginStore $request)
     {
         \throw_if(
-            !\auth()->attempt($request->only('email', 'password'), $request->validated('remember')),
+            ! \auth()->attempt($request->only('email', 'password'), $request->validated('remember')),
             ValidationException::withMessages([
                 'email' => \__('auth.failed'),
             ])

@@ -9,7 +9,7 @@ class LoginStore extends FormRequest
     public function rules()
     {
         return [
-            'email'    => ['required', 'email', 'exists:users'],
+            'email' => ['required', 'email', 'exists:users'],
             'password' => ['required'],
             'remember' => ['boolean'],
             'redirect' => ['nullable', 'string'],

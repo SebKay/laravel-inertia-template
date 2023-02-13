@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Register\RegisterStore;
 use App\Models\User;
 
@@ -13,10 +12,10 @@ class RegisterController extends Controller
         $isProd = \app()->environment('production');
 
         return \inertia()->render('Register/Show', [
-            'first_name' => !$isProd ? 'Jim' : '',
-            'last_name'  => !$isProd ? 'Gordon' : '',
-            'email'      => !$isProd ? 'test@test.com' : '',
-            'password'   => !$isProd ? '123456Ab#' : '',
+            'first_name' => ! $isProd ? 'Jim' : '',
+            'last_name' => ! $isProd ? 'Gordon' : '',
+            'email' => ! $isProd ? 'test@test.com' : '',
+            'password' => ! $isProd ? '123456Ab#' : '',
         ]);
     }
 

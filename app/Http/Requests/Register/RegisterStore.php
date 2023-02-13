@@ -11,9 +11,9 @@ class RegisterStore extends FormRequest
     {
         return [
             'first_name' => ['required', 'string'],
-            'last_name'  => ['required', 'string'],
-            'email'      => ['required', 'email', 'unique:users'],
-            'password'   => [
+            'last_name' => ['required', 'string'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => [
                 'required',
                 Password::min(6)
                     ->mixedCase()
@@ -28,7 +28,7 @@ class RegisterStore extends FormRequest
     {
         return [
             'first_name' => 'first name',
-            'last_name'  => 'last name',
+            'last_name' => 'last name',
         ];
     }
 }
