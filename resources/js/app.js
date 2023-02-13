@@ -6,6 +6,7 @@ import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
 import { userCan } from "@js/utilities/permissions.js";
 
+import Notice from "@js/Components/Notice.vue";
 import AppButton from "@js/Components/AppButton.vue";
 
 createInertiaApp({
@@ -25,6 +26,7 @@ createInertiaApp({
 
         Vue.component('Head', Head)
             .component('Link', Link)
+            .component('Notice', Notice)
             .component('AppButton', AppButton);
 
         Vue.mount(el);
