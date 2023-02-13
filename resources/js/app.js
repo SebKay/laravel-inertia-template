@@ -4,6 +4,10 @@ import route from 'ziggy';
 import { createApp, h } from 'vue';
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
+import { userCan } from "@js/utilities/permissions.js";
+
+import AppButton from "@js/Components/AppButton.vue";
+
 createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
@@ -12,12 +16,18 @@ createInertiaApp({
     },
 
     setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
-            .use(plugin)
+        const Vue = createApp({ render: () => h(App, props) });
+
+        Vue.use(plugin)
             .use(ZiggyVue)
-            .component('Head', Head)
-            .component('Link', Link)
-            .mount(el);
+            .mixin({ methods: { userCan } });
+
+        Vue.component('Head', Head)
+            .component('Link', Link);
+
+        // Vue.config.globalProperties.$userCan = userCan;
+
+        Vue.mount(el);
     },
 
     title: title => title ? `${title} | Template` : 'Template',

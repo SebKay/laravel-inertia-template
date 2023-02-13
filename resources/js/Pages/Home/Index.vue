@@ -9,8 +9,6 @@
 <script>
     import AppLayout from "@js/Layouts/App.vue";
 
-    import { userCan } from "@js/utilities/permissions.js";
-
     export default {
         layout: AppLayout,
 
@@ -20,12 +18,6 @@
 
         props: {
             //
-        },
-
-        setup() {
-            return {
-                userCan,
-            };
         },
 
         data() {
