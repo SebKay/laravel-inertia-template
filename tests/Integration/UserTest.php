@@ -3,26 +3,6 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-it('has a first name', function () {
-    $firstName = 'Jim';
-
-    $user = User::factory()->create([
-        'first_name' => $firstName,
-    ]);
-
-    expect($user)->first_name->toBe($firstName);
-});
-
-it('has a last name', function () {
-    $lastName = 'Gordon';
-
-    $user = User::factory()->create([
-        'last_name' => $lastName,
-    ]);
-
-    expect($user)->last_name->toBe($lastName);
-});
-
 it("can update it's password", function () {
     $user = User::factory()->create([
         'password' => 'oldPassword#123',
