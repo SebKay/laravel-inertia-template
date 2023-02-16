@@ -20,7 +20,7 @@ class AccountController extends Controller
         $request->user()->update($request->only('first_name', 'last_name', 'email'));
         $request->user()->updatePassword($request->validated('password'));
 
-        \session()->flash('message', 'Your account has been updated.');
+        \session()->flash('message', \__('account.updated'));
 
         return \redirect()->back();
     }
