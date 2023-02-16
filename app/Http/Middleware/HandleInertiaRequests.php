@@ -14,10 +14,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user() ? UserResource::make($request->user()) : [],
             ],
-            'notice' => $request->session()->get('notice') ?: [
-                'type' => '',
-                'message' => '',
-            ],
+            'message' => $request->session()->get('message'),
         ]);
     }
 }
