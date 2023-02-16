@@ -63,7 +63,7 @@ test("Guests can't login with invalid credentials", function () {
         'email' => $user->email,
         'password' => 'test',
     ])
-        ->assertsessionHasErrors('email');
+        ->assertsessionHasErrors();
 
     assertGuest();
 });

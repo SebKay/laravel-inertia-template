@@ -17,7 +17,7 @@ test('Users can edit their accounts', function () {
         );
 });
 
-test("Guests can't edit any accounts", function () {
+test("Guests can't edit accounts", function () {
     get(route('account.edit'))->assertRedirect(route('login'));
 });
 
@@ -43,7 +43,8 @@ test('Users can update their details', function () {
             'email' => 'tim@test.com',
             'password' => 'newPassword#123',
         ])
-        ->assertRedirect();
+        ->assertRedirect()
+        ->assertSessionHas('message', 'Your account has been updated.');
 
     $user->refresh();
 
@@ -55,7 +56,7 @@ test('Users can update their details', function () {
     expect(Hash::check('newPassword#123', $user->password))->toBeTrue();
 });
 
-test("Guests can't update any details", function () {
+test("Guests can't update details", function () {
     patch(route('account.update'), [
         'name' => 'Tim Drake',
         'email' => 'tim@test.com',
