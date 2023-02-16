@@ -15,7 +15,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.21",
-        "laravel/pint": "^1.4",
+        "laravel/pint": "^1.5",
         "mockery/mockery": "^1.5",
         "nunomaduro/collision": "^6.4",
         "pestphp/pest": "^1.22",
@@ -45,8 +45,8 @@
             "npm run build"
         ],
         "build:prod": [
-            "composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev",
-            "php artisan migrate",
+            "composer install --no-interaction --prefer-dist --optimize-autoloader",
+            "php artisan migrate --force",
             "npm install",
             "npm run build"
         ],
