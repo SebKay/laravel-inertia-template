@@ -45,8 +45,8 @@
             "npm run build"
         ],
         "build:prod": [
-            "composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev",
-            "php artisan migrate",
+            "composer install --no-interaction --prefer-dist --optimize-autoloader",
+            "php artisan migrate --force",
             "npm install",
             "npm run build"
         ],
