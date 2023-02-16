@@ -18,9 +18,9 @@
         },
 
         watch: {
-            "$page.props.notice": {
+            "$page.props.message": {
                 handler() {
-                    this.setNotice(router.page.props.notice, "success");
+                    this.setNotice(router.page.props.message, "success");
                 },
             },
             "$page.props.errors": {
@@ -48,10 +48,10 @@
         },
 
         methods: {
-            setNotice(notice, type) {
-                if (type && notice.message != "") {
+            setNotice(message, type) {
+                if (type && message != "") {
                     this.type = type;
-                    this.message = notice.message;
+                    this.message = message;
 
                     this.setActive();
                 }
