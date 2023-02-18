@@ -51,7 +51,7 @@
             <div class="form__row">
                 <div class="form__action">
                     <AppButton
-                        text="Login"
+                        text="Log In"
                         tabindex="4"
                         type="full"
                         :disabled="form.processing"
@@ -83,7 +83,7 @@
 
         data() {
             return {
-                title: "Login",
+                title: "Log In",
                 form: useForm({
                     email: this.email,
                     password: this.password,
