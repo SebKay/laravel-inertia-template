@@ -47,6 +47,10 @@
         color: #fff;
     }
 
+    .btn--full {
+        width: 100%;
+    }
+
     .btn[disabled] {
         opacity: 0.5;
         cursor: not-allowed;
