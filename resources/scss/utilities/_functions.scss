@@ -9,6 +9,10 @@
     @return #{$rem-size}rem;
 }
 
+@function font($key) {
+    @return map.get(variables.$fonts, $key);
+}
+
 @function border-radius($size) {
     @return map.get(variables.$border-radiuses, $size);
 }

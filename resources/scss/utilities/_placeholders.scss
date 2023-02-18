@@ -41,3 +41,8 @@
     @include mixins.rem(22px);
 }
 
+%text-uppercase {
+    // Type
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

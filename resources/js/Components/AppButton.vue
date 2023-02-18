@@ -1,5 +1,5 @@
 <template>
-    <button :class="getCssClasses()" @click="$emit('activated', true)">
+    <button :class="classes" @click="$emit('activated', true)">
         <span class="btn__text" v-text="text"></span>
     </button>
 </template>
@@ -13,17 +13,22 @@
                 type: String,
                 default: "Submit",
             },
+            type: String,
         },
 
         data() {
-            return {
-                cssClasses: ["btn"],
-            };
+            return {};
         },
 
-        methods: {
-            getCssClasses() {
-                return this.cssClasses.join(" ");
+        computed: {
+            classes() {
+                let classes = ["btn"];
+
+                if (this.type) {
+                    classes.push(`btn--${this.type}`);
+                }
+
+                return classes.join(" ");
             },
         },
     };
@@ -31,14 +36,34 @@
 
 <style lang="scss">
     .btn {
-        @include rem(16px);
-        padding: 12px 20px;
         display: inline-flex;
+        justify-content: center;
         cursor: pointer;
         border-radius: border-radius(buttons);
         background-color: $ui-color-1;
         // Type
         font-weight: bold;
+        text-align: center;
         color: #fff;
+    }
+
+    .btn[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    //---- Responsive ----//
+    @media (min-width: (breakpoint(mobile-1) + 1)) {
+        .btn {
+            @include rem(16px);
+            padding: 17px 25px;
+        }
+    }
+
+    @media (max-width: breakpoint(mobile-1)) {
+        .btn {
+            @include rem(14px);
+            padding: 13px 20px;
+        }
     }
 </style>
