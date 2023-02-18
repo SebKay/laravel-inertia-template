@@ -42,6 +42,7 @@
         border-radius: border-radius(buttons);
         background-color: $ui-color-1;
         // Type
+        font-family: font(1);
         font-weight: bold;
         text-align: center;
         color: #fff;
