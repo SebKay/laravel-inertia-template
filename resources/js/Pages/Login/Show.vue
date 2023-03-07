@@ -12,7 +12,6 @@
                         id="email"
                         type="email"
                         v-model="form.email"
-                        tabindex="1"
                         required
                     />
                 </div>
@@ -25,7 +24,6 @@
                         id="password"
                         type="password"
                         v-model="form.password"
-                        tabindex="2"
                         required
                     />
                 </div>
@@ -41,7 +39,6 @@
                             id="remember"
                             type="checkbox"
                             v-model="form.remember"
-                            tabindex="3"
                         />
                         Remember
                     </label>
@@ -52,7 +49,6 @@
                 <div class="form__action">
                     <Button
                         text="Log In"
-                        tabindex="4"
                         styles="full"
                         :disabled="form.processing"
                     />

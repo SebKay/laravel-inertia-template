@@ -14,7 +14,6 @@
                         id="first-name"
                         type="text"
                         v-model="form.first_name"
-                        tabindex="1"
                         required
                     />
                 </div>
@@ -27,7 +26,6 @@
                         id="last-name"
                         type="text"
                         v-model="form.last_name"
-                        tabindex="2"
                         required
                     />
                 </div>
@@ -40,7 +38,6 @@
                         id="email"
                         type="email"
                         v-model="form.email"
-                        tabindex="3"
                         required
                     />
                 </div>
@@ -53,7 +50,6 @@
                         id="password"
                         type="password"
                         v-model="form.password"
-                        tabindex="4"
                     />
                 </div>
             </div>
@@ -62,7 +58,6 @@
                 <div class="form__action">
                     <Button
                         text="Update"
-                        tabindex="5"
                         :disabled="form.processing"
                     />
                 </div>
