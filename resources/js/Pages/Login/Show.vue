@@ -8,38 +8,21 @@
             <div class="form__row">
                 <div class="form__item">
                     <label class="form__label" for="email">Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        v-model="form.email"
-                        required
-                    />
+                    <input id="email" type="email" v-model="form.email" required />
                 </div>
             </div>
 
             <div class="form__row">
                 <div class="form__item">
                     <label class="form__label" for="password">Password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        v-model="form.password"
-                        required
-                    />
+                    <input id="password" type="password" v-model="form.password" required />
                 </div>
             </div>
 
             <div class="form__row">
                 <div class="form__item">
-                    <label
-                        class="form__label form__label--inline"
-                        for="remember"
-                    >
-                        <input
-                            id="remember"
-                            type="checkbox"
-                            v-model="form.remember"
-                        />
+                    <label class="form__label form__label--inline" for="remember">
+                        <input id="remember" type="checkbox" v-model="form.remember" />
                         Remember
                     </label>
                 </div>
@@ -47,11 +30,7 @@
 
             <div class="form__row">
                 <div class="form__action">
-                    <Button
-                        text="Log In"
-                        styles="full"
-                        :disabled="form.processing"
-                    />
+                    <Button text="Log In" styles="full" :disabled="form.processing" />
                 </div>
             </div>
         </div>

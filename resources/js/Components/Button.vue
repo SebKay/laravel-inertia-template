@@ -1,23 +1,17 @@
 <template>
-    <button :class="classes" @click="$emit('activated', true)">
+    <button :class="classes">
         <span class="btn__text" v-text="text"></span>
     </button>
 </template>
 
 <script>
     export default {
-        emits: ["activated"],
-
         props: {
             text: {
                 type: String,
                 default: "Submit",
             },
             styles: String | Array,
-        },
-
-        data() {
-            return {};
         },
 
         computed: {

@@ -15,10 +15,6 @@
 <script>
     export default {
         name: "Guest Layout",
-
-        data() {
-            return {};
-        },
     };
 </script>
 
