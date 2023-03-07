@@ -53,7 +53,7 @@
                     <Button
                         text="Log In"
                         tabindex="4"
-                        type="full"
+                        styles="full"
                         :disabled="form.processing"
                     />
                 </div>

@@ -64,7 +64,7 @@
                     <Button
                         text="Register"
                         tabindex="5"
-                        type="full"
+                        styles="full"
                         :disabled="form.processing"
                     />
                 </div>

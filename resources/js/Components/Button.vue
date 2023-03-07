@@ -13,7 +13,7 @@
                 type: String,
                 default: "Submit",
             },
-            type: String,
+            styles: String,
         },
 
         data() {
@@ -24,8 +24,8 @@
             classes() {
                 let classes = ["btn"];
 
-                if (this.type) {
-                    classes.push(`btn--${this.type}`);
+                if (this.styles) {
+                    classes.push(`btn--${this.styles}`);
                 }
 
                 return classes.join(" ");
