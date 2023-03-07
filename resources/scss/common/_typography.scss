@@ -1,9 +1,7 @@
-@use "@scss/utilities/variables";
-
 body {
     // Type
-    font-family: "Hanken Grotesk", sans-serif;
-    font-size: variables.$base-text-size;
+    font-family: font(1);
+    font-size: $base-text-size;
 }
 
 h1,
@@ -42,4 +40,9 @@ h6 {
 p,
 li {
     @extend %text-regular;
+}
+
+a {
+    // Type
+    color: $ui-color-1;
 }

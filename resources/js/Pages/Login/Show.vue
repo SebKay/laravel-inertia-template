@@ -1,7 +1,7 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title" class="mb-40"></h1>
+    <h1 v-text="title" class="mb-40 text-center"></h1>
 
     <form class="form" @submit.prevent="login">
         <div class="form__section">
@@ -51,8 +51,9 @@
             <div class="form__row">
                 <div class="form__action">
                     <AppButton
-                        text="Login"
+                        text="Log In"
                         tabindex="4"
+                        type="full"
                         :disabled="form.processing"
                     />
                 </div>
@@ -60,7 +61,7 @@
         </div>
     </form>
 
-    <div class="mt-30">
+    <div class="mt-30 text-center">
         <Link :href="route('register')">Register</Link>
     </div>
 </template>
@@ -82,7 +83,7 @@
 
         data() {
             return {
-                title: "Login",
+                title: "Log In",
                 form: useForm({
                     email: this.email,
                     password: this.password,

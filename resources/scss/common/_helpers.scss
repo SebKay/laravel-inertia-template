@@ -1,0 +1,15 @@
+body {
+    background-color: #fff;
+}
+
+.text-left {
+    @extend %text-left;
+}
+
+.text-center {
+    @extend %text-center;
+}
+
+.text-right {
+    @extend %text-right;
+}
