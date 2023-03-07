@@ -61,7 +61,7 @@
 
             <div class="form__row">
                 <div class="form__action">
-                    <AppButton
+                    <Button
                         text="Register"
                         tabindex="5"
                         type="full"

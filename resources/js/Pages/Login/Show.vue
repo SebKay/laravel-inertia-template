@@ -50,7 +50,7 @@
 
             <div class="form__row">
                 <div class="form__action">
-                    <AppButton
+                    <Button
                         text="Log In"
                         tabindex="4"
                         type="full"

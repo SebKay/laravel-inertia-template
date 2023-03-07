@@ -60,7 +60,7 @@
 
             <div class="form__row">
                 <div class="form__action">
-                    <AppButton
+                    <Button
                         text="Update"
                         tabindex="5"
                         :disabled="form.processing"
