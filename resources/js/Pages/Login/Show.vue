@@ -8,41 +8,21 @@
             <div class="form__row">
                 <div class="form__item">
                     <label class="form__label" for="email">Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        v-model="form.email"
-                        tabindex="1"
-                        required
-                    />
+                    <input id="email" type="email" v-model="form.email" required />
                 </div>
             </div>
 
             <div class="form__row">
                 <div class="form__item">
                     <label class="form__label" for="password">Password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        v-model="form.password"
-                        tabindex="2"
-                        required
-                    />
+                    <input id="password" type="password" v-model="form.password" required />
                 </div>
             </div>
 
             <div class="form__row">
                 <div class="form__item">
-                    <label
-                        class="form__label form__label--inline"
-                        for="remember"
-                    >
-                        <input
-                            id="remember"
-                            type="checkbox"
-                            v-model="form.remember"
-                            tabindex="3"
-                        />
+                    <label class="form__label form__label--inline" for="remember">
+                        <input id="remember" type="checkbox" v-model="form.remember" />
                         Remember
                     </label>
                 </div>
@@ -50,12 +30,7 @@
 
             <div class="form__row">
                 <div class="form__action">
-                    <AppButton
-                        text="Log In"
-                        tabindex="4"
-                        type="full"
-                        :disabled="form.processing"
-                    />
+                    <Button text="Log In" styles="full" :disabled="form.processing" />
                 </div>
             </div>
         </div>

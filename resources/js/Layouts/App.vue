@@ -22,10 +22,6 @@
 <script>
     export default {
         name: "App Layout",
-
-        data() {
-            return {};
-        },
     };
 </script>
 

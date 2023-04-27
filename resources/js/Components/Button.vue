@@ -1,31 +1,31 @@
 <template>
-    <button :class="classes" @click="$emit('activated', true)">
+    <button :class="classes">
         <span class="btn__text" v-text="text"></span>
     </button>
 </template>
 
 <script>
     export default {
-        emits: ["activated"],
-
         props: {
             text: {
                 type: String,
                 default: "Submit",
             },
-            type: String,
-        },
-
-        data() {
-            return {};
+            styles: String | Array,
         },
 
         computed: {
             classes() {
                 let classes = ["btn"];
 
-                if (this.type) {
-                    classes.push(`btn--${this.type}`);
+                if (this.styles) {
+                    if (this.styles.constructor.name === "String") {
+                        classes.push(`btn--${this.styles}`);
+                    } else if (this.styles.constructor.name === "Array") {
+                        this.styles.forEach((style) => {
+                            classes.push(`btn--${style}`);
+                        });
+                    }
                 }
 
                 return classes.join(" ");
