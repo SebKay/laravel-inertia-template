@@ -17,9 +17,15 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
 
+      - uses: shivammathur/setup-php@v2
+        if: steps.cache-vendor.outputs.cache-hit != 'true'
+        with:
+          php-version: 8.2
+          tools: composer:v2
+
       - name: Install Composer dependencies
         if: steps.cache-vendor.outputs.cache-hit != 'true'
-        run: composer build:test
+        run: composer install --no-interaction
 
   lint:
     name: Lint
@@ -36,7 +42,12 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
 
-      - name: Install Composer dependencies
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer:v2
+
+      - name: Build
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: build:test
 
@@ -45,7 +56,7 @@ jobs:
 
   test:
     name: Test
-    needs: [lint, dependencies]
+    needs: [dependencies, lint]
     runs-on: ubuntu-latest
     env:
       APP_ENV: testing
@@ -62,7 +73,13 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
 
-      - name: Install Composer dependencies
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer:v2
+          coverage: xdebug
+
+      - name: Build
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: build:test
 
