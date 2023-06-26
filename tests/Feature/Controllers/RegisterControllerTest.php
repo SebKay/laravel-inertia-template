@@ -2,7 +2,6 @@
 
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
-use function Pest\Faker\faker;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertDatabaseHas;
@@ -25,11 +24,11 @@ test("Users can't access register page", function () {
 });
 
 test('Guests can register', function () {
-    $email = faker()->email();
+    $email = fake()->email();
 
     post(route('register.store'), [
-        'first_name' => faker()->firstName(),
-        'last_name' => faker()->lastName(),
+        'first_name' => fake()->firstName(),
+        'last_name' => fake()->lastName(),
         'email' => $email,
         'password' => '123456Ab#',
     ])
