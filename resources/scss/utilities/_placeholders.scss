@@ -1,8 +1,9 @@
+@use "@scss/utilities/functions";
 @use "@scss/utilities/mixins";
 
 %heading {
     // Type
-    font-weight: bold;
+    font-weight: functions.font-weight(bold);
 }
 
 %heading-1 {

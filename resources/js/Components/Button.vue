@@ -46,7 +46,7 @@
         background-color: $ui-color-1;
         // Type
         font-family: font(1);
-        font-weight: bold;
+        font-weight: font-weight(bold);
         text-align: center;
         color: #fff;
     }

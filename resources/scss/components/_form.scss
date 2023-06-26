@@ -20,6 +20,8 @@
 .form__label--inline {
     align-items: center;
     column-gap: 15px;
+    // Type
+    font-weight: font-weight(regular);
 
     input {
         align-self: flex-start;
