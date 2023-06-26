@@ -48,14 +48,14 @@
         "build:dev": [
             "composer install",
             "php artisan migrate:fresh --seed",
-            "npm install",
-            "npm run build"
+            "pnpm install  --node-linker=hoisted",
+            "pnpm run build"
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
             "php artisan migrate --force",
-            "npm install",
-            "npm run build"
+            "pnpm install  --node-linker=hoisted",
+            "pnpm run build"
         ],
         "lint": [
             "./vendor/bin/pint --test"
