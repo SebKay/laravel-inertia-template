@@ -3,29 +3,32 @@
         <title></title>
     </Head>
 
+    <Header>
+        <template #menu>
+            <Menu />
+        </template>
+    </Header>
+
     <div class="app-page">
         <Notice />
 
         <div class="app-page__inner">
-            <Link :href="route('home')">Home</Link>
-            <br />
-            <Link :href="route('account.edit')">Account</Link>
-            <br />
-            <Link
-                :href="route('logout')"
-                method="post"
-                as="button"
-            >
-            Logout
-            </Link>
             <slot />
         </div>
     </div>
 </template>
 
 <script>
+    import Header from "@js/Components/Header.vue";
+    import Menu from "@js/Components/Menu.vue";
+
     export default {
         name: "App Layout",
+
+        components: {
+            Header,
+            Menu,
+        },
     };
 </script>
 

@@ -3,6 +3,8 @@
         <title></title>
     </Head>
 
+    <Header />
+
     <div class="guest-page">
         <Notice />
 
@@ -13,8 +15,14 @@
 </template>
 
 <script>
+    import Header from "@js/Components/Header.vue";
+
     export default {
         name: "Guest Layout",
+
+        components: {
+            Header,
+        },
     };
 </script>
 
