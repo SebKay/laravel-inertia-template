@@ -1,6 +1,13 @@
 <template>
-    <div class="notice" :class="cssClass" v-if="active && type && message">
-        <p class="notice__description" v-text="message"></p>
+    <div
+        class="notice"
+        :class="cssClass"
+        v-if="active && type && message"
+    >
+        <p
+            class="notice__description"
+            v-text="message"
+        ></p>
     </div>
 </template>
 

@@ -11,8 +11,12 @@
             <br />
             <Link :href="route('account.edit')">Account</Link>
             <br />
-            <Link :href="route('logout')" method="post" as="button">
-                Logout
+            <Link
+                :href="route('logout')"
+                method="post"
+                as="button"
+            >
+            Logout
             </Link>
             <slot />
         </div>

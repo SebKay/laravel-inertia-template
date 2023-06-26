@@ -1,6 +1,9 @@
 <template>
     <button :class="classes">
-        <span class="btn__text" v-text="text"></span>
+        <span
+            class="btn__text"
+            v-text="text"
+        ></span>
     </button>
 </template>
 
