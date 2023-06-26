@@ -3,7 +3,7 @@
 
     <h1
         v-text="title"
-        class="mt-30 mb-40"
+        class="d-mt-30 d-mb-40 m-mt-15 m-mb-20"
     ></h1>
 
     <form

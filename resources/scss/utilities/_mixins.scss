@@ -8,22 +8,46 @@
     font-size: functions.px-to-rem($pixels);
 }
 
-@mixin spacing($size) {
-    @each $amount, $amountPixels in map.get(variables.$spacing, $size) {
-        .mt-#{$amount} {
+@mixin spacing($prefix,) {
+    @each $amount, $amountPixels in variables.$spacing {
+        .#{$prefix}-m-#{$amount} {
+            margin: $amountPixels;
+        }
+
+        .#{$prefix}-mt-#{$amount} {
             margin-top: $amountPixels;
         }
 
-        .mr-#{$amount} {
+        .#{$prefix}-mr-#{$amount} {
             margin-right: $amountPixels;
         }
 
-        .mb-#{$amount} {
+        .#{$prefix}-mb-#{$amount} {
             margin-bottom: $amountPixels;
         }
 
-        .ml-#{$amount} {
+        .#{$prefix}-ml-#{$amount} {
             margin-left: $amountPixels;
+        }
+
+        .#{$prefix}-p-#{$amount} {
+            padding: $amountPixels;
+        }
+
+        .#{$prefix}-pt-#{$amount} {
+            padding-top: $amountPixels;
+        }
+
+        .#{$prefix}-pr-#{$amount} {
+            padding-right: $amountPixels;
+        }
+
+        .#{$prefix}-pb-#{$amount} {
+            padding-bottom: $amountPixels;
+        }
+
+        .#{$prefix}-pl-#{$amount} {
+            padding-left: $amountPixels;
         }
     }
 }

@@ -83,7 +83,7 @@
         </div>
     </form>
 
-    <div class="mt-30 text-center">
+    <div class="d-mt-30 m-mt-15 text-center">
         <Link :href="route('login')">Login</Link>
     </div>
 </template>
