@@ -13,6 +13,10 @@
     @return map.get(variables.$fonts, $key);
 }
 
+@function font-weight($key) {
+    @return map.get(variables.$font-weights, $key);
+}
+
 @function border-radius($size) {
     @return map.get(variables.$border-radiuses, $size);
 }
