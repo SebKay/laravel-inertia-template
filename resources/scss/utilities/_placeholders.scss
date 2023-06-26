@@ -62,3 +62,12 @@
     // Type
     text-align: right;
 }
+
+//---- Responsive ----//
+@media (min-width: (functions.breakpoint(mobile-2) + 1)) {
+    @include mixins.spacing('d', '%');
+}
+
+@media (max-width: functions.breakpoint(mobile-2)) {
+    @include mixins.spacing('m', '%');
+}

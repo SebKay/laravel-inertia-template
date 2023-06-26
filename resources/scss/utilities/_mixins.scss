@@ -8,79 +8,65 @@
     font-size: functions.px-to-rem($pixels);
 }
 
-@mixin spacing($prefix) {
+@mixin spacing($prefix, $selector) {
     @each $amount, $amountPixels in variables.$spacing {
-        .#{$prefix}-m-#{$amount},
-        %#{$prefix}-m-#{$amount} {
+        #{$selector}#{$prefix}-m-#{$amount} {
             margin: $amountPixels;
         }
 
-        .#{$prefix}-mv-#{$amount},
-        %#{$prefix}-mv-#{$amount} {
+        #{$selector}#{$prefix}-mv-#{$amount} {
             margin-top: $amountPixels;
             margin-bottom: $amountPixels;
         }
 
-        .#{$prefix}-mh-#{$amount},
-        %#{$prefix}-mh-#{$amount} {
+        #{$selector}#{$prefix}-mh-#{$amount} {
             margin-right: $amountPixels;
             margin-left: $amountPixels;
         }
 
-        .#{$prefix}-mt-#{$amount},
-        %#{$prefix}-mt-#{$amount} {
+        #{$selector}#{$prefix}-mt-#{$amount} {
             margin-top: $amountPixels;
         }
 
-        .#{$prefix}-mr-#{$amount},
-        %#{$prefix}-mr-#{$amount} {
+        #{$selector}#{$prefix}-mr-#{$amount} {
             margin-right: $amountPixels;
         }
 
-        .#{$prefix}-mb-#{$amount},
-        %#{$prefix}-mb-#{$amount} {
+        #{$selector}#{$prefix}-mb-#{$amount} {
             margin-bottom: $amountPixels;
         }
 
-        .#{$prefix}-ml-#{$amount},
-        %#{$prefix}-ml-#{$amount} {
+        #{$selector}#{$prefix}-ml-#{$amount} {
             margin-left: $amountPixels;
         }
 
-        .#{$prefix}-p-#{$amount},
-        %#{$prefix}-p-#{$amount} {
+        #{$selector}#{$prefix}-p-#{$amount} {
             padding: $amountPixels;
         }
 
-        .#{$prefix}-pv-#{$amount},
-        %#{$prefix}-pv-#{$amount} {
+        #{$selector}#{$prefix}-pv-#{$amount} {
             padding-top: $amountPixels;
             padding-bottom: $amountPixels;
         }
 
-        .#{$prefix}-ph-#{$amount},
-        %#{$prefix}-ph-#{$amount} {
+        #{$selector}#{$prefix}-ph-#{$amount} {
             padding-right: $amountPixels;
             padding-left: $amountPixels;
         }
 
-        .#{$prefix}-pt-#{$amount},
-        %#{$prefix}-pt-#{$amount} {
+        #{$selector}#{$prefix}-pt-#{$amount} {
             padding-top: $amountPixels;
         }
 
-        .#{$prefix}-pr-#{$amount},
-        %#{$prefix}-pr-#{$amount} {
+        #{$selector}#{$prefix}-pr-#{$amount} {
             padding-right: $amountPixels;
         }
 
-        .#{$prefix}-pb-#{$amount},
-        %#{$prefix}-pb-#{$amount} {
+        #{$selector}#{$prefix}-pb-#{$amount} {
             padding-bottom: $amountPixels;
         }
 
-        .#{$prefix}-pl-#{$amount},
-        %#{$prefix}-pl-#{$amount} {
+        #{$selector}#{$prefix}-pl-#{$amount} {
             padding-left: $amountPixels;
         }
     }

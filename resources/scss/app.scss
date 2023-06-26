@@ -1,5 +1,6 @@
 @use "@scss/utilities/placeholders";
 
-@import "@scss/common/reset", "@scss/common/typography", "@scss/common/forms", "@scss/common/helpers";
+@import "@scss/common/reset", "@scss/common/typography", "@scss/common/forms", "@scss/common/spacing",
+    "@scss/common/helpers";
 
 @import "@scss/components/form";
