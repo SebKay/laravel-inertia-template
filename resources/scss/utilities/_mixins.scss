@@ -15,6 +15,18 @@
             margin: $amountPixels;
         }
 
+        .#{$prefix}-mv-#{$amount},
+        %#{$prefix}-mv-#{$amount} {
+            margin-top: $amountPixels;
+            margin-bottom: $amountPixels;
+        }
+
+        .#{$prefix}-mh-#{$amount},
+        %#{$prefix}-mh-#{$amount} {
+            margin-right: $amountPixels;
+            margin-left: $amountPixels;
+        }
+
         .#{$prefix}-mt-#{$amount},
         %#{$prefix}-mt-#{$amount} {
             margin-top: $amountPixels;
@@ -38,6 +50,18 @@
         .#{$prefix}-p-#{$amount},
         %#{$prefix}-p-#{$amount} {
             padding: $amountPixels;
+        }
+
+        .#{$prefix}-pv-#{$amount},
+        %#{$prefix}-pv-#{$amount} {
+            padding-top: $amountPixels;
+            padding-bottom: $amountPixels;
+        }
+
+        .#{$prefix}-ph-#{$amount},
+        %#{$prefix}-ph-#{$amount} {
+            padding-right: $amountPixels;
+            padding-left: $amountPixels;
         }
 
         .#{$prefix}-pt-#{$amount},
