@@ -38,6 +38,14 @@
         }
     },
     "scripts": {
+        "build:lint": [
+            "composer install --no-interaction"
+        ],
+        "build:test": [
+            "composer install --no-interaction",
+            "php artisan key:generate --env=testing",
+            "php artisan migrate:fresh --seed --seeder=TestsSeeder"
+        ],
         "build:dev": [
             "composer install",
             "php artisan migrate:fresh --seed",
@@ -49,9 +57,6 @@
             "php artisan migrate --force",
             "npm install",
             "npm run build"
-        ],
-        "build:test": [
-            "composer install --no-interaction"
         ],
         "lint": [
             "./vendor/bin/pint --test"
