@@ -8,45 +8,55 @@
     font-size: functions.px-to-rem($pixels);
 }
 
-@mixin spacing($prefix,) {
+@mixin spacing($prefix) {
     @each $amount, $amountPixels in variables.$spacing {
-        .#{$prefix}-m-#{$amount} {
+        .#{$prefix}-m-#{$amount},
+        %#{$prefix}-m-#{$amount} {
             margin: $amountPixels;
         }
 
-        .#{$prefix}-mt-#{$amount} {
+        .#{$prefix}-mt-#{$amount},
+        %#{$prefix}-mt-#{$amount} {
             margin-top: $amountPixels;
         }
 
-        .#{$prefix}-mr-#{$amount} {
+        .#{$prefix}-mr-#{$amount},
+        %#{$prefix}-mr-#{$amount} {
             margin-right: $amountPixels;
         }
 
-        .#{$prefix}-mb-#{$amount} {
+        .#{$prefix}-mb-#{$amount},
+        %#{$prefix}-mb-#{$amount} {
             margin-bottom: $amountPixels;
         }
 
-        .#{$prefix}-ml-#{$amount} {
+        .#{$prefix}-ml-#{$amount},
+        %#{$prefix}-ml-#{$amount} {
             margin-left: $amountPixels;
         }
 
-        .#{$prefix}-p-#{$amount} {
+        .#{$prefix}-p-#{$amount},
+        %#{$prefix}-p-#{$amount} {
             padding: $amountPixels;
         }
 
-        .#{$prefix}-pt-#{$amount} {
+        .#{$prefix}-pt-#{$amount},
+        %#{$prefix}-pt-#{$amount} {
             padding-top: $amountPixels;
         }
 
-        .#{$prefix}-pr-#{$amount} {
+        .#{$prefix}-pr-#{$amount},
+        %#{$prefix}-pr-#{$amount} {
             padding-right: $amountPixels;
         }
 
-        .#{$prefix}-pb-#{$amount} {
+        .#{$prefix}-pb-#{$amount},
+        %#{$prefix}-pb-#{$amount} {
             padding-bottom: $amountPixels;
         }
 
-        .#{$prefix}-pl-#{$amount} {
+        .#{$prefix}-pl-#{$amount},
+        %#{$prefix}-pl-#{$amount} {
             padding-left: $amountPixels;
         }
     }
