@@ -1,7 +1,10 @@
 <template>
     <Head :title="title" />
 
-    <h1 v-text="title" class="mt-30 mb-40"></h1>
+    <h1
+        v-text="title"
+        class="mt-30 mb-40"
+    ></h1>
 
     <p v-if="userCan($page.props, 'create-posts')">User can create posts.</p>
 </template>
