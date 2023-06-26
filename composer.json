@@ -38,6 +38,14 @@
         }
     },
     "scripts": {
+        "build:lint": [
+            "composer install --no-interaction"
+        ],
+        "build:test": [
+            "composer install --no-interaction",
+            "php artisan key:generate --env=testing",
+            "php artisan migrate:fresh --seed --seeder=TestsSeeder"
+        ],
         "build:dev": [
             "composer install",
             "php artisan migrate:fresh --seed",
@@ -50,9 +58,6 @@
             "npm install",
             "npm run build"
         ],
-        "build:test": [
-            "composer install --no-interaction"
-        ],
         "lint": [
             "./vendor/bin/pint --test"
         ],
@@ -60,10 +65,10 @@
             "./vendor/bin/pint"
         ],
         "test": [
-            "php artisan test --parallel --stop-on-failure --processes=8"
+            "./vendor/bin/pest --parallel --stop-on-failure --processes=8"
         ],
         "test:coverage": [
-            "XDEBUG_MODE=coverage php artisan test --parallel --coverage --min=85  --processes=8 --stop-on-failure"
+            "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --coverage --min=85  --processes=8 --stop-on-failure"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -79,12 +84,18 @@
             "@php artisan key:generate --ansi"
         ]
     },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "stable",
