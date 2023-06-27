@@ -3,21 +3,22 @@
         v-if="links.length > 0"
         class="menu"
     >
-        <Link
+        <MenuLink
             v-for="link in links"
-            class="menu__item"
-            :href="route(link.route)"
-            :class="{ 'menu__item--active': link.components.includes($page.component) }"
-            :method="link?.method"
-            :as="link?.method == 'post' ? 'button' : 'a'"
-        >
-        {{ link.label }}
-        </Link>
+            :link="link"
+            :classes="['menu__item', { 'menu__item--active': link.components.includes($page.component) }]"
+        />
     </nav>
 </template>
 
 <script>
+    import MenuLink from "@js/Components/MenuLink.vue";
+
     export default {
+        components: {
+            MenuLink,
+        },
+
         props: {
             links: {
                 type: Array,
