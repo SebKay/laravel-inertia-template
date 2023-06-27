@@ -9,6 +9,10 @@
     @return #{$rem-size}rem;
 }
 
+@function color($key) {
+    @return map.get(variables.$colors, $key);
+}
+
 @function font($key) {
     @return map.get(variables.$fonts, $key);
 }

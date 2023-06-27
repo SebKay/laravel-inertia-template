@@ -43,7 +43,7 @@
         justify-content: center;
         cursor: pointer;
         border-radius: border-radius(buttons);
-        background-color: $ui-color-1;
+        background-color: color(1);
         // Type
         font-family: font(1);
         font-weight: font-weight(bold);
