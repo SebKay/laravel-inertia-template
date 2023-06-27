@@ -6,42 +6,6 @@
     font-weight: functions.font-weight(bold);
 }
 
-%heading-1 {
-    @include mixins.rem(40px);
-}
-
-%heading-2 {
-    @include mixins.rem(34px);
-}
-
-%heading-3 {
-    @include mixins.rem(28px);
-}
-
-%heading-4 {
-    @include mixins.rem(24px);
-}
-
-%heading-5 {
-    @include mixins.rem(20px);
-}
-
-%heading-6 {
-    @include mixins.rem(16px);
-}
-
-%text-small {
-    @include mixins.rem(16px);
-}
-
-%text-regular {
-    @include mixins.rem(18px);
-}
-
-%text-large {
-    @include mixins.rem(22px);
-}
-
 %text-uppercase {
     // Type
     text-transform: uppercase;
@@ -65,9 +29,81 @@
 
 //---- Responsive ----//
 @media (min-width: (functions.breakpoint(mobile-2) + 1)) {
-    @include mixins.spacing('d', '%');
+    @include mixins.spacing("d", "%");
+
+    %heading-1 {
+        @include mixins.rem(40px);
+    }
+
+    %heading-2 {
+        @include mixins.rem(34px);
+    }
+
+    %heading-3 {
+        @include mixins.rem(28px);
+    }
+
+    %heading-4 {
+        @include mixins.rem(24px);
+    }
+
+    %heading-5 {
+        @include mixins.rem(20px);
+    }
+
+    %heading-6 {
+        @include mixins.rem(16px);
+    }
+
+    %text-small {
+        @include mixins.rem(16px);
+    }
+
+    %text-regular {
+        @include mixins.rem(18px);
+    }
+
+    %text-large {
+        @include mixins.rem(22px);
+    }
 }
 
 @media (max-width: functions.breakpoint(mobile-2)) {
-    @include mixins.spacing('m', '%');
+    @include mixins.spacing("m", "%");
+
+    %heading-1 {
+        @include mixins.rem(32px);
+    }
+
+    %heading-2 {
+        @include mixins.rem(26px);
+    }
+
+    %heading-3 {
+        @include mixins.rem(22px);
+    }
+
+    %heading-4 {
+        @include mixins.rem(20px);
+    }
+
+    %heading-5 {
+        @include mixins.rem(18px);
+    }
+
+    %heading-6 {
+        @include mixins.rem(16px);
+    }
+
+    %text-small {
+        @include mixins.rem(14px);
+    }
+
+    %text-regular {
+        @include mixins.rem(16px);
+    }
+
+    %text-large {
+        @include mixins.rem(19px);
+    }
 }
