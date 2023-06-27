@@ -48,6 +48,7 @@ export default defineConfig({
                     @use "@scss/utilities/_variables.scss" as *;
                     @use "@scss/utilities/_functions.scss" as *;
                     @use "@scss/utilities/_mixins.scss" as *;
+                    @use "@scss/utilities/_placeholders.scss" as *;
                 `
             },
         },

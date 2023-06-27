@@ -1,4 +1,5 @@
 input {
+    @include rem(16px);
     width: 100%;
     border-radius: border-radius(forms);
     border: border(forms);
@@ -22,7 +23,7 @@ button {
 label {
     @extend %text-regular;
     // Type
-    font-weight: 700;
+    font-weight: font-weight(bold);
 }
 
 //---- Responsive ----//

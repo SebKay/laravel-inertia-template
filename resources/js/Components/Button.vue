@@ -43,10 +43,10 @@
         justify-content: center;
         cursor: pointer;
         border-radius: border-radius(buttons);
-        background-color: $ui-color-1;
+        background-color: color(1);
         // Type
         font-family: font(1);
-        font-weight: bold;
+        font-weight: font-weight(bold);
         text-align: center;
         color: #fff;
     }
@@ -63,14 +63,14 @@
     //---- Responsive ----//
     @media (min-width: (breakpoint(mobile-1) + 1)) {
         .btn {
-            @include rem(16px);
+            @include rem(18px);
             padding: 17px 25px;
         }
     }
 
     @media (max-width: breakpoint(mobile-1)) {
         .btn {
-            @include rem(14px);
+            @include rem(16px);
             padding: 13px 20px;
         }
     }

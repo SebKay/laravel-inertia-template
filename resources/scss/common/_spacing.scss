@@ -4,10 +4,10 @@
 @use "@scss/utilities/mixins";
 
 //---- Responsive ----//
-@media (min-width: (functions.breakpoint(mobile-2) + 1)) {
-    @include mixins.spacing(desktop);
+@media (min-width: (functions.breakpoint(mobile-1) + 1)) {
+    @include mixins.spacing('d', '.');
 }
 
-@media (max-width: functions.breakpoint(mobile-2)) {
-    @include mixins.spacing(mobile);
+@media (max-width: functions.breakpoint(mobile-1)) {
+    @include mixins.spacing('m', '.');
 }

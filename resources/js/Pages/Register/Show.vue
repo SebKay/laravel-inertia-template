@@ -3,7 +3,7 @@
 
     <h1
         v-text="title"
-        class="mb-40 text-center"
+        class="d-mb-40 m-mb-30 text-center"
     ></h1>
 
     <form
@@ -83,8 +83,10 @@
         </div>
     </form>
 
-    <div class="mt-30 text-center">
-        <Link :href="route('login')">Login</Link>
+    <div class="d-mt-30 m-mt-15 text-center">
+        <p>
+            <Link :href="route('login')">Login</Link>
+        </p>
     </div>
 </template>
 

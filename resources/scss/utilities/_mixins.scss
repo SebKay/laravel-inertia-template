@@ -8,22 +8,66 @@
     font-size: functions.px-to-rem($pixels);
 }
 
-@mixin spacing($size) {
-    @each $amount, $amountPixels in map.get(variables.$spacing, $size) {
-        .mt-#{$amount} {
+@mixin spacing($prefix, $selector) {
+    @each $amount, $amountPixels in variables.$spacing {
+        #{$selector}#{$prefix}-m-#{$amount} {
+            margin: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-mv-#{$amount} {
             margin-top: $amountPixels;
-        }
-
-        .mr-#{$amount} {
-            margin-right: $amountPixels;
-        }
-
-        .mb-#{$amount} {
             margin-bottom: $amountPixels;
         }
 
-        .ml-#{$amount} {
+        #{$selector}#{$prefix}-mh-#{$amount} {
+            margin-right: $amountPixels;
             margin-left: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-mt-#{$amount} {
+            margin-top: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-mr-#{$amount} {
+            margin-right: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-mb-#{$amount} {
+            margin-bottom: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-ml-#{$amount} {
+            margin-left: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-p-#{$amount} {
+            padding: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-pv-#{$amount} {
+            padding-top: $amountPixels;
+            padding-bottom: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-ph-#{$amount} {
+            padding-right: $amountPixels;
+            padding-left: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-pt-#{$amount} {
+            padding-top: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-pr-#{$amount} {
+            padding-right: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-pb-#{$amount} {
+            padding-bottom: $amountPixels;
+        }
+
+        #{$selector}#{$prefix}-pl-#{$amount} {
+            padding-left: $amountPixels;
         }
     }
 }
