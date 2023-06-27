@@ -42,23 +42,23 @@
     }
 
     //---- Responsive ----//
-    @media (min-width: (breakpoint(mobile-2) + 1)) {
+    @media (min-width: (breakpoint(tablet-1) + 1)) {
         .menu {
             column-gap: 40px;
         }
 
         .menu__item {
-            @include rem(16px);
+            @include rem(18px);
         }
     }
 
-    @media (max-width: breakpoint(mobile-2)) {
+    @media (max-width: breakpoint(tablet-1)) {
         .menu {
-            column-gap: 20px;
+            column-gap: 30px;
         }
 
         .menu__item {
-            @include rem(14px);
+            @include rem(16px);
         }
     }
 </style>

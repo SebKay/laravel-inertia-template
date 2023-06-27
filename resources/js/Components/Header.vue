@@ -48,7 +48,7 @@
     }
 
     //---- Responsive ----//
-    @media (min-width: (breakpoint(mobile-2) + 1)) {
+    @media (min-width: (breakpoint(tablet-1) + 1)) {
         .header__inner {
             column-gap: 40px;
         }
@@ -58,13 +58,23 @@
         }
     }
 
-    @media (max-width: breakpoint(mobile-2)) {
+    @media (max-width: breakpoint(tablet-1)) and (min-width: (breakpoint(mobile-1) + 1)) {
+        .header__inner {
+            column-gap: 30px;
+        }
+
+        .header__logo {
+            @include rem(28px);
+        }
+    }
+
+    @media (max-width: breakpoint(mobile-1)) {
         .header__inner {
             column-gap: 20px;
         }
 
         .header__logo {
-            @include rem(24px);
+            @include rem(26px);
         }
     }
 </style>
