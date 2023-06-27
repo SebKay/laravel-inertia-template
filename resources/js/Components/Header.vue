@@ -12,14 +12,13 @@
             <div class="header__section header__section--menu">
                 <slot name="menu" />
             </div>
+
+            <div class="header__section header__section--mobile-menu">
+                <slot name="mobile-menu" />
+            </div>
         </div>
     </header>
 </template>
-
-<script>
-    export default {
-    };
-</script>
 
 <style lang="scss">
     .header {
@@ -37,6 +36,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .header__section {
+        width: 50%;
+        display: flex;
     }
 
     .header__logo {
@@ -47,34 +52,45 @@
         color: #000;
     }
 
+    .header__section--menu {
+        justify-content: flex-end;
+    }
+
     //---- Responsive ----//
     @media (min-width: (breakpoint(tablet-1) + 1)) {
-        .header__inner {
-            column-gap: 40px;
-        }
-
         .header__logo {
             @include rem(32px);
         }
     }
 
     @media (max-width: breakpoint(tablet-1)) and (min-width: (breakpoint(mobile-1) + 1)) {
-        .header__inner {
-            column-gap: 30px;
-        }
-
         .header__logo {
             @include rem(28px);
         }
     }
 
+    @media (min-width: (breakpoint(mobile-1) + 1)) {
+        .header__section--menu .hamburger,
+        .header__section--mobile-menu {
+            display: none;
+        }
+    }
+
     @media (max-width: breakpoint(mobile-1)) {
         .header__inner {
-            column-gap: 20px;
+            row-gap: 15px;
+
+            .menu {
+                display: none;
+            }
         }
 
         .header__logo {
             @include rem(26px);
+        }
+
+        .header__section--mobile-menu {
+            width: 100%;
         }
     }
 </style>

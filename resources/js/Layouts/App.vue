@@ -6,6 +6,17 @@
     <Header>
         <template #menu>
             <Menu :links="menu" />
+            <Hamburger
+                :active="mobileMenuOpen"
+                @click.prevent="mobileMenuOpen = !mobileMenuOpen"
+            />
+        </template>
+
+        <template #mobile-menu>
+            <MobileMenu
+                :links="menu"
+                v-show="mobileMenuOpen"
+            />
         </template>
     </Header>
 
@@ -21,6 +32,8 @@
 <script>
     import Header from "@js/Components/Header.vue";
     import Menu from "@js/Components/Menu.vue";
+    import Hamburger from "@js/Components/Hamburger.vue";
+    import MobileMenu from "@js/Components/MobileMenu.vue";
 
     export default {
         name: "App Layout",
@@ -28,6 +41,8 @@
         components: {
             Header,
             Menu,
+            Hamburger,
+            MobileMenu,
         },
 
         data() {
@@ -50,6 +65,8 @@
                         components: [],
                     },
                 ],
+
+                mobileMenuOpen: false,
             };
         },
     };
