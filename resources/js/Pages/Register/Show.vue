@@ -84,7 +84,9 @@
     </form>
 
     <div class="d-mt-30 m-mt-15 text-center">
-        <Link :href="route('login')">Login</Link>
+        <p>
+            <Link :href="route('login')">Login</Link>
+        </p>
     </div>
 </template>
 

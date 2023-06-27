@@ -70,7 +70,9 @@
     </form>
 
     <div class="d-mt-30 m-mt-15 text-center">
-        <Link :href="route('register')">Register</Link>
+        <p>
+            <Link :href="route('register')">Register</Link>
+        </p>
     </div>
 </template>
 
