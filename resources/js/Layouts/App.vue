@@ -5,7 +5,7 @@
 
     <Header>
         <template #menu>
-            <Menu />
+            <Menu :links="menu" />
         </template>
     </Header>
 
@@ -28,6 +28,29 @@
         components: {
             Header,
             Menu,
+        },
+
+        data() {
+            return {
+                menu: [
+                    {
+                        label: "Home",
+                        route: "home",
+                        components: ['Home/Index'],
+                    },
+                    {
+                        label: "Account",
+                        route: "account.edit",
+                        components: ['Account/Edit'],
+                    },
+                    {
+                        label: "Logout",
+                        route: "logout",
+                        method: "post",
+                        components: [],
+                    },
+                ],
+            };
         },
     };
 </script>

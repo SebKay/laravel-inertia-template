@@ -1,26 +1,29 @@
 <template>
-    <nav class="menu">
+    <nav
+        v-if="links.length > 0"
+        class="menu"
+    >
         <Link
+            v-for="link in links"
             class="menu__item"
-            :href="route('home')"
-            :class="{ 'menu__item--active': $page.component.includes('Home/Index') }"
-        >Home</Link>
-        <Link
-            class="menu__item"
-            :class="{ 'menu__item--active': $page.component.includes('Account/Edit') }"
-            :href="route('account.edit')"
-        >Account</Link>
-        <Link
-            :href="route('logout')"
-            class="menu__item"
-            method="post"
-            as="button"
-        >Logout</Link>
+            :href="route(link.route)"
+            :class="{ 'menu__item--active': link.components.includes($page.component) }"
+            :method="link?.method"
+            :as="link?.method == 'post' ? 'button' : 'a'"
+        >
+        {{ link.label }}
+        </Link>
     </nav>
 </template>
 
 <script>
     export default {
+        props: {
+            links: {
+                type: Array,
+                required: true,
+            },
+        },
     };
 </script>
 
