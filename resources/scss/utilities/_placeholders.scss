@@ -28,7 +28,7 @@
 }
 
 //---- Responsive ----//
-@media (min-width: (functions.breakpoint(mobile-2) + 1)) {
+@media (min-width: (functions.breakpoint(mobile-1) + 1)) {
     @include mixins.spacing("d", "%");
 
     %heading-1 {
@@ -68,7 +68,7 @@
     }
 }
 
-@media (max-width: functions.breakpoint(mobile-2)) {
+@media (max-width: functions.breakpoint(mobile-1)) {
     @include mixins.spacing("m", "%");
 
     %heading-1 {
