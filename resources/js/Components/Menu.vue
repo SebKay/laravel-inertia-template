@@ -27,7 +27,6 @@
 <style lang="scss">
     .menu {
         display: flex;
-        column-gap: 40px;
     }
 
     .menu__item {
@@ -40,5 +39,26 @@
 
     .menu__item--active {
         border-bottom: 1px solid #000;
+    }
+
+    //---- Responsive ----//
+    @media (min-width: (breakpoint(mobile-2) + 1)) {
+        .menu {
+            column-gap: 40px;
+        }
+
+        .menu__item {
+            @include rem(16px);
+        }
+    }
+
+    @media (max-width: breakpoint(mobile-2)) {
+        .menu {
+            column-gap: 20px;
+        }
+
+        .menu__item {
+            @include rem(14px);
+        }
     }
 </style>

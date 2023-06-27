@@ -35,7 +35,7 @@
         @extend %d-mv-120;
         @extend %m-mv-20;
         @extend %d-p-60;
-        @extend %m-p-30;
+        @extend %m-p-20;
         width: 94%;
         max-width: 600px;
         margin-right: auto;
