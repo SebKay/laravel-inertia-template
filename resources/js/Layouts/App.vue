@@ -30,6 +30,8 @@
 </template>
 
 <script>
+    import { router } from "@inertiajs/core";
+
     import Header from "@js/Components/Header.vue";
     import Menu from "@js/Components/Menu.vue";
     import Hamburger from "@js/Components/Hamburger.vue";
@@ -68,6 +70,12 @@
 
                 mobileMenuOpen: false,
             };
+        },
+
+        mounted() {
+            router.on("success", () => {
+                this.mobileMenuOpen = false;
+            });
         },
     };
 </script>
