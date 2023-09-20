@@ -5,24 +5,25 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/guzzle": "^7.8",
         "inertiajs/inertia-laravel": "^0.6",
-        "laravel/framework": "^10.0",
-        "laravel/sanctum": "^3.2",
+        "laravel/framework": "^10.24",
+        "laravel/horizon": "^5.21",
+        "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "spatie/laravel-permission": "^5.9",
-        "tightenco/ziggy": "^1.5"
+        "spatie/laravel-permission": "^5.11",
+        "tightenco/ziggy": "^1.6"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.21",
-        "laravel/pint": "^1.5",
-        "mockery/mockery": "^1.5",
-        "nunomaduro/collision": "^7.0",
-        "pestphp/pest": "^2.0",
+        "fakerphp/faker": "^1.23",
+        "laravel/pint": "^1.13",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^7.9",
+        "pestphp/pest": "^2.19",
         "pestphp/pest-plugin-faker": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "spatie/laravel-ignition": "^2.0",
-        "spatie/ray": "^1.36"
+        "pestphp/pest-plugin-laravel": "^2.2",
+        "spatie/laravel-ignition": "^2.3",
+        "spatie/ray": "^1.39"
     },
     "autoload": {
         "psr-4": {
@@ -37,25 +38,18 @@
         }
     },
     "scripts": {
-        "build:lint": [
-            "composer install --no-interaction"
-        ],
-        "build:test": [
-            "composer install --no-interaction",
-            "php artisan key:generate --env=testing",
-            "php artisan migrate:fresh --seed --seeder=TestsSeeder"
-        ],
         "build:dev": [
             "composer install",
-            "php artisan migrate:fresh --seed",
-            "pnpm install  --node-linker=hoisted",
-            "pnpm run build"
+            "@artisan:build",
+            "@assets:build"
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
-            "php artisan migrate --force",
-            "pnpm install  --node-linker=hoisted",
-            "pnpm run build"
+            "@artisan:build",
+            "@assets:build"
+        ],
+        "build:test": [
+            "composer install --no-interaction"
         ],
         "lint": [
             "./vendor/bin/pint --test"
@@ -64,17 +58,28 @@
             "./vendor/bin/pint"
         ],
         "test": [
-            "./vendor/bin/pest --parallel --stop-on-failure --processes=8"
+            "./vendor/bin/pest --parallel --stop-on-failure"
         ],
         "test:coverage": [
-            "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --coverage --min=85  --processes=8 --stop-on-failure"
+            "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --stop-on-failure --coverage --min=85"
+        ],
+        "artisan:build": [
+            "@php artisan horizon:terminate",
+            "@php artisan horizon:publish",
+            "@php artisan cache:clear",
+            "@php artisan queue:restart"
+        ],
+        "assets:build": [
+            "bun install",
+            "bun run build"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan horizon:publish --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

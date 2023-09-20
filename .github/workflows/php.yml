@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Composer dependencies
         if: steps.cache-vendor.outputs.cache-hit != 'true'
-        run: composer install --no-interaction
+        run: composer build:test
 
   lint:
     name: Lint
@@ -48,15 +48,20 @@ jobs:
           tools: composer:v2
 
       - name: Build
-        run: composer build:lint
+        if: steps.cache-vendor.outputs.cache-hit != 'true'
+        run: build:test
 
       - name: Lint against Laravel code style
         run: composer lint
 
   test:
     name: Test
-    needs: [dependencies, lint]
+    needs: [lint, dependencies]
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: testing
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ":memory:"
 
     steps:
       - uses: actions/checkout@v3
@@ -72,14 +77,16 @@ jobs:
         with:
           php-version: 8.2
           tools: composer:v2
-          coverage: xdebug
+
+      - name: Build
+        if: steps.cache-vendor.outputs.cache-hit != 'true'
+        run: build:test
 
       - name: Setup application
         run: |
           cp .env.testing .env
-
-      - name: Build
-        run: composer build:test
+          php artisan key:generate
+          php artisan migrate:fresh
 
       - name: Run tests
         run: composer test:coverage

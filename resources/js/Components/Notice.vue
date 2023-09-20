@@ -24,45 +24,25 @@
             };
         },
 
-        watch: {
-            "$page.props.message": {
-                handler() {
+        mounted() {
+            router.on('finish', () => {
+                let message = router.page.props.message;
+                let error = Object.values(router.page.props.errors)[0] || null;
+
+                if (message) {
                     this.setNotice(router.page.props.message, "success");
-                },
-            },
-            "$page.props.errors": {
-                handler() {
-                    let errors = router.page.props.errors;
-
-                    let firstError = errors[Object.keys(errors)[0]];
-
-                    if (
-                        !firstError ||
-                        (Object.keys(errors).length === 0 &&
-                            errors.constructor === Object)
-                    ) {
-                        return;
-                    }
-
-                    this.type = "error";
-                    this.message = firstError;
-
-                    this.setActive();
-
-                    this.setClasses();
-                },
-            },
+                } else if (error) {
+                    this.setNotice(error, "error");
+                }
+            });
         },
 
         methods: {
             setNotice(message, type) {
-                if (type && message != "") {
-                    this.type = type;
-                    this.message = message;
+                this.type = type;
+                this.message = message;
 
-                    this.setActive();
-                }
-
+                this.setActive();
                 this.setClasses();
             },
 
@@ -87,15 +67,15 @@
 
 <style lang="scss">
     .notice {
-        @extend %d-p-20;
-        @extend %m-p-20;
         max-width: 400px;
+        padding: 20px;
         position: fixed;
         right: 20px;
         bottom: 20px;
         z-index: 950;
-        // Type
+        border-radius: radius(1);
         background-color: #f8f9fa;
+        // Type
         color: #212529;
 
         &--error {

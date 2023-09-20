@@ -42,7 +42,7 @@
         display: inline-flex;
         justify-content: center;
         cursor: pointer;
-        border-radius: border-radius(buttons);
+        border-radius: radius(buttons);
         background-color: color(1);
         // Type
         font-family: font(1);
