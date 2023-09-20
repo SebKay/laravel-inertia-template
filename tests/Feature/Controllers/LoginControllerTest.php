@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
+
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
