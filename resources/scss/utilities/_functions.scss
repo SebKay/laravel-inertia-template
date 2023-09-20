@@ -21,7 +21,7 @@
     @return map.get(variables.$font-weights, $key);
 }
 
-@function border-radius($size) {
+@function radius($size) {
     @return map.get(variables.$border-radiuses, $size);
 }
 

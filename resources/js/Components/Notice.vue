@@ -93,7 +93,7 @@
         right: 20px;
         bottom: 20px;
         z-index: 950;
-        border-radius: border-radius(2);
+        border-radius: radius(1);
         background-color: #f8f9fa;
         // Type
         color: #212529;
