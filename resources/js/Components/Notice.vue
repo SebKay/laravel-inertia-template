@@ -87,15 +87,15 @@
 
 <style lang="scss">
     .notice {
-        @extend %d-p-20;
-        @extend %m-p-20;
         max-width: 400px;
+        padding: 20px;
         position: fixed;
         right: 20px;
         bottom: 20px;
         z-index: 950;
-        // Type
+        border-radius: border-radius(2);
         background-color: #f8f9fa;
+        // Type
         color: #212529;
 
         &--error {
