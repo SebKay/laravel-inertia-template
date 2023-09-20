@@ -11,6 +11,7 @@
         "laravel/horizon": "^5.21",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "predis/predis": "^2.2",
         "spatie/laravel-permission": "^5.11",
         "tightenco/ziggy": "^1.6"
     },
