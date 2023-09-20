@@ -37,25 +37,18 @@
         }
     },
     "scripts": {
-        "build:lint": [
-            "composer install --no-interaction"
-        ],
-        "build:test": [
-            "composer install --no-interaction",
-            "php artisan key:generate --env=testing",
-            "php artisan migrate:fresh --seed --seeder=TestsSeeder"
-        ],
         "build:dev": [
             "composer install",
-            "php artisan migrate:fresh --seed",
-            "pnpm install  --node-linker=hoisted",
-            "pnpm run build"
+            "@artisan:build",
+            "@assets:build"
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
-            "php artisan migrate --force",
-            "pnpm install  --node-linker=hoisted",
-            "pnpm run build"
+            "@artisan:build",
+            "@assets:build"
+        ],
+        "build:test": [
+            "composer install --no-interaction"
         ],
         "lint": [
             "./vendor/bin/pint --test"
@@ -64,17 +57,28 @@
             "./vendor/bin/pint"
         ],
         "test": [
-            "./vendor/bin/pest --parallel --stop-on-failure --processes=8"
+            "./vendor/bin/pest --parallel --stop-on-failure"
         ],
         "test:coverage": [
-            "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --coverage --min=85  --processes=8 --stop-on-failure"
+            "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --stop-on-failure --coverage --min=85"
+        ],
+        "artisan:build": [
+            "@php artisan horizon:terminate",
+            "@php artisan horizon:publish",
+            "@php artisan cache:clear",
+            "@php artisan queue:restart"
+        ],
+        "assets:build": [
+            "bun install",
+            "bun run build"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan horizon:publish --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
