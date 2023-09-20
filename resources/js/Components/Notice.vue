@@ -24,45 +24,25 @@
             };
         },
 
-        watch: {
-            "$page.props.message": {
-                handler() {
+        mounted() {
+            router.on('finish', () => {
+                let message = router.page.props.message;
+                let error = Object.values(router.page.props.errors)[0] || null;
+
+                if (message) {
                     this.setNotice(router.page.props.message, "success");
-                },
-            },
-            "$page.props.errors": {
-                handler() {
-                    let errors = router.page.props.errors;
-
-                    let firstError = errors[Object.keys(errors)[0]];
-
-                    if (
-                        !firstError ||
-                        (Object.keys(errors).length === 0 &&
-                            errors.constructor === Object)
-                    ) {
-                        return;
-                    }
-
-                    this.type = "error";
-                    this.message = firstError;
-
-                    this.setActive();
-
-                    this.setClasses();
-                },
-            },
+                } else if (error) {
+                    this.setNotice(error, "error");
+                }
+            });
         },
 
         methods: {
             setNotice(message, type) {
-                if (type && message != "") {
-                    this.type = type;
-                    this.message = message;
+                this.type = type;
+                this.message = message;
 
-                    this.setActive();
-                }
-
+                this.setActive();
                 this.setClasses();
             },
 
