@@ -42,6 +42,7 @@
         "build:dev": [
             "composer install",
             "@artisan:build",
+            "@php artisan migrate:fresh --seed",
             "@assets:build"
         ],
         "build:prod": [
