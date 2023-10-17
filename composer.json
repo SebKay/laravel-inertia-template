@@ -48,6 +48,7 @@
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
             "@artisan:build",
+            "@php artisan migrate --force",
             "@assets:build"
         ],
         "build:test": [
