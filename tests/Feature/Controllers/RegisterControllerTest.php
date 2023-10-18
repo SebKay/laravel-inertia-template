@@ -28,6 +28,7 @@ test('Guests can register', function () {
     $email = fake()->email();
 
     post(route('register.store'), [
+        'organisation_name' => fake()->company(),
         'first_name' => fake()->firstName(),
         'last_name' => fake()->lastName(),
         'email' => $email,
