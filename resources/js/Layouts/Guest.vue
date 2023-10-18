@@ -28,7 +28,7 @@
 
 <style lang="scss">
     body {
-        background-color: #eee;
+        background-color: color(bg-1);
     }
 
     .guest-page__inner {

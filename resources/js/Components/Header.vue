@@ -50,7 +50,7 @@
         font-weight: font-weight(bold);
         text-transform: uppercase;
         text-decoration: none;
-        color: #000;
+        color: color(2);
     }
 
     .header__section--menu {

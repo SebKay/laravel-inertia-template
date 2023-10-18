@@ -2,20 +2,21 @@ $base-text-size: 16px;
 
 $colors: (
     1: #4b6cc1,
-    bg-1: #eee,
+    2: #000,
+    bg-1: #eee
 );
 
 $fonts: (
     1: (
         "Hanken Grotesk",
-        sans-serif,
-    ),
+        sans-serif
+    )
 );
 
 $font-weights: (
     regular: 400,
     semi-bold: 600,
-    bold: 700,
+    bold: 700
 );
 
 $shadows: (
@@ -33,11 +34,11 @@ $radiuses: (
     1: 5px,
     2: 12px,
     forms: 5px,
-    buttons: 5px,
+    buttons: 5px
 );
 
 $borders: (
-    forms: 1px solid #aaa,
+    forms: 1px solid #aaa
 );
 
 $breakpoints: (
@@ -47,7 +48,7 @@ $breakpoints: (
     tablet-1: 1024px,
     tablet-2: 768px,
     mobile-1: 670px,
-    mobile-2: 450px,
+    mobile-2: 450px
 );
 
 $spacing: (
@@ -64,5 +65,5 @@ $spacing: (
     110: 110px,
     115: 115px,
     120: 120px,
-    130: 130px,
+    130: 130px
 );
