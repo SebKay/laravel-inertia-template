@@ -95,6 +95,7 @@
         margin-right: auto;
         margin-left: auto;
         box-shadow: shadow(1);
+        border-radius: radius(2);
         background-color: #fff;
     }
 </style>
