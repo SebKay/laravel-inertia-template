@@ -16,6 +16,7 @@ class RegisterController extends Controller
             'last_name' => ! $isProd ? 'Gordon' : '',
             'email' => ! $isProd ? 'test@test.com' : '',
             'password' => ! $isProd ? '123456Ab#' : '',
+            'organisation_name' => ! $isProd ? 'GCPD' : '',
         ]);
     }
 
@@ -25,6 +26,11 @@ class RegisterController extends Controller
 
         $user->password = $request->validated('password');
         $user->save();
+
+        $user->organisations()->create([
+            'name' => $request->validated('organisation_name'),
+        ]);
+        $user->currentOrganisation()->associate($user->organisations->first())->save();
 
         \auth()->loginUsingId($user->id);
 

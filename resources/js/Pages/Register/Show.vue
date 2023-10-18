@@ -15,8 +15,10 @@
                 <div class="form__item">
                     <label
                         class="form__label"
-                        for="first_name"
-                    >First Name</label>
+                        for="first-name"
+                    >
+                        First Name
+                    </label>
                     <input
                         id="first-name"
                         type="text"
@@ -30,8 +32,10 @@
                 <div class="form__item">
                     <label
                         class="form__label"
-                        for="last_name"
-                    >Last Name</label>
+                        for="last-name"
+                    >
+                        Last Name
+                    </label>
                     <input
                         id="last-name"
                         type="text"
@@ -46,7 +50,9 @@
                     <label
                         class="form__label"
                         for="email"
-                    >Email</label>
+                    >
+                        Email
+                    </label>
                     <input
                         id="email"
                         type="email"
@@ -61,11 +67,30 @@
                     <label
                         class="form__label"
                         for="password"
-                    >Password</label>
+                    >
+                        Password
+                    </label>
                     <input
                         id="password"
                         type="password"
                         v-model="form.password"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form__row">
+                <div class="form__item">
+                    <label
+                        class="form__label"
+                        for="org-name"
+                    >
+                        Organisation Name
+                    </label>
+                    <input
+                        id="org-name"
+                        type="text"
+                        v-model="form.organisation_name"
                         required
                     />
                 </div>
@@ -103,6 +128,7 @@
             last_name: String,
             email: String,
             password: String,
+            organisation_name: String,
         },
 
         data() {
@@ -113,6 +139,7 @@
                     last_name: this.last_name,
                     email: this.email,
                     password: this.password,
+                    organisation_name: this.organisation_name,
                 }),
             };
         },
