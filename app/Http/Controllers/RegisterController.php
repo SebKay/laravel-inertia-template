@@ -32,6 +32,8 @@ class RegisterController extends Controller
         ]);
         $user->currentOrganisation()->associate($user->organisations->first())->save();
 
+        $user->assignRole('user');
+
         \auth()->loginUsingId($user->id);
 
         return \redirect()->route('home');

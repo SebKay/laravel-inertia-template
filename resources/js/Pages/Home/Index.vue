@@ -7,6 +7,7 @@
     ></h1>
 
     <p v-if="userCan($page.props, 'create-posts')">User can create posts.</p>
+    <p v-else>User can't create posts.</p>
 </template>
 
 <script>
