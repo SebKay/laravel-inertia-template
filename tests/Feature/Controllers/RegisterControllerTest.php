@@ -25,10 +25,11 @@ test("Users can't access register page", function () {
 });
 
 test('Guests can register', function () {
+    $orgName = fake()->company();
     $email = fake()->email();
 
     post(route('register.store'), [
-        'organisation_name' => fake()->company(),
+        'organisation_name' => $orgName,
         'first_name' => fake()->firstName(),
         'last_name' => fake()->lastName(),
         'email' => $email,
@@ -39,6 +40,12 @@ test('Guests can register', function () {
     assertDatabaseHas('users', [
         'email' => $email,
     ]);
+
+    assertDatabaseHas('organisations', [
+        'name' => $orgName,
+    ]);
+
+    expect(User::where('email', $email)->firstOrFail()->roles->first()->name)->toBe('user');
 
     assertAuthenticated();
 });
