@@ -3,7 +3,11 @@ $base-text-size: 16px;
 $colors: (
     1: #4b6cc1,
     2: #000,
-    bg-1: #eee
+    bg-1: #eee,
+    error-bg: #f8d7da,
+    error-text: #721c24,
+    success-bg: #d4edda,
+    success-text: #155724
 );
 
 $fonts: (
