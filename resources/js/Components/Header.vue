@@ -71,6 +71,7 @@
     }
 
     @media (min-width: (breakpoint(mobile-1) + 1)) {
+
         .header__section--menu .hamburger,
         .header__section--mobile-menu {
             display: none;
@@ -79,10 +80,12 @@
 
     @media (max-width: breakpoint(mobile-1)) {
         .header__inner {
-            row-gap: 15px;
-
             .menu {
                 display: none;
+            }
+
+            .mobile-menu {
+                margin-top: 15px;
             }
         }
 
