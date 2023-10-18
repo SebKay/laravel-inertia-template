@@ -23,6 +23,7 @@
 <style lang="scss">
     .header {
         width: 100%;
+        box-shadow: shadow(1);
         background-color: #fff;
     }
 

@@ -40,6 +40,7 @@
         max-width: 600px;
         margin-right: auto;
         margin-left: auto;
+        box-shadow: shadow(1);
         background-color: #fff;
     }
 </style>
