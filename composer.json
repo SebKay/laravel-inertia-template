@@ -11,6 +11,7 @@
         "laravel/horizon": "^5.21",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "predis/predis": "^2.2",
         "spatie/laravel-permission": "^5.11",
         "tightenco/ziggy": "^1.6"
     },
@@ -41,11 +42,13 @@
         "build:dev": [
             "composer install",
             "@artisan:build",
+            "@php artisan migrate:fresh --seed",
             "@assets:build"
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
             "@artisan:build",
+            "@php artisan migrate --force",
             "@assets:build"
         ],
         "build:test": [

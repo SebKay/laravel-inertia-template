@@ -31,9 +31,9 @@
     .hamburger__line {
         width: 100%;
         height: 2px;
-        background-color: #000;
         position: absolute;
         left: 0;
+        background-color: color(2);
 
         &:nth-child(1) {
             top: 0px;

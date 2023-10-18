@@ -26,6 +26,10 @@ label {
     font-weight: font-weight(bold);
 }
 
+label[for] {
+    cursor: pointer;
+}
+
 //---- Responsive ----//
 @media (min-width: (breakpoint(mobile-1) + 1)) {
     input {

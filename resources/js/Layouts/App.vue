@@ -82,7 +82,7 @@
 
 <style lang="scss">
     body {
-        background-color: #eee;
+        background-color: color(bg-1);
     }
 
     .app-page__inner {
@@ -94,6 +94,8 @@
         max-width: 900px;
         margin-right: auto;
         margin-left: auto;
+        box-shadow: shadow(1);
+        border-radius: radius(2);
         background-color: #fff;
     }
 </style>

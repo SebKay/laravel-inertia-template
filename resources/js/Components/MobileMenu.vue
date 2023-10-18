@@ -45,10 +45,11 @@
         font-family: font(1);
         font-weight: font-weight(semi-bold);
         text-decoration: none;
-        color: #000;
+        color: transparentize(color(2), 0.35);
     }
 
     .mobile-menu__item--active {
-        border-bottom: 1px solid #000;
+        // Type
+        color: color(2);
     }
 </style>

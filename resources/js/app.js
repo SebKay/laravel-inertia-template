@@ -35,6 +35,6 @@ createInertiaApp({
     title: title => title ? `${title} | Template` : 'Template',
 
     progress: {
-        color: '#f5f5f5',
+        color: '#000',
     },
 });

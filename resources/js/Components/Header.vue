@@ -23,6 +23,7 @@
 <style lang="scss">
     .header {
         width: 100%;
+        box-shadow: shadow(1);
         background-color: #fff;
     }
 
@@ -49,7 +50,7 @@
         font-weight: font-weight(bold);
         text-transform: uppercase;
         text-decoration: none;
-        color: #000;
+        color: color(2);
     }
 
     .header__section--menu {
@@ -70,6 +71,7 @@
     }
 
     @media (min-width: (breakpoint(mobile-1) + 1)) {
+
         .header__section--menu .hamburger,
         .header__section--mobile-menu {
             display: none;
@@ -78,10 +80,12 @@
 
     @media (max-width: breakpoint(mobile-1)) {
         .header__inner {
-            row-gap: 15px;
-
             .menu {
                 display: none;
+            }
+
+            .mobile-menu {
+                margin-top: 15px;
             }
         }
 

@@ -27,6 +27,7 @@ class RolesAndPermissionsSeeder extends Seeder
     {
         $this->roles = \collect([
             'admin' => Role::create(['name' => 'admin']),
+            'user' => Role::create(['name' => 'user']),
         ]);
     }
 
@@ -44,5 +45,6 @@ class RolesAndPermissionsSeeder extends Seeder
     protected function assignPermissionsToRoles()
     {
         $this->roles->get('admin')->givePermissionTo($this->postPermissions);
+        $this->roles->get('user')->givePermissionTo($this->postPermissions);
     }
 }

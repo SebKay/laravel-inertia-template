@@ -74,20 +74,17 @@
         bottom: 20px;
         z-index: 950;
         border-radius: radius(1);
-        background-color: #f8f9fa;
-        // Type
-        color: #212529;
 
         &--error {
-            background-color: #f8d7da;
+            background-color: color(error-bg);
             // Type
-            color: #721c24;
+            color: color(error-text);
         }
 
         &--success {
-            background-color: #d4edda;
+            background-color: color(success-bg);
             // Type
-            color: #155724;
+            color: color(success-text);
         }
     }
 

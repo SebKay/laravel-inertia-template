@@ -10,6 +10,7 @@ class RegisterStore extends FormRequest
     public function rules()
     {
         return [
+            'organisation_name' => ['required', 'string'],
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'email' => ['required', 'email', 'unique:users'],
@@ -27,6 +28,7 @@ class RegisterStore extends FormRequest
     public function attributes()
     {
         return [
+            'organisation_name' => 'organisation name',
             'first_name' => 'first name',
             'last_name' => 'last name',
         ];
