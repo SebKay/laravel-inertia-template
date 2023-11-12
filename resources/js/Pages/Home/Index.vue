@@ -11,11 +11,7 @@
 </template>
 
 <script>
-    import AppLayout from "@js/Layouts/App.vue";
-
     export default {
-        layout: AppLayout,
-
         data() {
             return {
                 title: "Home",

@@ -85,11 +85,7 @@
 <script>
     import { useForm } from "@inertiajs/vue3";
 
-    import AppLayout from "@js/Layouts/App.vue";
-
     export default {
-        layout: AppLayout,
-
         props: {
             user: Object,
         },
