@@ -6,14 +6,19 @@ import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
 import { userCan } from "@js/utilities/permissions.js";
 
+import AppLayout from "@js/Layouts/App.vue";
+
 import Notice from "@js/Components/Notice.vue";
 import Button from "@js/Components/Button.vue";
 
 createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
+        let page = pages[`./Pages/${name}.vue`];
 
-        return pages[`./Pages/${name}.vue`];
+        page.default.layout = page.default.layout || AppLayout;
+
+        return page;
     },
 
     setup({ el, App, props, plugin }) {
