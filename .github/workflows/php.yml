@@ -58,10 +58,6 @@ jobs:
     name: Test
     needs: [lint, dependencies]
     runs-on: ubuntu-latest
-    env:
-      APP_ENV: testing
-      DB_CONNECTION: sqlite
-      DB_DATABASE: ":memory:"
 
     steps:
       - uses: actions/checkout@v3
