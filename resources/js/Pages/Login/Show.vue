@@ -9,7 +9,7 @@
     <div class="boxed">
         <form
             class="form"
-            @submit.prevent="login"
+            @submit.prevent="submitLoginForm"
         >
             <div class="form__section">
                 <div class="form__row">
@@ -17,12 +17,14 @@
                         <label
                             class="form__label"
                             for="email"
-                        >Email</label>
+                        >
+                            Email
+                        </label>
                         <input
                             id="email"
                             type="email"
-                            v-model="form.email"
                             required
+                            v-model="loginForm.email"
                         />
                     </div>
                 </div>
@@ -32,12 +34,14 @@
                         <label
                             class="form__label"
                             for="password"
-                        >Password</label>
+                        >
+                            Password
+                        </label>
                         <input
                             id="password"
                             type="password"
-                            v-model="form.password"
                             required
+                            v-model="loginForm.password"
                         />
                     </div>
                 </div>
@@ -51,7 +55,7 @@
                             <input
                                 id="remember"
                                 type="checkbox"
-                                v-model="form.remember"
+                                v-model="loginForm.remember"
                             />
                             Remember
                         </label>
@@ -63,7 +67,7 @@
                         <Button
                             text="Log In"
                             styles="full"
-                            :disabled="form.processing"
+                            :disabled="loginForm.processing"
                         />
                     </div>
                 </div>
@@ -96,7 +100,7 @@
         data() {
             return {
                 title: "Log In",
-                form: useForm({
+                loginForm: useForm({
                     email: this.email,
                     password: this.password,
                     remember: this.remember,
@@ -106,8 +110,8 @@
         },
 
         methods: {
-            login() {
-                this.form.post(route("login.store"));
+            submitLoginForm() {
+                this.loginForm.post(route("login.store"));
             },
         },
     };

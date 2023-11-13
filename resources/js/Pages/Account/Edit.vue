@@ -9,20 +9,22 @@
     <div class="boxed">
         <form
             class="form"
-            @submit.prevent="update"
+            @submit.prevent="submitAccountForm"
         >
             <div class="form__section">
                 <div class="form__row">
                     <div class="form__item">
                         <label
                             class="form__label"
-                            for="first_name"
-                        >First Name</label>
+                            for="first-name"
+                        >
+                            First Name
+                        </label>
                         <input
                             id="first-name"
                             type="text"
-                            v-model="form.first_name"
                             required
+                            v-model="accountForm.first_name"
                         />
                     </div>
                 </div>
@@ -31,13 +33,15 @@
                     <div class="form__item">
                         <label
                             class="form__label"
-                            for="last_name"
-                        >Last Name</label>
+                            for="last-name"
+                        >
+                            Last Name
+                        </label>
                         <input
                             id="last-name"
                             type="text"
-                            v-model="form.last_name"
                             required
+                            v-model="accountForm.last_name"
                         />
                     </div>
                 </div>
@@ -47,12 +51,14 @@
                         <label
                             class="form__label"
                             for="email"
-                        >Email</label>
+                        >
+                            Email
+                        </label>
                         <input
                             id="email"
                             type="email"
-                            v-model="form.email"
                             required
+                            v-model="accountForm.email"
                         />
                     </div>
                 </div>
@@ -62,11 +68,13 @@
                         <label
                             class="form__label"
                             for="password"
-                        >Password</label>
+                        >
+                            Password
+                        </label>
                         <input
                             id="password"
                             type="password"
-                            v-model="form.password"
+                            v-model="accountForm.password"
                         />
                     </div>
                 </div>
@@ -75,7 +83,7 @@
                     <div class="form__action">
                         <Button
                             text="Update"
-                            :disabled="form.processing"
+                            :disabled="accountForm.processing"
                         />
                     </div>
                 </div>
@@ -95,7 +103,7 @@
         data() {
             return {
                 title: "Update Account",
-                form: useForm({
+                accountForm: useForm({
                     first_name: this.user.first_name,
                     last_name: this.user.last_name,
                     email: this.user.email,
@@ -105,8 +113,8 @@
         },
 
         methods: {
-            update() {
-                this.form.patch(route("account.update"), {
+            submitAccountForm() {
+                this.accountForm.patch(route("account.update"), {
                     preserveScroll: true,
                 });
             },

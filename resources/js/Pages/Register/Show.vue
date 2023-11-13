@@ -9,7 +9,7 @@
     <div class="boxed">
         <form
             class="form"
-            @submit.prevent="register"
+            @submit.prevent="submitRegisterForm"
         >
             <div class="form__section">
                 <div class="form__row">
@@ -23,8 +23,8 @@
                         <input
                             id="first-name"
                             type="text"
-                            v-model="form.first_name"
                             required
+                            v-model="registerForm.first_name"
                         />
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                         <input
                             id="last-name"
                             type="text"
-                            v-model="form.last_name"
                             required
+                            v-model="registerForm.last_name"
                         />
                     </div>
                 </div>
@@ -57,8 +57,8 @@
                         <input
                             id="email"
                             type="email"
-                            v-model="form.email"
                             required
+                            v-model="registerForm.email"
                         />
                     </div>
                 </div>
@@ -74,8 +74,8 @@
                         <input
                             id="password"
                             type="password"
-                            v-model="form.password"
                             required
+                            v-model="registerForm.password"
                         />
                     </div>
                 </div>
@@ -91,8 +91,8 @@
                         <input
                             id="org-name"
                             type="text"
-                            v-model="form.organisation_name"
                             required
+                            v-model="registerForm.organisation_name"
                         />
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                         <Button
                             text="Register"
                             styles="full"
-                            :disabled="form.processing"
+                            :disabled="registerForm.processing"
                         />
                     </div>
                 </div>
@@ -136,7 +136,7 @@
         data() {
             return {
                 title: "Register",
-                form: useForm({
+                registerForm: useForm({
                     first_name: this.first_name,
                     last_name: this.last_name,
                     email: this.email,
@@ -147,8 +147,8 @@
         },
 
         methods: {
-            register() {
-                this.form.post(route("register.store"));
+            submitRegisterForm() {
+                this.registerForm.post(route("register.store"));
             },
         },
     };
