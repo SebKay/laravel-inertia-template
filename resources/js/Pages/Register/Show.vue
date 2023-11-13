@@ -6,112 +6,114 @@
         class="d-mb-40 m-mb-30 text-center"
     ></h1>
 
-    <form
-        class="form"
-        @submit.prevent="register"
-    >
-        <div class="form__section">
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="first-name"
-                    >
-                        First Name
-                    </label>
-                    <input
-                        id="first-name"
-                        type="text"
-                        v-model="form.first_name"
-                        required
-                    />
+    <div class="boxed">
+        <form
+            class="form"
+            @submit.prevent="submitRegisterForm"
+        >
+            <div class="form__section">
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="first-name"
+                        >
+                            First Name
+                        </label>
+                        <input
+                            id="first-name"
+                            type="text"
+                            required
+                            v-model="registerForm.first_name"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="last-name"
-                    >
-                        Last Name
-                    </label>
-                    <input
-                        id="last-name"
-                        type="text"
-                        v-model="form.last_name"
-                        required
-                    />
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="last-name"
+                        >
+                            Last Name
+                        </label>
+                        <input
+                            id="last-name"
+                            type="text"
+                            required
+                            v-model="registerForm.last_name"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="email"
-                    >
-                        Email
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        v-model="form.email"
-                        required
-                    />
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="email"
+                        >
+                            Email
+                        </label>
+                        <input
+                            id="email"
+                            type="email"
+                            required
+                            v-model="registerForm.email"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="password"
-                    >
-                        Password
-                    </label>
-                    <input
-                        id="password"
-                        type="password"
-                        v-model="form.password"
-                        required
-                    />
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="password"
+                        >
+                            Password
+                        </label>
+                        <input
+                            id="password"
+                            type="password"
+                            required
+                            v-model="registerForm.password"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="org-name"
-                    >
-                        Organisation Name
-                    </label>
-                    <input
-                        id="org-name"
-                        type="text"
-                        v-model="form.organisation_name"
-                        required
-                    />
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="org-name"
+                        >
+                            Organisation Name
+                        </label>
+                        <input
+                            id="org-name"
+                            type="text"
+                            required
+                            v-model="registerForm.organisation_name"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="form__row">
-                <div class="form__action">
-                    <Button
-                        text="Register"
-                        styles="full"
-                        :disabled="form.processing"
-                    />
+                <div class="form__row">
+                    <div class="form__action">
+                        <Button
+                            text="Register"
+                            styles="full"
+                            :disabled="registerForm.processing"
+                        />
+                    </div>
                 </div>
             </div>
+        </form>
+
+        <div class="d-mt-30 m-mt-15 text-center">
+            <p>
+                <Link :href="route('login')">Login</Link>
+            </p>
         </div>
-    </form>
-
-    <div class="d-mt-30 m-mt-15 text-center">
-        <p>
-            <Link :href="route('login')">Login</Link>
-        </p>
     </div>
 </template>
 
@@ -134,7 +136,7 @@
         data() {
             return {
                 title: "Register",
-                form: useForm({
+                registerForm: useForm({
                     first_name: this.first_name,
                     last_name: this.last_name,
                     email: this.email,
@@ -145,8 +147,8 @@
         },
 
         methods: {
-            register() {
-                this.form.post(route("register.store"));
+            submitRegisterForm() {
+                this.registerForm.post(route("register.store"));
             },
         },
     };

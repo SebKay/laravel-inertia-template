@@ -6,8 +6,10 @@
         class="d-mb-40 m-mb-30"
     ></h1>
 
-    <p v-if="userCan($page.props, 'create-posts')">User can create posts.</p>
-    <p v-else>User can't create posts.</p>
+    <div class="boxed">
+        <p v-if="userCan($page.props, 'create-posts')">User can create posts.</p>
+        <p v-else>User can't create posts.</p>
+    </div>
 </template>
 
 <script>
