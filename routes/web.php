@@ -35,3 +35,11 @@ Route::controller(App\Http\Controllers\AccountController::class)
         Route::get('', 'edit')->name('account.edit');
         Route::patch('', 'update')->name('account.update');
     });
+
+Route::controller(App\Http\Controllers\OrganisationController::class)
+    ->prefix('organisation')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('', 'edit')->name('organisation.edit');
+        Route::patch('', 'update')->name('organisation.update');
+    });
