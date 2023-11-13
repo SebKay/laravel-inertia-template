@@ -6,73 +6,75 @@
         class="d-mb-40 m-mb-30 text-center"
     ></h1>
 
-    <form
-        class="form"
-        @submit.prevent="login"
-    >
-        <div class="form__section">
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="email"
-                    >Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        v-model="form.email"
-                        required
-                    />
-                </div>
-            </div>
-
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label"
-                        for="password"
-                    >Password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        v-model="form.password"
-                        required
-                    />
-                </div>
-            </div>
-
-            <div class="form__row">
-                <div class="form__item">
-                    <label
-                        class="form__label form__label--inline"
-                        for="remember"
-                    >
+    <div class="boxed">
+        <form
+            class="form"
+            @submit.prevent="login"
+        >
+            <div class="form__section">
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="email"
+                        >Email</label>
                         <input
-                            id="remember"
-                            type="checkbox"
-                            v-model="form.remember"
+                            id="email"
+                            type="email"
+                            v-model="form.email"
+                            required
                         />
-                        Remember
-                    </label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form__row">
-                <div class="form__action">
-                    <Button
-                        text="Log In"
-                        styles="full"
-                        :disabled="form.processing"
-                    />
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label"
+                            for="password"
+                        >Password</label>
+                        <input
+                            id="password"
+                            type="password"
+                            v-model="form.password"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="form__item">
+                        <label
+                            class="form__label form__label--inline"
+                            for="remember"
+                        >
+                            <input
+                                id="remember"
+                                type="checkbox"
+                                v-model="form.remember"
+                            />
+                            Remember
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="form__action">
+                        <Button
+                            text="Log In"
+                            styles="full"
+                            :disabled="form.processing"
+                        />
+                    </div>
                 </div>
             </div>
+        </form>
+
+        <div class="d-mt-30 m-mt-15 text-center">
+            <p>
+                <Link :href="route('register')">Register</Link>
+            </p>
         </div>
-    </form>
-
-    <div class="d-mt-30 m-mt-15 text-center">
-        <p>
-            <Link :href="route('register')">Register</Link>
-        </p>
     </div>
 </template>
 

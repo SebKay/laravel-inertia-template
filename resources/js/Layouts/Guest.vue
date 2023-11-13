@@ -34,14 +34,9 @@
     .guest-page__inner {
         @extend %d-mv-120;
         @extend %m-mv-20;
-        @extend %d-p-60;
-        @extend %m-p-20;
         width: 94%;
         max-width: 600px;
         margin-right: auto;
         margin-left: auto;
-        box-shadow: shadow(1);
-        border-radius: radius(2);
-        background-color: #fff;
     }
 </style>
