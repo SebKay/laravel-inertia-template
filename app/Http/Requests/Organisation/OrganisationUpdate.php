@@ -8,7 +8,7 @@ class OrganisationUpdate extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('manage-organisation');
+        return $this->user()->can('update-organisation');
     }
 
     public function rules()

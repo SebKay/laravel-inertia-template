@@ -8,6 +8,6 @@ class OrganisationEdit extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('manage-organisation');
+        return $this->user()->can('edit-organisation');
     }
 }

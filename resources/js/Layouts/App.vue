@@ -65,7 +65,7 @@
                     {
                         label: "Organisation",
                         route: "organisation.edit",
-                        condition: this.userCan(this.$page.props, 'manage-organisation'),
+                        condition: this.userCan(this.$page.props, 'edit-organisation'),
                         components: ['Organisation/Edit'],
                     },
                     {
