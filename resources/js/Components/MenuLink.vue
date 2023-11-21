@@ -1,5 +1,6 @@
 <template>
     <Link
+        v-if="link.condition"
         :href="route(link.route)"
         :class="classes"
         :method="link?.method"

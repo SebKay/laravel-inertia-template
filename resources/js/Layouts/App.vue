@@ -53,17 +53,26 @@
                     {
                         label: "Home",
                         route: "home",
+                        condition: true,
                         components: ['Home/Index'],
                     },
                     {
                         label: "Account",
                         route: "account.edit",
+                        condition: true,
                         components: ['Account/Edit'],
+                    },
+                    {
+                        label: "Organisation",
+                        route: "organisation.edit",
+                        condition: this.userCan(this.$page.props, 'manage-organisation'),
+                        components: ['Organisation/Edit'],
                     },
                     {
                         label: "Logout",
                         route: "logout",
                         method: "post",
+                        condition: true,
                         components: [],
                     },
                 ],
