@@ -10,61 +10,62 @@ use function Pest\Laravel\patch;
 
 describe('Users', function() {
     test('Can edit their accounts', function () {
-        actingAs(User::factory()->create())
+        $user = User::factory()->create();
+
+        actingAs($user)
             ->get(route('account.edit'))
-            ->assertOk()
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Account/Edit')
+                    ->has('user')
+                    ->where('user.first_name', $user->first_name)
+                    ->where('user.last_name', $user->last_name)
+                    ->where('user.email', $user->email)
             );
     });
 
     test('Can update their details', function () {
-        $user = User::factory()->create([
+        $user = User::factory()->create($oldData = [
             'first_name' => 'Jim',
             'last_name' => 'Gordon',
             'email' => 'jim@test.com',
             'password' => 'oldPassword#123',
         ]);
 
-        expect(Hash::check('oldPassword#123', $user->password))->toBeTrue();
-
         expect($user)
-            ->first_name->toBe('Jim')
-            ->last_name->toBe('Gordon')
-            ->email->toBe('jim@test.com');
+            ->first_name->toBe($oldData['first_name'])
+            ->last_name->toBe($oldData['last_name'])
+            ->email->toBe($oldData['email']);
+
+        expect(Hash::check($oldData['password'], $user->password))->toBeTrue();
 
         actingAs($user)
-            ->patch(route('account.update'), [
-                'first_name' => 'Tim',
-                'last_name' => 'Drake',
-                'email' => 'tim@test.com',
-                'password' => 'newPassword#123',
-            ])
+            ->patch(route('account.update'), $newData = [
+            'first_name' => 'Tim',
+            'last_name' => 'Drake',
+            'email' => 'tim@test.com',
+            'password' => 'newPassword#123',
+        ])
             ->assertRedirect()
-            ->assertSessionHas('message', 'Your account has been updated.');
+            ->assertSessionHas('message', __('account.updated'));
 
-        $user->refresh();
+        expect($user->refresh())
+            ->first_name->toBe($newData['first_name'])
+            ->last_name->toBe($newData['last_name'])
+            ->email->toBe($newData['email']);
 
-        expect($user)
-            ->first_name->toBe('Tim')
-            ->last_name->toBe('Drake')
-            ->email->toBe('tim@test.com');
-
-        expect(Hash::check('newPassword#123', $user->password))->toBeTrue();
+        expect(Hash::check($newData['password'], $user->password))->toBeTrue();
     });
 });
 
 describe('Guests', function() {
     test("Can't edit accounts", function () {
-        get(route('account.edit'))->assertRedirect(route('login'));
+        get(route('account.edit'))
+            ->assertRedirect(route('login'));
     });
 
     test("Can't update details", function () {
-        patch(route('account.update'), [
-            'name' => 'Tim Drake',
-            'email' => 'tim@test.com',
-        ])
+        patch(route('account.update'))
             ->assertRedirect(route('login'));
     });
 });
