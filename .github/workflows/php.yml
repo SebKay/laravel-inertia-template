@@ -78,7 +78,7 @@ jobs:
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: build:test
 
-      - name: Setup application
+      - name: Configure application
         run: |
           cp .env.testing .env
           php artisan key:generate
