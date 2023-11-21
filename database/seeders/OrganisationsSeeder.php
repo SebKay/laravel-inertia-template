@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Role;
 use App\Models\Organisation;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -13,17 +14,19 @@ class OrganisationsSeeder extends Seeder
 
     public function run()
     {
-        $adminUser = User::whereEmail(\env('SEED_ADMIN_EMAIL'))->firstOrFail();
-
-        $orgs = Organisation::factory(5)
-            ->for($adminUser)
-            ->afterCreating(function (Organisation $org) use ($adminUser) {
-                $org->users()->attach($adminUser);
-            })
-            ->create();
-
-        $adminUser->currentOrganisation()
-            ->associate($orgs->first())
-            ->save();
+        User::whereHas('roles', fn ($q) => $q->where('name', Role::ADMIN->value))
+            ->get()
+            ->each(function(User $user) {
+                $user->currentOrganisation()
+                    ->associate(
+                        Organisation::factory()
+                            ->for($user)
+                            ->afterCreating(function (Organisation $org) use ($user) {
+                                $org->users()->attach($user);
+                            })
+                            ->create()
+                    )
+                    ->save();
+            });
     }
 }
