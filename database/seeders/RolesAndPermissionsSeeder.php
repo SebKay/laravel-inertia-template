@@ -14,6 +14,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
     protected Collection $roles;
 
+    protected Collection $orgnaisationPermissions;
+
     protected Collection $postPermissions;
 
     public function run()
@@ -33,6 +35,10 @@ class RolesAndPermissionsSeeder extends Seeder
 
     protected function createPermissions()
     {
+        $this->orgnaisationPermissions = \collect([
+            Permission::create(['name' => 'manage-organisation']),
+        ]);
+
         $this->postPermissions = \collect([
             Permission::create(['name' => 'create-posts']),
             Permission::create(['name' => 'view-posts']),
@@ -45,6 +51,8 @@ class RolesAndPermissionsSeeder extends Seeder
     protected function assignPermissionsToRoles()
     {
         $this->roles->get('admin')->givePermissionTo($this->postPermissions);
+        $this->roles->get('admin')->givePermissionTo($this->orgnaisationPermissions);
+
         $this->roles->get('user')->givePermissionTo($this->postPermissions);
     }
 }
