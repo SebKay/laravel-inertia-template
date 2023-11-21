@@ -11,9 +11,8 @@ it("can update it's password", function () {
     expect(Hash::check('oldPassword#123', $user->password))->toBeTrue();
 
     $user->updatePassword('newPassword#123');
-    $user->refresh();
 
-    expect(Hash::check('newPassword#123', $user->password))->toBeTrue();
+    expect(Hash::check('newPassword#123', $user->refresh()->password))->toBeTrue();
 });
 
 it("doesn't update it's password if the value is empty", function () {
@@ -24,12 +23,10 @@ it("doesn't update it's password if the value is empty", function () {
     expect(Hash::check('oldPassword#123', $user->password))->toBeTrue();
 
     $user->updatePassword('');
-    $user->refresh();
 
-    expect(Hash::check('oldPassword#123', $user->password))->toBeTrue();
+    expect(Hash::check('oldPassword#123', $user->refresh()->password))->toBeTrue();
 
     $user->updatePassword(null);
-    $user->refresh();
 
-    expect(Hash::check('oldPassword#123', $user->password))->toBeTrue();
+    expect(Hash::check('oldPassword#123', $user->refresh()->password))->toBeTrue();
 });
