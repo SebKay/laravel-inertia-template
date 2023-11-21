@@ -11,13 +11,13 @@ class OrganisationController extends Controller
     public function edit(OrganisationEdit $request)
     {
         return \inertia('Organisation/Edit', [
-            'organisation' => OrganisationResource::make($request->user()->organisation),
+            'organisation' => OrganisationResource::make($request->user()->currentOrganisation),
         ]);
     }
 
     public function update(OrganisationUpdate $request)
     {
-        $request->user()->organisation->update($request->only('name'));
+        $request->user()->currentOrganisation->update($request->only('name'));
 
         \session()->flash('message', 'Organisation updated successfully.');
 
