@@ -9,7 +9,7 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-describe('Users', function() {
+describe('Users', function () {
     test("Can't access login page", function () {
         actingAs(User::factory()->create())
             ->get(route('login'))
@@ -17,7 +17,7 @@ describe('Users', function() {
     });
 });
 
-describe('Guests', function() {
+describe('Guests', function () {
     test('Can access login page', function () {
         get(route('login'))
             ->assertOk()

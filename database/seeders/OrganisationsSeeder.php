@@ -16,7 +16,7 @@ class OrganisationsSeeder extends Seeder
     {
         User::whereHas('roles', fn ($q) => $q->where('name', Role::ADMIN->value))
             ->get()
-            ->each(function(User $user) {
+            ->each(function (User $user) {
                 $user->currentOrganisation()
                     ->associate(
                         Organisation::factory()

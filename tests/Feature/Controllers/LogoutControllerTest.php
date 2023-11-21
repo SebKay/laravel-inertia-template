@@ -6,7 +6,7 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\post;
 
-describe('Users', function() {
+describe('Users', function () {
     test('Can logout', function () {
         actingAs(User::factory()->create())
             ->post(route('logout'))
@@ -16,7 +16,7 @@ describe('Users', function() {
     });
 });
 
-describe('Guests', function() {
+describe('Guests', function () {
     test("Can't logout", function () {
         post(route('logout'))
             ->assertRedirect(route('login'));

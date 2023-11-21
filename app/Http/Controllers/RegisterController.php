@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Role;
 use App\Http\Requests\Register\RegisterStore;
 use App\Models\User;
 
@@ -30,7 +31,7 @@ class RegisterController extends Controller
         ]);
         $user->currentOrganisation()->associate($user->organisations->first())->save();
 
-        $user->assignRole('user');
+        $user->assignRole(Role::USER->value);
 
         \auth()->loginUsingId($user->id);
 

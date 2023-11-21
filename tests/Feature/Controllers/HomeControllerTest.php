@@ -6,7 +6,7 @@ use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
-describe('Users', function() {
+describe('Users', function () {
     test('Can access home page', function () {
         actingAs(User::factory()->create())
             ->get(route('home'))
@@ -17,7 +17,7 @@ describe('Users', function() {
     });
 });
 
-describe('Guests', function() {
+describe('Guests', function () {
     test("Can't access home page", function () {
         get(route('home'))
             ->assertRedirect(route('login'));

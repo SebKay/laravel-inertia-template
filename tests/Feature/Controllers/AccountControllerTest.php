@@ -8,7 +8,7 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
-describe('Users', function() {
+describe('Users', function () {
     test('Can edit their accounts', function () {
         $user = User::factory()->create();
 
@@ -41,11 +41,11 @@ describe('Users', function() {
 
         actingAs($user)
             ->patch(route('account.update'), $newData = [
-            'first_name' => 'Tim',
-            'last_name' => 'Drake',
-            'email' => 'tim@test.com',
-            'password' => 'newPassword#123',
-        ])
+                'first_name' => 'Tim',
+                'last_name' => 'Drake',
+                'email' => 'tim@test.com',
+                'password' => 'newPassword#123',
+            ])
             ->assertRedirect()
             ->assertSessionHas('message', __('account.updated'));
 
@@ -58,7 +58,7 @@ describe('Users', function() {
     });
 });
 
-describe('Guests', function() {
+describe('Guests', function () {
     test("Can't edit accounts", function () {
         get(route('account.edit'))
             ->assertRedirect(route('login'));

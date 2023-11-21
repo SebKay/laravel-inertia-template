@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -33,7 +34,14 @@ class UserFactory extends Factory
     public function admin()
     {
         return $this->afterCreating(function (User $user) {
-            $user->assignRole('admin');
+            $user->assignRole(Role::ADMIN->value);
+        });
+    }
+
+    public function user()
+    {
+        return $this->afterCreating(function (User $user) {
+            $user->assignRole(Role::USER->value);
         });
     }
 }

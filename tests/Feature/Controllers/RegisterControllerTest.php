@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Role;
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 
@@ -9,7 +10,7 @@ use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-describe('Users', function() {
+describe('Users', function () {
     test("Can't access register page", function () {
         actingAs(User::factory()->create())
             ->get(route('register'))
@@ -17,7 +18,7 @@ describe('Users', function() {
     });
 });
 
-describe('Guests', function() {
+describe('Guests', function () {
     test('Can access register page', function () {
         get(route('register'))
             ->assertOk()
@@ -48,7 +49,7 @@ describe('Guests', function() {
             'name' => $orgName,
         ]);
 
-        expect(User::where('email', $email)->firstOrFail()->roles->first()->name)->toBe('user');
+        expect(User::where('email', $email)->firstOrFail()->roles->first()->name)->toBe(Role::USER->value);
 
         assertAuthenticated();
     });
