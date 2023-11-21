@@ -15,6 +15,7 @@ class RolesAndPermissionsSeeder extends Seeder
     protected Collection $roles;
 
     protected Collection $orgnaisationPermissions;
+
     protected Collection $postPermissions;
 
     public function run()
