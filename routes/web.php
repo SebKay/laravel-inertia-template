@@ -16,11 +16,9 @@ Route::controller(App\Http\Controllers\LoginController::class)
         Route::post('login', 'store')->name('login.store');
     });
 
-Route::controller(App\Http\Controllers\LoginController::class)
+Route::post('logout', App\Http\Controllers\LogoutController::class)
     ->middleware(['auth'])
-    ->group(function () {
-        Route::post('logout', 'destroy')->name('logout');
-    });
+    ->name('logout');
 
 Route::controller(App\Http\Controllers\HomeController::class)
     ->middleware(['auth'])

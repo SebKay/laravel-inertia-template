@@ -10,7 +10,7 @@ class AccountController extends Controller
 {
     public function edit(Request $request)
     {
-        return \inertia()->render('Account/Edit', [
+        return \inertia('Account/Edit', [
             'user' => UserResource::make($request->user()),
         ]);
     }
