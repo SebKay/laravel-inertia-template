@@ -23,7 +23,7 @@ class LoginController extends Controller
     public function store(LoginStore $request)
     {
         \throw_if(
-            ! \auth()->attempt($request->only('email', 'password'), $request->validated('remember')),
+            ! \auth()->attempt($request->only('email', 'password'), $request->only('remember')),
             ValidationException::withMessages([
                 'email' => \__('auth.failed'),
             ])
@@ -36,15 +36,5 @@ class LoginController extends Controller
         }
 
         return \redirect()->route('home');
-    }
-
-    public function destroy(Request $request)
-    {
-        \auth()->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return \redirect()->route('login');
     }
 }

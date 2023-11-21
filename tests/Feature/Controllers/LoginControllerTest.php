@@ -15,14 +15,6 @@ describe('Users', function() {
             ->get(route('login'))
             ->assertRedirect(route('home'));
     });
-
-    test('Can logout', function () {
-        actingAs(User::factory()->create())
-            ->post(route('logout'))
-            ->assertRedirect(route('login'));
-
-        assertGuest();
-    });
 });
 
 describe('Guests', function() {

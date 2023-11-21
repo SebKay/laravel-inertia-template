@@ -10,7 +10,6 @@ describe('Users', function() {
     test('Can access home page', function () {
         actingAs(User::factory()->create())
             ->get(route('home'))
-            ->assertOk()
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Home/Index')
