@@ -9,15 +9,13 @@ class RegisterController extends Controller
 {
     public function show()
     {
-        $isProd = \app()->environment('production');
-
-        return \inertia('Register/Show', [
-            'first_name' => ! $isProd ? 'Jim' : '',
-            'last_name' => ! $isProd ? 'Gordon' : '',
-            'email' => ! $isProd ? 'test@test.com' : '',
-            'password' => ! $isProd ? '123456Ab#' : '',
-            'organisation_name' => ! $isProd ? 'GCPD' : '',
-        ]);
+        return \inertia('Register/Show', \app()->environment('local') ? [
+            'first_name' => 'Jim',
+            'last_name' => 'Gordon',
+            'email' => 'test@test.com',
+            'password' => '123456Ab#',
+            'organisation_name' => 'GCPD',
+        ] : []);
     }
 
     public function store(RegisterStore $request)
