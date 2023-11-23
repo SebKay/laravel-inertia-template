@@ -6,7 +6,7 @@
         class=""
     ></h1>
 
-    <div class="boxed">
+    <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
         <form @submit.prevent="submitRegisterForm">
             <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
                 <div class="col-span-full">
