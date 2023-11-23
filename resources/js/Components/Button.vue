@@ -1,9 +1,6 @@
 <template>
-    <button :class="classes">
-        <span
-            class="btn__text"
-            v-text="text"
-        ></span>
+    <button class="rounded-md w-full bg-slate-800 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-500">
+        <span v-text="text"></span>
     </button>
 </template>
 
