@@ -35,19 +35,26 @@
 
                     <div class="-mr-2 flex md:hidden">
                         <button
+                            @click="mobileMenuOpen = !mobileMenuOpen"
                             type="button"
                             class="relative inline-flex items-center justify-center rounded-md bg-slate-100 p-2 text-slate-900 hover:bg-slate-900 hover:text-white"
                         >
                             <span class="sr-only">Open main menu</span>
-                            <Bars3Icon class="block h-6 w-6" />
-                            <XMarkIcon class="hidden h-6 w-6" />
+                            <XMarkIcon
+                                v-if="mobileMenuOpen"
+                                class="block h-6 w-6"
+                            />
+                            <Bars3Icon
+                                v-else
+                                class="block h-6 w-6"
+                            />
                         </button>
                     </div>
                 </div>
             </div>
 
             <div
-                id="mobile-menu"
+                v-show="mobileMenuOpen"
                 class="md:hidden"
             >
                 <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
@@ -77,6 +84,12 @@
     export default {
         props: {
             menu: Array,
+        },
+
+        data() {
+            return {
+                mobileMenuOpen: false,
+            };
         },
     };
 </script>
