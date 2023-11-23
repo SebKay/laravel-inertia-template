@@ -19,6 +19,8 @@
                                     <Link
                                         v-if="link.condition"
                                         :href="link.route"
+                                        :method="link?.method"
+                                        :as="link?.method == 'post' ? 'button' : 'a'"
                                         v-text="link.label"
                                         class="rounded-xl px-3 py-2 text-sm font-medium"
                                         :class="{
