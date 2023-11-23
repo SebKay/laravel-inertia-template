@@ -66,29 +66,29 @@
 </script>
 
 <style lang="scss">
-    .notice {
-        max-width: 400px;
-        padding: 20px;
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        z-index: 950;
-        border-radius: radius(1);
+    // .notice {
+    //     max-width: 400px;
+    //     padding: 20px;
+    //     position: fixed;
+    //     right: 20px;
+    //     bottom: 20px;
+    //     z-index: 950;
+    //     border-radius: radius(1);
 
-        &--error {
-            background-color: color(error-bg);
-            // Type
-            color: color(error-text);
-        }
+    //     &--error {
+    //         background-color: color(error-bg);
+    //         // Type
+    //         color: color(error-text);
+    //     }
 
-        &--success {
-            background-color: color(success-bg);
-            // Type
-            color: color(success-text);
-        }
-    }
+    //     &--success {
+    //         background-color: color(success-bg);
+    //         // Type
+    //         color: color(success-text);
+    //     }
+    // }
 
-    .notice__description {
-        @include rem(16px);
-    }
+    // .notice__description {
+    //     @include rem(16px);
+    // }
 </style>

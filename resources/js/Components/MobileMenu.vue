@@ -29,27 +29,27 @@
 </script>
 
 <style lang="scss">
-    .mobile-menu {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 15px;
-        background-color: color(bg-1);
-    }
+    // .mobile-menu {
+    //     width: 100%;
+    //     padding: 20px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     row-gap: 15px;
+    //     background-color: color(bg-1);
+    // }
 
-    .mobile-menu__item {
-        @include rem(16px);
-        // Type
-        font-family: font(1);
-        font-weight: font-weight(semi-bold);
-        text-decoration: none;
-        color: transparentize(color(2), 0.35);
-    }
+    // .mobile-menu__item {
+    //     @include rem(16px);
+    //     // Type
+    //     font-family: font(1);
+    //     font-weight: font-weight(semi-bold);
+    //     text-decoration: none;
+    //     color: transparentize(color(2), 0.35);
+    // }
 
-    .mobile-menu__item--active {
-        // Type
-        color: color(2);
-    }
+    // .mobile-menu__item--active {
+    //     // Type
+    //     color: color(2);
+    // }
 </style>

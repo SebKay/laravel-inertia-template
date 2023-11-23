@@ -90,16 +90,16 @@
 </script>
 
 <style lang="scss">
-    body {
-        background-color: color(bg-1);
-    }
+    // body {
+    //     background-color: color(bg-1);
+    // }
 
-    .app-page__inner {
-        @extend %d-mv-120;
-        @extend %m-mv-20;
-        width: 94%;
-        max-width: 900px;
-        margin-right: auto;
-        margin-left: auto;
-    }
+    // .app-page__inner {
+    //     @extend %d-mv-120;
+    //     @extend %m-mv-20;
+    //     width: 94%;
+    //     max-width: 900px;
+    //     margin-right: auto;
+    //     margin-left: auto;
+    // }
 </style>

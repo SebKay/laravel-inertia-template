@@ -27,16 +27,16 @@
 </script>
 
 <style lang="scss">
-    body {
-        background-color: color(bg-1);
-    }
+    // body {
+    //     background-color: color(bg-1);
+    // }
 
-    .guest-page__inner {
-        @extend %d-mv-120;
-        @extend %m-mv-20;
-        width: 94%;
-        max-width: 600px;
-        margin-right: auto;
-        margin-left: auto;
-    }
+    // .guest-page__inner {
+    //     @extend %d-mv-120;
+    //     @extend %m-mv-20;
+    //     width: 94%;
+    //     max-width: 600px;
+    //     margin-right: auto;
+    //     margin-left: auto;
+    // }
 </style>
