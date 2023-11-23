@@ -6,6 +6,8 @@ import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
 import { userCan } from "@js/utilities/permissions.js";
 
+import { Bars3Icon, XMarkIcon, SparklesIcon } from '@heroicons/vue/24/outline';
+
 import AppLayout from "@js/Layouts/App.vue";
 
 import Notice from "@js/Components/Notice.vue";
@@ -28,6 +30,10 @@ createInertiaApp({
             .use(ZiggyVue);
 
         Vue.mixin({ methods: { userCan } });
+
+        Vue.component('Bars3Icon', Bars3Icon)
+            .component('XMarkIcon', XMarkIcon)
+            .component('SparklesIcon', SparklesIcon);
 
         Vue.component('Head', Head)
             .component('Link', Link)

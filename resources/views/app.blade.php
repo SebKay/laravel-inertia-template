@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-slate-50">
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
 
     @inertiaHead
 
-<body>
+<body class="h-full">
     @inertia
 </body>
 
