@@ -12,16 +12,20 @@
             </div>
         </main>
     </div>
+
+    <Notice />
 </template>
 
 <script>
     import Header from "@js/Components/Header.vue";
+    import Notice from "@js/Components/Notice.vue";
 
     export default {
         name: "Guest Layout",
 
         components: {
             Header,
+            Notice,
         },
 
         data() {

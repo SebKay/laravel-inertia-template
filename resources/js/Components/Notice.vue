@@ -1,13 +1,24 @@
 <template>
     <div
-        class="notice"
-        :class="cssClass"
         v-if="active && type && message"
+        class="flex items-center p-5 text-base fixed bottom-4 right-4 z-50"
+        :class='{
+            "bg-green-50 border-green-200 text-green-800": type === "success",
+            "bg-red-50 border-red-200 text-red-800": type === "error",
+        }'
+        role="alert"
     >
-        <p
-            class="notice__description"
-            v-text="message"
-        ></p>
+        <CheckCircleIcon
+            v-if="type == 'success'"
+            class="flex-shrink-0 inline w-6 h-6 me-3"
+        />
+        <XCircleIcon
+            v-if="type == 'error'"
+            class="flex-shrink-0 inline w-6 h-6 me-3"
+        />
+        <div>
+            <span v-text="message"></span>
+        </div>
     </div>
 </template>
 
@@ -20,7 +31,6 @@
                 active: false,
                 type: "",
                 message: "",
-                cssClass: "",
             };
         },
 
@@ -43,7 +53,6 @@
                 this.message = message;
 
                 this.setActive();
-                this.setClasses();
             },
 
             setActive() {
@@ -52,14 +61,6 @@
                 setTimeout(() => {
                     this.active = false;
                 }, 3000);
-            },
-
-            setClasses() {
-                if (this.type == "error") {
-                    this.cssClass = "notice--error";
-                } else if (this.type == "success") {
-                    this.cssClass = "notice--success";
-                }
             },
         },
     };

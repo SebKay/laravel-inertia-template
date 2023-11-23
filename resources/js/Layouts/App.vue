@@ -12,18 +12,22 @@
             </div>
         </main>
     </div>
+
+    <Notice />
 </template>
 
 <script>
     import { router } from "@inertiajs/core";
 
     import Header from "@js/Components/Header.vue";
+    import Notice from "@js/Components/Notice.vue";
 
     export default {
         name: "App Layout",
 
         components: {
             Header,
+            Notice,
         },
 
         data() {
