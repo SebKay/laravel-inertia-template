@@ -3,48 +3,31 @@
         <title></title>
     </Head>
 
-    <Header>
-        <template #menu>
-            <Menu :links="menu" />
-            <Hamburger
-                :active="mobileMenuOpen"
-                @click.prevent="mobileMenuOpen = !mobileMenuOpen"
-            />
-        </template>
+    <div class="min-h-full">
+        <Header :menu="menu" />
 
-        <template #mobile-menu>
-            <MobileMenu
-                :links="menu"
-                v-show="mobileMenuOpen"
-            />
-        </template>
-    </Header>
-
-    <div class="app-page">
-        <Notice />
-
-        <div class="app-page__inner">
-            <slot />
-        </div>
+        <main>
+            <div class="mx-auto max-w-7xl lg:py-16 py-8 px-4 sm:px-6 lg:px-8">
+                <slot />
+            </div>
+        </main>
     </div>
+
+    <Notice />
 </template>
 
 <script>
     import { router } from "@inertiajs/core";
 
     import Header from "@js/Components/Header.vue";
-    import Menu from "@js/Components/Menu.vue";
-    import Hamburger from "@js/Components/Hamburger.vue";
-    import MobileMenu from "@js/Components/MobileMenu.vue";
+    import Notice from "@js/Components/Notice.vue";
 
     export default {
         name: "App Layout",
 
         components: {
             Header,
-            Menu,
-            Hamburger,
-            MobileMenu,
+            Notice,
         },
 
         data() {
@@ -52,25 +35,25 @@
                 menu: [
                     {
                         label: "Home",
-                        route: "home",
+                        route: route("home"),
                         condition: true,
                         components: ['Home/Index'],
                     },
                     {
                         label: "Account",
-                        route: "account.edit",
+                        route: route("account.edit"),
                         condition: true,
                         components: ['Account/Edit'],
                     },
                     {
                         label: "Organisation",
-                        route: "organisation.edit",
+                        route: route("organisation.edit"),
                         condition: this.userCan(this.$page.props, 'edit-organisation'),
                         components: ['Organisation/Edit'],
                     },
                     {
                         label: "Logout",
-                        route: "logout",
+                        route: route("logout"),
                         method: "post",
                         condition: true,
                         components: [],
@@ -88,18 +71,3 @@
         },
     };
 </script>
-
-<style lang="scss">
-    body {
-        background-color: color(bg-1);
-    }
-
-    .app-page__inner {
-        @extend %d-mv-120;
-        @extend %m-mv-20;
-        width: 94%;
-        max-width: 900px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-</style>

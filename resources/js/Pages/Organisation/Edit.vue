@@ -3,39 +3,33 @@
 
     <h1
         v-text="title"
-        class="d-mb-40 m-mb-30"
+        class="lg:text-4xl text-3xl font-medium text-slate-800 lg:mb-8 mb-4"
     ></h1>
 
-    <div class="boxed">
-        <form
-            class="form"
-            @submit.prevent="updateOrganisation"
-        >
-            <div class="form__section">
-                <div class="form__row">
-                    <div class="form__item">
-                        <label
-                            class="form__label"
-                            for="name"
-                        >
-                            Name
-                        </label>
-                        <input
-                            id="name"
-                            type="text"
-                            v-model="organisationForm.name"
-                            required
-                        />
-                    </div>
+    <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
+        <form @submit.prevent="updateOrganisation">
+            <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
+                <div class="col-span-full">
+                    <label
+                        class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                        for="name"
+                    >
+                        Name
+                    </label>
+                    <input
+                        id="name"
+                        type="text"
+                        required
+                        class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                        v-model="organisationForm.name"
+                    />
                 </div>
 
-                <div class="form__row">
-                    <div class="form__action">
-                        <Button
-                            text="Update"
-                            :disabled="organisationForm.processing"
-                        />
-                    </div>
+                <div class="col-span-full">
+                    <Button
+                        text="Update"
+                        :disabled="organisationForm.processing"
+                    />
                 </div>
             </div>
         </form>

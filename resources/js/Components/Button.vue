@@ -1,9 +1,6 @@
 <template>
-    <button :class="classes">
-        <span
-            class="btn__text"
-            v-text="text"
-        ></span>
+    <button class="rounded-md w-full bg-slate-800 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-500">
+        <span v-text="text"></span>
     </button>
 </template>
 
@@ -36,42 +33,3 @@
         },
     };
 </script>
-
-<style lang="scss">
-    .btn {
-        display: inline-flex;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: radius(buttons);
-        background-color: color(1);
-        // Type
-        font-family: font(1);
-        font-weight: font-weight(bold);
-        text-align: center;
-        color: #fff;
-    }
-
-    .btn--full {
-        width: 100%;
-    }
-
-    .btn[disabled] {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
-    //---- Responsive ----//
-    @media (min-width: (breakpoint(mobile-1) + 1)) {
-        .btn {
-            @include rem(18px);
-            padding: 17px 25px;
-        }
-    }
-
-    @media (max-width: breakpoint(mobile-1)) {
-        .btn {
-            @include rem(16px);
-            padding: 13px 20px;
-        }
-    }
-</style>
