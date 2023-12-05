@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
+use App\Filament\Resources\UserResource\RelationManagers\OrganisationsRelationManager;
 use App\Models\User;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -33,6 +34,13 @@ class UserResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            OrganisationsRelationManager::class,
+        ];
     }
 
     public static function getPages(): array

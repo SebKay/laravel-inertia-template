@@ -29,10 +29,10 @@ class User extends Authenticatable implements FilamentUser, HasName
         'first_name',
         'last_name',
         'email',
+        'password',
     ];
 
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -63,7 +63,7 @@ class User extends Authenticatable implements FilamentUser, HasName
 
     public function organisations()
     {
-        return $this->hasMany(Organisation::class);
+        return $this->belongsToMany(Organisation::class)->withTimestamps();
     }
 
     public function currentOrganisation()

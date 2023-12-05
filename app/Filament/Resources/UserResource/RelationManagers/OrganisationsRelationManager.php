@@ -1,28 +1,33 @@
 <?php
 
-namespace App\Filament\Resources\OrganisationResource\RelationManagers;
+namespace App\Filament\Resources\UserResource\RelationManagers;
 
-use App\Models\User;
+use App\Models\Organisation;
+use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class UsersRelationManager extends RelationManager
+class OrganisationsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'users';
+    protected static string $relationship = 'organisations';
 
     public function form(Form $form): Form
     {
         return $form
-            ->schema(User::filamentForm());
+            ->schema([
+                Forms\Components\TextInput::make('id')
+                    ->required()
+                    ->maxLength(255),
+            ]);
     }
 
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitle(fn (User $record): string => $record->full_name)
-            ->columns(User::filamentTable())
+            ->recordTitleAttribute('name')
+            ->columns(Organisation::filamentTable())
             ->headerActions([
                 Tables\Actions\AttachAction::make()
                     ->preloadRecordSelect(),
