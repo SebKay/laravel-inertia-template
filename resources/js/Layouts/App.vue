@@ -43,7 +43,7 @@
                         label: "Account",
                         route: route("account.edit"),
                         condition: true,
-                        components: ['Account/Edit'],
+                        components: ['Account/Edit', 'EmailVerification/Show'],
                     },
                     {
                         label: "Organisation",
