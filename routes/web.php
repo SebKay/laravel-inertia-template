@@ -21,22 +21,29 @@ Route::post('logout', App\Http\Controllers\LogoutController::class)
     ->name('logout');
 
 Route::controller(App\Http\Controllers\HomeController::class)
-    ->middleware(['auth'])
+    ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('home');
     });
 
 Route::controller(App\Http\Controllers\AccountController::class)
     ->prefix('account')
-    ->middleware(['auth'])
+    ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('', 'edit')->name('account.edit');
         Route::patch('', 'update')->name('account.update');
     });
 
+Route::controller(App\Http\Controllers\EmailVerificationController::class)
+    ->prefix('account')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('verify', 'show')->name('verification.notice');
+    });
+
 Route::controller(App\Http\Controllers\OrganisationController::class)
     ->prefix('organisation')
-    ->middleware(['auth'])
+    ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('', 'edit')->name('organisation.edit');
         Route::patch('', 'update')->name('organisation.update');
