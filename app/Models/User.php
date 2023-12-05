@@ -133,6 +133,11 @@ class User extends Authenticatable implements FilamentUser, HasName
                 ->boolean()
                 ->sortable(),
 
+            Tables\Columns\TextColumn::make('organisations')
+                ->numeric()
+                ->sortable()
+                ->getStateUsing(fn (User $user): int => $user->organisations->count()),
+
             Tables\Columns\TextColumn::make('roles')
                 ->getStateUsing(fn ($record) => $record->roles->pluck('name')->join(', '))
                 ->searchable()
