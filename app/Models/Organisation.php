@@ -53,6 +53,11 @@ class Organisation extends Model
                 ->sortable()
                 ->getStateUsing(fn (Organisation $organisation): string => $organisation->user->full_name),
 
+            Tables\Columns\TextColumn::make('users')
+                ->numeric()
+                ->sortable()
+                ->getStateUsing(fn (Organisation $organisation): int => $organisation->users->count()),
+
             Tables\Columns\TextColumn::make('created_at')
                 ->dateTime()
                 ->sortable()
