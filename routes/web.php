@@ -39,6 +39,7 @@ Route::controller(App\Http\Controllers\EmailVerificationController::class)
     ->middleware(['auth'])
     ->group(function () {
         Route::get('verify', 'show')->name('verification.notice');
+        Route::get('verify/{id}/{hash}', 'store')->middleware(['signed'])->name('verification.verify');
     });
 
 Route::controller(App\Http\Controllers\OrganisationController::class)
