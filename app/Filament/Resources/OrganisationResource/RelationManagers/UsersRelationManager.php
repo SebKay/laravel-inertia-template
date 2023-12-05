@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\OrganisationResource\RelationManagers;
 
+use App\Filament\Resources\UserResource;
 use App\Models\User;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -22,7 +23,7 @@ class UsersRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn (User $record): string => $record->full_name)
-            ->columns(User::filamentTable())
+            ->columns(UserResource::tableSchema())
             ->headerActions([
                 Tables\Actions\AttachAction::make()
                     ->preloadRecordSelect(),

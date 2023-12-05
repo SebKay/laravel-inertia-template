@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\UserResource\RelationManagers;
 
-use App\Models\Organisation;
+use App\Filament\Resources\OrganisationResource;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -27,7 +27,7 @@ class OrganisationsRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('name')
-            ->columns(Organisation::filamentTable())
+            ->columns(OrganisationResource::tableSchema())
             ->headerActions([
                 Tables\Actions\AttachAction::make()
                     ->preloadRecordSelect(),
