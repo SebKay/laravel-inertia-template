@@ -10,7 +10,7 @@ class OrganisationResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->whenHas('name'),
         ];
     }
 }
