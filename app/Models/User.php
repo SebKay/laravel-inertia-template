@@ -111,7 +111,8 @@ class User extends Authenticatable implements FilamentUser, HasName
                 ->password()
                 ->maxLength(255),
 
-            Forms\Components\DateTimePicker::make('email_verified_at'),
+            Forms\Components\DateTimePicker::make('email_verified_at')
+                ->columnSpanFull(),
         ];
     }
 
@@ -138,10 +139,14 @@ class User extends Authenticatable implements FilamentUser, HasName
                 ->sortable(),
 
             Tables\Columns\TextColumn::make('created_at')
-                ->sortable(),
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
 
             Tables\Columns\TextColumn::make('updated_at')
-                ->sortable(),
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
         ];
     }
 }
