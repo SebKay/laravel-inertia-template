@@ -116,7 +116,7 @@ class User extends Authenticatable implements FilamentUser, HasName
             Forms\Components\Select::make('roles')
                 ->preload()
                 ->multiple()
-                ->relationship('roles', 'name')
+                ->relationship('roles', 'name'),
         ];
     }
 
