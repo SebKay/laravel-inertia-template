@@ -111,8 +111,12 @@ class User extends Authenticatable implements FilamentUser, HasName
                 ->password()
                 ->maxLength(255),
 
-            Forms\Components\DateTimePicker::make('email_verified_at')
-                ->columnSpanFull(),
+            Forms\Components\DateTimePicker::make('email_verified_at'),
+
+            Forms\Components\Select::make('roles')
+                ->preload()
+                ->multiple()
+                ->relationship('roles', 'name')
         ];
     }
 
