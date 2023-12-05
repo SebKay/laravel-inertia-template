@@ -26,10 +26,11 @@ class RegisterController extends Controller
         $user->password = $request->validated('password');
         $user->save();
 
-        $user->organisations()->create([
+        $org = $user->organisations()->create([
             'name' => $request->validated('organisation_name'),
         ]);
-        $user->currentOrganisation()->associate($user->organisations->first())->save();
+        $org->users()->attach($user);
+        $user->currentOrganisation()->associate($org)->save();
 
         $user->assignRole(Role::USER->value);
 
