@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 class EmailVerificationController extends Controller
 {
@@ -16,5 +17,14 @@ class EmailVerificationController extends Controller
         $request->fulfill();
 
         return \redirect()->route('home');
+    }
+
+    public function update(Request $request)
+    {
+        $request->user()->sendEmailVerificationNotification();
+
+        \session()->flash('message', \__('account.verification-resent'));
+
+        return \back();
     }
 }

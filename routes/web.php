@@ -40,6 +40,7 @@ Route::controller(App\Http\Controllers\EmailVerificationController::class)
     ->group(function () {
         Route::get('verify', 'show')->name('verification.notice');
         Route::get('verify/{id}/{hash}', 'store')->middleware(['signed'])->name('verification.verify');
+        Route::post('verify/resend', 'update')->middleware(['auth', 'throttle:6,1'])->name('verification.send');
     });
 
 Route::controller(App\Http\Controllers\OrganisationController::class)
