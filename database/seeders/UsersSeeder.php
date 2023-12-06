@@ -20,5 +20,13 @@ class UsersSeeder extends Seeder
             ->create([
                 'email' => \env('SEED_SUPER_ADMIN_EMAIL'),
             ]);
+
+        User::factory()
+            ->afterCreating(function (User $user) {
+                $user->assignRole(Role::ADMIN->value);
+            })
+            ->create([
+                'email' => \env('SEED_ADMIN_EMAIL'),
+            ]);
     }
 }
