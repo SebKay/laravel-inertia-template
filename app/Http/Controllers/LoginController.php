@@ -13,7 +13,7 @@ class LoginController extends Controller
         $isProd = \app()->environment('production');
 
         return \inertia('Login/Show', [
-            'email' => ! $isProd ? \env('SEED_ADMIN_EMAIL') : '',
+            'email' => ! $isProd ? \env('SEED_SUPER_ADMIN_EMAIL') : '',
             'password' => ! $isProd ? '12345' : '',
             'remember' => ! $isProd ? true : false,
             'redirect' => $request->query('redirect', ''),
