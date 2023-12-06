@@ -16,7 +16,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
     protected Collection $roles;
 
-    protected Collection $adminPermissions;
+    protected Collection $superAdminPermissions;
 
     protected Collection $orgnaisationPermissions;
 
@@ -40,7 +40,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
     protected function createPermissions()
     {
-        $this->adminPermissions = \collect([
+        $this->superAdminPermissions = \collect([
             SpatiePermission::create(['name' => Permission::ACCESS_ADMIN]),
         ]);
 
@@ -60,7 +60,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
     protected function assignPermissionsToRoles()
     {
-        $this->roles->get(Role::SUPER_ADMIN->value)->givePermissionTo($this->adminPermissions);
+        $this->roles->get(Role::SUPER_ADMIN->value)->givePermissionTo($this->superAdminPermissions);
 
         $this->roles->get(Role::ADMIN->value)->givePermissionTo($this->postPermissions);
         $this->roles->get(Role::ADMIN->value)->givePermissionTo($this->orgnaisationPermissions);
