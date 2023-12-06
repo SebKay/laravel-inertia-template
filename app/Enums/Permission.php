@@ -4,6 +4,8 @@ namespace App\Enums;
 
 enum Permission: string
 {
+    case ACCESS_ADMIN = 'access-filament';
+
     case EDIT_ORGANISATION = 'edit-organisation';
     case UPDATE_ORGANISATION = 'update-organisation';
 
