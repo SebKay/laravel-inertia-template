@@ -71,7 +71,12 @@ class UserResource extends Resource
                 ->maxLength(255),
 
             Forms\Components\TextInput::make('password')
+                ->required(fn (string $operation): bool => $operation === 'create')
                 ->password()
+                ->afterStateHydrated(function (Forms\Components\TextInput $component, $state) {
+                    $component->state('');
+                })
+                ->dehydrated(fn (?string $state): bool => filled($state))
                 ->maxLength(255),
 
             Forms\Components\DateTimePicker::make('email_verified_at'),
