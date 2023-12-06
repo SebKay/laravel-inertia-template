@@ -15,10 +15,10 @@ class UsersSeeder extends Seeder
     {
         User::factory()
             ->afterCreating(function (User $user) {
-                $user->assignRole(Role::ADMIN->value);
+                $user->assignRole(Role::SUPER_ADMIN->value, Role::ADMIN->value);
             })
             ->create([
-                'email' => \env('SEED_ADMIN_EMAIL'),
+                'email' => \env('SEED_SUPER_ADMIN_EMAIL'),
             ]);
     }
 }
