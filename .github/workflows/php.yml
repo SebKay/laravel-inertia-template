@@ -58,6 +58,8 @@ jobs:
     name: Test
     needs: [lint, dependencies]
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: testing
 
     steps:
       - uses: actions/checkout@v3
@@ -77,12 +79,6 @@ jobs:
       - name: Build
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         run: build:test
-
-      - name: Configure application
-        run: |
-          cp .env.testing .env
-          php artisan key:generate
-          php artisan migrate:fresh
 
       - name: Run tests
         run: composer test:coverage
