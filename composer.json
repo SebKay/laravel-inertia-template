@@ -23,7 +23,7 @@
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^7.9",
+        "nunomaduro/collision": "^7.10",
         "pestphp/pest": "^2.19",
         "pestphp/pest-plugin-faker": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.2",

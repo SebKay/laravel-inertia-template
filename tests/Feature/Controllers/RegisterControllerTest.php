@@ -37,7 +37,7 @@ describe('Guests', function () {
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => $email,
-            'password' => '123456Ab#',
+            'password' => fake()->password(),
         ])
             ->assertRedirect(route('home'));
 
