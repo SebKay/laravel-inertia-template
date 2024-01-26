@@ -10,7 +10,7 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
 describe('Users', function () {
-    test("Can't access login page", function () {
+    test("Can't access the login page", function () {
         actingAs(User::factory()->create())
             ->get(route('login'))
             ->assertRedirect(route('home'));
@@ -18,7 +18,7 @@ describe('Users', function () {
 });
 
 describe('Guests', function () {
-    test('Can access login page', function () {
+    test('Can access the login page', function () {
         get(route('login'))
             ->assertOk()
             ->assertInertia(

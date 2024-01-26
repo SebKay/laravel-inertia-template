@@ -9,7 +9,7 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
 describe('Users', function () {
-    test('Can edit their accounts', function () {
+    test('Can access the edit page', function () {
         $user = User::factory()->create();
 
         actingAs($user)
@@ -25,19 +25,12 @@ describe('Users', function () {
     });
 
     test('Can update their details', function () {
-        $user = User::factory()->create($oldData = [
+        $user = User::factory()->create([
             'first_name' => 'Jim',
             'last_name' => 'Gordon',
             'email' => 'jim@test.com',
             'password' => 'oldPassword#123',
         ]);
-
-        expect($user)
-            ->first_name->toBe($oldData['first_name'])
-            ->last_name->toBe($oldData['last_name'])
-            ->email->toBe($oldData['email']);
-
-        expect(Hash::check($oldData['password'], $user->password))->toBeTrue();
 
         actingAs($user)
             ->patch(route('account.update'), $newData = [
@@ -56,10 +49,28 @@ describe('Users', function () {
 
         expect(Hash::check($newData['password'], $user->password))->toBeTrue();
     });
+
+    test("Can't update their email to one that already exists", function () {
+        User::factory()->create([
+            'email' => 'jim@test.com',
+        ]);
+
+        $user = User::factory()->create([
+            'email' => 'jeff@test.com',
+        ]);
+
+        actingAs($user)
+            ->patch(route('account.update'), $newData = [
+                'email' => 'jim@test.com',
+            ])
+            ->assertSessionHasErrors('email');
+
+        expect($user->refresh()->email)->not()->toBe($newData['email']);
+    });
 });
 
 describe('Guests', function () {
-    test("Can't edit accounts", function () {
+    test("Can't access the edit page", function () {
         get(route('account.edit'))
             ->assertRedirect(route('login'));
     });

@@ -14,17 +14,18 @@ beforeEach(function () {
     $this->adminUser->organisations()->create([
         'name' => 'GCPD',
     ]);
+
     $this->adminUser->currentOrganisation()->associate($this->adminUser->organisations->first())->save();
 });
 
 describe('Admins', function () {
-    test('Can see the edit page their organisation', function () {
+    test('Can see the edit page for their current organisation', function () {
         actingAs($this->adminUser)
             ->get(route('organisation.edit'))
             ->assertOk();
     });
 
-    test('Can update their organisation name', function () {
+    test("Can update their organisation's name", function () {
         expect($this->adminUser->currentOrganisation->name)->toBe('GCPD');
 
         actingAs($this->adminUser)
@@ -38,7 +39,7 @@ describe('Admins', function () {
 });
 
 describe('Non-Admins', function () {
-    test("Can't see the edit page their organisation", function () {
+    test("Can't see the edit page for their organisation", function () {
         $user = User::factory()->create();
 
         $user->organisations()->save($this->adminUser->currentOrganisation);
@@ -49,7 +50,7 @@ describe('Non-Admins', function () {
             ->assertForbidden();
     });
 
-    test("Can't update their organisation name", function () {
+    test("Can't update their organisation's name", function () {
         $user = User::factory()->create();
 
         $user->organisations()->save($this->adminUser->currentOrganisation);

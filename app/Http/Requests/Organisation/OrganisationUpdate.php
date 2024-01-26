@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests\Organisation;
 
-use App\Enums\Permission;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class OrganisationUpdate extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can(Permission::UPDATE_ORGANISATION->value);
+        return Gate::allows('update', $this->user()->currentOrganisation);
     }
 
     public function rules()

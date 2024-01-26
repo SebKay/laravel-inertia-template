@@ -92,7 +92,7 @@
                 <div class="col-span-full">
                     <Button
                         text="Register"
-                        styles="full"
+                        class="w-full text-center justify-center"
                         :disabled="registerForm.processing"
                     />
                 </div>
