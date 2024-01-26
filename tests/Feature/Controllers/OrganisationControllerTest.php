@@ -25,7 +25,7 @@ describe('Admins', function () {
             ->assertOk();
     });
 
-    test('Can update their organisation name', function () {
+    test("Can update their organisation's name", function () {
         expect($this->adminUser->currentOrganisation->name)->toBe('GCPD');
 
         actingAs($this->adminUser)
@@ -50,7 +50,7 @@ describe('Non-Admins', function () {
             ->assertForbidden();
     });
 
-    test("Can't update their organisation name", function () {
+    test("Can't update their organisation's name", function () {
         $user = User::factory()->create();
 
         $user->organisations()->save($this->adminUser->currentOrganisation);

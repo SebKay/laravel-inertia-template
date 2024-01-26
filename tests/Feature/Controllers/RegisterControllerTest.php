@@ -11,7 +11,7 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
 describe('Users', function () {
-    test("Can't access register page", function () {
+    test("Can't access the register page", function () {
         actingAs(User::factory()->create())
             ->get(route('register'))
             ->assertRedirect(route('home'));
@@ -19,7 +19,7 @@ describe('Users', function () {
 });
 
 describe('Guests', function () {
-    test('Can access register page', function () {
+    test('Can access the register page', function () {
         get(route('register'))
             ->assertOk()
             ->assertInertia(
@@ -52,5 +52,22 @@ describe('Guests', function () {
         expect(User::where('email', $email)->firstOrFail()->roles->first()->name)->toBe(Role::USER->value);
 
         assertAuthenticated();
+    });
+
+    test("Can't register with an email that already exists", function () {
+        $email = 'jim@test.com';
+
+        User::factory()->create([
+            'email' => $email,
+        ]);
+
+        post(route('register.store'), [
+            'organisation_name' => fake()->company(),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'email' => $email,
+            'password' => fake()->password(),
+        ])
+            ->assertSessionHasErrors('email');
     });
 });
