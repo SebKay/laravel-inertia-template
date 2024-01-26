@@ -61,7 +61,7 @@
                 <div class="col-span-full">
                     <Button
                         text="Log In"
-                        styles="full"
+                        class="w-full text-center justify-center"
                         :disabled="loginForm.processing"
                     />
                 </div>
