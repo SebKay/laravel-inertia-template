@@ -14,11 +14,12 @@ beforeEach(function () {
     $this->adminUser->organisations()->create([
         'name' => 'GCPD',
     ]);
+
     $this->adminUser->currentOrganisation()->associate($this->adminUser->organisations->first())->save();
 });
 
 describe('Admins', function () {
-    test('Can see the edit page their organisation', function () {
+    test('Can see the edit page for their current organisation', function () {
         actingAs($this->adminUser)
             ->get(route('organisation.edit'))
             ->assertOk();
@@ -38,7 +39,7 @@ describe('Admins', function () {
 });
 
 describe('Non-Admins', function () {
-    test("Can't see the edit page their organisation", function () {
+    test("Can't see the edit page for their organisation", function () {
         $user = User::factory()->create();
 
         $user->organisations()->save($this->adminUser->currentOrganisation);
