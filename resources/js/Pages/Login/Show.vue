@@ -12,7 +12,7 @@
                 <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="email"
                         >
                             Email
@@ -21,14 +21,14 @@
                             id="email"
                             type="email"
                             required
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             v-model="loginForm.email"
                         />
                     </div>
 
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="password"
                         >
                             Password
@@ -36,23 +36,23 @@
                         <input
                             id="password"
                             type="password"
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             required
                             v-model="loginForm.password"
                         />
                     </div>
 
                     <div class="col-span-full">
-                        <div class="flex items-center gap-x-2">
+                        <div class="inline-label">
                             <input
                                 id="remember"
                                 type="checkbox"
-                                class="h-5 w-5 rounded text-slate-800 border-slate-300 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                                class="checkbox"
                                 v-model="loginForm.remember"
                             />
                             <label
                                 for="remember"
-                                class="block text-sm font-medium leading-6 text-slate-800"
+                                class="small-label"
                             >
                                 Remember
                             </label>

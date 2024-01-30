@@ -12,7 +12,7 @@
                 <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="first-name"
                         >
                             First Name
@@ -20,7 +20,7 @@
                         <input
                             id="first-name"
                             type="text"
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             required
                             v-model="registerForm.first_name"
                         />
@@ -28,7 +28,7 @@
 
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="last-name"
                         >
                             Last Name
@@ -36,7 +36,7 @@
                         <input
                             id="last-name"
                             type="text"
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             required
                             v-model="registerForm.last_name"
                         />
@@ -44,7 +44,7 @@
 
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="email"
                         >
                             Email
@@ -52,7 +52,7 @@
                         <input
                             id="email"
                             type="email"
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             required
                             v-model="registerForm.email"
                         />
@@ -60,7 +60,7 @@
 
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="password"
                         >
                             Password
@@ -68,7 +68,7 @@
                         <input
                             id="password"
                             type="password"
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             required
                             v-model="registerForm.password"
                         />
@@ -76,7 +76,7 @@
 
                     <div class="col-span-full">
                         <label
-                            class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                            class="label"
                             for="org-name"
                         >
                             Organisation Name
@@ -84,7 +84,7 @@
                         <input
                             id="org-name"
                             type="text"
-                            class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                            class="input"
                             required
                             v-model="registerForm.organisation_name"
                         />

@@ -11,7 +11,7 @@
             <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
                 <div class="col-span-full">
                     <label
-                        class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                        class="label"
                         for="name"
                     >
                         Name
@@ -20,7 +20,7 @@
                         id="name"
                         type="text"
                         required
-                        class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                        class="input"
                         v-model="organisationForm.name"
                     />
                 </div>
