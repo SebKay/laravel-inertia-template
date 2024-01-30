@@ -16,7 +16,7 @@
     export default {
         data() {
             return {
-                title: "Home",
+                title: "Dashboard",
             };
         },
     };
