@@ -20,7 +20,7 @@ Route::post('logout', App\Http\Controllers\LogoutController::class)
     ->middleware(['auth'])
     ->name('logout');
 
-Route::controller(App\Http\Controllers\HomeController::class)
+Route::controller(App\Http\Controllers\DashboardController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('home');

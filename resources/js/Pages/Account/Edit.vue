@@ -11,7 +11,7 @@
             <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
                 <div class="col-span-full">
                     <label
-                        class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                        class="label"
                         for="first-name"
                     >
                         First Name
@@ -20,14 +20,14 @@
                         id="first-name"
                         type="text"
                         required
-                        class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                        class="input"
                         v-model="accountForm.first_name"
                     />
                 </div>
 
                 <div class="col-span-full">
                     <label
-                        class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                        class="label"
                         for="last-name"
                     >
                         Last Name
@@ -36,14 +36,14 @@
                         id="last-name"
                         type="text"
                         required
-                        class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                        class="input"
                         v-model="accountForm.last_name"
                     />
                 </div>
 
                 <div class="col-span-full">
                     <label
-                        class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                        class="label"
                         for="email"
                     >
                         Email
@@ -52,14 +52,14 @@
                         id="email"
                         type="email"
                         required
-                        class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                        class="input"
                         v-model="accountForm.email"
                     />
                 </div>
 
                 <div class="col-span-full">
                     <label
-                        class="pb-2 block text-base font-medium leading-6 text-slate-800"
+                        class="label"
                         for="password"
                     >
                         Password
@@ -67,7 +67,7 @@
                     <input
                         id="password"
                         type="password"
-                        class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50"
+                        class="input"
                         v-model="accountForm.password"
                     />
                 </div>

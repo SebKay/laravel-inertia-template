@@ -32,36 +32,57 @@
 
         data() {
             return {
-                menu: [
-                    {
-                        label: "Home",
-                        route: route("home"),
-                        condition: true,
-                        components: ['Home/Index'],
-                    },
-                    {
-                        label: "Account",
-                        route: route("account.edit"),
-                        condition: true,
-                        components: ['Account/Edit', 'EmailVerification/Show'],
-                    },
-                    {
-                        label: "Organisation",
-                        route: route("organisation.edit"),
-                        condition: this.userCan(this.$page.props, 'edit-organisation'),
-                        components: ['Organisation/Edit'],
-                    },
-                    {
-                        label: "Logout",
-                        route: route("logout"),
-                        method: "post",
-                        condition: true,
-                        components: [],
-                    },
-                ],
-
                 mobileMenuOpen: false,
             };
+        },
+
+        computed: {
+            menu() {
+                if (this.$page.props.auth.loggedIn) {
+                    return [
+                        {
+                            label: "Dashboard",
+                            route: route("home"),
+                            condition: true,
+                            components: ['Dashboard/Index'],
+                        },
+                        {
+                            label: "Account",
+                            route: route("account.edit"),
+                            condition: true,
+                            components: ['Account/Edit', 'EmailVerification/Show'],
+                        },
+                        {
+                            label: "Organisation",
+                            route: route("organisation.edit"),
+                            condition: this.userCan(this.$page.props, 'edit-organisation'),
+                            components: ['Organisation/Edit'],
+                        },
+                        {
+                            label: "Logout",
+                            route: route("logout"),
+                            method: "post",
+                            condition: true,
+                            components: [],
+                        },
+                    ];
+                }
+
+                return [
+                    {
+                        label: "Login",
+                        route: route("login"),
+                        condition: true,
+                        components: ['Login/Show'],
+                    },
+                    {
+                        label: "Register",
+                        route: route("register"),
+                        condition: true,
+                        components: ['Register/Show'],
+                    },
+                ];
+            },
         },
 
         mounted() {

@@ -9,7 +9,7 @@ class OrganisationUpdate extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('update', $this->user()->currentOrganisation);
+        return Gate::allows('update', $this->user()->organisation);
     }
 
     public function rules()

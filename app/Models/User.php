@@ -63,7 +63,7 @@ class User extends Authenticatable implements FilamentUser, HasName, MustVerifyE
         return $this->belongsToMany(Organisation::class)->withTimestamps();
     }
 
-    public function currentOrganisation()
+    public function organisation()
     {
         return $this->belongsTo(Organisation::class);
     }
