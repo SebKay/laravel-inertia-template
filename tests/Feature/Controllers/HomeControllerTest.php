@@ -12,7 +12,7 @@ describe('Users', function () {
             ->get(route('home'))
             ->assertInertia(
                 fn (Assert $page) => $page
-                    ->component('Home/Index')
+                    ->component('Dashboard/Index')
             );
     });
 });
