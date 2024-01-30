@@ -15,7 +15,7 @@ beforeEach(function () {
         'name' => 'GCPD',
     ]);
 
-    $this->adminUser->currentOrganisation()->associate($this->adminUser->organisations->first())->save();
+    $this->adminUser->organisation()->associate($this->adminUser->organisations->first())->save();
 });
 
 describe('Admins', function () {
@@ -26,7 +26,7 @@ describe('Admins', function () {
     });
 
     test("Can update their organisation's name", function () {
-        expect($this->adminUser->currentOrganisation->name)->toBe('GCPD');
+        expect($this->adminUser->organisation->name)->toBe('GCPD');
 
         actingAs($this->adminUser)
             ->patch(route('organisation.update'), [
@@ -34,7 +34,7 @@ describe('Admins', function () {
             ])
             ->assertRedirect();
 
-        expect($this->adminUser->currentOrganisation->refresh()->name)->toBe('New Name');
+        expect($this->adminUser->organisation->refresh()->name)->toBe('New Name');
     });
 });
 
@@ -42,8 +42,8 @@ describe('Non-Admins', function () {
     test("Can't see the edit page for their organisation", function () {
         $user = User::factory()->create();
 
-        $user->organisations()->save($this->adminUser->currentOrganisation);
-        $user->currentOrganisation()->associate($user->organisations->first())->save();
+        $user->organisations()->save($this->adminUser->organisation);
+        $user->organisation()->associate($user->organisations->first())->save();
 
         actingAs($user)
             ->get(route('organisation.edit'))
@@ -53,10 +53,10 @@ describe('Non-Admins', function () {
     test("Can't update their organisation's name", function () {
         $user = User::factory()->create();
 
-        $user->organisations()->save($this->adminUser->currentOrganisation);
-        $user->currentOrganisation()->associate($user->organisations->first())->save();
+        $user->organisations()->save($this->adminUser->organisation);
+        $user->organisation()->associate($user->organisations->first())->save();
 
-        expect($user->currentOrganisation->name)->toBe('GCPD');
+        expect($user->organisation->name)->toBe('GCPD');
 
         actingAs($user)
             ->patch(route('organisation.update'), [
@@ -64,7 +64,7 @@ describe('Non-Admins', function () {
             ])
             ->assertForbidden();
 
-        expect($user->currentOrganisation->refresh()->name)->toBe('GCPD');
+        expect($user->organisation->refresh()->name)->toBe('GCPD');
     });
 });
 

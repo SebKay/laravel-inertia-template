@@ -31,7 +31,7 @@ class RegisterController extends Controller
             'name' => $request->validated('organisation_name'),
         ]);
         $org->users()->attach($user);
-        $user->currentOrganisation()->associate($org)->save();
+        $user->organisation()->associate($org)->save();
 
         $user->assignRole(Role::USER->value);
 

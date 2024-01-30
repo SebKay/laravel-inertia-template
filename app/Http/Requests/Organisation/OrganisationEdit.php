@@ -9,6 +9,6 @@ class OrganisationEdit extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('edit', $this->user()->currentOrganisation);
+        return Gate::allows('edit', $this->user()->organisation);
     }
 }
