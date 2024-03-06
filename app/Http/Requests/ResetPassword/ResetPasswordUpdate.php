@@ -15,11 +15,11 @@ class ResetPasswordUpdate extends FormRequest
             'password_confirmation' => ['required', 'same:password'],
             'password' => [
                 'required',
-                // Password::min(6)
-                //     ->mixedCase()
-                //     ->numbers()
-                //     ->symbols()
-                //     ->uncompromised(),
+                Password::min(6)
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(),
             ],
         ];
     }
