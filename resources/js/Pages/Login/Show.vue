@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
@@ -69,8 +70,17 @@
                 </div>
             </form>
 
-            <div class="mt-5 sm:mt-7">
+            <div class="mt-6 lg:mt-10">
                 <p class="text-center text-slate-800">
+                    <Link
+                        class="underline hover:no-underline"
+                        :href="route('register')"
+                    >
+                    Forgot your password?
+                    </Link>
+                </p>
+
+                <p class="text-center text-slate-800 mt-3">
                     <Link
                         class="underline hover:no-underline"
                         :href="route('register')"

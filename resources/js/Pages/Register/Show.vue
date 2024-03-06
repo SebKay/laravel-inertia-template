@@ -100,7 +100,7 @@
                 </div>
             </form>
 
-            <div class="mt-5 sm:mt-7">
+            <div class="mt-6 lg:mt-10">
                 <p class="text-center text-slate-800">
                     <Link
                         class="underline hover:no-underline"
