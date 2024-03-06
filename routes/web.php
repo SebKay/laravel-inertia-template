@@ -16,6 +16,13 @@ Route::controller(App\Http\Controllers\LoginController::class)
         Route::post('login', 'store')->name('login.store');
     });
 
+Route::controller(App\Http\Controllers\ResetPasswordController::class)
+    ->middleware(['guest'])
+    ->group(function () {
+        Route::get('forgot-password', 'show')->name('reset-password');
+        Route::post('forgot-password', 'store')->name('reset-password.store');
+    });
+
 Route::post('logout', App\Http\Controllers\LogoutController::class)
     ->middleware(['auth'])
     ->name('logout');
