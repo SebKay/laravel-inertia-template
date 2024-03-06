@@ -50,7 +50,7 @@ class ResetPasswordController extends Controller
 
             $user->save();
 
-            event(new PasswordReset($user));
+            \event(new PasswordReset($user));
         });
 
         if ($status !== Password::PASSWORD_RESET) {
