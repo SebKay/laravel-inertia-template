@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\ResetPassword\ResetPasswordStore;
+use App\Http\Requests\ResetPassword\ResetPasswordUpdate;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
+
+class ResetPasswordController extends Controller
+{
+    public function show(Request $request)
+    {
+        return \inertia('ResetPassword/Show');
+    }
+
+    public function store(ResetPasswordStore $request)
+    {
+        $status = Password::sendResetLink($request->only('email'));
+
+        if ($status !== Password::RESET_LINK_SENT) {
+            throw ValidationException::withMessages([
+                'reset_link' => \__($status),
+            ]);
+        }
+
+        \session()->flash('message', \__('passwords.sent'));
+
+        return \redirect()->route('login');
+    }
+
+    public function edit(Request $request, string $token)
+    {
+        return \inertia('ResetPassword/Edit', [
+            'token' => $token,
+            'email' => $request->string('email'),
+        ]);
+    }
+
+    public function update(ResetPasswordUpdate $request)
+    {
+        $status = Password::reset($request->only('token', 'email', 'password', 'token'), function (User $user, string $password) {
+            $user->forceFill([
+                'password' => $password,
+            ])->setRememberToken(Str::random(60));
+
+            $user->save();
+
+            \event(new PasswordReset($user));
+        });
+
+        if ($status !== Password::PASSWORD_RESET) {
+            throw ValidationException::withMessages([
+                'reset' => __($status),
+            ]);
+        }
+
+        \session()->flash('message', \__('passwords.reset'));
+
+        return \redirect()->route('login');
+    }
+}
