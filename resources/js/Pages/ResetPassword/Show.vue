@@ -73,7 +73,7 @@
 
         methods: {
             submitresetPasswordForm() {
-                this.resetPasswordForm.post(route("reset-password.store"));
+                this.resetPasswordForm.post(route("password.store"));
             },
         },
     };

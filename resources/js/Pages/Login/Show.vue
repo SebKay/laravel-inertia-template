@@ -74,7 +74,7 @@
                 <p class="text-center text-slate-800">
                     <Link
                         class="underline hover:no-underline"
-                        :href="route('reset-password')"
+                        :href="route('password')"
                     >
                     Forgot your password?
                     </Link>
