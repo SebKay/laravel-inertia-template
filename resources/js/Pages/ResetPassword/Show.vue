@@ -9,7 +9,7 @@
         ></h1>
 
         <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
-            <form @submit.prevent="submitresetPasswordForm">
+            <form @submit.prevent="submitForgotPasswordForm">
                 <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
                     <div class="col-span-full">
                         <label
@@ -23,7 +23,7 @@
                             type="email"
                             required
                             class="input"
-                            v-model="resetPasswordForm.email"
+                            v-model="forgotPasswordForm.email"
                         />
                     </div>
 
@@ -31,7 +31,7 @@
                         <Button
                             text="Email Password Reset Link"
                             class="w-full text-center justify-center"
-                            :disabled="resetPasswordForm.processing"
+                            :disabled="forgotPasswordForm.processing"
                         />
                     </div>
                 </div>
@@ -55,25 +55,18 @@
     import { useForm } from "@inertiajs/vue3";
 
     export default {
-        props: {
-            email: String,
-            password: String,
-            remember: Boolean,
-            redirect: String,
-        },
-
         data() {
             return {
                 title: "Forgot Password",
-                resetPasswordForm: useForm({
-                    email: this.email,
+                forgotPasswordForm: useForm({
+                    email: "",
                 }),
             };
         },
 
         methods: {
-            submitresetPasswordForm() {
-                this.resetPasswordForm.post(route("password.store"));
+            submitForgotPasswordForm() {
+                this.forgotPasswordForm.post(route("password.store"));
             },
         },
     };

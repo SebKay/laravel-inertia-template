@@ -28,4 +28,9 @@ class ResetPasswordController extends Controller
 
         return \redirect()->route('login');
     }
+
+    public function edit(Request $request)
+    {
+        return \inertia('ResetPassword/Edit');
+    }
 }
