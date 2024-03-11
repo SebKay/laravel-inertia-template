@@ -24,7 +24,7 @@
                                         v-text="link.label"
                                         class="rounded-xl px-3 py-2 text-sm font-medium"
                                         :class="{
-                                            'bg-slate-100': link.components.includes($page.component),
+                                            'bg-slate-100 text-slate-800': link.components.includes($page.component),
                                             'text-slate-500 hover:text-slate-900': !link.components.includes($page.component),
                                         }"
                                     />
@@ -68,7 +68,7 @@
                             v-text="link.label"
                             class="rounded-xl px-3 py-2 text-base font-medium block"
                             :class="{
-                                'bg-slate-100': link.components.includes($page.component),
+                                'bg-slate-100 text-slate-800': link.components.includes($page.component),
                                 'text-slate-500 hover:text-slate-900': !link.components.includes($page.component),
                             }"
                             aria-current="page"
