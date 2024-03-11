@@ -37,7 +37,7 @@ describe('Guests', function () {
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => $email,
-            'password' => 'P$ssword12345#'
+            'password' => 'P$ssword12345#',
         ])
             ->assertRedirect(route('home'));
 
@@ -66,7 +66,7 @@ describe('Guests', function () {
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => $email,
-            'password' => 'P$ssword12345#'
+            'password' => 'P$ssword12345#',
         ])
             ->assertSessionHasErrors('email');
     });
