@@ -15,7 +15,7 @@
 
     @inertiaHead
 
-<body class="h-full">
+<body class="h-full font-sans text-slate-700">
     @inertia
 </body>
 
