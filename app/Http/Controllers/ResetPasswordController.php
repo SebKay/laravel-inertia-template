@@ -28,7 +28,7 @@ class ResetPasswordController extends Controller
             ]);
         }
 
-        \session()->flash('message', \__('passwords.sent'));
+        \session()->flash('success', \__('passwords.sent'));
 
         return \redirect()->route('login');
     }
@@ -59,7 +59,7 @@ class ResetPasswordController extends Controller
             ]);
         }
 
-        \session()->flash('message', \__('passwords.reset'));
+        \session()->flash('success', \__('passwords.reset'));
 
         return \redirect()->route('login');
     }

@@ -1,24 +1,20 @@
 <template>
     <div
         v-if="active && type && message"
-        class="flex items-center p-5 text-base fixed bottom-4 right-4 z-50"
+        class="flex items-center p-5 text-base fixed bottom-4 right-4 z-50 rounded-xl"
         :class='{
             "bg-green-50 border-green-200 text-green-800": type === "success",
             "bg-red-50 border-red-200 text-red-800": type === "error",
+            "bg-yellow-50 border-yellow-200 text-yellow-800": type === "warning",
         }'
         role="alert"
     >
-        <CheckCircleIcon
-            v-if="type == 'success'"
+        <component
+            v-if="icon"
+            :is="icon"
             class="flex-shrink-0 inline w-6 h-6 me-3"
         />
-        <XCircleIcon
-            v-if="type == 'error'"
-            class="flex-shrink-0 inline w-6 h-6 me-3"
-        />
-        <div>
-            <span v-text="message"></span>
-        </div>
+        <p v-text="message"></p>
     </div>
 </template>
 
@@ -29,6 +25,7 @@
         data() {
             return {
                 active: false,
+                icon: "",
                 type: "",
                 message: "",
             };
@@ -36,11 +33,23 @@
 
         mounted() {
             router.on('finish', () => {
-                let message = router.page.props.message;
                 let error = Object.values(router.page.props.errors)[0] || null;
+                let type = null;
+                let message = null;
+
+                if (router.page.props.success) {
+                    type = "success";
+                    message = router.page.props.success;
+                } else if (router.page.props.error) {
+                    type = "error";
+                    error = router.page.props.error;
+                } else if (router.page.props.warning) {
+                    type = "warning";
+                    message = router.page.props.warning;
+                }
 
                 if (message) {
-                    this.setNotice(router.page.props.message, "success");
+                    this.setNotice(message, type);
                 } else if (error) {
                     this.setNotice(error, "error");
                 }
@@ -52,6 +61,14 @@
                 this.type = type;
                 this.message = message;
 
+                if (type === "success") {
+                    this.icon = "CheckCircleIcon";
+                } else if (type === "error") {
+                    this.icon = "XCircleIcon";
+                } else if (type === "warning") {
+                    this.icon = "ExclamationCircleIcon";
+                }
+
                 this.setActive();
             },
 
@@ -60,7 +77,7 @@
 
                 setTimeout(() => {
                     this.active = false;
-                }, 3000);
+                }, 4000);
             },
         },
     };
