@@ -30,12 +30,16 @@ class User extends Authenticatable implements FilamentUser, HasName, MustVerifyE
     ];
 
     protected $hidden = [
+        'password',
         'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+        ];
+    }
 
     protected function password(): Attribute
     {
