@@ -10,8 +10,8 @@
 
         <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
             <form @submit.prevent="submitForgotPasswordForm">
-                <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
-                    <div class="col-span-full">
+                <div class="form-row">
+                    <div class="form-col">
                         <label
                             class="label"
                             for="email"
@@ -27,7 +27,7 @@
                         />
                     </div>
 
-                    <div class="col-span-full">
+                    <div class="form-col">
                         <button
                             class="button button-full"
                             :disabled="forgotPasswordForm.processing"

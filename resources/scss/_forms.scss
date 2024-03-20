@@ -1,3 +1,11 @@
+.form-row {
+    @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-3;
+}
+
+.form-col {
+    @apply col-span-full;
+}
+
 label {
     &[for] {
         @apply cursor-pointer;
