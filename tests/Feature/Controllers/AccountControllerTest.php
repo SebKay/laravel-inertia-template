@@ -40,7 +40,7 @@ describe('Users', function () {
                 'password' => 'newPassword#123',
             ])
             ->assertRedirect()
-            ->assertSessionHas('message', __('account.updated'));
+            ->assertSessionHas('success', __('account.updated'));
 
         expect($user->refresh())
             ->first_name->toBe($newData['first_name'])
