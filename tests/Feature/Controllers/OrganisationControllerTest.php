@@ -8,7 +8,7 @@ use function Pest\Laravel\patch;
 
 beforeEach(function () {
     $this->adminUser = User::factory()
-        ->admin()
+        ->admin('admin@test.com')
         ->create();
 
     $this->adminUser->organisations()->create([

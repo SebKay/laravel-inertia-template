@@ -6,12 +6,18 @@ import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
 import { userCan } from "@js/utilities/permissions.js";
 
-import { Bars3Icon, XMarkIcon, SparklesIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/vue/24/outline';
+import {
+    Bars3Icon,
+    XMarkIcon,
+    SparklesIcon,
+    CheckCircleIcon,
+    XCircleIcon,
+    ExclamationCircleIcon,
+} from '@heroicons/vue/24/outline';
 
 import AppLayout from "@js/Layouts/App.vue";
 
 import Notice from "@js/Components/Notice.vue";
-import Button from "@js/Components/Button.vue";
 
 createInertiaApp({
     resolve: name => {
@@ -35,12 +41,12 @@ createInertiaApp({
             .component('XMarkIcon', XMarkIcon)
             .component('SparklesIcon', SparklesIcon)
             .component('CheckCircleIcon', CheckCircleIcon)
-            .component('XCircleIcon', XCircleIcon);
+            .component('XCircleIcon', XCircleIcon)
+            .component('ExclamationCircleIcon', ExclamationCircleIcon);
 
         Vue.component('Head', Head)
             .component('Link', Link)
-            .component('Notice', Notice)
-            .component('Button', Button);
+            .component('Notice', Notice);
 
         Vue.mount(el);
     },

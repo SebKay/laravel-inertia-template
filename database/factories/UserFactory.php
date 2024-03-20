@@ -31,17 +31,25 @@ class UserFactory extends Factory
         ]);
     }
 
-    public function admin()
+    public function superAdmin(?string $email = null)
     {
-        return $this->afterCreating(function (User $user) {
-            $user->assignRole(Role::ADMIN->value);
-        });
+        return $this
+            ->state(fn (array $attributes) => [
+                'email' => $email ?: \env('SEED_SUPER_ADMIN_EMAIL'),
+            ])
+            ->afterCreating(function (User $user) {
+                $user->assignRole(Role::SUPER_ADMIN->value);
+            });
     }
 
-    public function user()
+    public function admin(?string $email = null)
     {
-        return $this->afterCreating(function (User $user) {
-            $user->assignRole(Role::USER->value);
-        });
+        return $this
+            ->state(fn (array $attributes) => [
+                'email' => $email ?: \env('SEED_ADMIN_EMAIL'),
+            ])
+            ->afterCreating(function (User $user) {
+                $user->assignRole(Role::ADMIN->value);
+            });
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /*
@@ -51,3 +52,13 @@ expect()->extend('toBeOne', function () {
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
+
+function superAdminUser()
+{
+    return User::whereEmail(env('SEED_SUPER_ADMIN_EMAIL'))->first();
+}
+
+function adminUser()
+{
+    return User::whereEmail(env('SEED_ADMIN_EMAIL'))->first();
+}

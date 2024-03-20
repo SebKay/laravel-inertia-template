@@ -8,6 +8,8 @@ use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
 {
+    protected $rootView = 'layouts/inertia';
+
     public function share(Request $request): array
     {
         return \array_merge(parent::share($request), [
@@ -15,7 +17,9 @@ class HandleInertiaRequests extends Middleware
                 'loggedIn' => \auth()->check(),
                 'user' => $request->user() ? UserResource::make($request->user()) : [],
             ],
-            'message' => $request->session()->get('message'),
+            'success' => $request->session()->get('success'),
+            'error' => $request->session()->get('error'),
+            'warning' => $request->session()->get('warning'),
         ]);
     }
 }

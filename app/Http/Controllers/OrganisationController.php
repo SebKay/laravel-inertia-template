@@ -19,7 +19,7 @@ class OrganisationController extends Controller
     {
         $request->user()->organisation->update($request->only('name'));
 
-        \session()->flash('message', \__('organisation.updated'));
+        \session()->flash('success', \__('organisation.updated'));
 
         return \back();
     }

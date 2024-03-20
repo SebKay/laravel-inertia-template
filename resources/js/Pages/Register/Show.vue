@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
@@ -9,8 +10,8 @@
 
         <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
             <form @submit.prevent="submitRegisterForm">
-                <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
-                    <div class="col-span-full">
+                <div class="form-row">
+                    <div class="form-col">
                         <label
                             class="label"
                             for="first-name"
@@ -26,7 +27,7 @@
                         />
                     </div>
 
-                    <div class="col-span-full">
+                    <div class="form-col">
                         <label
                             class="label"
                             for="last-name"
@@ -42,7 +43,7 @@
                         />
                     </div>
 
-                    <div class="col-span-full">
+                    <div class="form-col">
                         <label
                             class="label"
                             for="email"
@@ -58,7 +59,7 @@
                         />
                     </div>
 
-                    <div class="col-span-full">
+                    <div class="form-col">
                         <label
                             class="label"
                             for="password"
@@ -74,7 +75,7 @@
                         />
                     </div>
 
-                    <div class="col-span-full">
+                    <div class="form-col">
                         <label
                             class="label"
                             for="org-name"
@@ -90,12 +91,13 @@
                         />
                     </div>
 
-                    <div class="col-span-full">
-                        <Button
-                            text="Register"
-                            class="w-full text-center justify-center"
+                    <div class="form-col">
+                        <button
+                            class="button button-full"
                             :disabled="registerForm.processing"
-                        />
+                        >
+                            Register
+                        </button>
                     </div>
                 </div>
             </form>
@@ -106,7 +108,7 @@
                         class="underline hover:no-underline"
                         :href="route('login')"
                     >
-                    Login
+                    Log In
                     </Link>
                 </p>
             </div>

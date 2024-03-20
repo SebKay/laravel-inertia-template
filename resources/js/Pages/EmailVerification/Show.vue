@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
@@ -12,11 +13,12 @@
                 <p>
                     Please verify your email address by clicking on the link we just emailed to you.
                 </p>
-                <Button
+                <button
+                    class="button mt-6"
                     @click="resend"
-                    class="mt-6"
-                    text="Resend Verification Email"
-                />
+                >
+                    Resend Verification Email
+                </button>
             </div>
         </div>
     </div>

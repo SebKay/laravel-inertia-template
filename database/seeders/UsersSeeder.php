@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,20 +12,7 @@ class UsersSeeder extends Seeder
 
     public function run()
     {
-        User::factory()
-            ->afterCreating(function (User $user) {
-                $user->assignRole(Role::SUPER_ADMIN->value, Role::ADMIN->value);
-            })
-            ->create([
-                'email' => \env('SEED_SUPER_ADMIN_EMAIL'),
-            ]);
-
-        User::factory()
-            ->afterCreating(function (User $user) {
-                $user->assignRole(Role::ADMIN->value);
-            })
-            ->create([
-                'email' => \env('SEED_ADMIN_EMAIL'),
-            ]);
+        User::factory()->superAdmin()->create();
+        User::factory()->admin()->create();
     }
 }

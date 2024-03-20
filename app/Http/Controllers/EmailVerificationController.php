@@ -23,7 +23,7 @@ class EmailVerificationController extends Controller
     {
         $request->user()->sendEmailVerificationNotification();
 
-        \session()->flash('message', \__('account.verification-resent'));
+        \session()->flash('success', \__('account.verification-resent'));
 
         return \back();
     }

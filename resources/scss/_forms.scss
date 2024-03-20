@@ -1,3 +1,11 @@
+.form-row {
+    @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-3;
+}
+
+.form-col {
+    @apply col-span-full;
+}
+
 label {
     &[for] {
         @apply cursor-pointer;
@@ -18,12 +26,14 @@ label {
 
 .input,
 .textarea,
+.select,
 .checkbox {
-    @apply block text-slate-800 rounded-md border-slate-300 shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50;
+    @apply block text-slate-800 rounded-md border-slate-300 shadow-sm hover:ring hover:ring-slate-200 hover:ring-opacity-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50;
 }
 
 .input,
-.textarea {
+.textarea,
+.select {
     @apply block text-base w-full;
 }
 
@@ -31,6 +41,18 @@ label {
     @apply min-h-32;
 }
 
+.select {
+    @apply cursor-pointer;
+}
+
 .checkbox {
     @apply h-5 w-5 cursor-pointer;
+}
+
+.button {
+    @apply rounded-md bg-slate-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-sm hover:bg-slate-500;
+}
+
+.button-full {
+    @apply w-full text-center justify-center;
 }
