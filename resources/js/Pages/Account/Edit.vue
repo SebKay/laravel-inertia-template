@@ -14,6 +14,21 @@
                         class="label"
                         for="first-name"
                     >
+                        Test
+                    </label>
+                    <select class="select" name="" id="">
+                        <option value="">Option 1</option>
+                        <option value="">Option 2</option>
+                        <option value="">Option 3</option>
+                        <option value="">Option 4</option>
+                    </select>
+                </div>
+
+                <div class="col-span-full">
+                    <label
+                        class="label"
+                        for="first-name"
+                    >
                         First Name
                     </label>
                     <input
