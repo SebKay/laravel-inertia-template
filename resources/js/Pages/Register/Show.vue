@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
@@ -91,11 +92,12 @@
                     </div>
 
                     <div class="col-span-full">
-                        <Button
-                            text="Register"
-                            class="w-full text-center justify-center"
+                        <button
+                            class="button button-full"
                             :disabled="registerForm.processing"
-                        />
+                        >
+                            Register
+                        </button>
                     </div>
                 </div>
             </form>
@@ -106,7 +108,7 @@
                         class="underline hover:no-underline"
                         :href="route('login')"
                     >
-                    Login
+                    Log In
                     </Link>
                 </p>
             </div>

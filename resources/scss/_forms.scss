@@ -40,3 +40,11 @@ label {
 .checkbox {
     @apply h-5 w-5 cursor-pointer;
 }
+
+.button {
+    @apply rounded-md bg-slate-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-sm hover:bg-slate-500;
+}
+
+.button-full {
+    @apply w-full text-center justify-center;
+}

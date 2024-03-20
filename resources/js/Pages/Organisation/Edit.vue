@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <h1
@@ -26,10 +27,12 @@
                 </div>
 
                 <div class="col-span-full">
-                    <Button
-                        text="Update"
+                    <button
+                        class="button"
                         :disabled="organisationForm.processing"
-                    />
+                    >
+                        Update
+                    </button>
                 </div>
             </div>
         </form>

@@ -28,11 +28,12 @@
                     </div>
 
                     <div class="col-span-full">
-                        <Button
-                            text="Email Password Reset Link"
-                            class="w-full text-center justify-center"
+                        <button
+                            class="button button-full"
                             :disabled="forgotPasswordForm.processing"
-                        />
+                        >
+                            Email Password Reset Link
+                        </button>
                     </div>
                 </div>
             </form>

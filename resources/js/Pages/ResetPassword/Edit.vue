@@ -44,11 +44,12 @@
                     </div>
 
                     <div class="col-span-full">
-                        <Button
-                            text="Reset Password"
-                            class="w-full text-center justify-center"
+                        <button
+                            class="button button-full"
                             :disabled="resetPasswordForm.processing"
-                        />
+                        >
+                            Reset Password
+                        </Button>
                     </div>
                 </div>
             </form>

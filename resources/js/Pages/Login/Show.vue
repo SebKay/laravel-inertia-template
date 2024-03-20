@@ -61,11 +61,12 @@
                     </div>
 
                     <div class="col-span-full">
-                        <Button
-                            text="Log In"
-                            class="w-full text-center justify-center"
+                        <button
+                            class="button button-full"
                             :disabled="loginForm.processing"
-                        />
+                        >
+                            Log In
+                        </button>
                     </div>
                 </div>
             </form>

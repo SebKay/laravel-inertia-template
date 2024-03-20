@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <h1
@@ -9,21 +10,6 @@
     <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
         <form @submit.prevent="submitAccountForm">
             <div class="grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-6">
-                <div class="col-span-full">
-                    <label
-                        class="label"
-                        for="first-name"
-                    >
-                        Test
-                    </label>
-                    <select class="select" name="" id="">
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                        <option value="">Option 4</option>
-                    </select>
-                </div>
-
                 <div class="col-span-full">
                     <label
                         class="label"
@@ -88,10 +74,12 @@
                 </div>
 
                 <div class="col-span-full">
-                    <Button
-                        text="Update"
+                    <button
+                        class="button"
                         :disabled="accountForm.processing"
-                    />
+                    >
+                        Update
+                    </button>
                 </div>
             </div>
         </form>

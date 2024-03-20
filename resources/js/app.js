@@ -18,7 +18,6 @@ import {
 import AppLayout from "@js/Layouts/App.vue";
 
 import Notice from "@js/Components/Notice.vue";
-import Button from "@js/Components/Button.vue";
 
 createInertiaApp({
     resolve: name => {
@@ -47,8 +46,7 @@ createInertiaApp({
 
         Vue.component('Head', Head)
             .component('Link', Link)
-            .component('Notice', Notice)
-            .component('Button', Button);
+            .component('Notice', Notice);
 
         Vue.mount(el);
     },
