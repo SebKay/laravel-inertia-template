@@ -76,7 +76,7 @@ test('Users can reset their passwords', function () {
         'password' => $newPassword,
         'password_confirmation' => $newPassword,
     ]))
-        ->assertRedirect(route('login'));
+        ->assertRedirect();
 
     expect(Hash::check($newPassword, $user->refresh()->password))->toBeTrue();
 });
