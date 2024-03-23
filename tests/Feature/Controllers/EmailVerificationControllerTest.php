@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\Notification;
 use Inertia\Testing\AssertableInertia as Assert;
 
 use function Pest\Laravel\actingAs;
@@ -14,6 +15,18 @@ describe('Users', function () {
                 fn (Assert $page) => $page
                     ->component('EmailVerification/Show')
             );
+    });
+
+    test('Can send the verificaiton notice', function () {
+        Notification::fake();
+
+        $user = User::factory()->unverified()->create();
+
+        actingAs($user)
+            ->post(route('verification.send'))
+            ->assertRedirect();
+
+        Notification::assertSentTo($user, Illuminate\Auth\Notifications\VerifyEmail::class);
     });
 });
 
