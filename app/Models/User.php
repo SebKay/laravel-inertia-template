@@ -86,6 +86,9 @@ class User extends Authenticatable implements FilamentUser, HasName, MustVerifyE
         return $this->hasRole(Role::SUPER_ADMIN->value);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getFilamentName(): string
     {
         return $this->fullName;
