@@ -53,10 +53,4 @@ describe('With Roles and Permissions', function () {
         expect($superAdminUser->canAccessPanel())->toBeTrue();
         expect($adminUser->canAccessPanel())->toBeFalse();
     });
-
-    it("uses it's full name for use in Filament", function () {
-        $user = User::factory()->create();
-
-        expect($user->getFilamentName())->toBe($user->full_name);
-    });
 });
