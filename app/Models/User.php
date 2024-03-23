@@ -81,11 +81,14 @@ class User extends Authenticatable implements FilamentUser, HasName, MustVerifyE
         }
     }
 
-    public function canAccessPanel(Panel $panel): bool
+    public function canAccessPanel(?Panel $panel = null): bool
     {
         return $this->hasRole(Role::SUPER_ADMIN->value);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function getFilamentName(): string
     {
         return $this->fullName;

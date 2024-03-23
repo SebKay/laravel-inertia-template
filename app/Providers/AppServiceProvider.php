@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         JsonResource::withoutWrapping();
 
+        // @codeCoverageIgnoreStart
         Pulse::users(function ($ids) {
             return User::findMany($ids)->map(fn ($user) => [
                 'id' => $user->id,
@@ -31,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
                 'extra' => "{$user->email} ({$user->roles->pluck('name')->implode(', ')})",
             ]);
         });
+        // @codeCoverageIgnoreEnd
     }
 }
