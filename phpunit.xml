@@ -16,6 +16,7 @@
     <exclude>
       <directory suffix=".php">./app/Filament</directory>
       <directory suffix=".php">./app/Providers/Filament</directory>
+      <file>./app/Providers/HorizonServiceProvider.php</file>
     </exclude>
   </source>
 </phpunit>
