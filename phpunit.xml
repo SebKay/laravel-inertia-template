@@ -14,7 +14,8 @@
       <directory suffix=".php">./app</directory>
     </include>
     <exclude>
-      <directory suffix=".php">app/Filament</directory>
+      <directory suffix=".php">./app/Filament</directory>
+      <directory suffix=".php">./app/Providers/Filament</directory>
     </exclude>
   </source>
 </phpunit>
