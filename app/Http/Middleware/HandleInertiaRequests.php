@@ -8,8 +8,6 @@ use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
 {
-    protected $rootView = 'layouts/inertia';
-
     public function share(Request $request): array
     {
         return \array_merge(parent::share($request), [
