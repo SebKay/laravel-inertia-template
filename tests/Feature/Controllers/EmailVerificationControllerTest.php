@@ -7,7 +7,6 @@ use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 use function Pest\Laravel\withoutExceptionHandling;
-use function Pest\Laravel\withoutMiddleware;
 
 describe('Users', function () {
     test('Can access the verification page', function () {
