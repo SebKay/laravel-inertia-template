@@ -20,7 +20,7 @@ test('The forgot password page can be accessed', function () {
         );
 });
 
-test('A password reset email can be sent', function () {
+test('A password reset email can be requested', function () {
     Notification::fake();
 
     $user = User::factory()->create();
