@@ -22,11 +22,9 @@ class ResetPasswordController extends Controller
     {
         $status = Password::sendResetLink($request->only('email'));
 
-        if ($status !== Password::RESET_LINK_SENT) {
-            throw ValidationException::withMessages([
-                'reset_link' => \__($status),
-            ]);
-        }
+        \throw_if($status !== Password::RESET_LINK_SENT, ValidationException::withMessages([
+            'reset_link' => \__($status),
+        ]));
 
         \session()->flash('success', \__('passwords.sent'));
 
@@ -53,11 +51,9 @@ class ResetPasswordController extends Controller
             \event(new PasswordReset($user));
         });
 
-        if ($status !== Password::PASSWORD_RESET) {
-            throw ValidationException::withMessages([
-                'reset' => __($status),
-            ]);
-        }
+        \throw_if($status !== Password::PASSWORD_RESET, ValidationException::withMessages([
+            'reset' => \__($status),
+        ]));
 
         \session()->flash('success', \__('passwords.reset'));
 

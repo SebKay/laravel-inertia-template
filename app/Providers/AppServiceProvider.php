@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
     {
         JsonResource::withoutWrapping();
 
+        // @codeCoverageIgnoreStart
         Carbon::macro('inAppTimezone', function () {
             return $this->tz(config('app.timezone_display'));
         });
@@ -22,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
             return $this->tz(auth()->user()?->timezone ?? config('app.timezone_display'));
         });
 
-        // @codeCoverageIgnoreStart
         Pulse::users(function ($ids) {
             return User::findMany($ids)->map(fn ($user) => [
                 'id' => $user->id,
