@@ -51,11 +51,9 @@ class ResetPasswordController extends Controller
             \event(new PasswordReset($user));
         });
 
-        if ($status !== Password::PASSWORD_RESET) {
-            throw ValidationException::withMessages([
-                'reset' => __($status),
-            ]);
-        }
+        \throw_if($status !== Password::PASSWORD_RESET, ValidationException::withMessages([
+            'reset' => \__($status),
+        ]));
 
         \session()->flash('success', \__('passwords.reset'));
 
