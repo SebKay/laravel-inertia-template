@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get Composer dependencies
         id: cache-vendor
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
@@ -20,7 +20,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         if: steps.cache-vendor.outputs.cache-hit != 'true'
         with:
-          php-version: 8.2
+          php-version: 8.3
           tools: composer:v2
 
       - name: Install Composer dependencies
@@ -33,18 +33,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get Composer dependencies
         id: cache-vendor
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.3
           tools: composer:v2
 
       - name: Build
@@ -62,18 +62,18 @@ jobs:
       APP_ENV: testing
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get Composer dependencies
         id: cache-vendor
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.3
           tools: composer:v2
 
       - name: Build
