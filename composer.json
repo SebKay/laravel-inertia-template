@@ -7,7 +7,6 @@
         "php": "^8.3",
         "althinect/filament-spatie-roles-permissions": "^2.2",
         "filament/filament": "^3.2",
-        "guzzlehttp/guzzle": "^7.8",
         "inertiajs/inertia-laravel": "^1.2",
         "laravel/framework": "^11.10",
         "laravel/horizon": "^5.24",
