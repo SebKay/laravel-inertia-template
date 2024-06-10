@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get Composer dependencies
         id: cache-vendor
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
@@ -33,11 +33,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get Composer dependencies
         id: cache-vendor
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
@@ -62,11 +62,11 @@ jobs:
       APP_ENV: testing
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get Composer dependencies
         id: cache-vendor
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: vendor
           key: ${{ runner.os }}-vendor-dev-${{ hashFiles('**/composer.lock') }}
