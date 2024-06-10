@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/vue";
+
 import { ZiggyVue } from 'ziggy-vue';
 import route from 'ziggy';
 
@@ -30,25 +32,31 @@ createInertiaApp({
     },
 
     setup({ el, App, props, plugin }) {
-        const Vue = createApp({ render: () => h(App, props) });
+        const VueApp = createApp({ render: () => h(App, props) });
 
-        Vue.use(plugin)
+        Sentry.init({
+            app: VueApp,
+            dsn: import.meta.env.VITE_SENTRY_DSN_PUBLIC,
+            environment: import.meta.env.VITE_APP_ENV,
+        });
+
+        VueApp.use(plugin)
             .use(ZiggyVue);
 
-        Vue.mixin({ methods: { userCan } });
+        VueApp.mixin({ methods: { userCan } });
 
-        Vue.component('Bars3Icon', Bars3Icon)
+        VueApp.component('Bars3Icon', Bars3Icon)
             .component('XMarkIcon', XMarkIcon)
             .component('SparklesIcon', SparklesIcon)
             .component('CheckCircleIcon', CheckCircleIcon)
             .component('XCircleIcon', XCircleIcon)
             .component('ExclamationCircleIcon', ExclamationCircleIcon);
 
-        Vue.component('Head', Head)
+        VueApp.component('Head', Head)
             .component('Link', Link)
             .component('Notice', Notice);
 
-        Vue.mount(el);
+        VueApp.mount(el);
     },
 
     title: title => title ? `${title} | Template` : 'Template',
