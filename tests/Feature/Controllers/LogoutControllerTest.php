@@ -10,7 +10,7 @@ describe('Users', function () {
     test('Can logout', function () {
         actingAs(User::factory()->create())
             ->post(route('logout'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
 
         assertGuest();
     });
@@ -19,6 +19,6 @@ describe('Users', function () {
 describe('Guests', function () {
     test("Can't logout", function () {
         post(route('logout'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 });

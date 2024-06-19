@@ -31,7 +31,7 @@ describe('Users', function () {
                 'id' => $user->getKey(),
                 'hash' => sha1($user->getEmailForVerification()),
             ]))
-            ->assertRedirect(route('home'));
+            ->assertRedirectToRoute('home');
 
         expect($user->refresh()->email_verified_at)->not()->toBeNull();
     });
@@ -52,6 +52,6 @@ describe('Users', function () {
 describe('Guests', function () {
     test("Can't access the verification page", function () {
         get(route('verification.notice'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 });

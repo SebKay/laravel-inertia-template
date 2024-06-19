@@ -13,7 +13,7 @@ describe('Users', function () {
     test("Can't access the login page", function () {
         actingAs(User::factory()->create())
             ->get(route('login'))
-            ->assertRedirect(route('home'));
+            ->assertRedirectToRoute('home');
     });
 });
 
@@ -36,7 +36,7 @@ describe('Guests', function () {
             'email' => $user->email,
             'password' => '12345',
         ])
-            ->assertRedirect(route('home'));
+            ->assertRedirectToRoute('home');
 
         assertAuthenticated();
     });

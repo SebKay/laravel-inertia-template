@@ -72,11 +72,11 @@ describe('Users', function () {
 describe('Guests', function () {
     test("Can't access the edit page", function () {
         get(route('account.edit'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 
     test("Can't update details", function () {
         patch(route('account.update'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 });
