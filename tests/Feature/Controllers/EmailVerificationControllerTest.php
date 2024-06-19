@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Notification;
 use Inertia\Testing\AssertableInertia as Assert;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\withoutExceptionHandling;
 
@@ -41,9 +42,10 @@ describe('Users', function () {
 
         $user = User::factory()->unverified()->create();
 
-        actingAs($user)
+        from(route('verification.notice'))
+            ->actingAs($user)
             ->post(route('verification.send'))
-            ->assertRedirect();
+            ->assertRedirectToRoute('verification.notice');
 
         Notification::assertSentTo($user, Illuminate\Auth\Notifications\VerifyEmail::class);
     });
