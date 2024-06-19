@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Notification;
 use Inertia\Testing\AssertableInertia as Assert;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\withoutExceptionHandling;
 
@@ -31,7 +32,7 @@ describe('Users', function () {
                 'id' => $user->getKey(),
                 'hash' => sha1($user->getEmailForVerification()),
             ]))
-            ->assertRedirect(route('home'));
+            ->assertRedirectToRoute('home');
 
         expect($user->refresh()->email_verified_at)->not()->toBeNull();
     });
@@ -41,9 +42,10 @@ describe('Users', function () {
 
         $user = User::factory()->unverified()->create();
 
-        actingAs($user)
+        from(route('verification.notice'))
+            ->actingAs($user)
             ->post(route('verification.send'))
-            ->assertRedirect();
+            ->assertRedirectToRoute('verification.notice');
 
         Notification::assertSentTo($user, Illuminate\Auth\Notifications\VerifyEmail::class);
     });
@@ -52,6 +54,6 @@ describe('Users', function () {
 describe('Guests', function () {
     test("Can't access the verification page", function () {
         get(route('verification.notice'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 });

@@ -14,7 +14,7 @@ describe('Users', function () {
     test("Can't access the register page", function () {
         actingAs(User::factory()->create())
             ->get(route('register'))
-            ->assertRedirect(route('home'));
+            ->assertRedirectToRoute('home');
     });
 });
 
@@ -39,7 +39,7 @@ describe('Guests', function () {
             'email' => $email,
             'password' => 'P$ssword12345#',
         ])
-            ->assertRedirect(route('home'));
+            ->assertRedirectToRoute('home');
 
         assertDatabaseHas('users', [
             'email' => $email,

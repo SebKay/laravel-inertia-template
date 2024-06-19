@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Inertia\Testing\AssertableInertia as Assert;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
@@ -32,14 +33,15 @@ describe('Users', function () {
             'password' => 'oldPassword#123',
         ]);
 
-        actingAs($user)
+        from(route('account.edit'))
+            ->actingAs($user)
             ->patch(route('account.update'), $newData = [
                 'first_name' => 'Tim',
                 'last_name' => 'Drake',
                 'email' => 'tim@test.com',
                 'password' => 'newPassword#123',
             ])
-            ->assertRedirect()
+            ->assertRedirectToRoute('account.edit')
             ->assertSessionHas('success', __('account.updated'));
 
         expect($user->refresh())
@@ -72,11 +74,11 @@ describe('Users', function () {
 describe('Guests', function () {
     test("Can't access the edit page", function () {
         get(route('account.edit'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 
     test("Can't update details", function () {
         patch(route('account.update'))
-            ->assertRedirect(route('login'));
+            ->assertRedirectToRoute('login');
     });
 });

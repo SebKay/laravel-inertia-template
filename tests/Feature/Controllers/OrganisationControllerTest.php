@@ -3,6 +3,7 @@
 use App\Models\User;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
@@ -28,11 +29,12 @@ describe('Admins', function () {
     test("Can update their organisation's name", function () {
         expect($this->adminUser->organisation->name)->toBe('GCPD');
 
-        actingAs($this->adminUser)
+        from(route('organisation.edit'))
+            ->actingAs($this->adminUser)
             ->patch(route('organisation.update'), [
                 'name' => 'New Name',
             ])
-            ->assertRedirect();
+            ->assertRedirectToRoute('organisation.edit');
 
         expect($this->adminUser->organisation->refresh()->name)->toBe('New Name');
     });
