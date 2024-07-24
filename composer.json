@@ -4,30 +4,30 @@
     "description": "A starter project for Laravel apps using Inertia and Vue.",
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.2",
         "althinect/filament-spatie-roles-permissions": "^2.2",
         "filament/filament": "^3.2",
-        "inertiajs/inertia-laravel": "^1.2",
-        "laravel/framework": "^11.10",
-        "laravel/horizon": "^5.24",
+        "inertiajs/inertia-laravel": "^1.3",
+        "laravel/framework": "^11.17",
+        "laravel/horizon": "^5.26",
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "predis/predis": "^2.2",
-        "sentry/sentry-laravel": "^4.5",
-        "spatie/laravel-permission": "^6.7",
+        "sentry/sentry-laravel": "^4.7",
+        "spatie/laravel-permission": "^6.9",
         "tightenco/ziggy": "^1.8"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.23",
-        "laravel/pint": "^1.16",
+        "laravel/pint": "^1.17",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.1",
+        "nunomaduro/collision": "^8.3",
         "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-faker": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.4",
-        "spatie/laravel-ray": "^1.36"
+        "spatie/laravel-ray": "^1.37"
     },
     "autoload": {
         "psr-4": {
