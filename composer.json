@@ -15,7 +15,7 @@
         "laravel/tinker": "^2.9",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-permission": "^6.9",
-        "tightenco/ziggy": "^1.8"
+        "tightenco/ziggy": "^2.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
