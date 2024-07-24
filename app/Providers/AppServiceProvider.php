@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Pulse\Facades\Pulse;
