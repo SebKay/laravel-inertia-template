@@ -67,7 +67,7 @@ test('Users can reset their passwords', function () {
     ]);
 
     $token = Password::createToken($user);
-    $newPassword = fake()->password(6);
+    $newPassword = 'newPassword#1234';
 
     patch(route('password.update', [
         'token' => $token,
