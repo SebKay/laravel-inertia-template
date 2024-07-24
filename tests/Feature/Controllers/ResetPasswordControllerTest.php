@@ -28,6 +28,7 @@ test('A password reset email can be requested', function () {
     post(route('password.store'), [
         'email' => $user->email,
     ])
+        ->assertSessionDoesntHaveErrors()
         ->assertRedirectToRoute('login');
 
     Notification::assertSentTo($user, ResetPassword::class);
@@ -40,7 +41,7 @@ test("A password reset email can't be requested with invalid credentials", funct
         ->post(route('password.store'), [
             'email' => fake()->email(),
         ])
-        ->assertsessionHasErrors('email')
+        ->assertSessionHasErrors('email')
         ->assertRedirectToRoute('password');
 
     Notification::assertNothingSent();
@@ -75,5 +76,6 @@ test('Users can reset their passwords', function () {
         'password' => $newPassword,
         'password_confirmation' => $newPassword,
     ]))
+        ->assertSessionDoesntHaveErrors()
         ->assertRedirectToRoute('login');
 });

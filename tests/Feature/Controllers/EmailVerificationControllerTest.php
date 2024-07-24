@@ -13,6 +13,7 @@ describe('Users', function () {
     test('Can access the verification page', function () {
         actingAs(User::factory()->unverified()->create())
             ->get(route('verification.notice'))
+            ->assertOk()
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('EmailVerification/Show')
@@ -32,6 +33,7 @@ describe('Users', function () {
                 'id' => $user->getKey(),
                 'hash' => sha1($user->getEmailForVerification()),
             ]))
+            ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('home');
 
         expect($user->refresh()->email_verified_at)->not()->toBeNull();
@@ -45,6 +47,7 @@ describe('Users', function () {
         from(route('verification.notice'))
             ->actingAs($user)
             ->post(route('verification.send'))
+            ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('verification.notice');
 
         Notification::assertSentTo($user, Illuminate\Auth\Notifications\VerifyEmail::class);

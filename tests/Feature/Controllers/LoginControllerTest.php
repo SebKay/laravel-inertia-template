@@ -37,6 +37,7 @@ describe('Guests', function () {
             'email' => $user->email,
             'password' => '12345',
         ])
+            ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('home');
 
         assertAuthenticated();
@@ -55,6 +56,7 @@ describe('Guests', function () {
                 'password' => '12345',
                 'redirect' => $redirect,
             ])
+            ->assertSessionDoesntHaveErrors()
             ->assertRedirect($redirect);
 
         assertAuthenticated();
@@ -69,7 +71,7 @@ describe('Guests', function () {
             'email' => $user->email,
             'password' => 'test',
         ])
-            ->assertsessionHasErrors();
+            ->assertSessionHasErrors();
 
         assertGuest();
     });
