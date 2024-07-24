@@ -15,6 +15,7 @@ describe('Users', function () {
 
         actingAs($user)
             ->get(route('account.edit'))
+            ->assertOk()
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Account/Edit')
@@ -42,6 +43,7 @@ describe('Users', function () {
                 'password' => 'newPassword#123',
             ])
             ->assertRedirectToRoute('account.edit')
+            ->assertSessionDoesntHaveErrors()
             ->assertSessionHas('success', __('account.updated'));
 
         expect($user->refresh())
@@ -62,10 +64,12 @@ describe('Users', function () {
         ]);
 
         actingAs($user)
+            ->from(route('account.edit'))
             ->patch(route('account.update'), $newData = [
                 'email' => 'jim@test.com',
             ])
-            ->assertSessionHasErrors('email');
+            ->assertSessionHasErrors('email')
+            ->assertRedirectToRoute('account.edit');
 
         expect($user->refresh()->email)->not()->toBe($newData['email']);
     });
