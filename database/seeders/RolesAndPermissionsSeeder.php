@@ -61,9 +61,11 @@ class RolesAndPermissionsSeeder extends Seeder
     protected function assignPermissionsToRoles()
     {
         $this->roles->get(Role::SUPER_ADMIN->value)->givePermissionTo($this->superAdminPermissions);
+        $this->roles->get(Role::SUPER_ADMIN->value)->givePermissionTo($this->orgnaisationPermissions);
+        $this->roles->get(Role::SUPER_ADMIN->value)->givePermissionTo($this->postPermissions);
 
-        $this->roles->get(Role::ADMIN->value)->givePermissionTo($this->postPermissions);
         $this->roles->get(Role::ADMIN->value)->givePermissionTo($this->orgnaisationPermissions);
+        $this->roles->get(Role::ADMIN->value)->givePermissionTo($this->postPermissions);
 
         $this->roles->get(Role::USER->value)->givePermissionTo($this->postPermissions);
     }
