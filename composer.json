@@ -13,7 +13,6 @@
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "predis/predis": "^2.2",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-permission": "^6.9",
         "tightenco/ziggy": "^1.8"
