@@ -39,6 +39,7 @@ describe('Guests', function () {
             'email' => $email,
             'password' => 'P$ssword12345#',
         ])
+            ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('home');
 
         assertDatabaseHas('users', [
