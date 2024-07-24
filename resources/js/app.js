@@ -1,5 +1,7 @@
 import * as Sentry from "@sentry/vue";
 
+import { route, ZiggyVue } from 'ziggy-js';
+
 import { createApp, h } from 'vue';
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
@@ -37,7 +39,8 @@ createInertiaApp({
             environment: import.meta.env.VITE_APP_ENV,
         });
 
-        VueApp.use(plugin);
+        VueApp.use(plugin)
+            .use(ZiggyVue);
 
         VueApp.mixin({ methods: { userCan } });
 
