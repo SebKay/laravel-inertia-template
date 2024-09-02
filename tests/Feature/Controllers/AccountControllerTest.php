@@ -4,8 +4,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Testing\AssertableInertia as Assert;
 
+use function Pest\Faker\fake;
 use function Pest\Laravel\actingAs;
-use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
@@ -28,23 +28,23 @@ describe('Users', function () {
 
     test('Can update their details', function () {
         $user = User::factory()->create([
-            'first_name' => 'Jim',
-            'last_name' => 'Gordon',
-            'email' => 'jim@test.com',
-            'password' => 'oldPassword#123',
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'email' => fake()->safeEmail(),
+            'password' => fake()->password(),
         ]);
 
-        from(route('account.edit'))
-            ->actingAs($user)
+        actingAs($user)
+            ->fromRoute('account.edit')
             ->patch(route('account.update'), $newData = [
-                'first_name' => 'Tim',
-                'last_name' => 'Drake',
-                'email' => 'tim@test.com',
-                'password' => 'newPassword#123',
+                'first_name' => fake()->firstName(),
+                'last_name' => fake()->lastName(),
+                'email' => fake()->safeEmail(),
+                'password' => 'newPassword123#',
             ])
-            ->assertRedirectToRoute('account.edit')
             ->assertSessionDoesntHaveErrors()
-            ->assertSessionHas('success', __('account.updated'));
+            ->assertSessionHas('success', __('account.updated'))
+            ->assertRedirectToRoute('account.edit');
 
         expect($user->refresh())
             ->first_name->toBe($newData['first_name'])
@@ -55,23 +55,27 @@ describe('Users', function () {
     });
 
     test("Can't update their email to one that already exists", function () {
-        User::factory()->create([
-            'email' => 'jim@test.com',
+        $user1 = User::factory()->create([
+            'email' => fake()->email(),
         ]);
 
-        $user = User::factory()->create([
-            'email' => 'jeff@test.com',
+        $oldEmail = fake()->email();
+
+        $user2 = User::factory()->create([
+            'email' => $oldEmail,
         ]);
 
-        actingAs($user)
-            ->from(route('account.edit'))
-            ->patch(route('account.update'), $newData = [
-                'email' => 'jim@test.com',
+        actingAs($user2)
+            ->fromRoute('account.edit')
+            ->patch(route('account.update'), [
+                'email' => $user1->email,
             ])
-            ->assertSessionHasErrors('email')
+            ->assertSessionHasErrors([
+                'email' => __('validation.unique', ['attribute' => 'email']),
+            ])
             ->assertRedirectToRoute('account.edit');
 
-        expect($user->refresh()->email)->not()->toBe($newData['email']);
+        expect($user2->refresh()->email)->toBe($oldEmail);
     });
 });
 
@@ -83,6 +87,7 @@ describe('Guests', function () {
 
     test("Can't update details", function () {
         patch(route('account.update'))
+            ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('login');
     });
 });

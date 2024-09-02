@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Password;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -9,7 +10,6 @@ use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
-use function Pest\Laravel\post;
 
 test('The forgot password page can be accessed', function () {
     get(route('password'))
@@ -25,9 +25,10 @@ test('A password reset email can be requested', function () {
 
     $user = User::factory()->create();
 
-    post(route('password.store'), [
-        'email' => $user->email,
-    ])
+    from(route('password'))
+        ->post(route('password.store'), [
+            'email' => $user->email,
+        ])
         ->assertSessionDoesntHaveErrors()
         ->assertRedirectToRoute('login');
 
@@ -41,7 +42,9 @@ test("A password reset email can't be requested with invalid credentials", funct
         ->post(route('password.store'), [
             'email' => fake()->email(),
         ])
-        ->assertSessionHasErrors('email')
+        ->assertSessionHasErrors([
+            'email' => __('validation.exists', ['attribute' => 'email']),
+        ])
         ->assertRedirectToRoute('password');
 
     Notification::assertNothingSent();
@@ -78,4 +81,6 @@ test('Users can reset their passwords', function () {
     ]))
         ->assertSessionDoesntHaveErrors()
         ->assertRedirectToRoute('login');
+
+    expect(Hash::check($newPassword, $user->refresh()->password))->toBeTrue();
 });

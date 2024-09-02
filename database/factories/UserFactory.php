@@ -52,4 +52,15 @@ class UserFactory extends Factory
                 $user->assignRole(Role::ADMIN->value);
             });
     }
+
+    public function user(?string $email = null)
+    {
+        return $this
+            ->state(fn (array $attributes) => [
+                'email' => $email ?: \env('SEED_USER_EMAIL'),
+            ])
+            ->afterCreating(function (User $user) {
+                $user->assignRole(Role::USER->value);
+            });
+    }
 }

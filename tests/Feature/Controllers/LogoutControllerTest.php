@@ -3,13 +3,17 @@
 use App\Models\User;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\post;
 
 describe('Users', function () {
     test('Can logout', function () {
-        actingAs(User::factory()->create())
-            ->post(route('logout'))
+        actingAs(User::factory()->create());
+
+        assertAuthenticated();
+
+        post(route('logout'))
             ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('login');
 

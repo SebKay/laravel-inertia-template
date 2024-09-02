@@ -7,6 +7,8 @@ use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Laravel\assertGuest;
+use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
@@ -32,12 +34,14 @@ describe('Guests', function () {
         $orgName = fake()->company();
         $email = fake()->email();
 
+        assertGuest();
+
         post(route('register.store'), [
             'organisation_name' => $orgName,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => $email,
-            'password' => 'P$ssword12345#',
+            'password' => 'Pa$$word12345#',
         ])
             ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('home');
@@ -62,13 +66,17 @@ describe('Guests', function () {
             'email' => $email,
         ]);
 
-        post(route('register.store'), [
-            'organisation_name' => fake()->company(),
-            'first_name' => fake()->firstName(),
-            'last_name' => fake()->lastName(),
-            'email' => $email,
-            'password' => 'P$ssword12345#',
-        ])
-            ->assertSessionHasErrors('email');
+        from(route('register'))
+            ->post(route('register.store'), [
+                'organisation_name' => fake()->company(),
+                'first_name' => fake()->firstName(),
+                'last_name' => fake()->lastName(),
+                'email' => $email,
+                'password' => 'P$ssword12345#',
+            ])
+            ->assertSessionHasErrors([
+                'email' => __('validation.unique', ['attribute' => 'email']),
+            ])
+            ->assertRedirectToRoute('register');
     });
 });

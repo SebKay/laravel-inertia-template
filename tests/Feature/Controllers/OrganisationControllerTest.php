@@ -3,18 +3,20 @@
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 
+use function Pest\Faker\fake;
 use function Pest\Laravel\actingAs;
-use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
 beforeEach(function () {
     $this->adminUser = User::factory()
-        ->admin('admin@test.com')
+        ->admin(fake()->email())
         ->create();
 
+    $this->orgName = fake()->company();
+
     $this->adminUser->organisations()->create([
-        'name' => 'GCPD',
+        'name' => $this->orgName,
     ]);
 
     $this->adminUser->organisation()->associate($this->adminUser->organisations->first())->save();
@@ -32,23 +34,27 @@ describe('Admins', function () {
     });
 
     test("Can update their organisation's name", function () {
-        expect($this->adminUser->organisation->name)->toBe('GCPD');
+        expect($this->adminUser->organisation->name)->toBe($this->orgName);
 
-        from(route('organisation.edit'))
-            ->actingAs($this->adminUser)
-            ->patch(route('organisation.update'), [
-                'name' => 'New Name',
-            ])
+        $data = [
+            'name' => fake()->company(),
+        ];
+
+        actingAs($this->adminUser)
+            ->fromRoute('organisation.edit')
+            ->patch(route('organisation.update'), $data)
             ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('organisation.edit');
 
-        expect($this->adminUser->organisation->refresh()->name)->toBe('New Name');
+        expect($this->adminUser->organisation->refresh()->name)->toBe($data['name']);
     });
 });
 
 describe('Non-Admins', function () {
     test("Can't see the edit page for their organisation", function () {
-        $user = User::factory()->create();
+        $user = User::factory()
+            ->user(fake()->email())
+            ->create();
 
         $user->organisations()->save($this->adminUser->organisation);
         $user->organisation()->associate($user->organisations->first())->save();
@@ -59,12 +65,14 @@ describe('Non-Admins', function () {
     });
 
     test("Can't update their organisation's name", function () {
-        $user = User::factory()->create();
+        $user = User::factory()
+            ->user(fake()->email())
+            ->create();
 
         $user->organisations()->save($this->adminUser->organisation);
         $user->organisation()->associate($user->organisations->first())->save();
 
-        expect($user->organisation->name)->toBe('GCPD');
+        expect($user->organisation->name)->toBe($this->orgName);
 
         actingAs($user)
             ->patch(route('organisation.update'), [
@@ -72,7 +80,7 @@ describe('Non-Admins', function () {
             ])
             ->assertForbidden();
 
-        expect($user->organisation->refresh()->name)->toBe('GCPD');
+        expect($user->organisation->refresh()->name)->toBe($this->orgName);
     });
 });
 
