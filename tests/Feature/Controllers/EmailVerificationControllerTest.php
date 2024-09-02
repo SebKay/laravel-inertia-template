@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Notification;
 use Inertia\Testing\AssertableInertia as Assert;
 
 use function Pest\Laravel\actingAs;
-use function Pest\Laravel\from;
 use function Pest\Laravel\get;
-use function Pest\Laravel\withoutExceptionHandling;
 
 describe('Users', function () {
     test('Can access the verification page', function () {
@@ -21,8 +19,6 @@ describe('Users', function () {
     });
 
     test('Can verify their email address', function () {
-        withoutExceptionHandling();
-
         $user = User::factory()->unverified()->create();
 
         expect($user->verified_at)->toBeNull();
@@ -44,8 +40,8 @@ describe('Users', function () {
 
         $user = User::factory()->unverified()->create();
 
-        from(route('verification.notice'))
-            ->actingAs($user)
+        actingAs($user)
+            ->fromRoute('verification.notice')
             ->post(route('verification.send'))
             ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('verification.notice');
