@@ -3,6 +3,7 @@
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 
+use function Pest\Faker\fake;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
@@ -29,13 +30,16 @@ describe('Guests', function () {
     });
 
     test('Can login', function () {
+        $password = fake()->password();
         $user = User::factory()->create([
-            'password' => '12345',
+            'password' => $password,
         ]);
+
+        assertGuest();
 
         post(route('login'), [
             'email' => $user->email,
-            'password' => '12345',
+            'password' => $password,
         ])
             ->assertSessionDoesntHaveErrors()
             ->assertRedirectToRoute('home');
@@ -44,34 +48,43 @@ describe('Guests', function () {
     });
 
     test('Can be redirected after login', function () {
+        $password = fake()->password();
         $user = User::factory()->create([
-            'password' => '12345',
+            'password' => $password,
         ]);
 
-        $redirect = 'https://google.com';
+        $redirectUrl = 'https://www.google.com/';
+
+        assertGuest();
 
         from(route('login'))
             ->post(route('login'), [
                 'email' => $user->email,
-                'password' => '12345',
-                'redirect' => $redirect,
+                'password' => $password,
+                'redirect' => $redirectUrl,
             ])
             ->assertSessionDoesntHaveErrors()
-            ->assertRedirect($redirect);
+            ->assertRedirect($redirectUrl);
 
         assertAuthenticated();
     });
 
     test("Can't login with invalid credentials", function () {
         $user = User::factory()->create([
-            'password' => '12345',
+            'password' => fake()->password(),
         ]);
 
-        post(route('login'), [
-            'email' => $user->email,
-            'password' => 'test',
-        ])
-            ->assertSessionHasErrors();
+        assertGuest();
+
+        from(route('login'))
+            ->post(route('login'), [
+                'email' => $user->email,
+                'password' => 'test',
+            ])
+            ->assertSessionHasErrors([
+                'email' => __('auth.failed'),
+            ])
+            ->assertRedirectToRoute('login');
 
         assertGuest();
     });
