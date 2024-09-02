@@ -2,6 +2,14 @@
 
 return [
 
+    'seed' => [
+        'emails' => [
+            'super' => env('SEED_SUPER_ADMIN_EMAIL', 'super@laravel-inertia-template.test'),
+            'admin' => env('SEED_ADMIN_EMAIL', 'admin@laravel-inertia-template.test'),
+            'user' => env('SEED_USER_EMAIL', 'user@laravel-inertia-template.test'),
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

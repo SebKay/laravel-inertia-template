@@ -55,10 +55,10 @@ expect()->extend('toBeOne', function () {
 
 function superAdminUser()
 {
-    return User::whereEmail(env('SEED_SUPER_ADMIN_EMAIL'))->first();
+    return User::whereEmail(\config('app.seed.emails.super'))->first();
 }
 
 function adminUser()
 {
-    return User::whereEmail(env('SEED_ADMIN_EMAIL'))->first();
+    return User::whereEmail(\config('app.seed.emails.admin'))->first();
 }

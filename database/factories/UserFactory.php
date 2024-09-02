@@ -35,7 +35,7 @@ class UserFactory extends Factory
     {
         return $this
             ->state(fn (array $attributes) => [
-                'email' => $email ?: \env('SEED_SUPER_ADMIN_EMAIL'),
+                'email' => $email ?: \config('app.seed.emails.super'),
             ])
             ->afterCreating(function (User $user) {
                 $user->assignRole(Role::SUPER_ADMIN->value);
@@ -46,7 +46,7 @@ class UserFactory extends Factory
     {
         return $this
             ->state(fn (array $attributes) => [
-                'email' => $email ?: \env('SEED_ADMIN_EMAIL'),
+                'email' => $email ?: \config('app.seed.emails.admin'),
             ])
             ->afterCreating(function (User $user) {
                 $user->assignRole(Role::ADMIN->value);
@@ -57,7 +57,7 @@ class UserFactory extends Factory
     {
         return $this
             ->state(fn (array $attributes) => [
-                'email' => $email ?: \env('SEED_USER_EMAIL'),
+                'email' => $email ?: \config('app.seed.emails.user'),
             ])
             ->afterCreating(function (User $user) {
                 $user->assignRole(Role::USER->value);
