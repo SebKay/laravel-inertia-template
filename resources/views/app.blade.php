@@ -14,6 +14,7 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
     @inertiaHead
+</head>
 
 <body class="h-full font-sans text-slate-700">
     @inertia
