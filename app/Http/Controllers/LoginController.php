@@ -13,7 +13,7 @@ class LoginController extends Controller
         $isProd = app()->environment('production');
 
         return inertia('Login/Show', [
-            'email' => ! $isProd ? config('app.seed.emails.super', '') : '',
+            'email' => ! $isProd ? config('app.seed.emails.super') : '',
             'password' => ! $isProd ? '12345' : '',
             'remember' => ! $isProd ? true : false,
             'redirect' => $request->query('redirect', ''),
@@ -28,8 +28,6 @@ class LoginController extends Controller
                 'email' => __('auth.failed'),
             ])
         );
-
-        $request->session()->regenerate();
 
         if ($request->validated('redirect')) {
             return redirect()->to($request->validated('redirect'));
