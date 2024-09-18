@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Enums\Role;
 use App\Http\Requests\Register\RegisterStoreRequest;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
     public function show()
     {
-        return inertia('Register/Show', app()->environment('local') ? [
+        return inertia('Register/Show', app()->environment('local', 'testing') ? [
             'first_name' => 'Jim',
             'last_name' => 'Gordon',
             'email' => 'test@test.com',
@@ -36,8 +35,6 @@ class RegisterController extends Controller
         $user->assignRole(Role::USER->value);
 
         auth()->guard()->loginUsingId($user->id);
-
-        event(new Registered($user));
 
         return redirect()->route('home');
     }

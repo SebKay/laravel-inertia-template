@@ -10,14 +10,12 @@ class LoginController extends Controller
 {
     public function show(Request $request)
     {
-        $isProd = app()->environment('production');
-
-        return inertia('Login/Show', [
-            'email' => ! $isProd ? config('app.seed.emails.super') : '',
-            'password' => ! $isProd ? '12345' : '',
-            'remember' => ! $isProd ? true : false,
+        return inertia('Login/Show', app()->environment('local', 'testing') ? [
+            'email' => config('app.seed.emails.super'),
+            'password' => '12345',
+            'remember' => true,
             'redirect' => $request->query('redirect', ''),
-        ]);
+        ] : []);
     }
 
     public function store(LoginStoreRequest $request)

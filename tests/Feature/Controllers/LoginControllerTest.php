@@ -28,7 +28,7 @@ describe('Guests', function () {
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Login/Show')
-                    ->where('email', config('app.seed.emails.super', ''))
+                    ->where('email', config('app.seed.emails.super'))
                     ->where('password', '12345')
                     ->where('remember', true)
                     ->where('redirect', '')
@@ -43,10 +43,10 @@ describe('Guests', function () {
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Login/Show')
-                    ->where('email', '')
-                    ->where('password', '')
-                    ->where('remember', false)
-                    ->where('redirect', '')
+                    ->missing('email')
+                    ->missing('password')
+                    ->missing('remember')
+                    ->missing('redirect')
             );
     });
 
