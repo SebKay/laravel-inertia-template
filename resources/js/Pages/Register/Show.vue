@@ -76,22 +76,6 @@
                     </div>
 
                     <div class="form-col">
-                        <label
-                            class="label"
-                            for="org-name"
-                        >
-                            Organisation Name
-                        </label>
-                        <input
-                            id="org-name"
-                            type="text"
-                            class="input"
-                            required
-                            v-model="registerForm.organisation_name"
-                        />
-                    </div>
-
-                    <div class="form-col">
                         <button
                             class="button button-full"
                             :disabled="registerForm.processing"
@@ -125,7 +109,6 @@
             last_name: String,
             email: String,
             password: String,
-            organisation_name: String,
         },
 
         data() {
@@ -136,7 +119,6 @@
                     last_name: this.last_name,
                     email: this.email,
                     password: this.password,
-                    organisation_name: this.organisation_name,
                 }),
             };
         },

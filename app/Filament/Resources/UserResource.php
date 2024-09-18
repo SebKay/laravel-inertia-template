@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers\OrganisationsRelationManager;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -35,13 +34,6 @@ class UserResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            OrganisationsRelationManager::class,
-        ];
     }
 
     public static function getPages(): array
@@ -104,11 +96,6 @@ class UserResource extends Resource
                 ->getStateUsing(fn ($record) => $record->email_verified_at)
                 ->boolean()
                 ->sortable(),
-
-            Tables\Columns\TextColumn::make('organisations')
-                ->numeric()
-                ->sortable()
-                ->getStateUsing(fn (User $user): int => $user->organisations->count()),
 
             Tables\Columns\TextColumn::make('roles')
                 ->getStateUsing(fn ($record) => $record->roles->pluck('name')->join(', '))

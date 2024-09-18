@@ -15,7 +15,6 @@ class RegisterController extends Controller
             'last_name' => 'Gordon',
             'email' => 'test@test.com',
             'password' => '123456Ab#',
-            'organisation_name' => 'GCPD',
         ] : []);
     }
 
@@ -25,12 +24,6 @@ class RegisterController extends Controller
 
         $user->password = $request->validated('password');
         $user->save();
-
-        $org = $user->organisations()->create([
-            'name' => $request->validated('organisation_name'),
-        ]);
-        $org->users()->attach($user);
-        $user->organisation()->associate($org)->save();
 
         $user->assignRole(Role::USER->value);
 
