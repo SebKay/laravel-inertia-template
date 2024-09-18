@@ -50,11 +50,3 @@ Route::controller(App\Http\Controllers\EmailVerificationController::class)
         Route::get('verify/{id}/{hash}', 'store')->middleware(['signed'])->name('verification.verify');
         Route::post('verify/resend', 'update')->middleware(['auth', 'throttle:6,1'])->name('verification.send');
     });
-
-Route::controller(App\Http\Controllers\OrganisationController::class)
-    ->prefix('organisation')
-    ->middleware(['auth', 'verified'])
-    ->group(function () {
-        Route::get('', 'edit')->name('organisation.edit');
-        Route::patch('', 'update')->name('organisation.update');
-    });

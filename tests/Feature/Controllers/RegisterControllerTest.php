@@ -33,7 +33,6 @@ describe('Guests', function () {
                     ->has('last_name')
                     ->has('email')
                     ->has('password')
-                    ->has('organisation_name')
             );
     });
 
@@ -49,18 +48,15 @@ describe('Guests', function () {
                     ->missing('last_name')
                     ->missing('email')
                     ->missing('password')
-                    ->missing('organisation_name')
             );
     });
 
     test('Can register', function () {
-        $orgName = fake()->company();
         $email = fake()->email();
 
         assertGuest();
 
         post(route('register.store'), [
-            'organisation_name' => $orgName,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => $email,
@@ -71,10 +67,6 @@ describe('Guests', function () {
 
         assertDatabaseHas('users', [
             'email' => $email,
-        ]);
-
-        assertDatabaseHas('organisations', [
-            'name' => $orgName,
         ]);
 
         expect(User::where('email', $email)->firstOrFail()->roles->first()->name)->toBe(Role::USER->value);
@@ -91,7 +83,6 @@ describe('Guests', function () {
 
         from(route('register'))
             ->post(route('register.store'), [
-                'organisation_name' => fake()->company(),
                 'first_name' => fake()->firstName(),
                 'last_name' => fake()->lastName(),
                 'email' => $email,

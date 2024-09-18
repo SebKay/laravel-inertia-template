@@ -53,12 +53,6 @@
                             components: ['Account/Edit', 'EmailVerification/Show'],
                         },
                         {
-                            label: "Organisation",
-                            route: route("organisation.edit"),
-                            condition: this.userCan(this.$page.props, 'edit-organisation'),
-                            components: ['Organisation/Edit'],
-                        },
-                        {
                             label: "Logout",
                             route: route("logout"),
                             method: "post",

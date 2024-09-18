@@ -6,9 +6,6 @@ enum Permission: string
 {
     case ACCESS_ADMIN = 'access-filament';
 
-    case EDIT_ORGANISATION = 'edit-organisation';
-    case UPDATE_ORGANISATION = 'update-organisation';
-
     case CREATE_POSTS = 'create-posts';
     case VIEW_POSTS = 'view-posts';
     case EDIT_POSTS = 'edit-posts';
