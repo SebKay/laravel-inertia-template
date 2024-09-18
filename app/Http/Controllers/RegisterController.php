@@ -35,7 +35,7 @@ class RegisterController extends Controller
 
         $user->assignRole(Role::USER->value);
 
-        auth()->loginUsingId($user->id);
+        auth()->guard()->loginUsingId($user->id);
 
         event(new Registered($user));
 

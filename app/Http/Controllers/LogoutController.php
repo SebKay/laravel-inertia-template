@@ -8,7 +8,7 @@ class LogoutController extends Controller
 {
     public function __invoke(Request $request)
     {
-        auth()->logout();
+        auth()->guard()->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

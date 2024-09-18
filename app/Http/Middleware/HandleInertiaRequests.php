@@ -12,7 +12,7 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'auth' => [
-                'loggedIn' => auth()->check(),
+                'loggedIn' => auth()->guard()->check(),
                 'user' => $request->user() ? UserResource::make($request->user()) : [],
             ],
             'success' => $request->session()->get('success'),
