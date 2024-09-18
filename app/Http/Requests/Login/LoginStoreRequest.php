@@ -4,7 +4,7 @@ namespace App\Http\Requests\Login;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginStore extends FormRequest
+class LoginStoreRequest extends FormRequest
 {
     public function rules()
     {

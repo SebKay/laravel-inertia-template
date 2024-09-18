@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Role;
-use App\Http\Requests\Register\RegisterStore;
+use App\Http\Requests\Register\RegisterStoreRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 
@@ -20,7 +20,7 @@ class RegisterController extends Controller
         ] : []);
     }
 
-    public function store(RegisterStore $request)
+    public function store(RegisterStoreRequest $request)
     {
         $user = new User($request->only('first_name', 'last_name', 'email'));
 

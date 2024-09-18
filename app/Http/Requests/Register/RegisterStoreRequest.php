@@ -5,7 +5,7 @@ namespace App\Http\Requests\Register;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
-class RegisterStore extends FormRequest
+class RegisterStoreRequest extends FormRequest
 {
     public function rules()
     {

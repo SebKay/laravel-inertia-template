@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Login\LoginStore;
+use App\Http\Requests\Login\LoginStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -20,7 +20,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function store(LoginStore $request)
+    public function store(LoginStoreRequest $request)
     {
         \throw_if(
             ! \auth()->attempt($request->only('email', 'password'), $request->only('remember')),
