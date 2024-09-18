@@ -10,7 +10,7 @@ class AccountController extends Controller
 {
     public function edit(Request $request)
     {
-        return \inertia('Account/Edit', [
+        return inertia('Account/Edit', [
             'user' => UserResource::make($request->user()),
         ]);
     }
@@ -20,8 +20,8 @@ class AccountController extends Controller
         $request->user()->update($request->only('first_name', 'last_name', 'email'));
         $request->user()->updatePassword($request->validated('password'));
 
-        \session()->flash('success', \__('account.updated'));
+        session()->flash('success', __('account.updated'));
 
-        return \redirect()->back();
+        return redirect()->back();
     }
 }

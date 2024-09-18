@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function show()
     {
-        return \inertia('Register/Show', \app()->environment('local') ? [
+        return inertia('Register/Show', app()->environment('local') ? [
             'first_name' => 'Jim',
             'last_name' => 'Gordon',
             'email' => 'test@test.com',
@@ -35,10 +35,10 @@ class RegisterController extends Controller
 
         $user->assignRole(Role::USER->value);
 
-        \auth()->loginUsingId($user->id);
+        auth()->loginUsingId($user->id);
 
-        \event(new Registered($user));
+        event(new Registered($user));
 
-        return \redirect()->route('home');
+        return redirect()->route('home');
     }
 }

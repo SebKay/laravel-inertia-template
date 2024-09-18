@@ -8,11 +8,11 @@ class LogoutController extends Controller
 {
     public function __invoke(Request $request)
     {
-        \auth()->logout();
+        auth()->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return \redirect()->route('login');
+        return redirect()->route('login');
     }
 }

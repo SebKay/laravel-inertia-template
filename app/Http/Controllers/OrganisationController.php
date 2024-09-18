@@ -10,7 +10,7 @@ class OrganisationController extends Controller
 {
     public function edit(OrganisationEditRequest $request)
     {
-        return \inertia('Organisation/Edit', [
+        return inertia('Organisation/Edit', [
             'organisation' => OrganisationResource::make($request->user()->organisation),
         ]);
     }
@@ -19,8 +19,8 @@ class OrganisationController extends Controller
     {
         $request->user()->organisation->update($request->only('name'));
 
-        \session()->flash('success', \__('organisation.updated'));
+        session()->flash('success', __('organisation.updated'));
 
-        return \back();
+        return back();
     }
 }

@@ -15,25 +15,25 @@ class ResetPasswordController extends Controller
 {
     public function show(Request $request)
     {
-        return \inertia('ResetPassword/Show');
+        return inertia('ResetPassword/Show');
     }
 
     public function store(ResetPasswordStoreRequest $request)
     {
         $status = Password::sendResetLink($request->only('email'));
 
-        \throw_if($status !== Password::RESET_LINK_SENT, ValidationException::withMessages([
-            'reset_link' => \__($status),
+        throw_if($status !== Password::RESET_LINK_SENT, ValidationException::withMessages([
+            'reset_link' => __($status),
         ]));
 
-        \session()->flash('success', \__('passwords.sent'));
+        session()->flash('success', __('passwords.sent'));
 
-        return \redirect()->route('login');
+        return redirect()->route('login');
     }
 
     public function edit(Request $request, string $token)
     {
-        return \inertia('ResetPassword/Edit', [
+        return inertia('ResetPassword/Edit', [
             'token' => $token,
             'email' => $request->string('email'),
         ]);
@@ -48,15 +48,15 @@ class ResetPasswordController extends Controller
 
             $user->save();
 
-            \event(new PasswordReset($user));
+            event(new PasswordReset($user));
         });
 
-        \throw_if($status !== Password::PASSWORD_RESET, ValidationException::withMessages([
-            'reset' => \__($status),
+        throw_if($status !== Password::PASSWORD_RESET, ValidationException::withMessages([
+            'reset' => __($status),
         ]));
 
-        \session()->flash('success', \__('passwords.reset'));
+        session()->flash('success', __('passwords.reset'));
 
-        return \redirect()->route('login');
+        return redirect()->route('login');
     }
 }
