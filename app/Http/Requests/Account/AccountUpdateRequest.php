@@ -12,15 +12,8 @@ class AccountUpdateRequest extends FormRequest
         return [
             'first_name' => ['required', 'sometimes', 'string', 'max:255'],
             'last_name' => ['required', 'sometimes', 'string', 'max:255'],
-            'email' => ['required', 'sometimes', 'email', 'unique:users,email,'.\auth()->id()],
-            'password' => [
-                'nullable',
-                Password::min(6)
-                    ->mixedCase()
-                    ->numbers()
-                    ->symbols()
-                    ->uncompromised(),
-            ],
+            'email' => ['required', 'sometimes', 'email', 'unique:users,email,'.auth()->guard()->id()],
+            'password' => ['nullable', Password::defaults()],
         ];
     }
 

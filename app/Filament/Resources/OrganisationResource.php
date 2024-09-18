@@ -65,7 +65,7 @@ class OrganisationResource extends Resource
                 ->label('Owner')
                 ->required()
                 ->options(User::all()->pluck('full_name', 'id')->toArray())
-                ->default(fn (): int => \auth()->id() ?: null),
+                ->default(fn (): int => auth()->guard()->id() ?: null),
         ];
     }
 
