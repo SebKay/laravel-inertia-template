@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ResetPassword\ResetPasswordStore;
-use App\Http\Requests\ResetPassword\ResetPasswordUpdate;
+use App\Http\Requests\ResetPassword\ResetPasswordStoreRequest;
+use App\Http\Requests\ResetPassword\ResetPasswordUpdateRequest;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class ResetPasswordController extends Controller
         return \inertia('ResetPassword/Show');
     }
 
-    public function store(ResetPasswordStore $request)
+    public function store(ResetPasswordStoreRequest $request)
     {
         $status = Password::sendResetLink($request->only('email'));
 
@@ -39,7 +39,7 @@ class ResetPasswordController extends Controller
         ]);
     }
 
-    public function update(ResetPasswordUpdate $request)
+    public function update(ResetPasswordUpdateRequest $request)
     {
         $status = Password::reset($request->only('token', 'email', 'password', 'token'), function (User $user, string $password) {
             $user->forceFill([

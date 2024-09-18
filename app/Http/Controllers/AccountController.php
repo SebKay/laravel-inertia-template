@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Account\AccountUpdate;
+use App\Http\Requests\Account\AccountUpdateRequest;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class AccountController extends Controller
         ]);
     }
 
-    public function update(AccountUpdate $request)
+    public function update(AccountUpdateRequest $request)
     {
         $request->user()->update($request->only('first_name', 'last_name', 'email'));
         $request->user()->updatePassword($request->validated('password'));

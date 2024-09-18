@@ -5,7 +5,7 @@ namespace App\Http\Requests\Account;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
-class AccountUpdate extends FormRequest
+class AccountUpdateRequest extends FormRequest
 {
     public function rules()
     {

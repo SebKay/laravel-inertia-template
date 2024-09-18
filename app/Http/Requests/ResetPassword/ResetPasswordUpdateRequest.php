@@ -5,7 +5,7 @@ namespace App\Http\Requests\ResetPassword;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
-class ResetPasswordUpdate extends FormRequest
+class ResetPasswordUpdateRequest extends FormRequest
 {
     public function rules()
     {

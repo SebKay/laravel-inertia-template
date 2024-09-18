@@ -5,7 +5,7 @@ namespace App\Http\Requests\Organisation;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class OrganisationUpdate extends FormRequest
+class OrganisationUpdateRequest extends FormRequest
 {
     public function authorize()
     {
