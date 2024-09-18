@@ -11,6 +11,8 @@ use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
+covers(App\Http\Controllers\LoginController::class);
+
 describe('Users', function () {
     test("Can't access the login page", function () {
         actingAs(User::factory()->create())
@@ -26,6 +28,25 @@ describe('Guests', function () {
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Login/Show')
+                    ->where('email', config('app.seed.emails.super'))
+                    ->where('password', '12345')
+                    ->where('remember', true)
+                    ->where('redirect', '')
+            );
+    });
+
+    test('Props are not passed to the show page in production', function () {
+        app()->instance('env', 'production');
+
+        get(route('login'))
+            ->assertOk()
+            ->assertInertia(
+                fn (Assert $page) => $page
+                    ->component('Login/Show')
+                    ->missing('email')
+                    ->missing('password')
+                    ->missing('remember')
+                    ->missing('redirect')
             );
     });
 

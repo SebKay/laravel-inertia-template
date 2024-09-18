@@ -12,6 +12,8 @@ use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
+covers(App\Http\Controllers\RegisterController::class);
+
 describe('Users', function () {
     test("Can't access the register page", function () {
         actingAs(User::factory()->create())
@@ -27,6 +29,27 @@ describe('Guests', function () {
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Register/Show')
+                    ->has('first_name')
+                    ->has('last_name')
+                    ->has('email')
+                    ->has('password')
+                    ->has('organisation_name')
+            );
+    });
+
+    test('Props are not passed to the show page in production', function () {
+        app()->instance('env', 'production');
+
+        get(route('register'))
+            ->assertOk()
+            ->assertInertia(
+                fn (Assert $page) => $page
+                    ->component('Register/Show')
+                    ->missing('first_name')
+                    ->missing('last_name')
+                    ->missing('email')
+                    ->missing('password')
+                    ->missing('organisation_name')
             );
     });
 
