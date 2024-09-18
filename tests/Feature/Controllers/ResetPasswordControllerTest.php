@@ -11,6 +11,8 @@ use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\patch;
 
+covers(\App\Http\Controllers\ResetPasswordController::class);
+
 test('The forgot password page can be accessed', function () {
     get(route('password'))
         ->assertOk()
