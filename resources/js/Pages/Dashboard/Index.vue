@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <h1
@@ -12,12 +13,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        data() {
-            return {
-                title: "Dashboard",
-            };
-        },
-    };
+<script setup>
+    const title = "Dashboard";
 </script>
