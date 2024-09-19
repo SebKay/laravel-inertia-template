@@ -14,5 +14,7 @@
 </template>
 
 <script setup>
-    const title = "Dashboard";
+    import { ref } from "vue";
+
+    const title = ref("Dashboard");
 </script>
