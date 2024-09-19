@@ -12,8 +12,6 @@ use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-covers(App\Http\Controllers\RegisterController::class);
-
 describe('Users', function () {
     test("Can't access the register page", function () {
         actingAs(User::factory()->create())
