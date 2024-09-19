@@ -1,4 +1,5 @@
 <template>
+
     <Head>
         <title></title>
     </Head>
@@ -16,73 +17,61 @@
     <Notice />
 </template>
 
-<script>
-    import { router } from "@inertiajs/core";
+<script setup>
+    import { ref, computed, onMounted } from "vue";
+    import { usePage, router } from '@inertiajs/vue3'
 
     import Header from "@js/Components/Header.vue";
     import Notice from "@js/Components/Notice.vue";
 
-    export default {
-        name: "App Layout",
+    const page = usePage();
 
-        components: {
-            Header,
-            Notice,
-        },
+    const mobileMenuOpen = ref(false);
 
-        data() {
-            return {
-                mobileMenuOpen: false,
-            };
-        },
+    const menu = computed(() => {
+        if (page.props.auth.loggedIn) {
+            return [
+                {
+                    label: "Dashboard",
+                    route: route("home"),
+                    condition: true,
+                    components: ['Dashboard/Index'],
+                },
+                {
+                    label: "Account",
+                    route: route("account.edit"),
+                    condition: true,
+                    components: ['Account/Edit', 'EmailVerification/Show'],
+                },
+                {
+                    label: "Logout",
+                    route: route("logout"),
+                    method: "post",
+                    condition: true,
+                    components: [],
+                },
+            ];
+        }
 
-        computed: {
-            menu() {
-                if (this.$page.props.auth.loggedIn) {
-                    return [
-                        {
-                            label: "Dashboard",
-                            route: route("home"),
-                            condition: true,
-                            components: ['Dashboard/Index'],
-                        },
-                        {
-                            label: "Account",
-                            route: route("account.edit"),
-                            condition: true,
-                            components: ['Account/Edit', 'EmailVerification/Show'],
-                        },
-                        {
-                            label: "Logout",
-                            route: route("logout"),
-                            method: "post",
-                            condition: true,
-                            components: [],
-                        },
-                    ];
-                }
-
-                return [
-                    {
-                        label: "Login",
-                        route: route("login"),
-                        condition: true,
-                        components: ['Login/Show'],
-                    },
-                    {
-                        label: "Register",
-                        route: route("register"),
-                        condition: true,
-                        components: ['Register/Show'],
-                    },
-                ];
+        return [
+            {
+                label: "Login",
+                route: route("login"),
+                condition: true,
+                components: ['Login/Show'],
             },
-        },
+            {
+                label: "Register",
+                route: route("register"),
+                condition: true,
+                components: ['Register/Show'],
+            },
+        ];
+    });
 
-        mounted() {
-            router.on("success", () => {
-                this.mobileMenuOpen = false;
-            });
-        },
-    };
+    onMounted(() => {
+        router.on("success", () => {
+            mobileMenuOpen.value = false;
+        });
+    });
 </script>
