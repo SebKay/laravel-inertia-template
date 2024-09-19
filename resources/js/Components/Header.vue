@@ -80,16 +80,12 @@
     </header>
 </template>
 
-<script>
-    export default {
-        props: {
-            menu: Array,
-        },
+<script setup>
+    import { ref } from 'vue';
 
-        data() {
-            return {
-                mobileMenuOpen: false,
-            };
-        },
-    };
+    const props = defineProps({
+        menu: Array,
+    });
+
+    const mobileMenuOpen = ref(false);
 </script>
