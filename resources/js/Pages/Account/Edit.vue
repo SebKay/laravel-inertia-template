@@ -8,7 +8,7 @@
     ></h1>
 
     <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
-        <form @submit.prevent="submitAccountForm">
+        <form @submit.prevent="submitForm">
             <div class="form-row">
                 <div class="form-col">
                     <label
@@ -19,9 +19,9 @@
                     </label>
                     <input
                         id="first-name"
+                        class="input"
                         type="text"
                         required
-                        class="input"
                         v-model="accountForm.first_name"
                     />
                 </div>
@@ -35,9 +35,9 @@
                     </label>
                     <input
                         id="last-name"
+                        class="input"
                         type="text"
                         required
-                        class="input"
                         v-model="accountForm.last_name"
                     />
                 </div>
@@ -51,9 +51,9 @@
                     </label>
                     <input
                         id="email"
+                        class="input"
                         type="email"
                         required
-                        class="input"
                         v-model="accountForm.email"
                     />
                 </div>
@@ -67,8 +67,8 @@
                     </label>
                     <input
                         id="password"
-                        type="password"
                         class="input"
+                        type="password"
                         v-model="accountForm.password"
                     />
                 </div>
@@ -86,32 +86,25 @@
     </div>
 </template>
 
-<script>
+<script setup>
+    import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
-    export default {
-        props: {
-            user: Object,
-        },
+    const title = ref("Update Account");
+    const props = defineProps({
+        user: Object,
+    });
 
-        data() {
-            return {
-                title: "Update Account",
-                accountForm: useForm({
-                    first_name: this.user.first_name,
-                    last_name: this.user.last_name,
-                    email: this.user.email,
-                    password: "",
-                }),
-            };
-        },
+    const accountForm = useForm({
+        first_name: props.user.first_name,
+        last_name: props.user.last_name,
+        email: props.user.email,
+        password: "",
+    });
 
-        methods: {
-            submitAccountForm() {
-                this.accountForm.patch(route("account.update"), {
-                    preserveScroll: true,
-                });
-            },
-        },
+    const submitForm = () => {
+        accountForm.patch(route("account.update"), {
+            preserveScroll: true,
+        });
     };
 </script>
