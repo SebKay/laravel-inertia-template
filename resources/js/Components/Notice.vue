@@ -18,67 +18,54 @@
     </div>
 </template>
 
-<script>
+<script setup>
+    import { ref, onMounted } from 'vue';
     import { router } from "@inertiajs/vue3";
 
-    export default {
-        data() {
-            return {
-                active: false,
-                icon: "",
-                type: "",
-                message: "",
-            };
-        },
+    const active = ref(false);
+    const icon = ref("");
+    const type = ref("");
+    const message = ref("");
 
-        mounted() {
-            router.on('finish', () => {
-                let error = Object.values(router.page.props.errors)[0] || null;
-                let type = null;
-                let message = null;
+    onMounted(() => {
+        router.on('finish', () => {
+            let error = Object.values(router.page.props.errors)[0] || router.page.props.error;
 
-                if (router.page.props.success) {
-                    type = "success";
-                    message = router.page.props.success;
-                } else if (router.page.props.error) {
-                    type = "error";
-                    error = router.page.props.error;
-                } else if (router.page.props.warning) {
-                    type = "warning";
-                    message = router.page.props.warning;
-                }
+            if (router.page.props.success) {
+                icon.value = "CheckCircleIcon";
+                type.value = "success";
+                message.value = router.page.props.success;
+            } else if (error) {
+                icon.value = "XCircleIcon";
+                type.value = "error";
+                message.value = error;
+            } else if (router.page.props.warning) {
+                icon.value = "ExclamationCircleIcon";
+                type.value = "warning";
+                message.value = router.page.props.warning;
+            }
 
-                if (message) {
-                    this.setNotice(message, type);
-                } else if (error) {
-                    this.setNotice(error, "error");
-                }
-            });
-        },
+            setActive();
+        });
+    });
 
-        methods: {
-            setNotice(message, type) {
-                this.type = type;
-                this.message = message;
+    function reset() {
+        icon.value = "";
+        type.value = "";
+        message.value = "";
+    }
 
-                if (type === "success") {
-                    this.icon = "CheckCircleIcon";
-                } else if (type === "error") {
-                    this.icon = "XCircleIcon";
-                } else if (type === "warning") {
-                    this.icon = "ExclamationCircleIcon";
-                }
+    function setActive() {
+        if (!type && !message) {
+            return;
+        }
 
-                this.setActive();
-            },
+        active.value = true;
 
-            setActive() {
-                this.active = true;
+        setTimeout(() => {
+            active.value = false;
 
-                setTimeout(() => {
-                    this.active = false;
-                }, 4000);
-            },
-        },
+            reset();
+        }, 4000);
     };
 </script>
