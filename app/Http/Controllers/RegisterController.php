@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\Role;
 use App\Http\Requests\Register\RegisterStoreRequest;
 use App\Models\User;
+use Filament\Events\Auth\Registered;
 
 class RegisterController extends Controller
 {
@@ -28,6 +29,8 @@ class RegisterController extends Controller
         $user->assignRole(Role::USER->value);
 
         auth()->guard()->loginUsingId($user->id);
+
+        event(new Registered($user));
 
         return redirect()->route('home');
     }

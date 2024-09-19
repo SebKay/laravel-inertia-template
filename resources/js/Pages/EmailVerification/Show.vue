@@ -24,23 +24,16 @@
     </div>
 </template>
 
-<script>
+<script setup>
+    import { ref } from "vue";
     import { router } from "@inertiajs/vue3";
 
-    export default {
-        data() {
-            return {
-                title: "Verify Your Email",
-            };
-        },
+    const title = ref("Verify Your Email");
 
-        methods: {
-            resend() {
-                router.post(route('verification.send'), {
-                    preserveScroll: true,
-                    preserveState: true,
-                });
-            },
-        },
+    const resend = () => {
+        router.post(route('verification.send'), {
+            preserveScroll: true,
+            preserveState: true,
+        });
     };
 </script>

@@ -1,4 +1,5 @@
 <template>
+
     <Head :title="title" />
 
     <h1
@@ -12,12 +13,8 @@
     </div>
 </template>
 
-<script>
-    export default {
-        data() {
-            return {
-                title: "Dashboard",
-            };
-        },
-    };
+<script setup>
+    import { ref } from "vue";
+
+    const title = ref("Dashboard");
 </script>

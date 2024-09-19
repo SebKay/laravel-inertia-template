@@ -9,7 +9,7 @@
         ></h1>
 
         <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
-            <form @submit.prevent="submitResetPasswordForm">
+            <form @submit.prevent="submitForm">
                 <div class="form-row">
                     <div class="form-col">
                         <label
@@ -20,8 +20,8 @@
                         </label>
                         <input
                             id="password"
-                            type="password"
                             class="input"
+                            type="password"
                             required
                             v-model="resetPasswordForm.password"
                         />
@@ -36,8 +36,8 @@
                         </label>
                         <input
                             id="password-confirmation"
-                            type="password"
                             class="input"
+                            type="password"
                             required
                             v-model="resetPasswordForm.password_confirmation"
                         />
@@ -57,31 +57,24 @@
     </div>
 </template>
 
-<script>
+<script setup>
+    import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
-    export default {
-        props: {
-            email: String,
-            token: String,
-        },
+    const props = defineProps({
+        email: String,
+        token: String,
+    })
 
-        data() {
-            return {
-                title: "Reset Password",
-                resetPasswordForm: useForm({
-                    email: this.email,
-                    password: "",
-                    password_confirmation: "",
-                    token: this.token,
-                }),
-            };
-        },
+    const title = ref("Reset Password");
+    const resetPasswordForm = useForm({
+        email: props.email,
+        password: "",
+        password_confirmation: "",
+        token: props.token,
+    });
 
-        methods: {
-            submitResetPasswordForm() {
-                this.resetPasswordForm.patch(route("password.update"));
-            },
-        },
+    const submitForm = () => {
+        resetPasswordForm.patch(route("password.update"));
     };
 </script>

@@ -9,7 +9,7 @@
         ></h1>
 
         <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
-            <form @submit.prevent="submitLoginForm">
+            <form @submit.prevent="submitForm">
                 <div class="form-row">
                     <div class="form-col">
                         <label
@@ -20,9 +20,9 @@
                         </label>
                         <input
                             id="email"
+                            class="input"
                             type="email"
                             required
-                            class="input"
                             v-model="loginForm.email"
                         />
                     </div>
@@ -36,8 +36,8 @@
                         </label>
                         <input
                             id="password"
-                            type="password"
                             class="input"
+                            type="password"
                             required
                             v-model="loginForm.password"
                         />
@@ -47,13 +47,13 @@
                         <div class="inline-label">
                             <input
                                 id="remember"
-                                type="checkbox"
                                 class="checkbox"
+                                type="checkbox"
                                 v-model="loginForm.remember"
                             />
                             <label
-                                for="remember"
                                 class="small-label"
+                                for="remember"
                             >
                                 Remember
                             </label>
@@ -76,51 +76,42 @@
                     <Link
                         class="underline hover:no-underline"
                         :href="route('password')"
-                    >
-                    Forgot your password?
-                    </Link>
+                        text="Forgot your password?"
+                    />
                 </p>
 
                 <p class="text-center text-slate-800 mt-3">
                     <Link
                         class="underline hover:no-underline"
                         :href="route('register')"
-                    >
-                    Register
-                    </Link>
+                        text="Register"
+                    />
                 </p>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
+    import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
-    export default {
-        props: {
-            email: String,
-            password: String,
-            remember: Boolean,
-            redirect: String,
-        },
+    const props = defineProps({
+        email: String,
+        password: String,
+        remember: Boolean,
+        redirect: String,
+    });
 
-        data() {
-            return {
-                title: "Log In",
-                loginForm: useForm({
-                    email: this.email,
-                    password: this.password,
-                    remember: this.remember,
-                    redirect: this.redirect,
-                }),
-            };
-        },
+    const title = ref("Log In");
+    const loginForm = useForm({
+        email: props.email,
+        password: props.password,
+        remember: props.remember,
+        redirect: props.redirect,
+    });
 
-        methods: {
-            submitLoginForm() {
-                this.loginForm.post(route("login.store"));
-            },
-        },
+    const submitForm = () => {
+        loginForm.post(route("login.store"));
     };
 </script>

@@ -4,9 +4,9 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <SparklesIcon class="h-8 w-8" />
-                        </div>
+                        <Link :href="route('home')">
+                        <SparklesIcon class="h-8 w-8 flex-shrink-0" />
+                        </Link>
                     </div>
 
                     <div class="hidden md:block">
@@ -80,16 +80,12 @@
     </header>
 </template>
 
-<script>
-    export default {
-        props: {
-            menu: Array,
-        },
+<script setup>
+    import { ref } from 'vue';
 
-        data() {
-            return {
-                mobileMenuOpen: false,
-            };
-        },
-    };
+    const props = defineProps({
+        menu: Array,
+    });
+
+    const mobileMenuOpen = ref(false);
 </script>
