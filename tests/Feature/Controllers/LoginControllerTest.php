@@ -11,8 +11,6 @@ use function Pest\Laravel\from;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-covers(App\Http\Controllers\LoginController::class);
-
 describe('Users', function () {
     test("Can't access the login page", function () {
         actingAs(User::factory()->create())
