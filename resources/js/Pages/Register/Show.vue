@@ -9,7 +9,7 @@
         ></h1>
 
         <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
-            <form @submit.prevent="submitRegisterForm">
+            <form @submit.prevent="submitForm">
                 <div class="form-row">
                     <div class="form-col">
                         <label
@@ -20,8 +20,8 @@
                         </label>
                         <input
                             id="first-name"
-                            type="text"
                             class="input"
+                            type="text"
                             required
                             v-model="registerForm.first_name"
                         />
@@ -36,8 +36,8 @@
                         </label>
                         <input
                             id="last-name"
-                            type="text"
                             class="input"
+                            type="text"
                             required
                             v-model="registerForm.last_name"
                         />
@@ -52,8 +52,8 @@
                         </label>
                         <input
                             id="email"
-                            type="email"
                             class="input"
+                            type="email"
                             required
                             v-model="registerForm.email"
                         />
@@ -68,8 +68,8 @@
                         </label>
                         <input
                             id="password"
-                            type="password"
                             class="input"
+                            type="password"
                             required
                             v-model="registerForm.password"
                         />
@@ -91,42 +91,34 @@
                     <Link
                         class="underline hover:no-underline"
                         :href="route('login')"
-                    >
-                    Log In
-                    </Link>
+                        text="Log In"
+                    />
                 </p>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
+    import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
-    export default {
-        props: {
-            first_name: String,
-            last_name: String,
-            email: String,
-            password: String,
-        },
+    const props = defineProps({
+        first_name: String,
+        last_name: String,
+        email: String,
+        password: String,
+    });
 
-        data() {
-            return {
-                title: "Register",
-                registerForm: useForm({
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    email: this.email,
-                    password: this.password,
-                }),
-            };
-        },
+    const title = ref("Register");
+    const registerForm = useForm({
+        first_name: props.first_name,
+        last_name: props.last_name,
+        email: props.email,
+        password: props.password,
+    });
 
-        methods: {
-            submitRegisterForm() {
-                this.registerForm.post(route("register.store"));
-            },
-        },
+    const submitForm = () => {
+        registerForm.post(route("register.store"));
     };
 </script>
