@@ -6,7 +6,7 @@ use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
-covers(\App\Http\Controllers\DashboardController::class);
+mutates(\App\Http\Controllers\DashboardController::class);
 
 describe('Users', function () {
     test('Can access the home page', function () {
