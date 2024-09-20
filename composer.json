@@ -69,7 +69,7 @@
             "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --stop-on-failure --coverage --min=85"
         ],
         "test:mutations": [
-            "XDEBUG_MODE=coverage ./vendor/bin/pest --parallel --stop-on-failure --mutate"
+            "XDEBUG_MODE=coverage ./vendor/bin/pest --mutate"
         ],
         "artisan:build": [
             "@php artisan horizon:terminate",
