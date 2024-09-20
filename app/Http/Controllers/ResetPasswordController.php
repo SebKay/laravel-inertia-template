@@ -26,6 +26,8 @@ class ResetPasswordController extends Controller
             'reset_link' => __($status),
         ]));
 
+        session()->regenerate();
+
         session()->flash('success', __('passwords.sent'));
 
         return redirect()->route('login');

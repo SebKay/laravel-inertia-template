@@ -27,6 +27,8 @@ class LoginController extends Controller
             ])
         );
 
+        session()->regenerate();
+
         if ($request->validated('redirect')) {
             return redirect()->to($request->validated('redirect'));
         }

@@ -10,8 +10,8 @@ class LogoutController extends Controller
     {
         auth()->guard()->logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        session()->regenerateToken();
+        session()->invalidate();
 
         return redirect()->route('login');
     }
