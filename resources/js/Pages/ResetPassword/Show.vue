@@ -38,7 +38,7 @@
             <div class="mt-6 xl:mt-10">
                 <p class="text-center">
                     <Link
-                        class="underline hover:no-underline"
+                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
                         :href="route('login')"
                         text="Login"
                     />

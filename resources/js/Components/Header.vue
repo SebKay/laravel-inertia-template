@@ -10,26 +10,24 @@
                     </div>
 
                     <div class="hidden md:block">
-                        <div class="hidden md:block">
-                            <div class="ml-10 flex items-baseline space-x-4">
-                                <template
-                                    v-for="link in menu"
-                                    :key="link.label"
-                                >
-                                    <Link
-                                        v-if="link.condition"
-                                        :href="link.route"
-                                        :method="link?.method"
-                                        :as="link?.method == 'post' ? 'button' : 'a'"
-                                        v-text="link.label"
-                                        class="rounded-xl px-3 py-2 text-sm font-medium"
-                                        :class="{
-                                            'bg-brand-100 text-brand-800': link.components.includes($page.component),
-                                            'text-brand-500 hover:text-brand-900': !link.components.includes($page.component),
-                                        }"
-                                    />
-                                </template>
-                            </div>
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <template
+                                v-for="link in menu"
+                                :key="link.label"
+                            >
+                                <Link
+                                    v-if="link.condition"
+                                    :href="link.route"
+                                    :method="link?.method"
+                                    :as="link?.method == 'post' ? 'button' : 'a'"
+                                    v-text="link.label"
+                                    class="rounded-xl px-3 py-2 text-sm font-medium transition-colors ease-in-out duration-200"
+                                    :class="{
+                                        'bg-brand-100 text-brand-950': link.components.includes($page.component),
+                                        'text-brand-600 hover:text-brand-950 focus:text-brand-950': !link.components.includes($page.component),
+                                    }"
+                                />
+                            </template>
                         </div>
                     </div>
 
@@ -68,8 +66,8 @@
                             v-text="link.label"
                             class="rounded-xl px-3 py-2 text-base font-medium block"
                             :class="{
-                                'bg-brand-100 text-brand-800': link.components.includes($page.component),
-                                'text-brand-500 hover:text-brand-900': !link.components.includes($page.component),
+                                'bg-brand-100 text-brand-950': link.components.includes($page.component),
+                                'text-brand-600 focus:text-brand-950': !link.components.includes($page.component),
                             }"
                             aria-current="page"
                         />
