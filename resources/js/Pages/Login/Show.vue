@@ -3,12 +3,9 @@
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
-        <h1
-            v-text="title"
-            class="lg:text-4xl text-3xl font-medium text-slate-800 text-center lg:mb-8 mb-4"
-        ></h1>
+        <PageTitle class="mb-4 xl:mb-8" :text="title" />
 
-        <div class="bg-white rounded-2xl lg:p-10 p-6 border border-slate-200">
+        <div class="bg-white rounded-2xl xl:p-10 p-6 border border-brand-200">
             <form @submit.prevent="submitForm">
                 <div class="form-row">
                     <div class="form-col">
@@ -71,18 +68,18 @@
                 </div>
             </form>
 
-            <div class="mt-6 lg:mt-10">
-                <p class="text-center text-slate-800">
+            <div class="mt-6 xl:mt-10">
+                <p class="text-center">
                     <Link
-                        class="underline hover:no-underline"
+                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
                         :href="route('password')"
                         text="Forgot your password?"
                     />
                 </p>
 
-                <p class="text-center text-slate-800 mt-3">
+                <p class="text-center mt-3">
                     <Link
-                        class="underline hover:no-underline"
+                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
                         :href="route('register')"
                         text="Register"
                     />
@@ -95,6 +92,8 @@
 <script setup>
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
+
+    import PageTitle from "@js/Components/PageTitle.vue";
 
     const props = defineProps({
         email: String,
