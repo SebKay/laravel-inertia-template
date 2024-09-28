@@ -4,7 +4,7 @@
 
     <h1
         v-text="title"
-        class="xl:text-4xl text-3xl font-medium text-brand-800 xl:mb-8 mb-4"
+        class="xl:text-4xl text-3xl font-medium text-neutral-900 xl:mb-8 mb-4"
     ></h1>
 
     <div class="bg-white rounded-2xl xl:p-10 p-6 border border-brand-200">

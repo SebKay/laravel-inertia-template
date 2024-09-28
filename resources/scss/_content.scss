@@ -1,13 +1,11 @@
 .content {
-    @apply text-brand-700;
-
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        @apply text-brand-800;
+        @apply text-brand-900;
 
         a {
             @apply text-brand-800 hover:no-underline;
@@ -67,11 +65,11 @@
     }
 
     th {
-        @apply p-4 text-brand-800 font-bold bg-brand-200;
+        @apply p-4 font-bold bg-brand-200;
     }
 
     td {
-        @apply p-4 font-medium text-brand-800;
+        @apply p-4 font-medium;
     }
 
     tr:not(:last-child) td {
@@ -91,10 +89,5 @@
         & + h6 {
             @apply mt-12;
         }
-    }
-
-    p code,
-    li code {
-        @apply rounded-full text-xs bg-brand-800 py-1 px-2 text-brand-200 inline-block;
     }
 }
