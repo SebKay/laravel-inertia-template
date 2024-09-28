@@ -7,6 +7,11 @@ module.exports = {
     ],
 
     theme: {
+        fontFamily: {
+            'text': ['Arial', 'sans-serif'],
+            'heading': ['Arial', 'sans-serif'],
+        },
+
         extend: {
             screens: {
                 'xs': '321px',
