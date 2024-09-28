@@ -27,8 +27,9 @@ label {
 .input,
 .textarea,
 .select,
-.checkbox {
-    @apply block rounded-md border-brand-300 shadow-sm hover:ring hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring focus:ring-brand-200 focus:ring-opacity-50;
+.checkbox,
+.radio {
+    @apply block rounded-md border-brand-300 shadow-sm hover:ring hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0;
 }
 
 .input,
@@ -41,10 +42,17 @@ label {
     @apply min-h-32;
 }
 
-.select {
+.select,
+.checkbox,
+.radio {
     @apply cursor-pointer;
 }
 
-.checkbox {
-    @apply h-5 w-5 cursor-pointer;
+.checkbox,
+.radio {
+    @apply size-5 text-brand-800;
+}
+
+.radio {
+    @apply rounded-full;
 }
