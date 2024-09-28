@@ -8,6 +8,16 @@ module.exports = {
 
     theme: {
         extend: {
+            screens: {
+                'xs': '321px',
+                'sm': '451px',
+                'md': '671px',
+                'lg': '769px',
+                'xl': '1025px',
+                '2xl': '1441px',
+                '3xl': '1901px',
+            },
+
             colors: {
                 'brand': {
                     '50': '#f3f6fb',
