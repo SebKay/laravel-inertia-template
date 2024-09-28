@@ -79,11 +79,18 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
+    import { ref, onMounted } from "vue";
+    import { router } from '@inertiajs/vue3'
 
     const props = defineProps({
         menu: Array,
     });
 
     const mobileMenuOpen = ref(false);
+
+    onMounted(() => {
+        router.on("success", () => {
+            mobileMenuOpen.value = false;
+        });
+    });
 </script>

@@ -18,15 +18,13 @@
 </template>
 
 <script setup>
-    import { ref, computed, onMounted } from "vue";
-    import { usePage, router } from '@inertiajs/vue3'
+    import { computed } from "vue";
+    import { usePage } from '@inertiajs/vue3'
 
     import Header from "@js/Components/Header.vue";
     import Notice from "@js/Components/Notice.vue";
 
     const page = usePage();
-
-    const mobileMenuOpen = ref(false);
 
     const menu = computed(() => {
         if (page.props.auth.loggedIn) {
@@ -67,11 +65,5 @@
                 components: ['Register/Show'],
             },
         ];
-    });
-
-    onMounted(() => {
-        router.on("success", () => {
-            mobileMenuOpen.value = false;
-        });
     });
 </script>
