@@ -5,7 +5,7 @@
     h4,
     h5,
     h6 {
-        @apply text-brand-900;
+        @apply text-brand-900 font-heading;
 
         a {
             @apply text-brand-800 hover:no-underline;
