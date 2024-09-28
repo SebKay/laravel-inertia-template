@@ -8,7 +8,7 @@
         <Header :menu="menu" />
 
         <main>
-            <div class="mx-auto max-w-7xl lg:py-16 py-8 px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl xl:py-16 py-8 px-4 sm:px-6 xl:px-8">
                 <slot />
             </div>
         </main>

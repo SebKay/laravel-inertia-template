@@ -5,10 +5,10 @@
     <div class="mx-auto max-w-2xl">
         <h1
             v-text="title"
-            class="lg:text-4xl text-3xl font-medium text-brand-800 text-center lg:mb-8 mb-4"
+            class="xl:text-4xl text-3xl font-medium text-brand-800 text-center xl:mb-8 mb-4"
         ></h1>
 
-        <div class="bg-white rounded-2xl lg:p-10 p-6 border border-brand-200">
+        <div class="bg-white rounded-2xl xl:p-10 p-6 border border-brand-200">
             <form @submit.prevent="submitForm">
                 <div class="form-row">
                     <div class="form-col">
@@ -38,7 +38,7 @@
                 </div>
             </form>
 
-            <div class="mt-6 lg:mt-10">
+            <div class="mt-6 xl:mt-10">
                 <p class="text-center text-brand-800">
                     <Link
                         class="underline hover:no-underline"
