@@ -13,11 +13,11 @@ label {
 }
 
 .label {
-    @apply pb-3 block text-base font-medium text-slate-800;
+    @apply pb-3 block text-base font-medium text-brand-800;
 }
 
 .small-label {
-    @apply block text-sm font-medium text-slate-800;
+    @apply block text-sm font-medium text-brand-800;
 }
 
 .inline-label {
@@ -28,7 +28,7 @@ label {
 .textarea,
 .select,
 .checkbox {
-    @apply block text-slate-800 rounded-md border-slate-300 shadow-sm hover:ring hover:ring-slate-200 hover:ring-opacity-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50;
+    @apply block text-brand-800 rounded-md border-brand-300 shadow-sm hover:ring hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring focus:ring-brand-200 focus:ring-opacity-50;
 }
 
 .input,
@@ -50,7 +50,7 @@ label {
 }
 
 .button {
-    @apply rounded-md bg-slate-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-sm hover:bg-slate-500;
+    @apply rounded-md bg-brand-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-sm hover:bg-brand-500;
 }
 
 .button-full {

@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-white border-b border-slate-200">
+    <header class="bg-white border-b border-brand-200">
         <nav>
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
@@ -24,8 +24,8 @@
                                         v-text="link.label"
                                         class="rounded-xl px-3 py-2 text-sm font-medium"
                                         :class="{
-                                            'bg-slate-100 text-slate-800': link.components.includes($page.component),
-                                            'text-slate-500 hover:text-slate-900': !link.components.includes($page.component),
+                                            'bg-brand-100 text-brand-800': link.components.includes($page.component),
+                                            'text-brand-500 hover:text-brand-900': !link.components.includes($page.component),
                                         }"
                                     />
                                 </template>
@@ -37,7 +37,7 @@
                         <button
                             @click="mobileMenuOpen = !mobileMenuOpen"
                             type="button"
-                            class="relative inline-flex items-center justify-center rounded-md bg-slate-100 p-2 text-slate-900 hover:bg-slate-900 hover:text-white"
+                            class="relative inline-flex items-center justify-center rounded-md bg-brand-100 p-2 text-brand-900 hover:bg-brand-900 hover:text-white"
                         >
                             <span class="sr-only">Open main menu</span>
                             <XMarkIcon
@@ -68,8 +68,8 @@
                             v-text="link.label"
                             class="rounded-xl px-3 py-2 text-base font-medium block"
                             :class="{
-                                'bg-slate-100 text-slate-800': link.components.includes($page.component),
-                                'text-slate-500 hover:text-slate-900': !link.components.includes($page.component),
+                                'bg-brand-100 text-brand-800': link.components.includes($page.component),
+                                'text-brand-500 hover:text-brand-900': !link.components.includes($page.component),
                             }"
                             aria-current="page"
                         />

@@ -1,5 +1,5 @@
 .content {
-    @apply text-slate-700;
+    @apply text-brand-700;
 
     h1,
     h2,
@@ -7,10 +7,10 @@
     h4,
     h5,
     h6 {
-        @apply text-slate-800;
+        @apply text-brand-800;
 
         a {
-            @apply text-slate-800 hover:no-underline;
+            @apply text-brand-800 hover:no-underline;
         }
     }
 
@@ -67,15 +67,15 @@
     }
 
     th {
-        @apply p-4 text-slate-800 font-bold bg-slate-200;
+        @apply p-4 text-brand-800 font-bold bg-brand-200;
     }
 
     td {
-        @apply p-4 font-medium text-slate-800;
+        @apply p-4 font-medium text-brand-800;
     }
 
     tr:not(:last-child) td {
-        @apply border-b border-slate-200;
+        @apply border-b border-brand-200;
     }
 
     > * + * {
@@ -95,6 +95,6 @@
 
     p code,
     li code {
-        @apply rounded-full text-xs bg-slate-800 py-1 px-2 text-slate-200 inline-block;
+        @apply rounded-full text-xs bg-brand-800 py-1 px-2 text-brand-200 inline-block;
     }
 }
