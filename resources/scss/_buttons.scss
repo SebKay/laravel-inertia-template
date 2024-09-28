@@ -1,0 +1,7 @@
+.button {
+    @apply rounded-md bg-brand-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-sm hover:bg-brand-500;
+}
+
+.button-full {
+    @apply w-full text-center justify-center;
+}
