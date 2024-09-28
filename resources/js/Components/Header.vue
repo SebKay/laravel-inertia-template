@@ -1,7 +1,7 @@
 <template>
-    <header class="bg-white border-b border-brand-200">
+    <header class="bg-white border-b border-brand-200 px-4 sm:px-6 xl:px-8">
         <nav>
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 xl:px-8">
+            <div class="mx-auto max-w-7xl">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <Link :href="route('home')">

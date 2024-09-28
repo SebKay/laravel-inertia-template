@@ -4,7 +4,7 @@
         <title></title>
     </Head>
 
-    <div class="min-h-full">
+    <div class="min-h-full flex flex-col">
         <Header :menu="menu" />
 
         <main>
@@ -12,6 +12,8 @@
                 <slot />
             </div>
         </main>
+
+        <Footer class="mt-auto" />
     </div>
 
     <Notice />
@@ -22,6 +24,7 @@
     import { usePage } from '@inertiajs/vue3'
 
     import Header from "@js/Components/Header.vue";
+    import Footer from "@js/Components/Footer.vue";
     import Notice from "@js/Components/Notice.vue";
 
     const page = usePage();
