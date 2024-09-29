@@ -98,13 +98,15 @@ return [
     |
     */
 
+    // 129600 = 90 days
+
     'trim' => [
-        'recent' => 40320,
-        'pending' => 40320,
-        'completed' => 40320,
-        'recent_failed' => 40320,
-        'failed' => 40320,
-        'monitored' => 40320,
+        'recent' => 129600,
+        'pending' => 129600,
+        'completed' => 129600,
+        'recent_failed' => 129600,
+        'failed' => 129600,
+        'monitored' => 129600,
     ],
 
     /*
