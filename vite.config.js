@@ -33,6 +33,14 @@ export default defineConfig({
         },
     },
 
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern',
+            },
+        },
+    },
+
     build: {
         sourcemap: false,
         rollupOptions: {
@@ -45,7 +53,7 @@ export default defineConfig({
                     if (id.includes('resources/js')) {
                         return 'app';
                     }
-                }
+                },
             },
         },
     },
