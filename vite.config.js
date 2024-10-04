@@ -41,6 +41,10 @@ export default defineConfig({
                     if (id.includes('node_modules')) {
                         return 'vendor';
                     }
+
+                    if (id.includes('resources/js')) {
+                        return 'app';
+                    }
                 }
             },
         },
