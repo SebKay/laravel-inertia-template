@@ -8,6 +8,7 @@
   "devDependencies": {
     "@heroicons/vue": "^2.1.5",
     "@inertiajs/vue3": "^1.2.0",
+    "@sentry/vue": "^8.30.0",
     "@tailwindcss/forms": "^0.5.9",
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",
@@ -16,8 +17,6 @@
     "sass": "^1.79.1",
     "tailwindcss": "^3.4.12",
     "vite": "^5.4.6",
-    "vite-svg-loader": "^5.1.0",
-    "vue": "^3.5.6",
-    "@sentry/vue": "^8.30.0"
+    "vue": "^3.5.6"
   }
 }
