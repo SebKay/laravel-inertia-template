@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
-import svgLoader from 'vite-svg-loader';
 
 export default defineConfig({
     plugins: [
@@ -21,35 +20,37 @@ export default defineConfig({
                 },
             },
         }),
-
-        svgLoader({
-            svgoConfig: {
-                multipass: true,
-            },
-        }),
     ],
 
     resolve: {
         alias: {
-            // 'ziggy': '/vendor/tightenco/ziggy/src/js',
-            // 'ziggy-vue': '/vendor/tightenco/ziggy/src/js/vue',
             'ziggy-js': '/vendor/tightenco/ziggy',
             '@': '/resources',
             '@fonts': '/public/fonts',
             '@img': '/public/img',
             '@js': '/resources/js',
+            '@scss': '/resources/scss',
+        },
+    },
+
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern',
+            },
         },
     },
 
     build: {
+        sourcemap: false,
         rollupOptions: {
             output: {
-                manualChunks(id) {
+                manualChunks: (id) => {
                     if (id.includes('node_modules')) {
                         return 'vendor';
                     }
 
-                    if (id.includes('resources')) {
+                    if (id.includes('resources/js')) {
                         return 'app';
                     }
                 },

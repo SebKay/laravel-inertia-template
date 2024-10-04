@@ -52,8 +52,6 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
-    import PageTitle from "@js/Components/PageTitle.vue";
-
     const title = ref("Forgot Password");
     const forgotPasswordForm = useForm({
         email: "",

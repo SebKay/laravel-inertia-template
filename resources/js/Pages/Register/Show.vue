@@ -100,8 +100,6 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
-    import PageTitle from "@js/Components/PageTitle.vue";
-
     const props = defineProps({
         first_name: String,
         last_name: String,
