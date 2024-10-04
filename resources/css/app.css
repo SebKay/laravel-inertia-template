@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "@css/forms.css";
+@import "@css/buttons.css";
+@import "@css/content.css";
+
+#app {
+    @apply h-full;
+}
