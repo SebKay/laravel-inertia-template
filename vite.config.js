@@ -36,21 +36,19 @@ export default defineConfig({
             '@fonts': '/public/fonts',
             '@img': '/public/img',
             '@js': '/resources/js',
+            '@scss': '/resources/scss',
         },
     },
 
     build: {
+        sourcemap: false,
         rollupOptions: {
             output: {
-                manualChunks(id) {
+                manualChunks: (id) => {
                     if (id.includes('node_modules')) {
                         return 'vendor';
                     }
-
-                    if (id.includes('resources')) {
-                        return 'app';
-                    }
-                },
+                }
             },
         },
     },
