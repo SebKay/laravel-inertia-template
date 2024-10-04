@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import "forms", "buttons", "content";
-
-#app {
-    @apply h-full;
-}
