@@ -30,15 +30,6 @@ export default defineConfig({
             '@img': '/public/img',
             '@js': '/resources/js',
             '@css': '/resources/css',
-            '@scss': '/resources/scss',
-        },
-    },
-
-    css: {
-        preprocessorOptions: {
-            scss: {
-                api: 'modern',
-            },
         },
     },
 
