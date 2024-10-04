@@ -2,7 +2,7 @@ import * as Sentry from "@sentry/vue";
 
 import { route, ZiggyVue } from 'ziggy-js';
 
-import { createApp, h } from 'vue';
+import { createApp, defineAsyncComponent, h } from 'vue';
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
 import { userCan } from "@js/utilities/permissions.js";
@@ -16,9 +16,9 @@ import {
     ExclamationCircleIcon,
 } from '@heroicons/vue/24/outline';
 
-import AppLayout from "@js/Layouts/App.vue";
-
-import Notice from "@js/Components/Notice.vue";
+const AppLayout = defineAsyncComponent(() => import("@js/Layouts/App.vue"));
+const PageTitle = defineAsyncComponent(() => import("@js/Components/PageTitle.vue"));
+const Notice = defineAsyncComponent(() => import("@js/Components/Notice.vue"));
 
 createInertiaApp({
     resolve: name => {
@@ -53,6 +53,7 @@ createInertiaApp({
 
         VueApp.component('Head', Head)
             .component('Link', Link)
+            .component('PageTitle', PageTitle)
             .component('Notice', Notice);
 
         VueApp.mount(el);

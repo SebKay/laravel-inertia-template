@@ -20,12 +20,11 @@
 </template>
 
 <script setup>
-    import { computed } from "vue";
+    import { computed, defineAsyncComponent } from "vue";
     import { usePage } from '@inertiajs/vue3'
 
-    import Header from "@js/Components/Header.vue";
-    import Footer from "@js/Components/Footer.vue";
-    import Notice from "@js/Components/Notice.vue";
+    const Header = defineAsyncComponent(() => import("@js/Components/Header.vue"));
+    const Footer = defineAsyncComponent(() => import("@js/Components/Footer.vue"));
 
     const page = usePage();
 
