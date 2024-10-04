@@ -3,7 +3,7 @@ import * as Sentry from "@sentry/vue";
 import { route, ZiggyVue } from 'ziggy-js';
 
 import { createApp, defineAsyncComponent, h } from 'vue';
-import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
+import { createInertiaApp } from '@inertiajs/vue3';
 
 import { userCan } from "@js/utilities/permissions.js";
 
@@ -16,9 +16,7 @@ import {
     ExclamationCircleIcon,
 } from '@heroicons/vue/24/outline';
 
-const AppLayout = defineAsyncComponent(() => import("@js/Layouts/App.vue"));
-const PageTitle = defineAsyncComponent(() => import("@js/Components/PageTitle.vue"));
-const Notice = defineAsyncComponent(() => import("@js/Components/Notice.vue"));
+const AppLayout = defineAsyncComponent(() => import('@js/Layouts/App.vue'));
 
 createInertiaApp({
     resolve: name => {
@@ -51,10 +49,10 @@ createInertiaApp({
             .component('XCircleIcon', XCircleIcon)
             .component('ExclamationCircleIcon', ExclamationCircleIcon);
 
-        VueApp.component('Head', Head)
-            .component('Link', Link)
-            .component('PageTitle', PageTitle)
-            .component('Notice', Notice);
+        VueApp.component('Head', defineAsyncComponent(() => import('@inertiajs/vue3')))
+            .component('Link', defineAsyncComponent(() => import('@inertiajs/vue3')))
+            .component('PageTitle', defineAsyncComponent(() => import('@js/Components/PageTitle.vue')))
+            .component('Notice', defineAsyncComponent(() => import('@js/Components/Notice.vue')));
 
         VueApp.mount(el);
     },
