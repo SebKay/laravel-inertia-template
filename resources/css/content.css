@@ -1,93 +1,95 @@
-.content {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply text-brand-900 font-heading;
+@layer components {
+    .content {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-brand-900 font-heading;
+
+            a {
+                @apply text-brand-800 hover:no-underline;
+            }
+        }
+
+        h1 {
+            @apply text-4xl md:text-5xl;
+        }
+
+        h2 {
+            @apply text-3xl;
+        }
+
+        h3 {
+            @apply text-2xl;
+        }
+
+        h4 {
+            @apply text-xl;
+        }
+
+        h5 {
+            @apply text-lg;
+        }
+
+        h6 {
+            @apply text-base;
+        }
+
+        li {
+            @apply ml-8;
+        }
 
         a {
-            @apply text-brand-800 hover:no-underline;
+            @apply hover:underline;
         }
-    }
 
-    h1 {
-        @apply text-4xl md:text-5xl;
-    }
+        ul li {
+            @apply list-disc;
+        }
 
-    h2 {
-        @apply text-3xl;
-    }
+        ol li {
+            @apply list-decimal;
+        }
 
-    h3 {
-        @apply text-2xl;
-    }
+        strong {
+            @apply font-bold;
+        }
 
-    h4 {
-        @apply text-xl;
-    }
+        blockquote {
+            @apply pl-4 py-3 my-4 border-s-4 border-gray-300 text-xl italic;
+        }
 
-    h5 {
-        @apply text-lg;
-    }
+        table {
+            @apply w-full text-sm text-left;
+        }
 
-    h6 {
-        @apply text-base;
-    }
+        th {
+            @apply p-4 font-bold bg-brand-200;
+        }
 
-    li {
-        @apply ml-8;
-    }
+        td {
+            @apply p-4 font-medium;
+        }
 
-    a {
-        @apply hover:underline;
-    }
+        tr:not(:last-child) td {
+            @apply border-b border-brand-200;
+        }
 
-    ul li {
-        @apply list-disc;
-    }
+        > * + * {
+            @apply mt-6;
+        }
 
-    ol li {
-        @apply list-decimal;
-    }
-
-    strong {
-        @apply font-bold;
-    }
-
-    blockquote {
-        @apply pl-4 py-3 my-4 border-s-4 border-gray-300 text-xl italic;
-    }
-
-    table {
-        @apply w-full text-sm text-left;
-    }
-
-    th {
-        @apply p-4 font-bold bg-brand-200;
-    }
-
-    td {
-        @apply p-4 font-medium;
-    }
-
-    tr:not(:last-child) td {
-        @apply border-b border-brand-200;
-    }
-
-    > * + * {
-        @apply mt-6;
-    }
-
-    * {
-        & + h1,
-        & + h2,
-        & + h3,
-        & + h4,
-        & + h5,
-        & + h6 {
-            @apply mt-12;
+        * {
+            & + h1,
+            & + h2,
+            & + h3,
+            & + h4,
+            & + h5,
+            & + h6 {
+                @apply mt-12;
+            }
         }
     }
 }
