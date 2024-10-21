@@ -1,10 +1,14 @@
 @layer components {
     .form-row {
-        @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-3;
+        @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-4;
     }
 
     .form-col {
         @apply col-span-full;
+    }
+
+    .form-col-2 {
+        @apply col-span-2;
     }
 
     label {
