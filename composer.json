@@ -13,6 +13,7 @@
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "pxlrbt/filament-environment-indicator": "^2.0",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-permission": "^6.9",
         "tightenco/ziggy": "^2.3"
