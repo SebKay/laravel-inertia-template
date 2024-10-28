@@ -16,6 +16,7 @@
         "pxlrbt/filament-environment-indicator": "^2.0",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-permission": "^6.9",
+        "stephenjude/filament-debugger": "^3.1",
         "tightenco/ziggy": "^2.3"
     },
     "require-dev": {

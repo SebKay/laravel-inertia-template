@@ -19,6 +19,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use Stephenjude\FilamentDebugger\DebuggerPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -48,6 +49,8 @@ class AdminPanelProvider extends PanelProvider
                         'local' => Color::Red,
                         default => Color::Gray,
                     }),
+                DebuggerPlugin::make()
+                    ->authorize(fn() => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production'),
             ])
             ->middleware([
                 EncryptCookies::class,
