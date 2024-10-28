@@ -50,7 +50,7 @@ class AdminPanelProvider extends PanelProvider
                         default => Color::Gray,
                     }),
                 DebuggerPlugin::make()
-                    ->authorize(fn() => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production'),
+                    ->authorize(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production'),
             ])
             ->middleware([
                 EncryptCookies::class,
