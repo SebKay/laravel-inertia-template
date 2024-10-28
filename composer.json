@@ -13,14 +13,17 @@
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "pxlrbt/filament-environment-indicator": "^2.0",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-permission": "^6.9",
+        "stephenjude/filament-debugger": "^3.1",
         "tightenco/ziggy": "^2.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.17",
+        "laravel/telescope": "^5.2",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.3",
         "pestphp/pest": "^3.0",
@@ -97,7 +100,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "config": {
