@@ -1,0 +1,43 @@
+name: Test
+
+on: [pull_request]
+
+jobs:
+  test:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer:v2
+          coverage: none
+
+      - name: Get Cache Directory
+        id: composer-cache-dir
+        run: echo dir=$(composer config cache-files-dir) >> $GITHUB_OUTPUT
+
+      - name: Cache Dependencies
+        uses: actions/cache@v4
+        with:
+          key: composer-cache-${{ hashFiles('**/composer.lock') }}
+          path: ${{ steps.composer-cache-dir.outputs.dir }}
+          restore-keys: composer-cache-
+
+      - name: Install Dependencies
+        run: composer install -q --no-interaction
+
+      - name: Configure Application
+        run: |
+          cp .env.testing .env
+          php artisan key:generate
+
+      - name: Run Linter
+        run: composer lint
+
+      - name: Run Tests
+        run: composer test
