@@ -1,16 +1,14 @@
 @layer components {
     .content {
+        @apply prose text-neutral-700;
+
         h1,
         h2,
         h3,
         h4,
         h5,
         h6 {
-            @apply text-brand-900 font-heading;
-
-            a {
-                @apply text-brand-800 hover:no-underline;
-            }
+            @apply font-heading font-bold  text-neutral-900;
         }
 
         h1 {
@@ -77,10 +75,6 @@
             @apply border-b border-brand-200;
         }
 
-        > * + * {
-            @apply mt-6;
-        }
-
         * {
             & + h1,
             & + h2,
@@ -88,7 +82,7 @@
             & + h4,
             & + h5,
             & + h6 {
-                @apply mt-12;
+                @apply mt-8;
             }
         }
     }
