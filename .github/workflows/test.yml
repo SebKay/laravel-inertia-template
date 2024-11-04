@@ -15,7 +15,6 @@ jobs:
         with:
           php-version: 8.2
           tools: composer:v2
-          coverage: none
 
       - name: Get Cache Directory
         id: composer-cache-dir
@@ -40,4 +39,4 @@ jobs:
         run: composer lint
 
       - name: Run Tests
-        run: composer test
+        run: composer test:coverage
