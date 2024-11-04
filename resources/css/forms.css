@@ -1,58 +1,64 @@
-.form-row {
-    @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-3;
-}
+@layer components {
+    .form-row {
+        @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-4;
+    }
 
-.form-col {
-    @apply col-span-full;
-}
+    .form-col {
+        @apply col-span-full;
+    }
 
-label {
-    &[for] {
+    .form-col-2 {
+        @apply col-span-2;
+    }
+
+    label {
+        &[for] {
+            @apply cursor-pointer;
+        }
+    }
+
+    .label {
+        @apply pb-3 block text-base font-medium;
+    }
+
+    .small-label {
+        @apply block text-sm font-medium;
+    }
+
+    .inline-label {
+        @apply flex items-center gap-x-2;
+    }
+
+    .input,
+    .textarea,
+    .select,
+    .checkbox,
+    .radio {
+        @apply block rounded-md border-brand-300 shadow-sm hover:ring hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
+    }
+
+    .input,
+    .textarea,
+    .select {
+        @apply block text-base w-full;
+    }
+
+    .textarea {
+        @apply min-h-32;
+    }
+
+    .select,
+    .checkbox,
+    .radio {
         @apply cursor-pointer;
     }
-}
 
-.label {
-    @apply pb-3 block text-base font-medium;
-}
+    .checkbox,
+    .radio {
+        @apply size-5 text-brand-800;
+    }
 
-.small-label {
-    @apply block text-sm font-medium;
-}
-
-.inline-label {
-    @apply flex items-center gap-x-2;
-}
-
-.input,
-.textarea,
-.select,
-.checkbox,
-.radio {
-    @apply block rounded-md border-brand-300 shadow-sm hover:ring hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
-}
-
-.input,
-.textarea,
-.select {
-    @apply block text-base w-full;
-}
-
-.textarea {
-    @apply min-h-32;
-}
-
-.select,
-.checkbox,
-.radio {
-    @apply cursor-pointer;
-}
-
-.checkbox,
-.radio {
-    @apply size-5 text-brand-800;
-}
-
-.radio {
-    @apply rounded-full;
+    .radio {
+        @apply rounded-full;
+    }
 }
