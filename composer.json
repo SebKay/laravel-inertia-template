@@ -46,14 +46,16 @@
     "scripts": {
         "build:dev": [
             "composer install",
-            "@artisan:build",
             "@php artisan migrate:fresh --seed",
             "@assets:build"
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
-            "@artisan:build",
+            "@php artisan horizon:terminate",
+            "@php artisan queue:restart",
             "@php artisan migrate --force",
+            "@php artisan optimize:clear",
+            "@php artisan optimize",
             "@assets:build"
         ],
         "build:test": [
@@ -73,11 +75,6 @@
         ],
         "test:mutations": [
             "XDEBUG_MODE=coverage ./vendor/bin/pest --mutate"
-        ],
-        "artisan:build": [
-            "@php artisan horizon:terminate",
-            "@php artisan cache:clear",
-            "@php artisan queue:restart"
         ],
         "assets:build": [
             "bun install",
