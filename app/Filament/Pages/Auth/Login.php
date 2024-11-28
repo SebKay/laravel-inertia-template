@@ -14,7 +14,7 @@ class Login extends BasePage
 
         if (\app()->environment('local')) {
             $this->form->fill([
-                'email' => User::whereHas('roles', fn ($q) => $q->whereIn('name', [Role::ADMIN->value]))->first()->email,
+                'email' => User::hasRoles([Role::ADMIN->value])->first()->email,
                 'password' => '12345',
                 'remember' => true,
             ]);
