@@ -2,8 +2,6 @@
 
 namespace App\Filament\Pages\Auth;
 
-use App\Enums\Role;
-use App\Models\User;
 use Filament\Pages\Auth\Login as BasePage;
 
 class Login extends BasePage
@@ -14,8 +12,8 @@ class Login extends BasePage
 
         if (\app()->environment('local')) {
             $this->form->fill([
-                'email' => User::hasRoles([Role::ADMIN->value])->first()->email,
-                'password' => '12345',
+                'email' => \config('app.seed.users.super.email'),
+                'password' => \config('app.seed.users.super.password'),
                 'remember' => true,
             ]);
         }
