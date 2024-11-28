@@ -56,16 +56,16 @@ class User extends Authenticatable implements FilamentUser, HasName, MustVerifyE
         );
     }
 
-    protected function scopeHasRoles(Builder $query, array $roles): void
-    {
-        $query->whereHas('roles', fn (Builder $query) => $query->whereIn('name', $roles));
-    }
-
     protected function allPermissions(): Attribute
     {
         return Attribute::make(
             get: fn () => $this->getAllPermissions()->pluck('name')
         );
+    }
+
+    protected function scopeHasRoles(Builder $query, array $roles): void
+    {
+        $query->whereHas('roles', fn (Builder $query) => $query->whereIn('name', $roles));
     }
 
     public function updatePassword(?string $new_password = '')
