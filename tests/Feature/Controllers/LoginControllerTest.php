@@ -28,8 +28,8 @@ describe('Guests', function () {
             ->assertInertia(
                 fn (Assert $page) => $page
                     ->component('Login/Show')
-                    ->where('email', config('app.seed.emails.super'))
-                    ->where('password', '12345')
+                    ->where('email', config('app.seed.users.super.email'))
+                    ->where('password', config('app.seed.users.super.password'))
                     ->where('remember', true)
                     ->where('redirect', '')
             );

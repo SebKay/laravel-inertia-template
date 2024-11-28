@@ -7,6 +7,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -60,6 +61,11 @@ class User extends Authenticatable implements FilamentUser, HasName, MustVerifyE
         return Attribute::make(
             get: fn () => $this->getAllPermissions()->pluck('name')
         );
+    }
+
+    protected function scopeHasRoles(Builder $query, array $roles): void
+    {
+        $query->whereHas('roles', fn (Builder $query) => $query->whereIn('name', $roles));
     }
 
     public function updatePassword(?string $new_password = '')

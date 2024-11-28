@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->login(\App\Filament\Pages\Auth\Login::class)
             ->colors([
                 'primary' => '#1e293b',
             ])
@@ -43,6 +43,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 EnvironmentIndicatorPlugin::make()
                     ->visible(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production')
+                    ->showBorder(false)
                     ->color(fn () => match (app()->environment()) {
                         'production' => Color::Green,
                         'staging' => Color::Blue,

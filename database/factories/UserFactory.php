@@ -35,29 +35,32 @@ class UserFactory extends Factory
     {
         return $this
             ->state(fn (array $attributes) => [
-                'email' => $email ?: \config('app.seed.emails.super'),
+                'email' => \config('app.seed.users.super.email'),
+                'password' => \config('app.seed.users.super.password'),
             ])
             ->afterCreating(function (User $user) {
                 $user->assignRole(Role::SUPER_ADMIN->value);
             });
     }
 
-    public function admin(?string $email = null)
+    public function admin()
     {
         return $this
             ->state(fn (array $attributes) => [
-                'email' => $email ?: \config('app.seed.emails.admin'),
+                'email' => \config('app.seed.users.admin.email'),
+                'password' => \config('app.seed.users.admin.password'),
             ])
             ->afterCreating(function (User $user) {
                 $user->assignRole(Role::ADMIN->value);
             });
     }
 
-    public function user(?string $email = null)
+    public function user()
     {
         return $this
             ->state(fn (array $attributes) => [
-                'email' => $email ?: \config('app.seed.emails.user'),
+                'email' => \config('app.seed.users.user.email'),
+                'password' => \config('app.seed.users.user.password'),
             ])
             ->afterCreating(function (User $user) {
                 $user->assignRole(Role::USER->value);
