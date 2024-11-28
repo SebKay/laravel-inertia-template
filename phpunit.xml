@@ -8,8 +8,8 @@
       <directory suffix="Test.php">./tests/Feature</directory>
     </testsuite>
     <testsuite name="Architecture">
-          <directory>tests/Architecture</directory>
-      </testsuite>
+      <directory>tests/Architecture</directory>
+    </testsuite>
   </testsuites>
   <coverage/>
   <source>
@@ -20,6 +20,7 @@
       <directory suffix=".php">./app/Filament</directory>
       <directory suffix=".php">./app/Providers/Filament</directory>
       <file>./app/Providers/HorizonServiceProvider.php</file>
+      <file>./app/Providers/TelescopeServiceProvider.php</file>
     </exclude>
   </source>
 </phpunit>
