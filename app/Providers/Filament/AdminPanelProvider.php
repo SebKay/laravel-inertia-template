@@ -43,6 +43,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 EnvironmentIndicatorPlugin::make()
                     ->visible(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production')
+                    ->showBorder(false)
                     ->color(fn () => match (app()->environment()) {
                         'production' => Color::Green,
                         'staging' => Color::Blue,
