@@ -15,7 +15,9 @@
         "laravel/tinker": "^2.9",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "sentry/sentry-laravel": "^4.7",
+        "spatie/laravel-health": "^1.31",
         "spatie/laravel-permission": "^6.9",
+        "spatie/security-advisories-health-check": "^1.2",
         "stephenjude/filament-debugger": "^3.1",
         "tightenco/ziggy": "^2.3"
     },
