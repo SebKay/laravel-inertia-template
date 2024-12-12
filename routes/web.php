@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('health', Spatie\Health\Http\Controllers\HealthCheckResultsController::class)->middleware(['auth']);
+
 Route::controller(App\Http\Controllers\RegisterController::class)
     ->middleware(['guest'])
     ->group(function () {
