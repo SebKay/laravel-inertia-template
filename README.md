@@ -1,5 +1,5 @@
 # Laravel / Inertia (Vue) – Template
 
-[![PHP](https://github.com/SebKay/laravel-inertia-template/actions/workflows/php.yml/badge.svg)](https://github.com/SebKay/laravel-inertia-template/actions/workflows/php.yml)
+[![Test](https://github.com/SebKay/laravel-inertia-template/actions/workflows/test.yml/badge.svg)](https://github.com/SebKay/laravel-inertia-template/actions/workflows/test.yml)
 
 A starter project for Laravel apps using Inertia and Vue.js.
