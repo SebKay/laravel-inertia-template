@@ -7,6 +7,16 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Pulse\Facades\Pulse;
+use Spatie\Health\Checks\Checks\DatabaseCheck;
+use Spatie\Health\Checks\Checks\DatabaseConnectionCountCheck;
+use Spatie\Health\Checks\Checks\DebugModeCheck;
+use Spatie\Health\Checks\Checks\EnvironmentCheck;
+use Spatie\Health\Checks\Checks\HorizonCheck;
+use Spatie\Health\Checks\Checks\RedisCheck;
+use Spatie\Health\Checks\Checks\RedisMemoryUsageCheck;
+use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
+use Spatie\Health\Facades\Health;
+use Spatie\SecurityAdvisoriesHealthCheck\SecurityAdvisoriesCheck;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +33,20 @@ class AppServiceProvider extends ServiceProvider
         JsonResource::withoutWrapping();
 
         Vite::prefetch(concurrency: 3);
+
+        Health::checks([
+            UsedDiskSpaceCheck::new(),
+            DatabaseCheck::new(),
+            DatabaseConnectionCountCheck::new()
+                ->warnWhenMoreConnectionsThan(50)
+                ->failWhenMoreConnectionsThan(100),
+            DebugModeCheck::new(),
+            EnvironmentCheck::new(),
+            RedisCheck::new(),
+            RedisMemoryUsageCheck::new(),
+            HorizonCheck::new(),
+            SecurityAdvisoriesCheck::new(),
+        ]);
 
         // @codeCoverageIgnoreStart
         Pulse::users(function ($ids) {
