@@ -20,7 +20,9 @@
 
 <script setup>
     import { ref, onMounted } from 'vue';
-    import { router } from "@inertiajs/vue3";
+    import { router, usePage } from "@inertiajs/vue3";
+
+    const page = usePage();
 
     const active = ref(false);
     const icon = ref("");
@@ -29,20 +31,20 @@
 
     onMounted(() => {
         router.on('finish', () => {
-            let error = Object.values(router.page.props.errors)[0] || router.page.props.error;
+            let error = Object.values(page.props.errors)[0] || page.props.error;
 
-            if (router.page.props.success) {
+            if (page.props.success) {
                 icon.value = "CheckCircleIcon";
                 type.value = "success";
-                message.value = router.page.props.success;
+                message.value = page.props.success;
             } else if (error) {
                 icon.value = "XCircleIcon";
                 type.value = "error";
                 message.value = error;
-            } else if (router.page.props.warning) {
+            } else if (page.props.warning) {
                 icon.value = "ExclamationCircleIcon";
                 type.value = "warning";
-                message.value = router.page.props.warning;
+                message.value = page.props.warning;
             }
 
             setActive();

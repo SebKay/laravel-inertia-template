@@ -7,7 +7,7 @@
         "php": "^8.2",
         "althinect/filament-spatie-roles-permissions": "^2.2",
         "filament/filament": "^3.2",
-        "inertiajs/inertia-laravel": "^1.3",
+        "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^11.17",
         "laravel/horizon": "^5.26",
         "laravel/pulse": "^1.2",
