@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\Environment;
+use App\Enums\Queue;
 use Illuminate\Support\Str;
 
 return [
@@ -185,7 +186,7 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection' => 'redis',
-            'queue' => ['default'],
+            'queue' => Queue::values()->toArray(),
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
             'maxProcesses' => 1,
