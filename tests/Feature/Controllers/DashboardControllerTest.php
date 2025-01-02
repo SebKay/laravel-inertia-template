@@ -22,7 +22,7 @@ describe('Users', function () {
 
 describe('Guests', function () {
     test("Can't access the home page", function () {
-        get(route('home'))
-            ->assertRedirectToRoute('login');
-    });
+    get(route('home'))
+    ->assertRedirectToRoute('login');
+        });
 });

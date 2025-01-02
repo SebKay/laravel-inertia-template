@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use App\Enums\Environment;
 use App\Enums\Role;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -42,16 +43,16 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 EnvironmentIndicatorPlugin::make()
-                    ->visible(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production')
+                    ->visible(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== Environment::PRODUCTION->value)
                     ->showBorder(false)
                     ->color(fn () => match (app()->environment()) {
-                        'production' => Color::Green,
-                        'staging' => Color::Blue,
-                        'local' => Color::Red,
+                        Environment::PRODUCTION->value => Color::Green,
+                        Environment::STAGING->value => Color::Blue,
+                        Environment::LOCAL->value => Color::Red,
                         default => Color::Gray,
                     }),
                 DebuggerPlugin::make()
-                    ->authorize(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== 'production'),
+                    ->authorize(fn () => \auth()->user()?->hasRole(Role::SUPER_ADMIN) && \app()->environment() !== Environment::PRODUCTION->value),
             ])
             ->middleware([
                 EncryptCookies::class,

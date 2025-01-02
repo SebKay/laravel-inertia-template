@@ -14,13 +14,13 @@ use function Pest\Laravel\patch;
 mutates(\App\Http\Controllers\ResetPasswordController::class);
 
 test('The forgot password page can be accessed', function () {
-    get(route('password'))
-        ->assertOk()
-        ->assertInertia(
-            fn (Assert $page) => $page
-                ->component('ResetPassword/Show')
-        );
-});
+get(route('password'))
+->assertOk()
+->assertInertia(
+    fn (Assert $page) => $page
+        ->component('ResetPassword/Show')
+);
+    });
 
 test('A password reset email can be requested', function () {
     Notification::fake();

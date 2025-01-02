@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Environment;
 use App\Http\Requests\Login\LoginStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -10,7 +11,7 @@ class LoginController extends Controller
 {
     public function show(Request $request)
     {
-        return inertia('Login/Show', app()->environment('local', 'testing') ? [
+        return inertia('Login/Show', app()->environment([Environment::LOCAL->value, Environment::TESTING->value]) ? [
             'email' => config('app.seed.users.super.email'),
             'password' => config('app.seed.users.super.password'),
             'remember' => true,

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Environment;
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 
@@ -23,20 +24,20 @@ describe('Users', function () {
 
 describe('Guests', function () {
     test('Can access the login page', function () {
-        get(route('login'))
-            ->assertOk()
-            ->assertInertia(
-                fn (Assert $page) => $page
-                    ->component('Login/Show')
-                    ->where('email', config('app.seed.users.super.email'))
-                    ->where('password', config('app.seed.users.super.password'))
-                    ->where('remember', true)
-                    ->where('redirect', '')
-            );
-    });
+    get(route('login'))
+    ->assertOk()
+    ->assertInertia(
+        fn (Assert $page) => $page
+            ->component('Login/Show')
+            ->where('email', config('app.seed.users.super.email'))
+            ->where('password', config('app.seed.users.super.password'))
+            ->where('remember', true)
+            ->where('redirect', '')
+    );
+        });
 
     test('Props are not passed to the show page in production', function () {
-        app()->instance('env', 'production');
+        app()->instance('env', Environment::PRODUCTION->value);
 
         get(route('login'))
             ->assertOk()

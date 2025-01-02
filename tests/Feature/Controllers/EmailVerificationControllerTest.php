@@ -54,7 +54,7 @@ describe('Users', function () {
 
 describe('Guests', function () {
     test("Can't access the verification page", function () {
-        get(route('verification.notice'))
-            ->assertRedirectToRoute('login');
-    });
+    get(route('verification.notice'))
+    ->assertRedirectToRoute('login');
+        });
 });

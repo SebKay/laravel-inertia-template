@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Environment;
 use Illuminate\Support\Str;
 
 return [
@@ -198,7 +199,7 @@ return [
     ],
 
     'environments' => [
-        'production' => [
+        Environment::PRODUCTION->value => [
             'supervisor-1' => [
                 'maxProcesses' => 10,
                 'balanceMaxShift' => 1,
@@ -206,7 +207,7 @@ return [
             ],
         ],
 
-        'staging' => [
+        Environment::STAGING->value => [
             'supervisor-1' => [
                 'maxProcesses' => 5,
                 'balanceMaxShift' => 1,
@@ -214,7 +215,7 @@ return [
             ],
         ],
 
-        'local' => [
+        Environment::LOCAL->value => [
             'supervisor-1' => [
                 'maxProcesses' => 3,
             ],

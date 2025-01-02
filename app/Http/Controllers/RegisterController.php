@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Environment;
 use App\Enums\Role;
 use App\Http\Requests\Register\RegisterStoreRequest;
 use App\Models\User;
@@ -11,7 +12,7 @@ class RegisterController extends Controller
 {
     public function show()
     {
-        return inertia('Register/Show', app()->environment('local', 'testing') ? [
+        return inertia('Register/Show', app()->environment([Environment::LOCAL->value, Environment::TESTING->value]) ? [
             'first_name' => 'Jim',
             'last_name' => 'Gordon',
             'email' => 'test@test.com',
