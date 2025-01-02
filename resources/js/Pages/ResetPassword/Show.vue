@@ -3,7 +3,10 @@
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
-        <PageTitle class="mb-4 xl:mb-8" :text="title" />
+        <PageTitle
+            class="mb-4 xl:mb-8"
+            :text="title"
+        />
 
         <div class="bg-white rounded-2xl xl:p-10 p-6 border border-brand-200">
             <form @submit.prevent="submitForm">
@@ -37,6 +40,7 @@
 
             <div class="mt-6 xl:mt-10">
                 <p class="text-center">
+                    Remembered your password?
                     <Link
                         class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
                         :href="route('login')"

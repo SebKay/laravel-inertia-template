@@ -18,7 +18,7 @@
     }
 
     .label {
-        @apply pb-3 block text-base font-medium;
+        @apply pb-3 block text-sm sm:text-base font-medium;
     }
 
     .small-label {

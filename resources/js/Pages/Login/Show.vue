@@ -3,7 +3,10 @@
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
-        <PageTitle class="mb-4 xl:mb-8" :text="title" />
+        <PageTitle
+            class="mb-4 xl:mb-8"
+            :text="title"
+        />
 
         <div class="bg-white rounded-2xl xl:p-10 p-6 border border-brand-200">
             <form @submit.prevent="submitForm">
@@ -26,10 +29,15 @@
 
                     <div class="form-col">
                         <label
-                            class="label"
+                            class="label flex justify-between"
                             for="password"
                         >
                             Password
+                            <Link
+                                class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
+                                :href="route('password')"
+                                text="Forgot password?"
+                            />
                         </label>
                         <input
                             id="password"
@@ -41,20 +49,19 @@
                     </div>
 
                     <div class="form-col">
-                        <div class="inline-label">
+                        <label class="inline-flex items-center gap-3 cursor-pointer">
                             <input
-                                id="remember"
-                                class="checkbox"
+                                class="sr-only peer"
                                 type="checkbox"
                                 v-model="loginForm.remember"
                             />
-                            <label
-                                class="small-label"
-                                for="remember"
-                            >
-                                Remember
-                            </label>
-                        </div>
+                            <div
+                                class="relative w-9 h-5 bg-neutral-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:size-4 after:transition-all peer-checked:bg-brand-600">
+                            </div>
+                            <span class="text-sm font-medium">
+                                Remember me
+                            </span>
+                        </label>
                     </div>
 
                     <div class="form-col">
@@ -69,15 +76,8 @@
             </form>
 
             <div class="mt-6 xl:mt-10">
-                <p class="text-center">
-                    <Link
-                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
-                        :href="route('password')"
-                        text="Forgot your password?"
-                    />
-                </p>
-
                 <p class="text-center mt-3">
+                    Don't have an account?
                     <Link
                         class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
                         :href="route('register')"
