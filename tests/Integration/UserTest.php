@@ -46,11 +46,13 @@ describe('With Roles and Permissions', function () {
         $this->seed(RolesAndPermissionsSeeder::class);
     });
 
-    it("can only access Filament if it's a \"super-admin\"", function () {
+    it("can only access Filament if it's a \"super-admin\" or \"admin\"", function () {
         $superAdminUser = User::factory()->superAdmin()->create();
         $adminUser = User::factory()->admin()->create();
+        $user = User::factory()->user()->create();
 
         expect($superAdminUser->canAccessPanel())->toBeTrue();
-        expect($adminUser->canAccessPanel())->toBeFalse();
+        expect($adminUser->canAccessPanel())->toBeTrue();
+        expect($user->canAccessPanel())->toBeFalse();
     });
 });
