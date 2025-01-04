@@ -1,8 +1,9 @@
 <?php
 
+use App\Enums\Role;
 use Illuminate\Support\Facades\Route;
 
-Route::get('health', Spatie\Health\Http\Controllers\HealthCheckResultsController::class)->middleware(['auth']);
+Route::get('health', Spatie\Health\Http\Controllers\HealthCheckResultsController::class)->middleware(['auth', 'role:'.Role::SUPER_ADMIN->value]);
 
 Route::controller(App\Http\Controllers\RegisterController::class)
     ->middleware(['guest'])
