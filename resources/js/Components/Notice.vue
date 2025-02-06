@@ -12,7 +12,7 @@
         <component
             v-if="icon"
             :is="icon"
-            class="flex-shrink-0 inline w-6 h-6 me-3"
+            class="shrink-0 inline w-6 h-6 me-3"
         />
         <p v-text="message"></p>
     </div>

@@ -5,7 +5,7 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <Link :href="route('home')">
-                        <SparklesIcon class="h-8 w-8 flex-shrink-0 text-brand-800" />
+                        <SparklesIcon class="h-8 w-8 shrink-0 text-brand-800" />
                         </Link>
                     </div>
 

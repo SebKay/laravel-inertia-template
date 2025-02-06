@@ -1,11 +1,57 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss';
 
-@import "./typography.css";
-@import "./forms.css";
-@import "./buttons.css";
-@import "./content.css";
+@import './typography.css';
+@import './forms.css';
+@import './buttons.css';
+@import './content.css';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-*: initial;
+  --font-text: Arial, sans-serif;
+  --font-heading: Arial, sans-serif;
+
+  --breakpoint-xs: 321px;
+  --breakpoint-sm: 451px;
+  --breakpoint-md: 671px;
+  --breakpoint-lg: 769px;
+  --breakpoint-xl: 1025px;
+  --breakpoint-2xl: 1281px;
+  --breakpoint-3xl: 1441px;
+  --breakpoint-4xl: 1901px;
+
+  --color-brand-50: #f3f6fb;
+  --color-brand-100: #e5e9f4;
+  --color-brand-200: #d0d9ed;
+  --color-brand-300: #b0c0e0;
+  --color-brand-400: #8a9fd0;
+  --color-brand-500: #6a7fc1;
+  --color-brand-600: #5b6bb5;
+  --color-brand-700: #505aa5;
+  --color-brand-800: #464c87;
+  --color-brand-900: #3c416c;
+  --color-brand-950: #282a43;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 #app {
     @apply h-full;
