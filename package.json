@@ -20,5 +20,8 @@
     "dev": "vite",
     "build": "vite build"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001697"
+  }
 }
