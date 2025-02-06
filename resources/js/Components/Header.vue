@@ -31,11 +31,11 @@
                         </div>
                     </div>
 
-                    <div class="-mr-2 flex md:hidden">
+                    <div class="flex md:hidden">
                         <button
                             @click="mobileMenuOpen = !mobileMenuOpen"
                             type="button"
-                            class="relative inline-flex items-center justify-center rounded-md bg-brand-100 p-2 text-brand-900 hover:bg-brand-900 hover:text-white"
+                            class="relative inline-flex items-center justify-center rounded-md bg-brand-100 p-2 text-brand-900 hover:bg-brand-900 hover:text-white cursor-pointer"
                         >
                             <span class="sr-only">Open main menu</span>
                             <XMarkIcon
@@ -55,7 +55,7 @@
                 v-show="mobileMenuOpen"
                 class="md:hidden"
             >
-                <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                <div class="space-y-1 pb-3 pt-2">
                     <template
                         v-for="link in menu"
                         :key="link.label"
