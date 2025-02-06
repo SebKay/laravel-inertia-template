@@ -1,3 +1,6 @@
+@source "../../resources/js/";
+@source "../../resources/views/";
+
 @import 'tailwindcss';
 
 @import './typography.css';
