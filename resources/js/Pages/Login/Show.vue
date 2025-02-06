@@ -56,7 +56,7 @@
                                 v-model="loginForm.remember"
                             />
                             <div
-                                class="relative w-9 h-5 bg-neutral-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:size-4 after:transition-all peer-checked:bg-brand-600">
+                                class="relative w-9 h-5 bg-neutral-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:size-4 after:transition-all peer-checked:bg-brand-600">
                             </div>
                             <span class="text-sm font-medium">
                                 Remember me
