@@ -23,30 +23,30 @@
 }
 
 @utility input {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
+  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
   @apply block text-base w-full;
 }
 
 @utility textarea {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
+  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
   @apply block text-base w-full;
   @apply min-h-32;
 }
 
 @utility select {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
+  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
   @apply block text-base w-full;
   @apply cursor-pointer;
 }
 
 @utility checkbox {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
+  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
   @apply cursor-pointer;
   @apply size-5 text-brand-800;
 }
 
 @utility radio {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200 hover:ring-opacity-50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200 focus:ring-opacity-50 focus:ring-offset-0 transition ease-in-out duration-200;
+  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
   @apply cursor-pointer;
   @apply size-5 text-brand-800;
   @apply rounded-full;
