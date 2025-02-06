@@ -1,5 +1,5 @@
 @utility button {
-  @apply rounded-md bg-brand-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-xs hover:bg-brand-600 transition-all ease-in-out duration-200;
+  @apply cursor-pointer rounded-md bg-brand-800 px-6 py-3 text-sm font-semibold text-white inline-flex shadow-xs hover:bg-brand-600 transition-all ease-in-out duration-200;
 
   &[disabled] {
     @apply pointer-events-none opacity-50;
