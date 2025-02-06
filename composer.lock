@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7eb035445b0f6dded1784f4ce71082db",
+    "content-hash": "6ee96c087fc48178d044ffe4ca6dd33b",
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
@@ -6288,72 +6288,6 @@
                 }
             ],
             "time": "2025-01-13T13:04:43+00:00"
-        },
-        {
-            "name": "stephenjude/filament-debugger",
-            "version": "3.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stephenjude/filament-debugger.git",
-                "reference": "8768d6bc33ae21aae2ebb445d988308e7adc1b45"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stephenjude/filament-debugger/zipball/8768d6bc33ae21aae2ebb445d988308e7adc1b45",
-                "reference": "8768d6bc33ae21aae2ebb445d988308e7adc1b45",
-                "shasum": ""
-            },
-            "require": {
-                "filament/filament": "^3.0",
-                "illuminate/contracts": "^11.0",
-                "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.16.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.17",
-                "nunomaduro/collision": "^8.0",
-                "orchestra/testbench": "^9.0",
-                "pestphp/pest": "^3.0",
-                "pestphp/pest-plugin-laravel": "^3.0",
-                "pestphp/pest-plugin-livewire": "^3.0",
-                "phpunit/phpunit": "^11.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Stephenjude\\FilamentDebugger\\DebuggerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Stephenjude\\FilamentDebugger\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "stephenjude",
-                    "email": "stephenjudesuccess@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "About",
-            "homepage": "https://github.com/stephenjude/filament-debugger",
-            "keywords": [
-                "filament-debugger",
-                "laravel",
-                "stephenjude"
-            ],
-            "support": {
-                "issues": "https://github.com/stephenjude/filament-debugger/issues",
-                "source": "https://github.com/stephenjude/filament-debugger/tree/3.1.3"
-            },
-            "time": "2025-01-27T05:38:58+00:00"
         },
         {
             "name": "symfony/clock",
