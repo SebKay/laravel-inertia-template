@@ -13,8 +13,8 @@
 
 @theme {
     --font-*: initial;
-    --font-text: Arial, sans-serif;
-    --font-heading: Arial, sans-serif;
+    --font-text: "Arial", sans-serif;
+    --font-heading: "Arial", sans-serif;
 
     --breakpoint-xs: 321px;
     --breakpoint-sm: 451px;
