@@ -1,59 +1,58 @@
 @utility form-row {
-  @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-4;
+    @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-4;
 }
 
 @utility form-col {
-  @apply col-span-full;
+    @apply col-span-full;
 }
 
 @utility form-col-2 {
-  @apply col-span-2;
+    @apply col-span-2;
 }
 
 @utility label {
-  @apply pb-3 block text-sm sm:text-base font-medium;
+    @apply pb-3 block text-sm sm:text-base font-medium;
 }
 
 @utility small-label {
-  @apply block text-sm font-medium;
+    @apply block text-sm font-medium;
 }
 
 @utility inline-label {
-  @apply flex items-center gap-x-2;
+    @apply flex items-center gap-x-2;
 }
 
 @utility input {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
-  @apply block text-base w-full;
+    @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply block text-base w-full;
 }
 
 @utility textarea {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
-  @apply block text-base w-full;
-  @apply min-h-32;
+    @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply block text-base w-full;
+    @apply min-h-32;
 }
 
 @utility select {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
-  @apply block text-base w-full;
-  @apply cursor-pointer;
+    @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply block text-base w-full;
+    @apply cursor-pointer;
 }
 
 @utility checkbox {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
-  @apply cursor-pointer;
-  @apply size-5 text-brand-800;
+    @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply cursor-pointer;
+    @apply size-5 text-brand-800;
 }
 
 @utility radio {
-  @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
-  @apply cursor-pointer;
-  @apply size-5 text-brand-800;
-  @apply rounded-full;
+    @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply cursor-pointer;
+    @apply size-5 text-brand-800;
+    @apply rounded-full;
 }
 
 @layer components {
-
     label {
         &[for] {
             @apply cursor-pointer;

@@ -1,27 +1,27 @@
 @utility heading {
-  @apply text-neutral-900 font-semibold leading-none;
+    @apply text-neutral-900 font-semibold leading-none;
 }
 
 @utility h1 {
-  @apply text-4xl sm:text-5xl xl:text-6xl;
+    @apply text-4xl sm:text-5xl xl:text-6xl;
 }
 
 @utility h2 {
-  @apply text-3xl sm:text-4xl xl:text-5xl;
+    @apply text-3xl sm:text-4xl xl:text-5xl;
 }
 
 @utility h3 {
-  @apply text-xl sm:text-2xl xl:text-3xl;
+    @apply text-xl sm:text-2xl xl:text-3xl;
 }
 
 @utility h4 {
-  @apply text-lg sm:text-xl xl:text-2xl;
+    @apply text-lg sm:text-xl xl:text-2xl;
 }
 
 @utility h5 {
-  @apply text-base sm:text-lg xl:text-xl;
+    @apply text-base sm:text-lg xl:text-xl;
 }
 
 @utility h6 {
-  @apply text-sm sm:text-base xl:text-lg;
+    @apply text-sm sm:text-base xl:text-lg;
 }
