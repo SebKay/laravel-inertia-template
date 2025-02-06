@@ -2,10 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "@css/typography.css";
-@import "@css/forms.css";
-@import "@css/buttons.css";
-@import "@css/content.css";
+@import "./typography.css";
+@import "./forms.css";
+@import "./buttons.css";
+@import "./content.css";
 
 #app {
     @apply h-full;
