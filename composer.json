@@ -9,7 +9,6 @@
         "filament/filament": "^3.2",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^11.17",
-        "laravel/horizon": "^5.26",
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
@@ -54,7 +53,6 @@
         ],
         "build:prod": [
             "composer install --no-interaction --prefer-dist --optimize-autoloader",
-            "@php artisan horizon:terminate",
             "@php artisan migrate --force",
             "@php artisan optimize:clear",
             "@php artisan optimize",

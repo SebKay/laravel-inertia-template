@@ -12,9 +12,6 @@ use Spatie\Health\Checks\Checks\DatabaseCheck;
 use Spatie\Health\Checks\Checks\DatabaseConnectionCountCheck;
 use Spatie\Health\Checks\Checks\DebugModeCheck;
 use Spatie\Health\Checks\Checks\EnvironmentCheck;
-use Spatie\Health\Checks\Checks\HorizonCheck;
-use Spatie\Health\Checks\Checks\RedisCheck;
-use Spatie\Health\Checks\Checks\RedisMemoryUsageCheck;
 use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
 use Spatie\Health\Facades\Health;
 use Spatie\SecurityAdvisoriesHealthCheck\SecurityAdvisoriesCheck;
@@ -43,9 +40,6 @@ class AppServiceProvider extends ServiceProvider
                 ->failWhenMoreConnectionsThan(100),
             DebugModeCheck::new(),
             EnvironmentCheck::new(),
-            RedisCheck::new(),
-            RedisMemoryUsageCheck::new(),
-            HorizonCheck::new(),
             SecurityAdvisoriesCheck::new(),
         ]);
 
