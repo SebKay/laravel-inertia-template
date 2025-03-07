@@ -1,3 +1,9 @@
+@layer base {
+    label[for] {
+        @apply cursor-pointer;
+    }
+}
+
 @utility form-row {
     @apply grid grid-cols-1 gap-5 sm:gap-7 sm:grid-cols-4;
 }
@@ -23,7 +29,7 @@
 }
 
 @utility field {
-    @apply block rounded-md border-brand-300 shadow-xs hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply block rounded-md border-brand-300 shadow-xs outline-hidden hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
 }
 
 @utility input {
@@ -31,18 +37,15 @@
 }
 
 @utility textarea {
-    @apply field block text-base w-full;
-    @apply min-h-32;
+    @apply field block text-base w-full min-h-32;
 }
 
 @utility select {
-    @apply field block text-base w-full;
-    @apply cursor-pointer;
+    @apply field block text-base w-full cursor-pointer;
 }
 
 @utility option {
-    @apply field;
-    @apply cursor-pointer size-5 text-brand-800;
+    @apply field cursor-pointer size-5 text-brand-800;
 }
 
 @utility checkbox {
@@ -50,14 +53,5 @@
 }
 
 @utility radio {
-    @apply option;
-    @apply rounded-full;
-}
-
-@layer components {
-    label {
-        &[for] {
-            @apply cursor-pointer;
-        }
-    }
+    @apply option rounded-full;
 }
