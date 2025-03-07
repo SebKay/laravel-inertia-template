@@ -9,10 +9,17 @@
         }'
         role="alert"
     >
-        <component
-            v-if="icon"
-            :is="icon"
-            class="shrink-0 inline w-6 h-6 me-3"
+        <CircleCheckIcon
+            v-if="type === 'success'"
+            class="shrink-0 inline size-5 me-3"
+        />
+        <CircleXIcon
+            v-else-if="type === 'error'"
+            class="shrink-0 inline size-5 me-3"
+        />
+        <CircleAlertIcon
+            v-else
+            class="shrink-0 inline size-5 me-3"
         />
         <p v-text="message"></p>
     </div>
@@ -21,6 +28,12 @@
 <script setup>
     import { ref, onMounted } from 'vue';
     import { router, usePage } from "@inertiajs/vue3";
+
+    import {
+        CircleCheck as CircleCheckIcon,
+        CircleX as CircleXIcon,
+        CircleAlert as CircleAlertIcon,
+    } from 'lucide-vue-next';
 
     const page = usePage();
 
@@ -34,15 +47,12 @@
             let error = Object.values(page.props.errors)[0] || page.props.error;
 
             if (page.props.success) {
-                icon.value = "CheckCircleIcon";
                 type.value = "success";
                 message.value = page.props.success;
             } else if (error) {
-                icon.value = "XCircleIcon";
                 type.value = "error";
                 message.value = error;
             } else if (page.props.warning) {
-                icon.value = "ExclamationCircleIcon";
                 type.value = "warning";
                 message.value = page.props.warning;
             }
