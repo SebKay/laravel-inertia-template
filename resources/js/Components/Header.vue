@@ -5,7 +5,7 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <Link :href="route('home')">
-                        <SparklesIcon class="h-8 w-8 shrink-0 text-brand-800" />
+                        <SparklesIcon class="size-7 shrink-0 text-brand-800" />
                         </Link>
                     </div>
 
@@ -38,13 +38,13 @@
                             class="relative inline-flex items-center justify-center rounded-md bg-brand-100 p-2 text-brand-900 hover:bg-brand-900 hover:text-white cursor-pointer"
                         >
                             <span class="sr-only">Open main menu</span>
-                            <XMarkIcon
+                            <CloseIcon
                                 v-if="mobileMenuOpen"
-                                class="block h-6 w-6"
+                                class="block size-6"
                             />
-                            <Bars3Icon
+                            <MenuIcon
                                 v-else
-                                class="block h-6 w-6"
+                                class="block size-6"
                             />
                         </button>
                     </div>
@@ -81,6 +81,12 @@
 <script setup>
     import { ref, onMounted } from "vue";
     import { router } from '@inertiajs/vue3'
+
+    import {
+        Sparkles as SparklesIcon,
+        Menu as MenuIcon,
+        X as CloseIcon,
+    } from 'lucide-vue-next';
 
     const props = defineProps({
         menu: Array,

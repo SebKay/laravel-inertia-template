@@ -5,15 +5,6 @@ import { route, ZiggyVue } from 'ziggy-js';
 import { createApp, defineAsyncComponent, h } from 'vue';
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3';
 
-import {
-    Bars3Icon,
-    XMarkIcon,
-    SparklesIcon,
-    CheckCircleIcon,
-    XCircleIcon,
-    ExclamationCircleIcon,
-} from '@heroicons/vue/24/outline';
-
 import { userCan } from "@js/utilities/permissions.js";
 
 const AppLayout = defineAsyncComponent(() => import('@js/Layouts/App.vue'));
@@ -41,13 +32,6 @@ createInertiaApp({
             .use(ZiggyVue);
 
         VueApp.mixin({ methods: { userCan } });
-
-        VueApp.component('Bars3Icon', Bars3Icon)
-            .component('XMarkIcon', XMarkIcon)
-            .component('SparklesIcon', SparklesIcon)
-            .component('CheckCircleIcon', CheckCircleIcon)
-            .component('XCircleIcon', XCircleIcon)
-            .component('ExclamationCircleIcon', ExclamationCircleIcon);
 
         VueApp.component('Head', Head)
             .component('Link', Link)
