@@ -18,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         // @codeCoverageIgnoreStart
         Gate::define('viewPulse', function (User $user) {
-            return $user->hasRole(Role::SUPER_ADMIN->value);
+            return $user->hasRole(Role::SUPER_ADMIN);
         });
         // @codeCoverageIgnoreEnd
     }

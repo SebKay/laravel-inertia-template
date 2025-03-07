@@ -39,7 +39,7 @@ class UserFactory extends Factory
                 'password' => \config('app.seed.users.super.password'),
             ])
             ->afterCreating(function (User $user) {
-                $user->assignRole(Role::SUPER_ADMIN->value);
+                $user->assignRole(Role::SUPER_ADMIN);
             });
     }
 
@@ -51,7 +51,7 @@ class UserFactory extends Factory
                 'password' => \config('app.seed.users.admin.password'),
             ])
             ->afterCreating(function (User $user) {
-                $user->assignRole(Role::ADMIN->value);
+                $user->assignRole(Role::ADMIN);
             });
     }
 
@@ -63,7 +63,7 @@ class UserFactory extends Factory
                 'password' => \config('app.seed.users.user.password'),
             ])
             ->afterCreating(function (User $user) {
-                $user->assignRole(Role::USER->value);
+                $user->assignRole(Role::USER);
             });
     }
 }
