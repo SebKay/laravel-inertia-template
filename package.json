@@ -20,6 +20,7 @@
   },
   "type": "module",
   "dependencies": {
-    "caniuse-lite": "^1.0.30001697"
+    "caniuse-lite": "^1.0.30001697",
+    "lucide-vue-next": "^0.479.0"
   }
 }
