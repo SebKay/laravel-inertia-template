@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Enums\Environment;
 use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Vite;
