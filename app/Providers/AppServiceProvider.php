@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Enums\Environment;
 use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Vite;
@@ -18,14 +17,6 @@ use Spatie\SecurityAdvisoriesHealthCheck\SecurityAdvisoriesCheck;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-        if ($this->app->environment(Environment::LOCAL->value)) {
-            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
-            $this->app->register(TelescopeServiceProvider::class);
-        }
-    }
-
     public function boot(): void
     {
         JsonResource::withoutWrapping();
