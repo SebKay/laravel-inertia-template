@@ -18,13 +18,6 @@ use Spatie\SecurityAdvisoriesHealthCheck\SecurityAdvisoriesCheck;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-        if ($this->app->environment(Environment::LOCAL->value)) {
-            $this->app->register(TelescopeServiceProvider::class);
-        }
-    }
-
     public function boot(): void
     {
         JsonResource::withoutWrapping();
