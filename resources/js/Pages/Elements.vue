@@ -96,8 +96,7 @@
                                     class="sr-only peer"
                                     type="checkbox"
                                 />
-                                <div
-                                    class="peer">
+                                <div class="peer">
                                 </div>
                                 <span>
                                     Toggle
@@ -142,9 +141,11 @@
                         <li>Ordered List Item 3</li>
                     </ol>
                     <blockquote>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium consectetur eum
-                        laudantium optio temporibus. Beatae, nulla natus aut accusamus sint culpa at itaque, voluptates
-                        architecto laboriosam ipsum voluptatem ducimus.
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium consectetur eum
+                            laudantium optio temporibus. Beatae, nulla natus aut accusamus sint culpa at itaque,
+                            voluptates architecto laboriosam ipsum voluptatem ducimus.
+                        </p>
                     </blockquote>
                     <table>
                         <thead>
