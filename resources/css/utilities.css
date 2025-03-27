@@ -1,0 +1,3 @@
+@utility text-link {
+    @apply underline hover:decoration-transparent transition-colors;
+}

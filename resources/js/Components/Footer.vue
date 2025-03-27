@@ -5,7 +5,7 @@
                 &copy; 2024
                 <a
                     href="https://sebkay.com/"
-                    class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
+                    class="text-link"
                     target="_blank"
                     >Seb Kay</a
                 >. All rights reserved.

@@ -1,5 +1,5 @@
 @utility heading {
-    @apply text-neutral-900 font-semibold leading-none;
+    @apply text-neutral-900 font-medium leading-none;
 }
 
 @utility h1 {

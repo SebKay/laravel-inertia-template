@@ -21,7 +21,7 @@
                                     :method="link?.method"
                                     :as="link?.method == 'post' ? 'button' : 'a'"
                                     v-text="link.label"
-                                    class="rounded-xl px-3 py-2 text-sm font-medium cursor-pointer transition-colors ease-in-out duration-200"
+                                    class="rounded-xl px-3 py-2 text-sm font-medium cursor-pointer transition-colors"
                                     :class="{
                                         'bg-brand-100 text-brand-950': link.components.includes($page.component),
                                         'text-brand-600 hover:text-brand-950 focus:text-brand-950': !link.components.includes($page.component),

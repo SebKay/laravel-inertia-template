@@ -25,17 +25,17 @@ describe('Users', function () {
 
 describe('Guests', function () {
     test('Can access the register page', function () {
-    get(route('register'))
-    ->assertOk()
-    ->assertInertia(
-        fn (Assert $page) => $page
-            ->component('Register/Show')
-            ->has('first_name')
-            ->has('last_name')
-            ->has('email')
-            ->has('password')
-    );
-        });
+        get(route('register'))
+            ->assertOk()
+            ->assertInertia(
+                fn (Assert $page) => $page
+                    ->component('Register/Show')
+                    ->has('first_name')
+                    ->has('last_name')
+                    ->has('email')
+                    ->has('password')
+            );
+    });
 
     test('Props are not passed to the show page in production', function () {
         app()->instance('env', Environment::PRODUCTION->value);

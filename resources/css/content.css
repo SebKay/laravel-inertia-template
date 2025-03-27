@@ -1,5 +1,7 @@
 @utility content {
-    @apply prose text-neutral-700;
+    strong {
+        @apply font-bold;
+    }
 
     h1,
     h2,
@@ -7,81 +9,102 @@
     h4,
     h5,
     h6 {
-        @apply font-heading font-bold  text-neutral-900;
+        @apply heading;
     }
 
     h1 {
-        @apply text-4xl md:text-5xl;
+        @apply h1;
     }
 
     h2 {
-        @apply text-3xl;
+        @apply h2;
     }
 
     h3 {
-        @apply text-2xl;
+        @apply h3;
     }
 
     h4 {
-        @apply text-xl;
+        @apply h4;
     }
 
     h5 {
-        @apply text-lg;
+        @apply h5;
     }
 
     h6 {
-        @apply text-base;
+        @apply h6;
     }
 
-    li {
-        @apply ml-8;
+    a:not(.button) {
+        @apply text-link;
     }
 
-    a {
-        @apply hover:underline;
+    blockquote {
+        @apply pl-6 py-3 border-l-3 border-brand-300;
+
+        p {
+            @apply text-xl font-serif italic;
+        }
     }
 
-    ul li {
-        @apply list-disc;
+    table {
+        @apply table;
+    }
+
+    tr:first-child th {
+        @apply pt-0;
+    }
+
+    ol,
+    ul {
+        @apply list-inside;
     }
 
     ol li {
         @apply list-decimal;
     }
 
-    strong {
-        @apply font-bold;
+    ul li {
+        @apply list-disc;
     }
 
-    blockquote {
-        @apply pl-4 py-3 my-4 border-s-4 border-gray-300 text-xl italic;
+    > * + * {
+        @apply mt-12;
     }
 
-    table {
-        @apply w-full text-sm text-left;
+    p + p,
+    p + ol,
+    ol + p,
+    p + ul,
+    ul + p,
+    ul + ul,
+    ol + ol,
+    ul + ol,
+    ol + ul {
+        @apply mt-6;
     }
 
-    th {
-        @apply p-4 font-bold bg-brand-200;
+    li + li {
+        @apply mt-2;
     }
 
-    td {
-        @apply p-4 font-medium;
-    }
-
-    tr:not(:last-child) td {
-        @apply border-b border-brand-200;
-    }
-
-    * {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        & + p,
+        & + ul,
+        & + ol,
         & + h1,
         & + h2,
         & + h3,
         & + h4,
         & + h5,
         & + h6 {
-            @apply mt-8;
+            @apply mt-6;
         }
     }
 }

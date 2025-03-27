@@ -25,11 +25,11 @@
 }
 
 @utility inline-label {
-    @apply flex items-center gap-x-2;
+    @apply flex items-center gap-x-2 text-sm;
 }
 
 @utility field {
-    @apply block rounded-md border-brand-300 shadow-xs outline-hidden hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply block rounded-md border-brand-300 shadow-xs outline-hidden hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition;
 }
 
 @utility input {
@@ -45,7 +45,7 @@
 }
 
 @utility option {
-    @apply field cursor-pointer size-5 text-brand-800;
+    @apply field cursor-pointer size-5 text-brand-800 checked:border-transparent;
 }
 
 @utility checkbox {
@@ -54,4 +54,19 @@
 
 @utility radio {
     @apply option rounded-full;
+}
+
+@utility toggle {
+    @apply inline-flex items-center gap-3 cursor-pointer;
+
+    div {
+        @apply relative w-9 h-5 bg-brand-200 rounded-full transition;
+        @apply peer-hover:ring-3 peer-hover:ring-brand-200/50 peer-focus:ring-3 peer-focus:ring-brand-200/50 peer-focus:outline-hidden;
+        @apply peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full peer-checked:after:border-white peer-checked:bg-brand-800;
+        @apply after:bg-white after:rounded-full after:size-4 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:transition-all;
+    }
+
+    span {
+        @apply text-sm;
+    }
 }

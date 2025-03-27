@@ -1,0 +1,34 @@
+@utility table {
+    @apply w-full text-left;
+
+    th,
+    td {
+        @apply border-b;
+    }
+
+    th:first-child,
+    td:first-child {
+        @apply pl-0;
+    }
+
+    th:last-child,
+    td:last-child {
+        @apply pr-0;
+    }
+
+    th {
+        @apply p-3 font-bold border-b-2 border-brand-950;
+    }
+
+    td {
+        @apply p-3 border-brand-950/15;
+    }
+}
+
+@utility table-wrap {
+    @apply w-full overflow-auto;
+
+    table {
+        @apply min-w-[500px];
+    }
+}

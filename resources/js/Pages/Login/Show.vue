@@ -34,7 +34,7 @@
                         >
                             Password
                             <Link
-                                class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
+                                class="text-link"
                                 :href="route('password')"
                                 text="Forgot password?"
                             />
@@ -49,16 +49,16 @@
                     </div>
 
                     <div class="form-col">
-                        <label class="inline-flex items-center gap-3 cursor-pointer">
+                        <label class="toggle">
                             <input
                                 class="sr-only peer"
                                 type="checkbox"
                                 v-model="loginForm.remember"
                             />
                             <div
-                                class="relative w-9 h-5 bg-neutral-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:size-4 after:transition-all peer-checked:bg-brand-600">
+                                class="peer">
                             </div>
-                            <span class="text-sm font-medium">
+                            <span>
                                 Remember me
                             </span>
                         </label>
@@ -79,7 +79,7 @@
                 <p class="text-center mt-3">
                     Don't have an account?
                     <Link
-                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
+                        class="text-link"
                         :href="route('register')"
                         text="Register"
                     />
