@@ -48,10 +48,6 @@
         }
     }
 
-    .table-wrap {
-        @apply p-8 rounded-lg bg-white;
-    }
-
     table {
         @apply table;
     }

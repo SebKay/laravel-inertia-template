@@ -147,32 +147,34 @@
                             voluptates architecto laboriosam ipsum voluptatem ducimus.
                         </p>
                     </blockquote>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Table Heading 1</th>
-                                <th>Table Heading 2</th>
-                                <th>Table Heading 3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Table Data 1</td>
-                                <td>Table Data 2</td>
-                                <td>Table Data 3</td>
-                            </tr>
-                            <tr>
-                                <td>Table Data 1</td>
-                                <td>Table Data 2</td>
-                                <td>Table Data 3</td>
-                            </tr>
-                            <tr>
-                                <td>Table Data 1</td>
-                                <td>Table Data 2</td>
-                                <td>Table Data 3</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Table Heading 1</th>
+                                    <th>Table Heading 2</th>
+                                    <th>Table Heading 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Table Data 1</td>
+                                    <td>Table Data 2</td>
+                                    <td>Table Data 3</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Data 1</td>
+                                    <td>Table Data 2</td>
+                                    <td>Table Data 3</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Data 1</td>
+                                    <td>Table Data 2</td>
+                                    <td>Table Data 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
