@@ -91,8 +91,12 @@
                         </div>
 
                         <div class="form-col">
-                            <label class="toggle">
+                            <label
+                                for="toggle"
+                                class="toggle"
+                            >
                                 <input
+                                    id="toggle"
                                     class="sr-only peer"
                                     type="checkbox"
                                 />

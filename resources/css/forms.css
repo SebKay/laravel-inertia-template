@@ -60,7 +60,10 @@
     @apply inline-flex items-center gap-3 cursor-pointer;
 
     div {
-        @apply relative w-9 h-5 bg-brand-200 rounded-full peer-focus:outline-hidden peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full peer-checked:after:border-white peer-checked:bg-brand-800 after:bg-white after:rounded-full after:size-4 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:transition-all;
+        @apply relative w-9 h-5 bg-brand-200 rounded-full transition;
+        @apply peer-hover:ring-3 peer-hover:ring-brand-200/50 peer-focus:ring-3 peer-focus:ring-brand-200/50 peer-focus:outline-hidden;
+        @apply peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full peer-checked:after:border-white peer-checked:bg-brand-800;
+        @apply after:bg-white after:rounded-full after:size-4 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:transition-all;
     }
 
     span {
