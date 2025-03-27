@@ -4,7 +4,6 @@
 @import "tailwindcss";
 
 @plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
 
 @import "./typography.css";
 @import "./forms.css";
