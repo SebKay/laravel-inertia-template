@@ -90,7 +90,7 @@
                 <p class="text-center">
                     Already have an account?
                     <Link
-                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
+                        class="text-link"
                         :href="route('login')"
                         text="Log In"
                     />

@@ -42,7 +42,7 @@
                 <p class="text-center">
                     Remembered your password?
                     <Link
-                        class="underline hover:decoration-transparent transition-colors ease-in-out duration-200"
+                        class="text-link"
                         :href="route('login')"
                         text="Login"
                     />

@@ -29,7 +29,7 @@
 }
 
 @utility field {
-    @apply block rounded-md border-brand-300 shadow-xs outline-hidden hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition ease-in-out duration-200;
+    @apply block rounded-md border-brand-300 shadow-xs outline-hidden hover:ring-3 hover:ring-brand-200/50 focus:border-brand-300 focus:ring-3 focus:ring-brand-200/50 focus:ring-offset-0 transition;
 }
 
 @utility input {
