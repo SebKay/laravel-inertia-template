@@ -1,7 +1,7 @@
 <template>
     <h1
         v-text="text"
-        class="xl:text-4xl text-3xl font-medium text-neutral-900 text-center"
+        class="heading h3 text-center"
     ></h1>
 </template>
 
