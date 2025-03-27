@@ -3,16 +3,15 @@
 
 @import "tailwindcss";
 
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
 @import "./typography.css";
 @import "./forms.css";
 @import "./buttons.css";
 @import "./content.css";
 
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
-
 @theme {
-    --font-*: initial;
     --font-text: "Arial", sans-serif;
     --font-heading: "Arial", sans-serif;
 
@@ -38,6 +37,8 @@
     --color-brand-950: #282a43;
 }
 
-#app {
-    @apply h-full;
+@layer base {
+    #app {
+        @apply h-full;
+    }
 }
