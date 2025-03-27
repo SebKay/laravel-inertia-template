@@ -45,7 +45,7 @@
 }
 
 @utility option {
-    @apply field cursor-pointer size-5 text-brand-800;
+    @apply field cursor-pointer size-5 text-brand-800 checked:border-transparent;
 }
 
 @utility checkbox {
