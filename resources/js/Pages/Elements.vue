@@ -89,6 +89,21 @@
                                 Radio
                             </label>
                         </div>
+
+                        <div class="form-col">
+                            <label class="inline-flex items-center gap-3 cursor-pointer">
+                                <input
+                                    class="sr-only peer"
+                                    type="checkbox"
+                                />
+                                <div
+                                    class="relative w-9 h-5 bg-neutral-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:rtl:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:size-4 after:transition-all peer-checked:bg-brand-600">
+                                </div>
+                                <span class="text-sm font-medium">
+                                    Toggle
+                                </span>
+                            </label>
+                        </div>
                     </div>
                 </form>
             </div>
