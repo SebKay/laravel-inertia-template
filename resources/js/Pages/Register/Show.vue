@@ -100,6 +100,14 @@
     </div>
 </template>
 
+<script>
+    import Layout from '@js/Layouts/Guest.vue';
+
+    export default {
+        layout: Layout,
+    }
+</script>
+
 <script setup>
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
