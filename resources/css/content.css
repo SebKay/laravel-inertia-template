@@ -39,7 +39,7 @@
     }
 
     a {
-        @apply hover:underline;
+        @apply underline hover:decoration-transparent transition-colors;
     }
 
     ul li {
