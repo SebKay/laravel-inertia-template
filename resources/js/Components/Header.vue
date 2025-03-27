@@ -4,8 +4,11 @@
             <div class="mx-auto max-w-7xl">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
-                        <Link :href="route('home')">
-                        <SparklesIcon class="size-7 shrink-0 text-brand-800" />
+                        <Link
+                            class="shrink-0 text-brand-800"
+                            :href="route('home')"
+                        >
+                        <SparklesIcon class="size-7" />
                         </Link>
                     </div>
 
@@ -80,7 +83,7 @@
 
 <script setup>
     import { ref, onMounted } from "vue";
-    import { router } from '@inertiajs/vue3'
+    import { router } from '@inertiajs/vue3';
 
     import {
         Sparkles as SparklesIcon,

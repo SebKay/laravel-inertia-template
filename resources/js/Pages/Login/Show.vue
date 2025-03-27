@@ -55,8 +55,7 @@
                                 type="checkbox"
                                 v-model="loginForm.remember"
                             />
-                            <div
-                                class="peer">
+                            <div class="peer">
                             </div>
                             <span>
                                 Remember me
@@ -88,6 +87,14 @@
         </div>
     </div>
 </template>
+
+<script>
+    import Layout from '@js/Layouts/Guest.vue';
+
+    export default {
+        layout: Layout,
+    }
+</script>
 
 <script setup>
     import { ref } from "vue";

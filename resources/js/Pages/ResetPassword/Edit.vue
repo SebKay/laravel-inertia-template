@@ -3,7 +3,10 @@
     <Head :title="title" />
 
     <div class="mx-auto max-w-2xl">
-        <PageTitle class="mb-4 xl:mb-8" :text="title" />
+        <PageTitle
+            class="mb-4 xl:mb-8"
+            :text="title"
+        />
 
         <div class="bg-white rounded-2xl xl:p-10 p-6 border border-brand-200">
             <form @submit.prevent="submitForm">
@@ -53,6 +56,14 @@
         </div>
     </div>
 </template>
+
+<script>
+    import Layout from '@js/Layouts/Guest.vue';
+
+    export default {
+        layout: Layout,
+    }
+</script>
 
 <script setup>
     import { ref } from "vue";
