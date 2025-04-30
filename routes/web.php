@@ -13,22 +13,22 @@ Route::controller(App\Http\Controllers\RegisterController::class)
     ->middleware(['guest'])
     ->group(function () {
         Route::get('register', 'show')->name('register');
-        Route::post('register', 'store')->name('register.store');
+        Route::post('register', 'store')->name('register.store')->middleware(['throttle:6,1']);
     });
 
 Route::controller(App\Http\Controllers\LoginController::class)
     ->middleware(['guest'])
     ->group(function () {
         Route::get('login', 'show')->name('login');
-        Route::post('login', 'store')->name('login.store');
+        Route::post('login', 'store')->name('login.store')->middleware(['throttle:6,1']);
     });
 
 Route::controller(App\Http\Controllers\ResetPasswordController::class)
     ->group(function () {
         Route::get('forgot-password', 'show')->name('password');
-        Route::post('forgot-password', 'store')->name('password.store');
+        Route::post('forgot-password', 'store')->name('password.store')->middleware(['throttle:6,1']);
         Route::get('reset-password/{token}', 'edit')->name('password.reset');
-        Route::patch('reset-password', 'update')->name('password.update');
+        Route::patch('reset-password', 'update')->name('password.update')->middleware(['throttle:6,1']);
     });
 
 Route::post('logout', App\Http\Controllers\LogoutController::class)
