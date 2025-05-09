@@ -21,50 +21,34 @@
 
 <script setup>
     import { computed, defineAsyncComponent } from "vue";
-    import { usePage } from '@inertiajs/vue3'
+
+    import { index as home } from "@js/actions/App/Http/Controllers/DashboardController";
+    import { edit as editAccount } from "@js/actions/App/Http/Controllers/AccountController";
+    import LogoutController from "@js/actions/App/Http/Controllers/LogoutController";
 
     const Header = defineAsyncComponent(() => import("@js/Components/Header.vue"));
     const Footer = defineAsyncComponent(() => import("@js/Components/Footer.vue"));
 
-    const page = usePage();
-
     const menu = computed(() => {
-        if (page.props.auth.loggedIn) {
-            return [
-                {
-                    label: "Dashboard",
-                    route: route("home"),
-                    condition: true,
-                    components: ['Dashboard/Index'],
-                },
-                {
-                    label: "Account",
-                    route: route("account.edit"),
-                    condition: true,
-                    components: ['Account/Edit', 'EmailVerification/Show'],
-                },
-                {
-                    label: "Logout",
-                    route: route("logout"),
-                    method: "post",
-                    condition: true,
-                    components: [],
-                },
-            ];
-        }
-
         return [
             {
-                label: "Login",
-                route: route("login"),
+                label: "Dashboard",
+                route: home(),
                 condition: true,
-                components: ['Login/Show'],
+                components: ['Dashboard/Index'],
             },
             {
-                label: "Register",
-                route: route("register"),
+                label: "Account",
+                route: editAccount(),
                 condition: true,
-                components: ['Register/Show'],
+                components: ['Account/Edit', 'EmailVerification/Show'],
+            },
+            {
+                label: "Logout",
+                route: LogoutController(),
+                method: "post",
+                condition: true,
+                components: [],
             },
         ];
     });
