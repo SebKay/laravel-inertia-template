@@ -90,6 +90,8 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { update } from "@js/actions/App/Http/Controllers/AccountController";
+
     const title = ref("Update Account");
     const props = defineProps({
         user: Object,
@@ -103,8 +105,9 @@
     });
 
     const submitForm = () => {
-        accountForm.patch(route("account.update"), {
+        accountForm.submit(update(), {
             preserveScroll: true,
+            preserveState: 'errors',
         });
     };
 </script>

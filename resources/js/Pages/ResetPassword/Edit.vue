@@ -69,6 +69,8 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { update } from "@js/actions/App/Http/Controllers/ResetPasswordController";
+
     const props = defineProps({
         email: String,
         token: String,
@@ -83,6 +85,6 @@
     });
 
     const submitForm = () => {
-        resetPasswordForm.patch(route("password.update"));
+        resetPasswordForm.submit(update());
     };
 </script>

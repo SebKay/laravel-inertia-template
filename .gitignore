@@ -5,6 +5,9 @@
 /public/storage
 /public/css
 /public/js
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder
 /storage/*.key
 /vendor
 .env

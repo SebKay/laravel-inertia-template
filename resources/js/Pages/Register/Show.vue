@@ -91,7 +91,7 @@
                     Already have an account?
                     <Link
                         class="text-link"
-                        :href="route('login')"
+                        :href="login()"
                         text="Log In"
                     />
                 </p>
@@ -112,6 +112,9 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { show as login } from "@js/actions/App/Http/Controllers/LoginController";
+    import { store } from "@js/actions/App/Http/Controllers/RegisterController";
+
     const props = defineProps({
         first_name: String,
         last_name: String,
@@ -128,6 +131,6 @@
     });
 
     const submitForm = () => {
-        registerForm.post(route("register.store"));
+        registerForm.submit(store());
     };
 </script>

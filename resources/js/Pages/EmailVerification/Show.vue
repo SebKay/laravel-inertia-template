@@ -21,6 +21,19 @@
                 </button>
             </div>
         </div>
+
+        <div class="mt-6 xl:mt-10">
+            <p class="text-center mt-3">
+                <Link
+                    class="text-link"
+                    :href="LogoutController()"
+                    method="post"
+                    as="button"
+                >
+                Logout
+                </Link>
+            </p>
+        </div>
     </div>
 </template>
 
@@ -36,12 +49,14 @@
     import { ref } from "vue";
     import { router } from "@inertiajs/vue3";
 
+    import LogoutController from "@js/actions/App/Http/Controllers/LogoutController";
+    import { update } from "@js/actions/App/Http/Controllers/EmailVerificationController";
+
     const title = ref("Verify Your Email");
 
     const resend = () => {
-        router.post(route('verification.send'), {
+        router.post(update().url, {
             preserveScroll: true,
-            preserveState: true,
         });
     };
 </script>

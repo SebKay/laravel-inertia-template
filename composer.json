@@ -12,14 +12,14 @@
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "laravel/wayfinder": "^0.1.5",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-health": "^1.31",
         "spatie/laravel-permission": "^6.9",
         "spatie/security-advisories-health-check": "^1.2",
         "symfony/http-client": "^7.2",
-        "symfony/postmark-mailer": "^7.2",
-        "tightenco/ziggy": "^2.3"
+        "symfony/postmark-mailer": "^7.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

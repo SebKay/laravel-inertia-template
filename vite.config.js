@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import { run } from "vite-plugin-run";
 import tailwindcss from "@tailwindcss/vite";
 import vue from '@vitejs/plugin-vue';
 
@@ -23,11 +24,18 @@ export default defineConfig({
                 },
             },
         }),
+
+        run([
+            {
+                name: "wayfinder",
+                run: ["php", "artisan", "wayfinder:generate"],
+                pattern: ["routes/**/*.php", "app/**/Http/**/*.php"],
+            },
+        ]),
     ],
 
     resolve: {
         alias: {
-            'ziggy-js': '/vendor/tightenco/ziggy',
             '@': '/resources',
             '@fonts': '/public/fonts',
             '@img': '/public/img',
