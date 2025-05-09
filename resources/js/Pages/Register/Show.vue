@@ -112,6 +112,8 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { store } from "@js/actions/App/Http/Controllers/RegisterController";
+
     const props = defineProps({
         first_name: String,
         last_name: String,
@@ -128,6 +130,6 @@
     });
 
     const submitForm = () => {
-        registerForm.post(route("register.store"));
+        registerForm.submit(store());
     };
 </script>
