@@ -43,7 +43,7 @@
                     Remembered your password?
                     <Link
                         class="text-link"
-                        :href="route('login')"
+                        :href="login()"
                         text="Login"
                     />
                 </p>
@@ -64,6 +64,7 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { show as login } from "@js/actions/App/Http/Controllers/LoginController";
     import { store } from "@js/actions/App/Http/Controllers/ResetPasswordController";
 
     const title = ref("Forgot Password");
