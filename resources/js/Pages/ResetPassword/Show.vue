@@ -64,12 +64,14 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { store } from "@js/actions/App/Http/Controllers/ResetPasswordController";
+
     const title = ref("Forgot Password");
     const forgotPasswordForm = useForm({
         email: "",
     });
 
     const submitForm = () => {
-        forgotPasswordForm.post(route("password.store"));
+        forgotPasswordForm.submit(store());
     };
 </script>
