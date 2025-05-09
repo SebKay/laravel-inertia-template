@@ -1,5 +1,5 @@
 {
-    "name": "sebkay/laravel-inertia-starter-kit",
+    "name": "sebkay/laravel-inertia-vue-starter-kit",
     "type": "project",
     "description": "A starter project for Laravel apps using Inertia and Vue.",
     "license": "MIT",
