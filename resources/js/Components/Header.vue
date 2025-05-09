@@ -6,7 +6,7 @@
                     <div class="flex items-center">
                         <Link
                             class="shrink-0 text-brand-800"
-                            :href="route('home')"
+                            :href="home()"
                         >
                         <SparklesIcon class="size-7" />
                         </Link>
@@ -84,6 +84,8 @@
 <script setup>
     import { ref, onMounted } from "vue";
     import { router } from '@inertiajs/vue3';
+
+    import { index as home } from "@js/actions/App/Http/Controllers/DashboardController";
 
     import {
         Sparkles as SparklesIcon,
