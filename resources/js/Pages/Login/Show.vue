@@ -35,7 +35,7 @@
                             Password
                             <Link
                                 class="text-link"
-                                :href="route('password')"
+                                :href="forgotPassword()"
                                 text="Forgot password?"
                             />
                         </label>
@@ -79,7 +79,7 @@
                     Don't have an account?
                     <Link
                         class="text-link"
-                        :href="route('register')"
+                        :href="register()"
                         text="Register"
                     />
                 </p>
@@ -100,6 +100,8 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { show as forgotPassword } from "@js/actions/App/Http/Controllers/ResetPasswordController";
+    import { show as register } from "@js/actions/App/Http/Controllers/RegisterController";
     import { store } from "@js/actions/App/Http/Controllers/LoginController";
 
     const props = defineProps({
