@@ -12,8 +12,8 @@ class LoginController extends Controller
     public function show(Request $request)
     {
         return inertia('Login/Show', app()->environment([Environment::LOCAL->value, Environment::TESTING->value]) ? [
-            'email' => config('app.seed.users.super.email'),
-            'password' => config('app.seed.users.super.password'),
+            'email' => config('seed.users.super.email'),
+            'password' => config('seed.users.super.password'),
             'remember' => true,
             'redirect' => $request->query('redirect', ''),
         ] : []);

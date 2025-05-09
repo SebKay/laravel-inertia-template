@@ -13,8 +13,8 @@ class Login extends BasePage
 
         if (\app()->environment(Environment::LOCAL->value)) {
             $this->form->fill([
-                'email' => \config('app.seed.users.super.email'),
-                'password' => \config('app.seed.users.super.password'),
+                'email' => \config('seed.users.super.email'),
+                'password' => \config('seed.users.super.password'),
                 'remember' => true,
             ]);
         }
