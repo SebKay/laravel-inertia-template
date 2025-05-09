@@ -36,7 +36,6 @@ export default defineConfig({
 
     resolve: {
         alias: {
-            'ziggy-js': '/vendor/tightenco/ziggy',
             '@': '/resources',
             '@fonts': '/public/fonts',
             '@img': '/public/img',

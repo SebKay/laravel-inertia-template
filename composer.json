@@ -19,8 +19,7 @@
         "spatie/laravel-permission": "^6.9",
         "spatie/security-advisories-health-check": "^1.2",
         "symfony/http-client": "^7.2",
-        "symfony/postmark-mailer": "^7.2",
-        "tightenco/ziggy": "^2.3"
+        "symfony/postmark-mailer": "^7.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
