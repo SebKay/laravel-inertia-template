@@ -100,6 +100,8 @@
     import { ref } from "vue";
     import { useForm } from "@inertiajs/vue3";
 
+    import { store } from "@js/actions/App/Http/Controllers/LoginController";
+
     const props = defineProps({
         email: String,
         password: String,
@@ -116,6 +118,6 @@
     });
 
     const submitForm = () => {
-        loginForm.post(route("login.store"));
+        loginForm.submit(store());
     };
 </script>
