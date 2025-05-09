@@ -36,12 +36,13 @@
     import { ref } from "vue";
     import { router } from "@inertiajs/vue3";
 
+    import { update } from "@js/actions/App/Http/Controllers/EmailVerificationController";
+
     const title = ref("Verify Your Email");
 
     const resend = () => {
-        router.post(route('verification.send'), {
+        router.post(update().url, {
             preserveScroll: true,
-            preserveState: true,
         });
     };
 </script>
